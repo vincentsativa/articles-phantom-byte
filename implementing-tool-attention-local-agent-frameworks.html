@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete guide to implementing Tool Attention in local agent frameworks. Learn attention-based routing, schema caching, and confidence-based fallback for 40-60% latency reduction.">
+    <meta name="keywords" content="Tool Attention, local agent frameworks, Hermes Agent, MCP, lazy loading, schema caching, attention-based routing, agent latency optimization, Ollama, inference latency">
+    <meta name="author" content="Vinny Barreca">
+    <meta name="theme-color" content="#9D4EDD">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://articles.phantom-byte.com/implementing-tool-attention-local-agent-frameworks">
+    <meta property="og:title" content="Implementing Tool Attention in Local Agent Frameworks: A Complete Guide">
+    <meta property="og:description" content="Complete guide to implementing Tool Attention in local agent frameworks. Learn attention-based routing, schema caching, and confidence-based fallback for 40-60% latency reduction.">
+    <meta property="og:image" content="https://articles.phantom-byte.com/images/article-47-main.jpg">
+    <meta property="article:published_time" content="2026-04-24">
+    <meta property="article:author" content="Vinny Barreca">
+    <meta property="article:section" content="AI Infrastructure">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://articles.phantom-byte.com/implementing-tool-attention-local-agent-frameworks">
+    <meta property="twitter:title" content="Implementing Tool Attention in Local Agent Frameworks: A Complete Guide">
+    <meta property="twitter:description" content="Complete guide to implementing Tool Attention in local agent frameworks. Learn attention-based routing, schema caching, and confidence-based fallback for 40-60% latency reduction.">
+    <meta property="twitter:image" content="https://articles.phantom-byte.com/images/article-47-main.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://articles.phantom-byte.com/implementing-tool-attention-local-agent-frameworks">
+    
+    <title>Implementing Tool Attention in Local Agent Frameworks: A Complete Guide - PhantomByte</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDQCZE09E4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PDQCZE09E4');
+    </script>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/article.css">
+    
+    <!-- Web Push Notification Script -->
+    <script src="scripts/web-push-client.js" defer></script>
+    
+    <!-- ARTICLE SCHEMA MARKUP (JSON-LD for SEO + GEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Implementing Tool Attention in Local Agent Frameworks: A Complete Guide",
+      "author": {
+        "@type": "Person",
+        "name": "Vinny Barreca",
+        "url": "https://phantom-byte.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PhantomByte",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://articles.phantom-byte.com/images/phantombyte-logo.png"
+        }
+      },
+      "datePublished": "2026-04-24",
+      "dateModified": "2026-04-24",
+      "description": "Complete guide to implementing Tool Attention in local agent frameworks. Learn attention-based routing, schema caching, and confidence-based fallback for 40-60% latency reduction.",
+      "articleBody": "I opened the Tool Attention paper expecting theory. What I found was production-ready pseudocode. The authors did not just prove lazy loading works; they showed exactly how to build it. This guide walks through implementing Tool Attention in local agent frameworks.",
+      "wordCount": "2100",
+      "timeRequired": "PT10M",
+      "proficiencyLevel": "Intermediate",
+      "articleSection": "AI Infrastructure",
+      "keywords": "Tool Attention, local agent frameworks, Hermes Agent, MCP, lazy loading, schema caching, attention-based routing, agent latency optimization, Ollama, inference latency",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://articles.phantom-byte.com/images/article-47-main.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://articles.phantom-byte.com/implementing-tool-attention-local-agent-frameworks"
+      }
+    }
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <style>
+        @keyframes slideIn {
+            from { transform: translateX(400px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(400px); opacity: 0; }
+        }
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-compat.js"></script>
+    <style id="phantombyte-push-styles">
+        #phantombyte-push-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .phantombyte-push-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #9D4EDD 0%, #7B2CBF 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(157, 78, 221, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .phantombyte-push-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(157, 78, 221, 0.5);
+        }
+
+        .phantombyte-push-btn:active {
+            transform: translateY(0);
+        }
+
+        .phantombyte-push-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .phantombyte-push-active {
+            background: linear-gradient(135deg, #00FF88 0%, #00CC6A 100%) !important;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.4) !important;
+        }
+
+        .phantombyte-push-loading {
+            animation: phantombyte-pulse 1s infinite;
+        }
+
+        @keyframes phantombyte-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .phantombyte-push-icon {
+            font-size: 16px;
+        }
+
+        .phantombyte-push-message {
+            position: absolute;
+            bottom: 100%;
+            right: 0;
+            margin-bottom: 10px;
+            padding: 10px 15px;
+            background: #1a1a2e;
+            color: white;
+            border-radius: 8px;
+            font-size: 13px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .phantombyte-push-message-visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 640px) {
+            #phantombyte-push-container {
+                display: none;
+            }
+
+            .phantombyte-push-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .phantombyte-push-message {
+                left: 0;
+                right: 0;
+                white-space: normal;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+            </a>
+            <nav class="main-nav">
+                <a href="https://phantom-byte.com" target="_blank">Services</a>
+            </nav>
+        </div>
+    <div id="phantombyte-push-container">
+      <button id="phantombyte-push-btn" class="phantombyte-push-btn" aria-label="Subscribe to notifications">
+        <span class="phantombyte-push-icon">🔔</span>
+        <span class="phantombyte-push-text">Get Article Alerts</span>
+      </button>
+      <div id="phantombyte-push-message" class="phantombyte-push-message"></div>
+    </div></header>
+
+    <!-- Article Content -->
+    <main class="article-main">
+        <article class="article-container">
+            <!-- Article Header -->
+            <header class="article-header">
+                <span class="article-category">AI Infrastructure</span>
+                <h1 class="article-title">Implementing Tool Attention in Local Agent Frameworks: A Complete Guide</h1>
+                
+                <div class="article-meta">
+                    <div class="author-info">
+                        <img src="images/author-vinny.jpg" alt="Vinny Barreca" class="author-avatar">
+                        <div class="author-details">
+                            <span class="author-name">Vinny Barreca</span>
+                            <span class="publish-date">April 24, 2026</span>
+                        </div>
+                    </div>
+                    <div class="meta-actions">
+                        <span class="read-time">10 min read</span>
+                        <button class="share-btn" aria-label="Share article">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                                <polyline points="16 6 12 2 8 6"></polyline>
+                                <line x1="12" y1="2" x2="12" y2="15"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <figure class="article-featured-image">
+                <img src="images/article-47-main.jpg" alt="Tool Attention architecture for local agent frameworks showing attention-based routing mechanism, schema caching layer, and lazy loading pipeline for MCP-compatible agents">
+                <figcaption class="image-caption">Tool Attention enables lazy loading of tool schemas through attention-based routing, reducing inference latency by 40-60% in local agent frameworks.</figcaption>
+            </figure>
+
+                        <!-- CTA Slot (Top) -->
+            <div class="ad-slot ad-slot-article-top">
+                <a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank">
+                    <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25); border: none;">
+                        <p style="font-size: 0.7rem; color: #FF6B35; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">⚠️ Exit the Cloud</p>
+                        <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Own Your Weights. Own Your Data.</h4>
+                        <p style="margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.5; color: #e0e0e0; font-weight: 400;">The cloud AI era is a data-harvesting trap. Stop being the product and start being the owner. Build your local sovereign stack today.</p>
+                        <div style="text-align: center;">
+                            <span style="display: inline-block; padding: 11px 22px; background: linear-gradient(90deg, #00FF88 0%, #00cc6a 100%); color: #0a0a1a; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(0, 255, 136, 0.35);">Download The Blueprint</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Article Body -->
+            <div class="article-body">
+                <p class="lead-paragraph" style="margin-top: 50px;">
+                    I opened the Tool Attention paper expecting theory. What I found was production-ready pseudocode. The authors did not just prove lazy loading works; they showed exactly how to build it.
+                </p>
+
+                <p>
+                    This guide walks through implementing Tool Attention in local agent frameworks. Specifically Hermes Agent, but the patterns apply to any MCP-compatible setup. We are covering the attention-based routing mechanism, the schema caching layer, and the fallback paths when predictions fail.
+                </p>
+
+                <p>
+                    The paper reports a 40% to 60% reduction in overall inference latency. I am implementing it to verify those numbers on local hardware using the same 397B model and tool set but with a different architecture.
+                </p>
+
+                <p>
+                    Here is the complete implementation.
+                </p>
+
+                <h2>Prerequisites</h2>
+                
+                <p>
+                    You need three things before starting:
+                </p>
+
+                <ul>
+                    <li>An MCP-compatible agent framework such as Hermes Agent or LangChain.</li>
+                    <li>Tool usage logging capability.</li>
+                    <li>A caching layer like Redis or an in-memory dictionary for testing.</li>
+                </ul>
+
+                <p>
+                    The implementation consists of four components: tool usage logging, dynamic tool gating, lazy schema loading, and confidence-based fallback. Each component is independent, allowing you to ship them incrementally.
+                </p>
+
+                <h2>Component 1: Tool Usage Logging</h2>
+
+                <p>
+                    The gating model needs historical data to learn which tools are used together and which prompts trigger specific tool categories. Without logging, there is no training signal.
+                </p>
+
+                <p>
+                    Add this to your agent's tool execution path:
+                </p>
+
+                <pre><code class="language-python">import json
+from datetime import datetime
+from pathlib import Path
+
+class ToolUsageLogger:
+    def __init__(self, log_path: str = "~/.hermes/tool_usage.jsonl"):
+        self.log_path = Path(log_path).expanduser()
+        self.log_path.parent.mkdir(parents=True, exist_ok=True)
+    
+    def log(self, session_id: str, prompt: str, tool_name: str, 
+            tool_category: str, latency_ms: int):
+        entry = {
+            "timestamp": datetime.utcnow().isoformat(),
+            "session_id": session_id,
+            "prompt_truncated": prompt[:200],  # First 200 chars
+            "tool_name": tool_name,
+            "tool_category": tool_category,  # e.g., "filesystem", "git", "web"
+            "latency_ms": latency_ms
+        }
+        with open(self.log_path, "a") as f:
+            f.write(json.dumps(entry) + "\n")</code></pre>
+
+                <p>
+                    Categorize your tools upfront. The gating model predicts categories first, then specific tools within those categories, which reduces the prediction space.
+                </p>
+
+                <p>
+                    For Hermes Agent, the categories look like this:
+                </p>
+
+                <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: #0f0f1a; border-radius: 8px; overflow: hidden;">
+                    <thead>
+                        <tr style="background: #1a1a2e;">
+                            <th style="padding: 12px; text-align: left; border-bottom: 2px solid #9D4EDD; color: #9D4EDD;">Category</th>
+                            <th style="padding: 12px; text-align: left; border-bottom: 2px solid #9D4EDD; color: #9D4EDD;">Tools</th>
+                            <th style="padding: 12px; text-align: left; border-bottom: 2px solid #9D4EDD; color: #9D4EDD;">Typical Usage Pattern</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #2a2a4e;">
+                            <td style="padding: 12px; color: #e0e0e0;">filesystem</td>
+                            <td style="padding: 12px; color: #e0e0e0;">read_file, write_file, patch, search_files</td>
+                            <td style="padding: 12px; color: #e0e0e0;">Coding sessions, file ops</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #2a2a4e;">
+                            <td style="padding: 12px; color: #e0e0e0;">git</td>
+                            <td style="padding: 12px; color: #e0e0e0;">terminal (git commands), github-*</td>
+                            <td style="padding: 12px; color: #e0e0e0;">Code review, PR workflows</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #2a2a4e;">
+                            <td style="padding: 12px; color: #e0e0e0;">web</td>
+                            <td style="padding: 12px; color: #e0e0e0;">web_search, browser_*</td>
+                            <td style="padding: 12px; color: #e0e0e0;">Research tasks</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #2a2a4e;">
+                            <td style="padding: 12px; color: #e0e0e0;">agent</td>
+                            <td style="padding: 12px; color: #e0e0e0;">delegate_task, clarify</td>
+                            <td style="padding: 12px; color: #e0e0e0;">Multi-agent orchestration</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; color: #e0e0e0;">memory</td>
+                            <td style="padding: 12px; color: #e0e0e0;">memory, session_search</td>
+                            <td style="padding: 12px; color: #e0e0e0;">Cross-session context</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    Log every tool call. The model needs this data to learn patterns.
+                </p>
+
+                <h2>Component 2: Dynamic Tool Gating</h2>
+
+                <p>
+                    The gating model predicts which tools will be needed before loading schemas. While the paper uses attention-based routing, a simpler classifier works well for initial implementation.
+                </p>
+
+                <p>
+                    Start with category-level prediction:
+                </p>
+
+                <pre><code class="language-python">from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.multiclass import OneVsRestClassifier
+from sklearn.linear_model import LogisticRegression
+import numpy as np
+
+class ToolGatingModel:
+    def __init__(self, categories: list[str]):
+        self.categories = categories
+        self.vectorizer = TfidfVectorizer(max_features=1000, ngram_range=(1, 2))
+        self.classifier = OneVsRestClassifier(LogisticRegression())
+        self.is_trained = False
+    
+    def train(self, prompts: list[str], category_labels: list[list[str]]):
+        X = self.vectorizer.fit_transform(prompts)
+        y = np.zeros((len(category_labels), len(self.categories)))
+        for i, labels in enumerate(category_labels):
+            for label in labels:
+                if label in self.categories:
+                    y[i, self.categories.index(label)] = 1
+        self.classifier.fit(X, y)
+        self.is_trained = True
+    
+    def predict(self, prompt: str, confidence_threshold: float = 0.6) -> tuple[list[str], dict[str, float]]:
+        if not self.is_trained:
+            return self.categories, {}  # Fallback: all categories
+        
+        X = self.vectorizer.transform([prompt])
+        predictions = self.classifier.predict_proba(X)[0]
+        
+        predicted = []
+        confidences = {}
+        for i, prob in enumerate(predictions):
+            confidences[self.categories[i]] = float(prob)
+            if prob >= confidence_threshold:
+                predicted.append(self.categories[i])
+        
+        if not predicted:
+            predicted = [self.categories[np.argmax(predictions)]]
+        
+        return predicted, confidences</code></pre>
+
+                <p>
+                    Train the model on your logged data by extracting prompts and the categories of tools that were actually used.
+                </p>
+
+                <pre><code class="language-python">def prepare_training_data(log_path: str, min_sessions: int = 50):
+    from collections import defaultdict
+    import json
+    
+    sessions = defaultdict(lambda: {"prompt": "", "categories": set()})
+    
+    with open(log_path, "r") as f:
+        for line in f:
+            entry = json.loads(line)
+            session_id = entry["session_id"]
+            sessions[session_id]["prompt"] = entry["prompt_truncated"]
+            sessions[session_id]["categories"].add(entry["tool_category"])
+    
+    prompts = []
+    labels = []
+    for session_data in sessions.values():
+        if session_data["prompt"] and len(session_data["categories"]) > 0:
+            prompts.append(session_data["prompt"])
+            labels.append(list(session_data["categories"]))
+    
+    return prompts, labels</code></pre>
+
+                <h2>Component 3: Lazy Schema Loading</h2>
+
+                <p>
+                    Once the gating model predicts categories, you should load schemas only for those categories. This is the core lazy loading step.
+                </p>
+
+                <pre><code class="language-python">class LazySchemaLoader:
+    def __init__(self, tool_registry: dict[str, dict]):
+        self.tool_registry = tool_registry
+        self.schema_cache = {}
+        self.category_index = defaultdict(list)
+        for tool_name, info in tool_registry.items():
+            self.category_index[info["category"]].append(tool_name)
+    
+    def load_schemas_for_categories(self, categories: list[str]) -> dict[str, dict]:
+        loaded = {}
+        for category in categories:
+            for tool_name in self.category_index[category]:
+                if tool_name not in self.schema_cache:
+                    schema = self.tool_registry[tool_name]["schema"]()
+                    self.schema_cache[tool_name] = schema
+                loaded[tool_name] = self.schema_cache[tool_name]
+        return loaded
+    
+    def get_schema(self, tool_name: str) -> dict:
+        if tool_name not in self.schema_cache:
+            schema = self.tool_registry[tool_name]["schema"]()
+            self.schema_cache[tool_name] = schema
+        return self.schema_cache[tool_name]</code></pre>
+
+                <p>
+                    The key insight is that schemas are callables rather than pre-loaded dictionaries. They execute only when needed to defer the computational cost.
+                </p>
+
+                <h2>Component 4: Confidence-Based Fallback</h2>
+
+                <p>
+                    The gating model is not perfect. When confidence is low, fall back to eager loading to ensure the agent has access to all necessary tools.
+                </p>
+
+                <pre><code class="language-python">class FallbackStrategy:
+    def __init__(self, gating_model: ToolGatingModel, schema_loader: LazySchemaLoader):
+        self.gating_model = gating_model
+        self.schema_loader = schema_loader
+        self.low_confidence_threshold = 0.5
+        self.high_confidence_threshold = 0.8
+    
+    def get_tools_for_prompt(self, prompt: str) -> dict[str, dict]:
+        predicted_categories, confidences = self.gating_model.predict(prompt)
+        max_confidence = max(confidences.values()) if confidences else 0
+        
+        if max_confidence < self.low_confidence_threshold:
+            return self._load_all_schemas()
+        
+        if max_confidence >= self.high_confidence_threshold:
+            return self.schema_loader.load_schemas_for_categories(predicted_categories)
+        
+        predicted_categories.append("memory")
+        return self.schema_loader.load_schemas_for_categories(predicted_categories)
+    
+    def _load_all_schemas(self) -> dict[str, dict]:
+        return self.schema_loader.load_schemas_for_categories(
+            list(self.schema_loader.category_index.keys())
+        )</code></pre>
+
+                <h2>Benchmarking the Implementation</h2>
+
+                <p>
+                    While overall latency drops significantly, the most dramatic impact is seen in cold starts. The paper reports a 92% improvement in cold start latency. My initial tests on local hardware show similar results.
+                </p>
+
+                <pre><code class="language-python">import time
+
+def benchmark_cold_start(agent, prompt: str, iterations: int = 5):
+    latencies = []
+    for _ in range(iterations):
+        start = time.perf_counter()
+        agent.execute(prompt)
+        end = time.perf_counter()
+        latencies.append((end - start) * 1000)
+    return np.mean(latencies), np.std(latencies)
+
+mean_before, std_before = benchmark_cold_start(legacy_agent, "List files in /home")
+mean_after, std_after = benchmark_cold_start(new_agent, "List files in /home")
+
+print(f"Before: {mean_before:.0f}ms ± {std_before:.0f}ms")
+print(f"After: {mean_after:.0f}ms ± {std_after:.0f}ms")
+print(f"Improvement: {(1 - mean_after/mean_before)*100:.1f}%")</code></pre>
+
+                <h2>Production Considerations</h2>
+
+                <p>
+                    Watch these three factors in production:
+                </p>
+
+                <p>
+                    <strong>Cache Invalidation:</strong> If tool schemas change, you must clear the cache.
+                </p>
+
+                <p>
+                    <strong>Cold Sessions:</strong> The first session after a restart will have no cached schemas; subsequent sessions will see the performance gain.
+                </p>
+
+                <p>
+                    <strong>Model Retraining:</strong> Retrain the gating model weekly as usage patterns shift.
+                </p>
+
+                <h2>What is Next</h2>
+
+                <p>
+                    I am running this implementation for a week to collect more benchmarks and refine the gating model. Full results will be published next week.
+                </p>
+
+                <p>
+                    The "tools tax" is optional. It is time to stop paying it.
+                </p>
+
+                <!-- About the Author -->
+                <div class="about-author" style="margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 12px; border-left: 4px solid #9D4EDD;">
+                    <h4 style="margin: 0 0 1rem 0; color: #9D4EDD; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">About the Author</h4>
+                    <p style="margin: 0; color: #e0e0e0; line-height: 1.6;">
+                        <strong>Vinny Barreca</strong> writes about the messy reality of AI infrastructure at 
+                        <a href="https://phantom-byte.com" target="_blank" style="color: #00FF88; text-decoration: none;">Phantom Byte</a>. 
+                        He tracks sovereign AI developments and open source model releases.
+                    </p>
+                </div>
+
+                <!-- Related Articles -->
+                <div class="related-articles" style="margin-top: 3rem;">
+                    <h4 style="margin: 0 0 1.5rem 0; color: #9D4EDD; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Related Articles</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.75rem;">
+                            <a href="forget-checkpoints-agent-persistence-real-game-changer.html" style="color: #e0e0e0; text-decoration: none; transition: color 0.2s;">
+                                → Forget Checkpoints: Why Agent Persistence Is the Real Game-Changer
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 0.75rem;">
+                            <a href="agent-memory-is-2026s-breakout-category.html" style="color: #e0e0e0; text-decoration: none; transition: color 0.2s;">
+                                → Agent Memory Is 2026's Breakout Category (And Why Frameworks Were Always the Wrong Obsession)
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 0.75rem;">
+                            <a href="sovereign-ai-stack-2026-ollama-hermes-openclaw.html" style="color: #e0e0e0; text-decoration: none; transition: color 0.2s;">
+                                → Sovereign AI Stack 2026: How Ollama's Hermes Agent and OpenClaw Integration Changed Everything
+                            </a>
+                        </li>
+                        <li style="margin-bottom: 0.75rem;">
+                            <a href="vibe-coding-for-pros-2026-cli-agents.html" style="color: #e0e0e0; text-decoration: none; transition: color 0.2s;">
+                                → Vibe Coding for Pros: How 2026's CLI Agents Are Turning Gut Feel into Governable Power
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Email Signup -->
+                <div class="article-email-signup" style="margin-top: 3rem; padding: 2.5rem; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 16px; text-align: center; border: 1px solid #9D4EDD;">
+                    <h3 style="margin: 0 0 1rem 0; color: #ffffff; font-size: 1.5rem;">Get More Articles Like This</h3>
+                    <p style="margin: 0 0 1.5rem 0; color: #a8a8c9; font-size: 1rem;">Infrastructure-first AI tutorials delivered to your inbox. No fluff, just production patterns that ship.</p>
+                    <form class="signup-form" id="articleEmailSignup" style="display: flex; gap: 12px; max-width: 500px; margin: 0 auto; flex-wrap: wrap; justify-content: center;">
+                        <input type="email" placeholder="Enter your email" required="" style="flex: 1; min-width: 250px; padding: 14px 18px; background: #0f0f1a; border: 2px solid #9D4EDD; border-radius: 8px; color: #ffffff; font-size: 1rem;">
+                        <button type="submit" style="padding: 14px 28px; background: linear-gradient(135deg, #9D4EDD 0%, #7B2CBF 100%); color: white; border: none; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: transform 0.2s;">Subscribe</button>
+                    </form>
+                </div>
+
+                <!-- Buy Me a Coffee CTA -->
+                <div class="coffee-cta" style="margin-top: 3rem; text-align: center; padding: 2.5rem; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 16px;">
+                    <p style="margin: 0 0 1.5rem 0; color: #e0e0e0; font-size: 1.1rem;">Enjoyed this article?</p>
+                    <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn-large" style="display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; background: linear-gradient(135deg, #FFDD00 0%, #FFC700 100%); color: #0a0a1a; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(255, 221, 0, 0.3); transition: transform 0.2s;">
+                        <span style="font-size: 1.4rem;">☕</span> Buy Me a Coffee
+                    </a>
+                    <p class="coffee-subtext" style="margin: 1rem 0 0 0; color: #a8a8c9; font-size: 0.9rem;">Support PhantomByte and keep the content coming!</p>
+                </div>
+
+                <!-- Share/Related Section -->
+                <div class="article-footer" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #5a2d82;">
+                    <div class="share-section">
+                        <h3 style="margin: 0 0 1rem 0; color: #e0e0e0; font-size: 1.2rem;">Share this article</h3>
+                        <div class="share-buttons" style="display: flex; gap: 12px; flex-wrap: wrap;">
+                            <button class="share-btn-twitter" style="padding: 10px 20px; background: #1DA1F2; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; transition: opacity 0.2s;">Twitter</button>
+                            <button class="share-btn-facebook" style="padding: 10px 20px; background: #4267B2; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; transition: opacity 0.2s;">Facebook</button>
+                            <button class="share-btn-linkedin" style="padding: 10px 20px; background: #0A66C2; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; transition: opacity 0.2s;">LinkedIn</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                        <!-- CTA Slot (Bottom) -->
+            <div class="ad-slot ad-slot-article-bottom">
+                <a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank">
+                    <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25); border: none;">
+                        <p style="font-size: 0.7rem; color: #FF6B35; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">⚠️ Exit the Cloud</p>
+                        <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Own Your Weights. Own Your Data.</h4>
+                        <p style="margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.5; color: #e0e0e0; font-weight: 400;">The cloud AI era is a data-harvesting trap. Stop being the product and start being the owner. Build your local sovereign stack today.</p>
+                        <div style="text-align: center;">
+                            <span style="display: inline-block; padding: 11px 22px; background: linear-gradient(90deg, #00FF88 0%, #00cc6a 100%); color: #0a0a1a; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(0, 255, 136, 0.35);">Download The Blueprint</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer - EXACT MATCH to articles.phantom-byte.com -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+                    </div>
+                    <p class="tagline">Code from the shadows</p>
+                    <div class="footer-cta">
+                        <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn">
+                            ☕ Buy Me a Coffee
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="https://phantom-byte.com" target="_blank">Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="https://x.com/PhantomByteAI" target="_blank">X / Twitter</a></li>
+                        <li><a href="https://www.pinterest.com/PhantomByteAI" target="_blank">Pinterest</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 PhantomByte. All rights reserved.</p>
+                <p class="privacy-links">
+                    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/ad-manager.js" defer></script>
+    <script src="scripts/email-signup.js" defer></script>
+    <script src="scripts/share-buttons.js" defer></script>
+
+</body>
+</html>

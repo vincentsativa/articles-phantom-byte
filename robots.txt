@@ -1,0 +1,18 @@
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://articles.phantom-byte.com/sitemap.xml
+
+LLMs-txt: https://articles.phantom-byte.com/llms.txt

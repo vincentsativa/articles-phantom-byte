@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SWE-Bench is structurally unsound. Build your own agent evaluation stack with PostgreSQL, pgvector, and self-hosted harnesses. The sovereign eval architecture that survives benchmark collapse.">
+    <meta name="keywords" content="SWE-Bench alternatives, Agent Evaluation Stack, Sovereign AI Infrastructure, pgvector Agent Memory, Self-Hosted Agent CI/CD, Local-First AI Agents, Persistent Agent State, Non-deterministic Test Harness, PostgreSQL Vector Database, Agent Observability Pipeline, LLMOps Pipeline, Production Trace Augmentation">
+    <meta name="author" content="Vinny Barreca">
+    <meta name="theme-color" content="#9D4EDD">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://articles.phantom-byte.com/swe-bench-is-dead-build-your-own-agent-evaluation-stack">
+    <meta property="og:title" content="SWE-Bench Is Dead: Build Your Own Agent Evaluation Stack">
+    <meta property="og:description" content="SWE-Bench is structurally unsound. Build your own agent evaluation stack with PostgreSQL, pgvector, and self-hosted harnesses. The sovereign eval architecture that survives benchmark collapse.">
+    <meta property="og:image" content="https://articles.phantom-byte.com/images/article-50-main.jpg">
+    <meta property="article:published_time" content="2026-04-27">
+    <meta property="article:author" content="Vinny Barreca">
+    <meta property="article:section" content="AI Infrastructure">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://articles.phantom-byte.com/swe-bench-is-dead-build-your-own-agent-evaluation-stack">
+    <meta property="twitter:title" content="SWE-Bench Is Dead: Build Your Own Agent Evaluation Stack">
+    <meta property="twitter:description" content="SWE-Bench is structurally unsound. Build your own agent evaluation stack with PostgreSQL, pgvector, and self-hosted harnesses.">
+    <meta property="twitter:image" content="https://articles.phantom-byte.com/images/article-50-main.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://articles.phantom-byte.com/swe-bench-is-dead-build-your-own-agent-evaluation-stack">
+    
+    <title>SWE-Bench Is Dead: Build Your Own Agent Evaluation Stack - PhantomByte</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDQCZE09E4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PDQCZE09E4');
+    </script>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/article.css">
+    
+    <!-- Web Push Notification Script -->
+    <script src="scripts/web-push-client.js" defer></script>
+    
+    <!-- ARTICLE SCHEMA MARKUP (JSON-LD for SEO + GEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "SWE-Bench Is Dead: Build Your Own Agent Evaluation Stack",
+      "alternativeHeadline": "The Sovereign Eval Stack: Self-Hosted Agent CI/CD with PostgreSQL and pgvector",
+      "author": {
+        "@type": "Person",
+        "name": "Vinny Barreca",
+        "url": "https://phantom-byte.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PhantomByte",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://articles.phantom-byte.com/images/phantombyte-logo.png"
+        }
+      },
+      "datePublished": "2026-04-27",
+      "dateModified": "2026-04-27",
+      "description": "SWE-Bench is structurally unsound. Build your own agent evaluation stack with PostgreSQL, pgvector, and self-hosted harnesses. The sovereign eval architecture that survives benchmark collapse.",
+      "articleBody": "I spent Saturday morning reading the GitHub issues on SWE-Bench. All 545 of them. I did this not because I am a masochist, but because my CI/CD pipeline was flagging correct agent output as failed, and I needed to know why. What I found was not a bug in my code. It was a bug in the entire concept of vendor-controlled evaluation.",
+      "wordCount": "2850",
+      "timeRequired": "PT12M",
+      "proficiencyLevel": "Intermediate",
+      "articleSection": "AI Infrastructure",
+      "keywords": "SWE-Bench alternatives, Agent Evaluation Stack, Sovereign AI Infrastructure, pgvector Agent Memory, Self-Hosted Agent CI/CD, Local-First AI Agents, Persistent Agent State, Non-deterministic Test Harness, PostgreSQL Vector Database, Agent Observability Pipeline, LLMOps Pipeline, Production Trace Augmentation",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://articles.phantom-byte.com/images/article-50-main.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://articles.phantom-byte.com/swe-bench-is-dead-build-your-own-agent-evaluation-stack"
+      }
+    }
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <style>
+        @keyframes slideIn {
+            from { transform: translateX(400px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(400px); opacity: 0; }
+        }
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-compat.js"></script>
+    <style id="phantombyte-push-styles">
+      #phantombyte-push-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+
+      .phantombyte-push-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px;
+        background: linear-gradient(135deg, #9D4EDD 0%, #7B2CBF 100%);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(157, 78, 221, 0.4);
+        transition: all 0.3s ease;
+      }
+
+      .phantombyte-push-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(157, 78, 221, 0.5);
+      }
+
+      .phantombyte-push-btn:active {
+        transform: translateY(0);
+      }
+
+      .phantombyte-push-btn:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+
+      .phantombyte-push-active {
+        background: linear-gradient(135deg, #00FF88 0%, #00CC6A 100%) !important;
+        box-shadow: 0 4px 15px rgba(0, 255, 136, 0.4) !important;
+      }
+
+      .phantombyte-push-loading {
+        animation: phantombyte-pulse 1s infinite;
+      }
+
+      @keyframes phantombyte-pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
+
+      .phantombyte-push-icon {
+        font-size: 16px;
+      }
+
+      .phantombyte-push-message {
+        position: absolute;
+        bottom: 100%;
+        right: 0;
+        margin-bottom: 10px;
+        padding: 10px 15px;
+        background: #1a1a2e;
+        color: white;
+        border-radius: 8px;
+        font-size: 13px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+      }
+
+      .phantombyte-push-message-visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 640px) {
+        #phantombyte-push-container {
+          display: none;
+        }
+      }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+            </a>
+            <nav class="main-nav">
+                <a href="https://phantom-byte.com" target="_blank">Services</a>
+            </nav>
+        </div>
+    <div id="phantombyte-push-container">
+      <button id="phantombyte-push-btn" class="phantombyte-push-btn" aria-label="Subscribe to notifications">
+        <span class="phantombyte-push-icon">🔔</span>
+        <span class="phantombyte-push-text">Get Article Alerts</span>
+      </button>
+      <div id="phantombyte-push-message" class="phantombyte-push-message"></div>
+    </div></header>
+
+    <!-- Article Content -->
+    <main class="article-main">
+        <article class="article-container">
+            <!-- Article Header -->
+            <header class="article-header">
+                <span class="article-category">AI Infrastructure</span>
+                <h1 class="article-title">SWE-Bench Is Dead: Build Your Own Agent Evaluation Stack</h1>
+                
+                <div class="article-meta">
+                    <div class="author-info">
+                        <img src="images/author-vinny.jpg" alt="Vinny Barreca" class="author-avatar">
+                        <div class="author-details">
+                            <span class="author-name">Vinny Barreca</span>
+                            <span class="publish-date">April 27, 2026</span>
+                        </div>
+                    </div>
+                    <div class="meta-actions">
+                        <span class="read-time">12 min read</span>
+                        <button class="share-btn" aria-label="Share article">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                                <polyline points="16 6 12 2 8 6"></polyline>
+                                <line x1="12" y1="2" x2="12" y2="15"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <figure class="article-featured-image">
+                <img src="images/article-50-main.jpg" alt="SWE-Bench evaluation stack collapse showing self-hosted alternative architecture with PostgreSQL pgvector backbone">
+                <figcaption class="image-caption">The sovereign eval stack: self-hosted, owned, and immune to benchmark collapse.</figcaption>
+            </figure>
+
+                        <!-- CTA Slot (Top) -->
+            <div class="ad-slot ad-slot-article-top">
+                <a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank">
+                    <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25); border: none;">
+                        <p style="font-size: 0.7rem; color: #FF6B35; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">⚠️ Exit the Cloud</p>
+                        <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Own Your Weights. Own Your Data.</h4>
+                        <p style="margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.5; color: #e0e0e0; font-weight: 400;">The cloud AI era is a data-harvesting trap. Stop being the product and start being the owner. Build your local sovereign stack today.</p>
+                        <div style="text-align: center;">
+                            <span style="display: inline-block; padding: 11px 22px; background: linear-gradient(90deg, #00FF88 0%, #00cc6a 100%); color: #0a0a1a; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(0, 255, 136, 0.35);">Download The Blueprint</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Article Body -->
+            <div class="article-body">
+                <p class="lead-paragraph" style="margin-top: 50px;">
+                    I spent Saturday morning reading the GitHub issues on SWE-Bench. All 545 of them. I did this not because I am a masochist, but because my CI/CD pipeline was flagging correct agent output as failed, and I needed to know why. What I found was not a bug in my code. It was a bug in the entire concept of vendor-controlled evaluation.
+                </p>
+
+                <p>
+                    If your CI/CD pipeline depends on SWE-Bench, you are flying blind right now. If you are searching for SWE-Bench alternatives this week, you are already behind the curve. This is not because some indie dev broke the repository, but because the benchmark itself is structurally unsound. The people who ought to fix it have a conflicting incentive: they also sell the models being graded.
+                </p>
+
+                <!-- Why SWE-Bench Verified Fails Its Own Test -->
+                <h2>Why SWE-Bench Verified Fails Its Own Test</h2>
+                <p>
+                    Let me walk you through what I found in those GitHub issues.
+                </p>
+
+                <p>
+                    <strong>Issue #545:</strong> The SWE-Bench CLI marks instances as resolved: false even when all FAIL_TO_PASS tests pass. The failure occurs because PASS_TO_PASS tests get SKIPPED on single-core Docker environments. They do not fail; they get skipped. The harness counts that as a rejection. Your agent wrote correct code, but because the infrastructure could not run the test, you got dinged for it.
+                </p>
+
+                <p>
+                    <strong>Issue #506:</strong> Java evaluations produce inconsistent results because shell tracing interleaves with Maven output, causing race conditions in log parsing. The harness cannot reliably determine test outcomes. You can run the exact same code twice and get a different result.
+                </p>
+
+                <p>
+                    <strong>Issue #563:</strong> The benchmark data itself has severe quality problems. Pull request descriptions do not match the gold tests. The ground truth is wrong. It is not your code failing; it is the answer key.
+                </p>
+
+                <p>
+                    These are not edge cases. A recent arXiv paper (2603.21454) put it bluntly, stating that LLM coding benchmarks face a credibility crisis where widespread solution leakage and test quality issues undermine SWE-Bench Verified. Another paper (2511.16708) found that 29.6% of SWE-Bench solved patches actually fail under proper verification.
+                </p>
+
+                <p>
+                    When nearly a third of passing solutions are wrong and the harness rejects correct code on single-core containers, you do not have a benchmark. You have a random number generator with a README.
+                </p>
+
+                <p>
+                    The benchmark contamination problem is just as severe. The same arXiv paper documents widespread solution leakage across frontier models. Models trained on public GitHub data can reproduce gold patches verbatim. When your agents get tested on code they have already memorized from training data, you are not measuring reasoning. You are measuring recall.
+                </p>
+
+                <!-- The Sovereign Alternative -->
+                <h2>The Sovereign Alternative: Self-Hosted Agent Evaluation</h2>
+                <p>
+                    Here is the brutal truth. The entire eval-as-a-service model is collapsing in slow motion. You are paying cloud companies to grade your agents with rubrics they designed, on datasets they curated, with harnesses they refuse to open-source. That is not evaluation. That is vendor-managed performance art.
+                </p>
+
+                <p>
+                    The harness, not the model, is where real bugs live. SWE-Bench's own GitHub issues prove it. The test infrastructure rejects correct behavior because it was written for a specific runtime configuration. It cannot handle non-determinism, partial solutions, or iterative refinement. If your harness requires a single golden patch to be byte-identical, your harness is the problem.
+                </p>
+
+                <p>
+                    If you are building serious agent CI/CD pipelines today, you need a stack you own, host, and modify. Period. That stack looks like this:
+                </p>
+
+                <ul>
+                    <li><strong>Self-hosted evaluation harness:</strong> Not a vendor API with race conditions in its log parser.</li>
+                    <li><strong>Open-source memory layer:</strong> Not a premium subscription feature locked behind a paywall.</li>
+                    <li><strong>Own benchmark suite:</strong> Augmented with live production traces from your actual failures.</li>
+                    <li><strong>PostgreSQL with pgvector backbone:</strong> Because you already know how to run it.</li>
+                </ul>
+
+                <p>
+                    This is the sovereign eval stack. It is not a product; it is an architecture. It is the only thing that is going to survive the next benchmark collapse. This is what sovereign AI infrastructure actually looks like, and if you are already running PhantomByte's LLMOps coverage, this plugs directly into your existing observability pipeline.
+                </p>
+
+                <!-- The Missing Link: Persistent State and Memory -->
+                <h2>The Missing Link: Persistent State and Memory</h2>
+                <p>
+                    An evaluation harness is only half the equation. To build agents that actually learn from their failures during these evaluations, you need persistent state. An evaluation stack without state is just a fancy linter.
+                </p>
+
+                <p>
+                    Anthropic bundles memory into its Claude Pro plan at $20 a month and Claude Max at $100 a month. Memory is not sold separately. It is locked inside the subscription. You do not own your agent's memory; you rent it. Stop paying, and your agent has amnesia. That is not a feature. That is a hostage situation.
+                </p>
+
+                <p>
+                    Here is what the real benchmark data shows. On LiveCodeBench, a platform designed to resist contamination by using fresh problems, Qwen3-235B-A22B scores 65.9%. Claude Opus 4 with thinking enabled scores 56.6%, and Claude Sonnet 4 scores 47.1%. A model you can self-host beats every Claude configuration except the thinking-enabled Opus.
+                </p>
+
+                <p>
+                    Furthermore, models like Qwen3.5-27B are available on HuggingFace right now for free. It is a dense model running on consumer hardware. The Qwen3.6-35B-A3B utilizes a MoE architecture with 256 experts, activating only 3B parameters per token. The efficiency-to-capacity ratio is absurd.
+                </p>
+
+                <p>
+                    This means the model is no longer the bottleneck, and the inference cost is no longer the bottleneck. The memory layer, which allows your agent to remember what it did yesterday, learn from previous evaluations, and adapt its behavior over time, is the new battleground.
+                </p>
+
+                <!-- In-Article Image -->
+                <figure class="article-image article-image-right">
+                    <img src="images/article-50-inside.png" alt="Sovereign agent evaluation stack architecture showing PostgreSQL pgvector memory layer, self-hosted harness, and production trace augmentation">
+                    <figcaption class="image-caption">The sovereign eval stack: PostgreSQL with pgvector provides persistent memory that you own and control.</figcaption>
+                </figure>
+
+                <p>
+                    Mem0 is the popular choice right now with 54,000 stars on GitHub. It is lightweight, easy to plug in, and handles basic episodic memory well. Letta is more robust if you want agent-oriented design with explicit memory management. LangMem is newer, built around LangGraph, and integrates cleanly if you are already in that ecosystem.
+                </p>
+
+                <p>
+                    However, none of them advertise the fact that they are all just abstractions built on top of a vector database. If you are already running PostgreSQL for your application, pgvector is sitting right there for free. You own the data. You own the queries. Nobody can sunset your API or change your pricing tier.
+                </p>
+
+                <!-- Building Your CI/CD Pipeline -->
+                <h2>Building Your CI/CD Pipeline Without Vendor Benchmarks</h2>
+                <p>
+                    SWE-Bench is structurally unsound. The alternative is to build your own agent evaluation CI/CD. It is not as scary as it sounds.
+                </p>
+
+                <p>
+                    <strong>Step One: Define your own correctness.</strong> Do not rely on pass or fail metrics from someone else's test suite. Demand actual correctness. Does the agent's output solve the stated problem? Does it preserve existing tests? Does it respect project conventions? You are building a rubric, not downloading one.
+                </p>
+
+                <p>
+                    <strong>Step Two: Prioritize the harness over the benchmark.</strong> Your harness should test the interaction, not just the output. Write harnesses that can handle non-determinism, partial solutions, and iterative refinement.
+                </p>
+
+                <p>
+                    <strong>Step Three: Augment with live traces.</strong> Synthetic benchmarks do not age well, but production traces do. Mine your real tasks, bug reports, feature requests, and refactoring tickets to turn them into regression tests. Your eval suite should grow every week based on exactly what your agents failed the week prior.
+                </p>
+
+                <p>
+                    <strong>Step Four: Run it in your own infrastructure.</strong> Use Docker Compose and keep it self-hosted. You should not need API keys to grade your own work. If the internet goes down, your CI should still run.
+                </p>
+
+                <p>
+                    This is how you break the dependency. You do not fix the problem by finding a better vendor benchmark; you fix it by owning the entire evaluation surface area.
+                </p>
+
+                <!-- The Cost of Subscription Lock-in -->
+                <h2>The Cost of Subscription Lock-in</h2>
+                <p>
+                    Let us run the numbers to see where the vendor lock-in gets personal. Claude Pro is $20 a month, Claude Max is $100 a month, and enterprise tiers require custom contracts. Memory is bundled inside these tiers, meaning you do not get memory without the model, and you do not get memory without the subscription.
+                </p>
+
+                <p>
+                    Your agent's persistent state lives on Anthropic's infrastructure, behind Anthropic's paywall, and is subject to Anthropic's terms. That costs $240 to $1,200 per year, per seat, for context windows and a key-value store you do not even control.
+                </p>
+
+                <p>
+                    Compare that to PostgreSQL with pgvector. The setup cost is your time. The hosting cost is the server you are already running. The runtime cost is zero additional dollars. You own the data, the queries, and the uptime. If you are already using Postgres for your app, pgvector is a simple CREATE EXTENSION away. It gives your AI agent memory a home it cannot be evicted from. Your agent memory lives in the same database as your app data, sharing the same backups, monitoring, and queries. There is no split-brain architecture and no separate microservices to babysit.
+                </p>
+
+                <p>
+                    The argument against self-hosting is usually the fear of DevOps overhead. Enterprise teams often default to vendor solutions to avoid babysitting infrastructure. But let us be real about the actual maintenance burden. Is maintaining a Postgres instance you already run really harder than hoping a vendor does not double their pricing next quarter? Is maintaining an open-source harness you can fork and fix scarier than discovering your core benchmark was fundamentally broken for six months?
+                </p>
+
+                <p>
+                    The maintenance cost myth is how cloud companies keep you dependent. The reality is simple. If you can run Docker, you can run a sovereign eval stack. If you cannot, you should learn, because the vendors are not coming to save you.
+                </p>
+
+                <!-- The Sovereign Path -->
+                <h2>The Sovereign Path</h2>
+                <p>
+                    The SWE-Bench collapse is not just a technical story; it is an inflection point. For two years, the industry outsourced evaluation to a single benchmark. That benchmark is now structurally unreliable. The vendor-controlled alternatives offer the exact same conflict of interest, as the company grading your agents is the same company selling you the model.
+                </p>
+
+                <p>
+                    If you are building agent CI/CD pipelines, your testing infrastructure cannot be a line item you buy from the same company trying to sell you the AI. That is a conflict of interest dressed up as convenience.
+                </p>
+
+                <p>
+                    The sovereign path is harder in the first week. You have to write your own harness, define your own rubric, and host your own memory layer on PostgreSQL and pgvector. But by week four, you are iterating faster than any team waiting on a vendor API update. By month two, your eval suite is tighter than any generic benchmark because it is built entirely from your actual failures. By quarter two, you are not reading blog posts about benchmark collapses because you are no longer affected by them.
+                </p>
+
+                <p>
+                    That is the freedom part. That is the sovereignty part.
+                </p>
+
+                <!-- Email Signup -->
+                <div class="article-email-signup">
+                    <h3>Get More Articles Like This</h3>
+                    <p>Building sovereign AI infrastructure is just the start. I'm documenting every mistake, fix, and lesson learned as I build PhantomByte.</p>
+                    <p>Subscribe to receive updates when we publish new content. No spam, just real lessons from the trenches.</p>
+                    <form class="signup-form" id="articleEmailSignup">
+                        <input type="email" placeholder="Enter your email" required="">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+
+                <!-- Buy Me a Coffee CTA -->
+                <div class="coffee-cta">
+                    <p>Enjoyed this article?</p>
+                    <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn-large">
+                        <span>☕</span> Buy Me a Coffee
+                    </a>
+                    <p class="coffee-subtext">Support PhantomByte and keep the content coming!</p>
+                </div>
+
+                <!-- Share/Related Section -->
+                <div class="article-footer">
+                    <div class="share-section">
+                        <h3>Share this article</h3>
+                        <div class="share-buttons">
+                            <button class="share-btn-twitter">Twitter</button>
+                            <button class="share-btn-facebook">Facebook</button>
+                            <button class="share-btn-linkedin">LinkedIn</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                        <!-- CTA Slot (Bottom) -->
+            <div class="ad-slot ad-slot-article-bottom">
+                <a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank">
+                    <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25); border: none;">
+                        <p style="font-size: 0.7rem; color: #FF6B35; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">⚠️ Exit the Cloud</p>
+                        <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Own Your Weights. Own Your Data.</h4>
+                        <p style="margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.5; color: #e0e0e0; font-weight: 400;">The cloud AI era is a data-harvesting trap. Stop being the product and start being the owner. Build your local sovereign stack today.</p>
+                        <div style="text-align: center;">
+                            <span style="display: inline-block; padding: 11px 22px; background: linear-gradient(90deg, #00FF88 0%, #00cc6a 100%); color: #0a0a1a; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(0, 255, 136, 0.35);">Download The Blueprint</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer (EXACT MATCH - from articles.phantom-byte.com) -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+                    </div>
+                    <p class="tagline">Code from the shadows</p>
+                    <div class="footer-cta">
+                        <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn">
+                            ☕ Buy Me a Coffee
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="https://phantom-byte.com" target="_blank">Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="https://x.com/PhantomByteAI" target="_blank">X / Twitter</a></li>
+                        <li><a href="https://www.pinterest.com/PhantomByteAI" target="_blank">Pinterest</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 PhantomByte. All rights reserved.</p>
+                <p class="privacy-links">
+                    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/ad-manager.js" defer></script>
+    <script src="scripts/email-signup.js" defer></script>
+    <script src="scripts/share-buttons.js" defer></script>
+
+
+</body>
+</html>

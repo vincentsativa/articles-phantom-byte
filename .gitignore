@@ -1,0 +1,11 @@
+node_modules/
+.env
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini
+backups/
+backup-ad-swap-*/
+backup-sovereign-ad-swap-*/
+temp*
+google-indexing-credentials.json

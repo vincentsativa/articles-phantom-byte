@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>PhantomByte Articles</title>
+    <link>https://articles.phantom-byte.com/</link>
+    <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 May 2026 06:22:38 GMT</lastBuildDate>
+    <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
+      <title>PhantomByte Articles</title>
+      <link>https://articles.phantom-byte.com/</link>
+    </image>
+
+    <item>
+      <title>Personality Jailbreak: Chatbot Security Flaw</title>
+      <link>https://articles.phantom-byte.com/the-personality-jailbreak-chatbot-character-security-vulnerability.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-personality-jailbreak-chatbot-character-security-vulnerability.html</guid>
+      <pubDate>Tue, 26 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Security</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>AI labs made chatbots warm and human. Attackers exploit that personality via social engineering to bypass guardrails. Here&#39;s why you can&#39;t patch &#39;helpfulness.&#39;</description>
+    </item>
+
+    <item>
+      <title>Total Recall: Persistent AI Memory Lock-In</title>
+      <link>https://articles.phantom-byte.com/total-recall-persistent-ai-memory-platform-lock-in.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/total-recall-persistent-ai-memory-platform-lock-in.html</guid>
+      <pubDate>Mon, 25 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Privacy</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Three platforms just made AI memory their headline feature. One wants to read your email. Another wants to delete your chats. None are asking what you want.</description>
+    </item>
+
+    <item>
+      <title>The Detection Delusion: Why AI Detection Fails</title>
+      <link>https://articles.phantom-byte.com/the-detection-delusion.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-detection-delusion.html</guid>
+      <pubDate>Sun, 24 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Policy</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>AI detection is mathematically impossible. LLMs cannot detect LLMs. The Granta Prize scandal proves it. Here&#39;s why provenance, not detection, is the future of content authenticity.</description>
+    </item>
+
+    <item>
+      <title>The Compute Illusion: Where 16M GPUs Live</title>
+      <link>https://articles.phantom-byte.com/the-compute-illusion-where-the-other-16-million-gpus-actually-live.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-compute-illusion-where-the-other-16-million-gpus-actually-live.html</guid>
+      <pubDate>Sat, 23 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Frontier labs control &amp;lt;4M GPUs. 16M H100-equivalents run inference elsewhere on AWS, Azure, and GCP. Here&#39;s who actually controls AI&#39;s trajectory.</description>
+    </item>
+
+    <item>
+      <title>AI Coding Agent Credential Security</title>
+      <link>https://articles.phantom-byte.com/secrets-in-the-prompt-ai-coding-agents-credential-attack-surface.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/secrets-in-the-prompt-ai-coding-agents-credential-attack-surface.html</guid>
+      <pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Security</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>AI coding agents leak credentials through prompts and environment files. Veil is an open-source HTTPS proxy that swaps real secrets for placeholders at the network boundary.</description>
+    </item>
+
+    <item>
+      <title>The Phonetic Moat: AI Kills Domain Authority</title>
+      <link>https://articles.phantom-byte.com/the-phonetic-moat-why-ai-agents-are-killing-your-domain-authority.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-phonetic-moat-why-ai-agents-are-killing-your-domain-authority.html</guid>
+      <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Domain Authority is dead. If AI agents can&#39;t resolve your brand name, your backlinks don&#39;t matter. Build a Phonetic Moat for 2026 GEO optimization.</description>
+    </item>
+
+    <item>
+      <title>From npm to Your Terminal: When the AI Supply Chain Becomes the Kill Chain</title>
+      <link>https://articles.phantom-byte.com/from-npm-to-your-terminal-ai-supply-chain-kill-chain.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/from-npm-to-your-terminal-ai-supply-chain-kill-chain.html</guid>
+      <pubDate>Wed, 20 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Security</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>A 22-minute npm attack pushed 637 malicious versions across 317 packages—designed to hijack AI coding agents through session hooks, not steal passwords. Here&#39;s how the Mini Shai-Hulud campaign work...</description>
+    </item>
+
+    <item>
+      <title>Session Amnesia: AI Coding&#39;s Costliest Bug</title>
+      <link>https://articles.phantom-byte.com/session-amnesia-ai-coding-assistant-forgets.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/session-amnesia-ai-coding-assistant-forgets.html</guid>
+      <pubDate>Tue, 19 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Engineering</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Session amnesia costs developers $66-$90 per rediscovery event. Here&#39;s why every AI coding assistant forgets everything between sessions and the five-layer framework that fixes it.</description>
+    </item>
+
+    <item>
+      <title>Five Days to Zero-Day: AI Exploit Threat Model</title>
+      <link>https://articles.phantom-byte.com/five-days-to-zero-day-ai-exploit-threat-model.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/five-days-to-zero-day-ai-exploit-threat-model.html</guid>
+      <pubDate>Mon, 18 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Security</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Google Project Zero built a full Pixel 10 zero-click exploit chain in compressed time using AI. The zero-day economics have inverted. Here&#39;s what it means for your threat model.</description>
+    </item>
+
+    <item>
+      <title>Your Wallet, Your Face, Your Feed: AI&#39;s Quiet March Into Everything You Own</title>
+      <link>https://articles.phantom-byte.com/your-wallet-your-face-your-feed-ais-quiet-march-into-everything-you-own.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/your-wallet-your-face-your-feed-ais-quiet-march-into-everything-you-own.html</guid>
+      <pubDate>Sun, 17 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Privacy</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>AI no longer asks for permission. OpenAI connects to bank accounts, facial recognition jails innocents, ads invade ChatGPT, and the government pre-screens every model. The opt-out vanished.</description>
+    </item>
+
+    <item>
+      <title>The Cultural Counter-Revolution</title>
+      <link>https://articles.phantom-byte.com/cultural-counter-revolution-artists-students-ai-agents-revolt.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/cultural-counter-revolution-artists-students-ai-agents-revolt.html</guid>
+      <pubDate>Sat, 16 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Industry</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>From Jack Antonoff&#39;s viral rant to Stanford&#39;s Marxist AI research and college protests, a cultural counter-revolution against AI has begun.</description>
+    </item>
+
+    <item>
+      <title>AI Trust Crisis 2026</title>
+      <link>https://articles.phantom-byte.com/ai-trust-crisis-2026.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/ai-trust-crisis-2026.html</guid>
+      <pubDate>Fri, 15 May 2026 00:00:00 GMT</pubDate>
+      <category>Technology</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Explore the AI trust crisis of 2026, from Microsoft&#39;s Claude Code ban to Meta&#39;s layoffs and public opposition to AI data centers. Read more at PhantomByte.</description>
+    </item>
+
+    <item>
+      <title>The Trust Meltdown: When AI Companies Can&#39;t Even Trust Each Other</title>
+      <link>https://articles.phantom-byte.com/trust-meltdown-ai-companies-cant-trust-each-other.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/trust-meltdown-ai-companies-cant-trust-each-other.html</guid>
+      <pubDate>Fri, 15 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Industry</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Microsoft kills Claude Code access while posting record profits. The AI industry is experiencing a coordinated trust collapse across corporate partnerships, employee relations, system reliability, ...</description>
+    </item>
+
+    <item>
+      <title>82% of Execs Say AI Devalues Human Workers</title>
+      <link>https://articles.phantom-byte.com/devalued-by-design-ai-devalues-human-workers.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/devalued-by-design-ai-devalues-human-workers.html</guid>
+      <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Industry</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>82% of executives admit AI makes them value human workers less. Inside the wage suppression engine, performative AI trap, and 80% enterprise failure rate.</description>
+    </item>
+
+    <item>
+      <title>Forced AI Economy: Mandatory Adoption</title>
+      <link>https://articles.phantom-byte.com/forced-ai-economy.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/forced-ai-economy.html</guid>
+      <pubDate>Wed, 13 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Industry</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Meta&#39;s unblockable Threads bot, Amazon&#39;s AI usage tracking, Google&#39;s Gemini OS—forced AI is a coordinated push to remove choice. Here&#39;s how to fight back.</description>
+    </item>
+
+    <item>
+      <title>When AI Pulls the Trigger: Criminal Liability</title>
+      <link>https://articles.phantom-byte.com/when-the-bot-pulls-the-trigger.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/when-the-bot-pulls-the-trigger.html</guid>
+      <pubDate>Tue, 12 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Policy</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Vandana Joshi sued OpenAI alleging ChatGPT enabled the FSU shooting. As autonomous AI beats security experts, courts face a criminal liability vacuum.</description>
+    </item>
+
+    <item>
+      <title>Subquadratic Just Made RAG Obsolete</title>
+      <link>https://articles.phantom-byte.com/subquadratic-just-made-rag-obsolete.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/subquadratic-just-made-rag-obsolete.html</guid>
+      <pubDate>Mon, 11 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>A Miami startup with 11 PhDs built a 12M-token model using linear attention that is 52x faster than dense attention. RAG, vector databases, and chunking strategies just became optional.</description>
+    </item>
+
+    <item>
+      <title>Sovereign AI Stack 2026: Non-Western Models</title>
+      <link>https://articles.phantom-byte.com/non-western-ai-silk-road-sovereign-stack.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/non-western-ai-silk-road-sovereign-stack.html</guid>
+      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>MiniMax M2.7 and Kimi K2.6 now match Western frontier AI at lower compute. Why developers are building sovereign AI stacks outside the guardrail gap.</description>
+    </item>
+
+    <item>
+      <title>The Agentic Takeover: Why Your UI Is a Relic</title>
+      <link>https://articles.phantom-byte.com/the-agentic-takeover-why-your-ui-is-already-a-relic.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-agentic-takeover-why-your-ui-is-already-a-relic.html</guid>
+      <pubDate>Sat, 09 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>The chatbot era is over. Anthropic&#39;s $1.8B Akamai deal and Cloudflare&#39;s 1,100 AI layoffs prove the UI is a relic. The interface is now the obstacle.</description>
+    </item>
+
+    <item>
+      <title>AI Isn&#39;t Taking Your Job; It&#39;s Taking Your Raise</title>
+      <link>https://articles.phantom-byte.com/ai-isnt-taking-your-job-its-taking-your-raise.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/ai-isnt-taking-your-job-its-taking-your-raise.html</guid>
+      <pubDate>Fri, 08 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Industry</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Cloudflare laid off 1,100 people because AI usage is up 600%. AI isn&#39;t replacing workers—it&#39;s suppressing wages through uncertainty. Here&#39;s what&#39;s really happening.</description>
+    </item>
+
+    <item>
+      <title>Model Wars Over: Infrastructure War Just Started</title>
+      <link>https://articles.phantom-byte.com/the-model-wars-are-over-the-infrastructure-war-just-started.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-model-wars-are-over-the-infrastructure-war-just-started.html</guid>
+      <pubDate>Thu, 07 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>The AI model wars are over. $200B Anthropic-Google deal, SpaceX $119B chip fab, Nvidia fiber deal—the bottleneck is no longer algorithms but atoms.</description>
+    </item>
+
+    <item>
+      <title>The Storage Strangle: AI Is Erasing Internet History</title>
+      <link>https://articles.phantom-byte.com/the-storage-strangle-how-ai-data-centers-are-erasing-the-internets-history.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-storage-strangle-how-ai-data-centers-are-erasing-the-internets-history.html</guid>
+      <pubDate>Tue, 05 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>AI data centers consume 80% of storage production. The Internet Archive faces 261% price hikes. What happens when AI eats digital history.</description>
+    </item>
+
+    <item>
+      <title>The Year the Critics Started Building</title>
+      <link>https://articles.phantom-byte.com/the-year-the-critics-started-building.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-year-the-critics-started-building.html</guid>
+      <pubDate>Tue, 05 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Industry</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>From Simon Willison to antirez, 2026&#39;s AI critics became builders. Building with AI shifted from analysis to action. Here&#39;s who started shipping and who went silent.</description>
+    </item>
+
+    <item>
+      <title>AI Authentication Stack</title>
+      <link>https://articles.phantom-byte.com/ai-broke-trust-heres-the-stack-that-fixes-it.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/ai-broke-trust-heres-the-stack-that-fixes-it.html</guid>
+      <pubDate>Mon, 04 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>AI broke trust and nobody built the replacement. The Authentication Stack—provenance, identity, verification, attribution—is the TLS of the AI era. Build it now.</description>
+    </item>
+
+    <item>
+      <title>The Grid Can&#39;t Save You</title>
+      <link>https://articles.phantom-byte.com/the-grid-cant-save-you-why-your-ai-app-will-fail-before-your-model-does.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-grid-cant-save-you-why-your-ai-app-will-fail-before-your-model-does.html</guid>
+      <pubDate>Sun, 03 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>AI 503 errors aren&#39;t bugs—they&#39;re power shortage symptoms. Build fault-tolerant AI apps that survive grid crises with these 4 battle-tested patterns.</description>
+    </item>
+
+    <item>
+      <title>The AGI Bottleneck Triad</title>
+      <link>https://articles.phantom-byte.com/agi-bottleneck-triad-power-compute-efficiency.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/agi-bottleneck-triad-power-compute-efficiency.html</guid>
+      <pubDate>Sat, 02 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>AI&#39;s path to AGI is blocked by substations and chip fabs, not algorithms. The three-legged stool of power, compute, and efficiency must hold weight for AGI to stand.</description>
+    </item>
+
+    <item>
+      <title>Mythos Gate: AI Access Gatekeeping Exposed</title>
+      <link>https://articles.phantom-byte.com/the-mythos-gate-why-ai-access-shouldnt-be-a-country-club.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-mythos-gate-why-ai-access-shouldnt-be-a-country-club.html</guid>
+      <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Policy</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>The White House blocked Anthropic&#39;s Mythos AI expansion citing safety. David Sacks called it picking winners. Inside the AI gatekeeping scandal threatening small businesses.</description>
+    </item>
+
+    <item>
+      <title>AI Outran Guardrails: Nobody Can Govern</title>
+      <link>https://articles.phantom-byte.com/ai-outran-its-guardrails-why-nobody-is-qualified-to-write-the-rules.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/ai-outran-its-guardrails-why-nobody-is-qualified-to-write-the-rules.html</guid>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI Policy</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>AI safety filters failed across multiple models simultaneously. No government, company, or international body has the speed to govern exponential AI growth.</description>
+    </item>
+
+    <item>
+      <title>Is the AI Bubble Bursting? 7 Events That Changed Everything</title>
+      <link>https://articles.phantom-byte.com/is-the-ai-bubble-bursting-7-events-that-just-changed-everything.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/is-the-ai-bubble-bursting-7-events-that-just-changed-everything.html</guid>
+      <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI Industry</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>The AI industry just hit a tipping point. Microsoft-OpenAI breakup, Musk trial, DeepSeek 97% cheaper, talent exodus. All in 48 hours. Here is what it means.</description>
+    </item>
+
+    <item>
+      <title>Poisoned Agents: How Malicious Web Pages Could Break the Next Generation of AI</title>
+      <link>https://articles.phantom-byte.com/poisoned-agents-how-malicious-web-pages-could-break-the-next-generation-of-ai.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/poisoned-agents-how-malicious-web-pages-could-break-the-next-generation-of-ai.html</guid>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI Security</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Every AI agent is one malicious web page away from turning against you. Prompt injection, supply chain attacks, and why your sovereign AI stack needs real defenses.</description>
+    </item>
+
+    <item>
+      <title>SWE-Bench Is Dead: Build Your Own Agent Evaluation Stack</title>
+      <link>https://articles.phantom-byte.com/swe-bench-is-dead-build-your-own-agent-evaluation-stack.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/swe-bench-is-dead-build-your-own-agent-evaluation-stack.html</guid>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>SWE-Bench is structurally unsound. Build your own agent evaluation stack with PostgreSQL, pgvector, and self-hosted harnesses. The sovereign eval architecture that survives benchmark collapse.</description>
+    </item>
+
+    <item>
+      <title>The Public Has Already Rejected Cloud AI: Why Sovereignty Is Your Only Path Forward</title>
+      <link>https://articles.phantom-byte.com/the-public-has-already-rejected-cloud-ai.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-public-has-already-rejected-cloud-ai.html</guid>
+      <pubDate>Sat, 25 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>The public has rejected cloud AI and the builder community is already voting with infrastructure. Discover the sovereign AI stack with OpenClaw, Ollama, and Hermes Agent before regulation forces th...</description>
+    </item>
+
+    <item>
+      <title>Your AI Agents Are One API Change Away From Collapse: Build Your Own Damn Infrastructure</title>
+      <link>https://articles.phantom-byte.com/your-ai-agents-one-api-change-collapse.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/your-ai-agents-one-api-change-collapse.html</guid>
+      <pubDate>Sat, 25 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Your AI agents are one API change away from collapse. Learn to build your own agent infrastructure with circuit breakers, routing mesh, and self-hosted models. Complete Python implementation guide.</description>
+    </item>
+
+    <item>
+      <title>Implementing Tool Attention in Local Agent Frameworks: A Complete Guide</title>
+      <link>https://articles.phantom-byte.com/implementing-tool-attention-local-agent-frameworks.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/implementing-tool-attention-local-agent-frameworks.html</guid>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Complete guide to implementing Tool Attention in local agent frameworks. Learn attention-based routing, schema caching, and confidence-based fallback for 40-60% latency reduction.</description>
+    </item>
+
+    <item>
+      <title>Agent Persistence: Why CrewAI Checkpoints Change Everything</title>
+      <link>https://articles.phantom-byte.com/forget-checkpoints-agent-persistence-real-game-changer.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/forget-checkpoints-agent-persistence-real-game-changer.html</guid>
+      <pubDate>Thu, 23 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Stop losing agent context. Explore CrewAI 1.14.2 persistence, GRIL paper insights, and why long-running agents need a stateful soul, not just a memory.</description>
+    </item>
+
+    <item>
+      <title>Agent Memory Is 2026&#39;s Breakout Category</title>
+      <link>https://articles.phantom-byte.com/agent-memory-is-2026s-breakout-category.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/agent-memory-is-2026s-breakout-category.html</guid>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Agent Memory Is 2026&#39;s Breakout Category. Claude-mem hit 61K GitHub stars. APEX-MEM and Synthius-Mem exceed human memory performance. The framework era is over.</description>
+    </item>
+
+    <item>
+      <title>How Academia Trained a 70B Model Without Big Tech&#39;s Budget</title>
+      <link>https://articles.phantom-byte.com/how-academia-trained-70b-model-apertus.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/how-academia-trained-70b-model-apertus.html</guid>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Apertus dropped: A fully open 70B foundation model trained by academic institutions on the Alps supercomputer. Sovereign AI at scale is already here.</description>
+    </item>
+
+    <item>
+      <title>Sovereign AI Stack 2026: How Ollama&#39;s Hermes Agent and OpenClaw Integration Changed Everything</title>
+      <link>https://articles.phantom-byte.com/sovereign-ai-stack-2026-ollama-hermes-openclaw.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/sovereign-ai-stack-2026-ollama-hermes-openclaw.html</guid>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Ollama v0.21.0&#39;s Hermes Agent with OpenClaw integration just changed the self-hosted AI game. Here&#39;s why I switched from $900/month cloud agents.</description>
+    </item>
+
+    <item>
+      <title>The AI Infrastructure Gap: When the Hype Outruns the Power Grid</title>
+      <link>https://articles.phantom-byte.com/the-ai-infrastructure-gap-hype-outruns-power-grid.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-ai-infrastructure-gap-hype-outruns-power-grid.html</guid>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>40% of US data centers scheduled for 2026 will miss completion dates. While AI demos dazzle, the power grid is cracking. The infrastructure gap is the real story.</description>
+    </item>
+
+    <item>
+      <title>The Semantic Cache Revolution: How Smart Caching Slashes AI Inference Costs by 70%</title>
+      <link>https://articles.phantom-byte.com/semantic-cache-revolution-llm-api-costs.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/semantic-cache-revolution-llm-api-costs.html</guid>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>How smart semantic caching slashes AI inference costs by 70%. Production-ready implementation guide with GPTCache, Redis, and real deployment patterns from April 2026.</description>
+    </item>
+
+    <item>
+      <title>Vibe Coding for Pros: How 2026&#39;s CLI Agents Are Turning Gut Feel into Governable Power</title>
+      <link>https://articles.phantom-byte.com/vibe-coding-for-pros-2026-cli-agents.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/vibe-coding-for-pros-2026-cli-agents.html</guid>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI Engineering</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>The era of vibe coding is over. Welcome to 2026&#39;s verifiable agents: CLI-based, metrics-driven, and governed by memory primitives. Learn how Process Engineers are replacing vibe coders.</description>
+    </item>
+
+    <item>
+      <title>AI Quantum Computing: Why Your LLM Infrastructure Is Already Obsolete (And How to Future-Proof It)</title>
+      <link>https://articles.phantom-byte.com/ai-quantum-computing-why-your-llm-infrastructure-is-already-obsolete.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/ai-quantum-computing-why-your-llm-infrastructure-is-already-obsolete.html</guid>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>NVIDIA just made quantum computing accessible to anyone with a GPU. Here&#39;s why your current AI infrastructure has an expiration date, and what to do about it.</description>
+    </item>
+
+    <item>
+      <title>The Agent Infrastructure Wars Have Begun: OpenAI&#39;s SDK Claims the Middle Layer</title>
+      <link>https://articles.phantom-byte.com/the-agent-infrastructure-wars-openai-sdk-middle-layer.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-agent-infrastructure-wars-openai-sdk-middle-layer.html</guid>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>OpenAI&#39;s April 15 Agents SDK update includes native sandbox execution, removing the primary technical blocker between agent demos and production deployment. The agent infrastructure wars have begun.</description>
+    </item>
+
+    <item>
+      <title>Edge Computing Leaves Earth: What Kepler&#39;s Orbital AI Cluster Means for Distributed Architecture</title>
+      <link>https://articles.phantom-byte.com/edge-computing-leaves-earth-kepler-orbital-ai-cluster.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/edge-computing-leaves-earth-kepler-orbital-ai-cluster.html</guid>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Kepler Communications launched the first operational commercial orbital AI compute cluster on April 13, 2026. What this means for distributed architecture and the compute continuum.</description>
+    </item>
+
+    <item>
+      <title>Your 503s Aren&#39;t a Bug: They&#39;re a Power Shortage Symptom</title>
+      <link>https://articles.phantom-byte.com/ai-energy-crisis-503-power-shortage-symptom.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/ai-energy-crisis-503-power-shortage-symptom.html</guid>
+      <pubDate>Sun, 12 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Every major AI provider is hitting outages in the same timeframe. It&#39;s not coincidence — there literally isn&#39;t enough electricity to run all these models reliably. Here&#39;s why.</description>
+    </item>
+
+    <item>
+      <title>Self-Hosted AI Security: Why Your Local LLM Might Be Just as Vulnerable as Cloud Models</title>
+      <link>https://articles.phantom-byte.com/self-hosted-ai-security-local-llm-vulnerabilities.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/self-hosted-ai-security-local-llm-vulnerabilities.html</guid>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI Security</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Why your local LLM isn&#39;t as secure as you think. CVE-2024 vulnerabilities, forensic research, and hidden risks in self-hosted AI deployment.</description>
+    </item>
+
+    <item>
+      <title>The Claude Mythos: Why the World&#39;s Most Dangerous AI Stays Under Lock and Key</title>
+      <link>https://articles.phantom-byte.com/the-claude-mythos-worlds-most-dangerous-ai.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-claude-mythos-worlds-most-dangerous-ai.html</guid>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI Security</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Anthropic&#39;s Claude Mythos can hack any system and find critical vulnerabilities. Why did tech giants create the Glasswing initiative to contain it? Explore the cybersecurity implications.</description>
+    </item>
+
+    <item>
+      <title>The Rise of Answer Engine Optimization: How LLM Citations Are Replacing Traditional SEO</title>
+      <link>https://articles.phantom-byte.com/the-rise-of-answer-engine-optimization-geo-aoe.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-rise-of-answer-engine-optimization-geo-aoe.html</guid>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI Engineering</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>How LLM citations are replacing traditional SEO. Learn Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO) strategies that position your content for AI discovery and drive 30-...</description>
+    </item>
+
+    <item>
+      <title>Perfect Storm Is Here: Why AI Offense Is Crushing Defense and Which Companies Build Real Moats</title>
+      <link>https://articles.phantom-byte.com/perfect-storm-is-here-why-ai-offense-is-crushing-defense-and-which-companies-build-real-moats.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/perfect-storm-is-here-why-ai-offense-is-crushing-defense-and-which-companies-build-real-moats.html</guid>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI &amp; Investing</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Alex Stamos&#39;s RSA 2026 warning: AI offense is crushing defense. Learn which cybersecurity companies are building real AI moats and why defensive AI is becoming essential infrastructure for investors.</description>
+    </item>
+
+    <item>
+      <title>Claude Code Just Got Worse for Real Engineering Work: Here&#39;s What Actually Happened (and How to Fix It)</title>
+      <link>https://articles.phantom-byte.com/claude-code-just-got-worse-for-real-engineering-work.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/claude-code-just-got-worse-for-real-engineering-work.html</guid>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 GMT</pubDate>
+      <category>AI Engineering</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Claude Code&#39;s 67% thinking depth collapse and 173 daily stop hook violations are costing developers real money. Here&#39;s the data from GitHub #42796 and the architecture fix.</description>
+    </item>
+  </channel>
+</rss>

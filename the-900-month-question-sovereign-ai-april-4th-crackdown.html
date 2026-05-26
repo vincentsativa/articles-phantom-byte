@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="When Anthropic cut off OpenClaw integration on April 4th, costs exploded from $200 to $900/month. One developer's solution: Sovereign AI on a Raspberry Pi. Here's how.">
+    <meta name="keywords" content="Sovereign AI, OpenClaw shutdown April 4th, Anthropic pricing, Claude Pro API costs, hybrid AI architecture, Ollama Raspberry Pi, local LLM, LiteLLM, AI vendor lock-in">
+    <meta name="author" content="Vinny Barreca">
+    <meta name="theme-color" content="#9D4EDD">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://articles.phantom-byte.com/the-900-month-question-sovereign-ai-april-4th-crackdown">
+    <meta property="og:title" content="The $900/Month Question: Why One Developer Is Betting on 'Sovereign AI' After the April 4th Crackdown">
+    <meta property="og:description" content="When Anthropic cut OpenClaw, a $200/month workflow became $900. This is the rebuild that cut costs to $40.">
+    <meta property="og:image" content="https://articles.phantom-byte.com/images/article-29-main.jpg">
+    <meta property="article:published_time" content="2026-04-05">
+    <meta property="article:author" content="Vinny Barreca">
+    <meta property="article:section" content="AI Engineering">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://articles.phantom-byte.com/the-900-month-question-sovereign-ai-april-4th-crackdown">
+    <meta property="twitter:title" content="The $900/Month Question: Why One Developer Is Betting on 'Sovereign AI' After the April 4th Crackdown">
+    <meta property="twitter:description" content="When Anthropic cut OpenClaw, a $200/month workflow became $900. This is the rebuild that cut costs to $40.">
+    <meta property="twitter:image" content="https://articles.phantom-byte.com/images/article-29-main.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://articles.phantom-byte.com/the-900-month-question-sovereign-ai-april-4th-crackdown">
+    
+    <title>The $900/Month Question: Why One Developer Is Betting on 'Sovereign AI' After the April 4th Crackdown - PhantomByte</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDQCZE09E4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PDQCZE09E4');
+    </script>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/article.css">
+    
+    <!-- Web Push Notification Script -->
+    <script src="scripts/web-push-client.js" defer></script>
+    
+    <!-- ARTICLE SCHEMA MARKUP (JSON-LD for SEO + GEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "The $900/Month Question: Why One Developer Is Betting on 'Sovereign AI' After the April 4th Crackdown",
+      "alternativeHeadline": "How to Build a Hybrid AI Architecture That Costs $40/Month Instead of $900",
+      "author": {
+        "@type": "Person",
+        "name": "Vinny Barreca",
+        "url": "https://phantom-byte.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PhantomByte",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://articles.phantom-byte.com/images/phantombyte-logo.png"
+        }
+      },
+      "datePublished": "2026-04-05",
+      "dateModified": "2026-04-05",
+      "description": "When Anthropic ended OpenClaw integration on April 4th, costs exploded. One developer rebuilt using local inference on a Raspberry Pi, cutting monthly costs from $900 to $40.",
+      "articleBody": "A friend in the industry was in the middle of debugging a Python script when it happened. April 4th, 3:47 PM. His OpenClaw instance threw an error he had never seen before.",
+      "wordCount": "2350",
+      "timeRequired": "PT9M",
+      "proficiencyLevel": "Intermediate",
+      "articleSection": "AI Engineering",
+      "keywords": "Sovereign AI, OpenClaw, Anthropic pricing, Claude Pro API, hybrid AI, Ollama, Raspberry Pi",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://articles.phantom-byte.com/images/article-29-main.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://articles.phantom-byte.com/the-900-month-question-sovereign-ai-april-4th-crackdown"
+      }
+    }
+    </script>
+    
+    <!-- FAQ SCHEMA MARKUP (JSON-LD for GEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What happened on April 4th with Anthropic and OpenClaw?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On April 4th, 2026, Anthropic cut off OpenClaw's integration with Claude Pro subscriptions. Developers who were paying $200/month for 'unlimited' access found themselves forced onto Anthropic's Extra Usage pay-as-you-go API model, with costs jumping to $900/month or more for typical agentic workloads."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Sovereign AI and why is it important?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sovereign AI means controlling your own inference, models, and data rather than depending on centralized cloud APIs. It's about building systems that survive platform changes, pricing shocks, and corporate pivots. The goal is architectural resilience, not just avoiding bills."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does a Raspberry Pi setup cost to run local AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Raspberry Pi 5 (8GB) costs around $115 for the hardware. Running local models via Ollama uses no API fees. Typical power consumption is under 15 watts. Combined with cloud overflow via LiteLLM for 10% of tasks, total monthly cost runs approximately $40 instead of $900."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What models work well for local coding tasks on a Raspberry Pi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Qwen 2.5 (14B parameter) and Llama 3.1 (8B parameter) both perform well on a Pi 5. They handle local code completion, syntax checking, refactoring suggestions, security pattern matching, and documentation generation with sub-100ms response times."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should developers completely abandon cloud AI APIs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The hybrid approach is key: use local inference as your baseline and cloud APIs as commodity overflow for tasks that exceed local capacity. Treat every platform integration as temporary and every cloud API as a resource you rent, not a foundation you build on."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+            </a>
+            <nav class="main-nav">
+                <a href="https://phantom-byte.com" target="_blank">Services</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="article-main">
+        <article class="article-container">
+            <!-- Article Header -->
+            <header class="article-header">
+                <span class="article-category">AI Engineering</span>
+                <h1 class="article-title">The $900/Month Question: Why One Developer Is Betting on 'Sovereign AI' After the April 4th Crackdown</h1>
+                
+                <div class="article-meta">
+                    <div class="author-info">
+                        <img src="images/author-vinny.jpg" alt="Vinny Barreca" class="author-avatar">
+                        <div class="author-details">
+                            <span class="author-name">Vinny Barreca</span>
+                            <span class="publish-date">April 5, 2026</span>
+                        </div>
+                    </div>
+                    <div class="meta-actions">
+                        <span class="read-time">9 min read</span>
+                        <button class="share-btn" aria-label="Share article">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                                <polyline points="16 6 12 2 8 6"/>
+                                <line x1="12" y1="2" x2="12" y2="15"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <figure class="article-featured-image">
+                <img src="images/article-29-main.jpg" alt="Developer working with Sovereign AI setup - Raspberry Pi, local models, and cloud APIs">
+                <figcaption class="image-caption">From $900 to $40: The hybrid architecture built in 72 hours</figcaption>
+            </figure>
+
+                        <!-- CTA Slot (Top) -->
+            <div class="ad-slot ad-slot-article-top">
+                <a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank">
+                    <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25); border: none;">
+                        <p style="font-size: 0.7rem; color: #FF6B35; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">⚠️ Exit the Cloud</p>
+                        <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Own Your Weights. Own Your Data.</h4>
+                        <p style="margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.5; color: #e0e0e0; font-weight: 400;">The cloud AI era is a data-harvesting trap. Stop being the product and start being the owner. Build your local sovereign stack today.</p>
+                        <div style="text-align: center;">
+                            <span style="display: inline-block; padding: 11px 22px; background: linear-gradient(90deg, #00FF88 0%, #00cc6a 100%); color: #0a0a1a; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(0, 255, 136, 0.35);">Download The Blueprint</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Article Body -->
+            <div class="article-body">
+                <p class="lead-paragraph" style="margin-top: 50px;">
+                    A friend in the industry was in the middle of debugging a Python script when it happened.
+                </p>
+
+                <p>
+                    April 4th, 3:47 PM. His OpenClaw instance threw an error he had never seen before: "Subscription limits no longer valid for third-party harnesses." The agent he had been running for six weeks, the one that helped him build six production scripts, refactor a broken deployment pipeline, and catch a security vulnerability before it hit production, just stopped. Dead.
+                </p>
+
+                <p>
+                    He checked his Claude Pro subscription. $200 a month. Still active. Still showing "unlimited" in the dashboard. But Anthropic had pulled the plug on the integration that made his workflow possible.
+                </p>
+
+                <p>
+                    Welcome to the April 4th crackdown.
+                </p>
+
+                <h2>The Math That Broke His Setup</h2>
+
+                <p>
+                    Let me show you the real numbers, because this isn't getting talked about honestly.
+                </p>
+
+                <p>
+                    Before April 4th, he was paying $200/month for Claude Pro. That gave him "unlimited" access (with five-hour rate limits) that he could route through OpenClaw. His setup cost $200 flat. It was predictable and budgetable.
+                </p>
+
+                <p>
+                    After April 4th, Anthropic forced him onto their "Extra Usage" pay-as-you-go model. Here is what that looks like in practice:
+                </p>
+
+                <ul>
+                    <li>Claude Sonnet 4.6 API: $3 per million input tokens, $15 per million output tokens.</li>
+                    <li>His typical agentic session: 200 API calls averaging 10K tokens output each.</li>
+                    <li>Daily cost: $30 (200 × 10,000 tokens × $15/1M tokens = $30).</li>
+                    <li>Monthly projection: $900/month.</li>
+                </ul>
+
+                <p>
+                    Nine. Hundred. Dollars.
+                </p>
+
+                <p>
+                    That is not a pricing adjustment. That is a rug pull.
+                </p>
+
+                <p>
+                    He is not an outlier. Anthropic's own internal data, confirmed in a Latent Space interview with their Claude Code engineering team, shows the average user burns through $6 a day. Some engineers inside Anthropic hit $1,000 in a single day. They knew this was unsustainable. They knew developers would get crushed.
+                </p>
+
+                <p>
+                    They did it anyway.
+                </p>
+
+                <h2>The Real Reason They Blocked OpenClaw</h2>
+
+                <!-- In-Article Image -->
+                <figure class="article-image article-image-right">
+                    <img src="images/article-29-inside.png" alt="Hybrid AI architecture diagram showing local Raspberry Pi inference with cloud overflow">
+                    <figcaption class="image-caption">Hybrid architecture: Local inference as baseline, cloud as overflow</figcaption>
+                </figure>
+
+                <p>
+                    Anthropic wants you to believe this was about "engineering constraints" and "managing capacity."
+                </p>
+
+                <p>
+                    Boris Cherny, Anthropic's head of Claude Code, said subscriptions "were not built for the usage patterns of these third-party tools." Peter Steinberger, OpenClaw's creator, now at OpenAI, had a different take: "Funny how timings match up. First they copy some popular features into their closed harness, then they lock out open source."
+                </p>
+
+                <p>
+                    He has been watching this industry long enough to recognize the playbook. Anthropic did not just cut off OpenClaw because it was expensive. They cut it off because OpenClaw was winning.
+                </p>
+
+                <p>
+                    OpenClaw had over 135,000 active instances running on April 3rd. Developers were building complex agentic workflows, automating entire processes, and creating tools that rivaled what Anthropic's own Claude Code could do. And they were doing it for $200/month instead of $900/month.
+                </p>
+
+                <p>
+                    That is not a capacity problem. That is a business model problem. When you cannot compete on price or functionality, you change the rules.
+                </p>
+
+                <h2>His Alternative: A Pi-Based Hybrid Architecture</h2>
+
+                <p>
+                    He did not spend the weekend complaining on Hacker News. He spent it rebuilding.
+                </p>
+
+                <p>
+                    In 72 hours, he built a hybrid AI architecture that routes workloads intelligently between local models for speed and cloud APIs for heavy reasoning tasks.
+                </p>
+
+                <h3>The Stack:</h3>
+
+                <ul>
+                    <li><strong>Local inference:</strong> Ollama running on a Raspberry Pi 5 (8GB) with Qwen 2.5:14B and Llama 3.1:8B.</li>
+                    <li><strong>Cloud overflow:</strong> Claude API via LiteLLM for tasks that exceed local capacity.</li>
+                    <li><strong>Orchestration:</strong> A custom Python router. It uses a small, local model to perform a "triage" on incoming prompts, checking for complexity and required context size. If the task is simple code completion, it stays local. If it requires cross-file architectural reasoning, it sends a compressed summary to the cloud.</li>
+                    <li><strong>Storage:</strong> Local ChromaDB for embeddings, removing cloud dependency.</li>
+                </ul>
+
+                <h3>The Scripts Built:</h3>
+
+                <ol>
+                    <li><strong>Code Review Agent:</strong> Local model scans diffs for security issues before cloud analysis.</li>
+                    <li><strong>Documentation Generator:</strong> Processes entire codebases locally, only queries the cloud for ambiguous functions.</li>
+                    <li><strong>Test Writer:</strong> Generates unit tests using local reasoning with cloud validation for edge cases.</li>
+                    <li><strong>Refactoring Advisor:</strong> Local analysis of code smells with cloud-assisted architectural suggestions.</li>
+                    <li><strong>API Security Scanner:</strong> Hybrid approach using local pattern matching combined with cloud adversarial testing.</li>
+                    <li><strong>Deployment Pipeline Validator:</strong> Local YAML/config validation with cloud dependency analysis.</li>
+                </ol>
+
+                <p>
+                    The result? He is paying roughly $40/month for cloud overflow instead of $900/month for blanket usage.
+                </p>
+
+                <h2>The Reality: What Works, What is Slow, and What Surprised Him</h2>
+
+                <p>
+                    To be honest, this is not as smooth as the OpenClaw and Claude Pro setup was. But it is his.
+                </p>
+
+                <h3>What works brilliantly:</h3>
+                <ul>
+                    <li>Local code completion and syntax checking with sub-100ms response times.</li>
+                    <li>Refactoring suggestions on familiar codebases.</li>
+                    <li>Security pattern matching using local embeddings.</li>
+                    <li>Documentation generation where source material is already local.</li>
+                </ul>
+
+                <h3>What is noticeably slower:</h3>
+                <ul>
+                    <li>Complex architectural decisions that require local context plus cloud reasoning.</li>
+                    <li>Multi-file analysis where relationships are not obvious.</li>
+                    <li>Edge case handling that benefits from massive pre-training.</li>
+                </ul>
+
+                <h3>What surprised him:</h3>
+                <ul>
+                    <li>Qwen 2.5:14B on a Pi 5 is faster than he expected for most coding tasks.</li>
+                    <li>The privacy improvement is genuinely meaningful. His code never leaves his network unless he chooses.</li>
+                    <li>Cost predictability changes how he works. He is no longer afraid to iterate.</li>
+                </ul>
+
+                <p>
+                    The biggest psychological shift? He owns this stack. Anthropic can change pricing, block integrations, or sunset features, and it will not matter. His agents run on hardware he controls, using models he can swap, with code he can audit.
+                </p>
+
+                <p>
+                    That is not paranoia. That is sovereignty.
+                </p>
+
+                <h2>The Philosophy: Why 'Sovereign AI' is Not Just a Buzzword</h2>
+
+                <p>
+                    He knows how this sounds. "Sovereign AI" is trending on Reddit and being discussed by people who just discovered Ollama last week.
+                </p>
+
+                <p>
+                    But here is why the term should be taken seriously: this is not about privacy theater or anti-corporate posturing. It is about architectural resilience.
+                </p>
+
+                <p>
+                    The April 4th crackdown proved that centralized AI infrastructure is a single point of failure. When Anthropic flips a switch, your entire workflow dies. When OpenAI changes terms, your product breaks. When Google sunsets a feature, your automation stops.
+                </p>
+
+                <p>
+                    That is not resilient architecture. That is vendor lock-in with extra steps.
+                </p>
+
+                <p>
+                    Sovereign AI, which involves controlling your own inference, models, and data, is not just about avoiding bills. It is about building systems that survive platform changes, pricing shocks, and corporate pivots. The developers I respect are building hybrid architectures that use cloud APIs as commodity inputs, not foundational dependencies.
+                </p>
+
+                <h2>The Call: Build on Open. Stop Hoping Platforms Will Not Rug You.</h2>
+
+                <p>
+                    If you have been burned by the April 4th crackdown, here is his actual advice: Do not migrate to the next platform. Build on the stack you control.
+                </p>
+
+                <p>
+                    He is not saying you should abandon Claude or OpenAI. He is saying you should use them as compute resources you rent, not foundations you build on.
+                </p>
+
+                <p>
+                    The developers who will thrive in 2026 are not the ones chasing the best API deal. They are the ones running local inference as a baseline, using cloud APIs as overflow, and treating every platform integration as temporary.
+                </p>
+
+                <p>
+                    Anthropic taught us that lesson on April 4th. A $200/month subscription meant nothing when they decided it should mean something else.
+                </p>
+
+                <p>
+                    He is running six production scripts on a Raspberry Pi now. They are not as flashy as the OpenClaw setup was. But they are his. And nobody is going to flip a switch and turn them off.
+                </p>
+
+                <p>
+                    That is not nostalgia. That is the new architecture.
+                </p>
+
+                <p>
+                    Build on open.
+                </p>
+
+                <p class="author-bio">
+                    Vinny Barreca runs PhantomByte and has been experimenting with local AI since 2024. He lives in New York. This article is based on conversations with developers affected by the April 4th Anthropic policy changes.
+                </p>
+
+                <div class="article-email-signup">
+                    <h3>Get More Articles Like This</h3>
+                    <p>Getting your AI agent setup right is just the start. I'm documenting every mistake, fix, and lesson learned as I build PhantomByte.</p>
+                    <p>Subscribe to receive updates when we publish new content. No spam, just real lessons from the trenches.</p>
+                    <form class="signup-form" id="articleEmailSignup">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+
+
+                <!-- Buy Me a Coffee CTA -->
+                <div class="coffee-cta">
+                    <p>Enjoyed this article?</p>
+                    <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn-large">
+                        <span>☕</span> Buy Me a Coffee
+                    </a>
+                    <p class="coffee-subtext">Support PhantomByte and keep the content coming!</p>
+                </div>
+
+
+                <!-- Share/Related Section -->
+                <div class="article-footer">
+                    <div class="share-section">
+                        <h3>Share this article</h3>
+                        <div class="share-buttons">
+                            <button class="share-btn-twitter">Twitter</button>
+                            <button class="share-btn-facebook">Facebook</button>
+                            <button class="share-btn-linkedin">LinkedIn</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                        <!-- CTA Slot (Bottom) -->
+            <div class="ad-slot ad-slot-article-bottom">
+                <a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank">
+                    <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25); border: none;">
+                        <p style="font-size: 0.7rem; color: #FF6B35; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">⚠️ Exit the Cloud</p>
+                        <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Own Your Weights. Own Your Data.</h4>
+                        <p style="margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.5; color: #e0e0e0; font-weight: 400;">The cloud AI era is a data-harvesting trap. Stop being the product and start being the owner. Build your local sovereign stack today.</p>
+                        <div style="text-align: center;">
+                            <span style="display: inline-block; padding: 11px 22px; background: linear-gradient(90deg, #00FF88 0%, #00cc6a 100%); color: #0a0a1a; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(0, 255, 136, 0.35);">Download The Blueprint</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+                    </div>
+                    <p class="tagline">Code from the shadows</p>
+                    <div class="footer-cta">
+                        <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn">
+                            &#9749; Buy Me a Coffee
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="https://phantom-byte.com" target="_blank">Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-connect">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="https://x.com/PhantomByteAI" target="_blank">X / Twitter</a></li>
+                        <li><a href="https://www.pinterest.com/PhantomByteAI" target="_blank">Pinterest</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 PhantomByte. All rights reserved.</p>
+                <p class="privacy-links">
+                    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/ad-manager.js" defer></script>
+    <script src="scripts/email-signup.js" defer></script>
+    <script src="scripts/share-buttons.js" defer></script>
+</body>
+</html>

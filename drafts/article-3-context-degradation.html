@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My AI agent started forgetting things mid-session. I blamed the model—turns out I was watching the wrong metric. Here's how context window degradation broke my workflow and the dashboard solution that fixed it.">
+    <meta name="keywords" content="context window degradation, AI agent memory, tokens vs context, OpenClaw session management, Qwen 3.5 context limit, AI dashboard, Telegram HTTP 500, PhantomByte">
+    <meta name="author" content="Vinny Barreca">
+    <meta name="theme-color" content="#9D4EDD">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://articles.phantom-byte.com/how-we-found-our-ai-breaking-point">
+    <meta property="og:title" content="How We Found Our AI's Breaking Point (Context Window Degradation)">
+    <meta property="og:description" content="My AI agent started forgetting things mid-session. I blamed the model—turns out I was watching the wrong metric.">
+    <meta property="og:image" content="https://articles.phantom-byte.com/images/article-3-main.jpg">
+    <meta property="article:published_time" content="2026-03-08">
+    <meta property="article:author" content="Vinny Barreca">
+    <meta property="article:section" content="AI Infrastructure">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://articles.phantom-byte.com/how-we-found-our-ai-breaking-point">
+    <meta property="twitter:title" content="How We Found Our AI's Breaking Point (Context Window Degradation)">
+    <meta property="twitter:description" content="My AI agent started forgetting things mid-session. I blamed the model—turns out I was watching the wrong metric.">
+    <meta property="twitter:image" content="https://articles.phantom-byte.com/images/article-3-main.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://articles.phantom-byte.com/how-we-found-our-ai-breaking-point">
+    
+    <title>How We Found Our AI's Breaking Point (Context Window Degradation) - PhantomByte</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDQCZE09E4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PDQCZE09E4');
+    </script>
+    
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/article.css">
+    
+    <!-- Web Push Notification Script -->
+    <script src="../scripts/push-notifications.js" defer></script>
+    
+    <!-- ARTICLE SCHEMA MARKUP (JSON-LD for SEO + GEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "How We Found Our AI's Breaking Point (Context Window Degradation)",
+      "alternativeHeadline": "The Context Window Crisis: Why Your AI Agent Forgets and How to Fix It",
+      "author": {
+        "@type": "Person",
+        "name": "Vinny Barreca",
+        "url": "https://phantom-byte.com",
+        "sameAs": [
+          "https://twitter.com/vinnybarreca",
+          "https://linkedin.com/in/vinnybarreca"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PhantomByte",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://articles.phantom-byte.com/images/phantombyte-logo.png"
+        }
+      },
+      "datePublished": "2026-03-08",
+      "dateModified": "2026-03-08",
+      "description": "My AI agent started forgetting things mid-session. I blamed the model—turns out I was watching the wrong metric. Here's how context window degradation broke my workflow and the dashboard solution that fixed it.",
+      "articleBody": "It was 2:13 PM on March 7, 2026, and my AI agent was acting off. Responses were getting sloppy. Instructions from earlier in the conversation were being ignored. The agent that had been crushing multi-step deployments was suddenly missing obvious details and making weird mistakes.",
+      "wordCount": "3200",
+      "timeRequired": "PT8M",
+      "proficiencyLevel": "Intermediate",
+      "articleSection": "AI Infrastructure",
+      "keywords": "context window degradation, AI agent memory, tokens vs context, OpenClaw session management, Qwen 3.5 context limit, AI dashboard, Telegram HTTP 500",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://articles.phantom-byte.com/images/article-3-main.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://articles.phantom-byte.com/how-we-found-our-ai-breaking-point"
+      }
+    }
+    </script>
+    
+    <!-- FAQ SCHEMA MARKUP (JSON-LD for GEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is context window degradation in AI agents?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Context window degradation occurs when an AI agent's active working memory exceeds its optimal threshold (typically 55,000-60,000 tokens for most models). The agent starts forgetting earlier instructions, making mistakes, and ignoring established workflows. Unlike token count (cumulative history), context size represents what the model can actively see right now."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the difference between tokens and context?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tokens are history (total words processed throughout the session). Context is now (active working memory the model can see at this moment). You can have 87,000 tokens in but only 44,000 context size. Tokens don't directly affect performance; context size does."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the safe context window size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Keep context under 50,000 for safe operation. Yellow warning zone starts at 45,000. Red danger zone begins at 55,000 where degradation becomes noticeable. Even if a model supports 128,000 context, quality degrades well before that limit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you monitor context size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Check session status before each agent turn, not just token count. Set soft limits at 45,000 tokens. Use strategic compaction to trim context while preserving token history. Build session reset tools (like a New Session button) for clean context resets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why did you build a dashboard instead of debugging Telegram?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Telegram has message length limits, image handling overhead, no persistent session management, and makes real-time context monitoring hard. A custom dashboard gives full control over uploads, direct Firestore integration, real-time session monitoring, and clean separation of concerns. Architecture beats patches."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        /* Custom styles for Article 3 - Context thresholds and tech stack boxes */
+        .context-threshold-chart {
+            background: #1a1a2e;
+            border: 2px solid #9D4EDD;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .context-threshold-chart h4 {
+            color: #00FF88;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .context-zone {
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        
+        .zone-green { background: rgba(0, 255, 136, 0.15); border-left: 4px solid #00FF88; }
+        .zone-yellow { background: rgba(255, 200, 0, 0.15); border-left: 4px solid #FFC800; }
+        .zone-orange { background: rgba(255, 140, 0, 0.15); border-left: 4px solid #FF8C00; }
+        .zone-red { background: rgba(255, 0, 0, 0.15); border-left: 4px solid #FF0000; }
+        .zone-danger { background: rgba(157, 78, 221, 0.2); border-left: 4px solid #9D4EDD; }
+        
+        .tech-stack-box {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 2px solid #00FF88;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .tech-stack-box h4 {
+            color: #00FF88;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .context-threshold-chart {
+                font-size: 0.8rem;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="../index.html" class="logo">
+                <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+            </a>
+            <nav class="main-nav">
+                <a href="https://phantom-byte.com" target="_blank">Services</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="article-main">
+        <article class="article-container">
+            <!-- Article Header -->
+            <header class="article-header">
+                <span class="article-category">AI INFRASTRUCTURE</span>
+                <h1 class="article-title">How We Found Our AI's Breaking Point (Context Window Degradation)</h1>
+                
+                <div class="article-meta">
+                    <div class="author-info">
+                        <img src="../images/author-vinny.jpg" alt="Vinny Barreca" class="author-avatar">
+                        <div class="author-details">
+                            <span class="author-name">Vinny Barreca</span>
+                            <span class="publish-date">March 8, 2026</span>
+                        </div>
+                    </div>
+                    <div class="meta-actions">
+                        <span class="read-time">8 min read</span>
+                        <button class="share-btn" aria-label="Share article">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                                <polyline points="16 6 12 2 8 6"/>
+                                <line x1="12" y1="2" x2="12" y2="15"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <figure class="article-featured-image">
+                <img src="../images/article-3-main.jpg" alt="AI context window degradation visualization - showing the breaking point at 55k-60k context">
+                <figcaption class="image-caption">The moment we discovered context degradation: 2:13 PM, March 7, 2026</figcaption>
+            </figure>
+
+            <!-- Ad Slot (Top - PerformCB) -->
+            <div class="ad-slot ad-slot-article-top">
+                <div class="ad-performcb" data-campaign-id="6029657" data-subid="PB_ARTICLE_CONTEXT_TOP_2026">
+                    <a href="https://noklnk.com/x/6029657?subid1=PB_ARTICLE_CONTEXT_TOP_2026&subid2=&subid3=&subid4=&subid5=&subid6=&subid7=&subid8=&subid9=&subid10=&subid11=&subid12=&subid13=&subid14=&subid15=&subid16=&creative_id=&source_id=&google_aid=&ios_ifa=&creative_name=" target="_blank" rel="nofollow sponsored">
+                        <div class="ad-creative" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 24px; border-radius: 12px; border: 2px solid #00FF88; box-shadow: 0 4px 15px rgba(157, 78, 221, 0.3);">
+                            <p style="font-size: 0.7rem; color: #00FF88; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">&#9749; Sponsored</p>
+                            <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.4rem; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Compare Best Personal Loans</h4>
+                            <p style="margin: 0 0 16px 0; font-size: 1rem; line-height: 1.6; color: #f0f0f0; font-weight: 400;">Get the funding you need with competitive rates starting at 5.99% APR. Quick online application, no impact to credit score for checking.</p>
+                            <div style="text-align: center;">
+                                <span style="display: inline-block; padding: 12px 24px; background: #00FF88; color: #1a1a2e; border-radius: 6px; text-decoration: none; font-weight: 800; font-size: 1rem; box-shadow: 0 4px 12px rgba(0, 255, 136, 0.4); transition: transform 0.2s; margin-bottom: 8px;">&#128640; Check Your Rate Free</span>
+                                <p style="margin: 0; font-size: 0.85rem; color: #c9b1ff; font-weight: 500;">&#10004; Get the funding you need with competitive rates starting at 5.99% APR. Quick online application, no impact to credit score for checking.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Article Body -->
+            <div class="article-body">
+                <!-- Introduction -->
+                <p class="lead-paragraph">
+                    It was 2:13 PM on March 7, 2026, and my AI agent was acting off.
+                </p>
+
+                <p>
+                    Responses were getting sloppy. Instructions from earlier in the conversation were being ignored. The agent that had been crushing multi-step deployments was suddenly missing obvious details and making weird mistakes.
+                </p>
+
+                <p>
+                    Here is the embarrassing part: I did not even realize tokens and context could be different numbers. I knew they applied to different things conceptually, but I assumed they would scale together. If I used 200,000 tokens, I figured my context window would also be around 200,000.
+                </p>
+
+                <p>
+                    Wrong.
+                </p>
+
+                <p>
+                    The wake up call came when Qwen suggested something we were talking about would make a great "first article", except we had already written two articles. It mentioned both of them in the same session. That is when it hit me.
+                </p>
+
+                <p>
+                    When I asked it to find the articles, it could, but only after going back and rereading instructions and raising the context window. The agent had literally forgotten what we had already built together.
+                </p>
+
+                <p>
+                    My first assumption was token count. We had racked up 87,000 tokens in the session, and that number felt scary. I figured context and tokens went up at the same rate. They do not. Not even close. Especially if you build a dashboard like ours, which limits back and forth and keeps context window lower.
+                </p>
+
+                <p>
+                    The moment of truth came when I checked the session status properly. The real metric that mattered was not the 87,000 tokens, it was the 44,000 context size.
+                </p>
+
+                <p>
+                    Later, my agent and I did a test: we passed an outline back and forth using a test file, just sharing the pathway. We did 700,000 tokens worth of work with only 35,000 in context tokens. That is when it clicked.
+                </p>
+
+                <p>
+                    Here is what I learned: <strong>tokens are history. Context is now.</strong> I was watching the wrong number.
+                </p>
+
+
+                <!-- The Discovery -->
+                <h2>The Discovery: 55,000 to 60,000 Context Is Where Forgetting Begins</h2>
+                
+                <p>
+                    After deliberately testing different context sizes, I found the threshold:
+                </p>
+
+                <p>
+                    <strong>At 55,000 to 60,000 context, quality starts degrading.</strong>
+                </p>
+
+                <p>
+                    Not a crash. Not a hard failure. Just gradual decay. The agent starts forgetting earlier instructions. Responses become less coherent. Tasks that should be simple suddenly require reexplanation.
+                </p>
+
+                <p>
+                    The key distinction I missed:
+                </p>
+
+                <p>
+                    <strong>Tokens in</strong> (87,000 in our session): cumulative throughput, total words processed. This is history, it does not directly affect performance. When you go this high, you must make sure prompts are super clear and direct. It is still workable, but it is safest to hit "new session" before 50,000. Doing that keeps everything smooth.
+                </p>
+
+                <p>
+                    <strong>Context size</strong> (44,000 in our session): active working memory, what the model can actually see right now. This is what matters.
+                </p>
+
+                <p>
+                    Tokens are like total bytes downloaded while you are browsing the web. Context is your RAM usage right now. You can download 100 GB over a day (tokens), but if your RAM hits 95 percent (context), everything slows to a crawl.
+                </p>
+
+                <p>
+                    <strong>Safe operating zone: keep context under about 50,000. Yellow light at 45,000. Red light at 55,000.</strong>
+                </p>
+
+
+                <!-- What Degradation Actually Looked Like -->
+                <h2>What Degradation Actually Looked Like</h2>
+
+                <p>
+                    I did not notice it immediately. That is the thing about context degradation, it is subtle.
+                </p>
+
+                <p>
+                    The first sign is technically laziness. But here is the problem: it is not always easy to tell if it is genuine laziness, or if there is truly an issue with the tech.
+                </p>
+
+                <p>
+                    Example: I uploaded an image and the agent told me it could not see it. Then it said if it tried hard enough, it could. It turned out there was a known image issue with Telegram that was crashing our system. The agent was making excuses for a technical limitation.
+                </p>
+
+                <p>
+                    The agent did not crash. It did not throw an error. It just started forgetting.
+                </p>
+
+                <ul>
+                    <li>Instructions from 20 messages ago: ignored</li>
+                    <li>File paths we had established earlier: made up</li>
+                    <li>Multistep workflows: half completed</li>
+                </ul>
+
+                <p>
+                    If you are not really paying attention, the early signs of degradation will go unnoticed until it gets so bad there is an epic screwup. And just to be clear: this is human user error, not the machine. It is important to understand the abilities and the limitations of your setup.
+                </p>
+
+                <p>
+                    I tested it deliberately: pushed context to 40,000, then 45,000, then 50,000, then 55,000. The drop was real. At 55,000 and higher, responses became noticeably worse.
+                </p>
+
+                <p>
+                    The scary part is that if you do not know what to look for, you would think the model itself was getting dumber. You would blame the AI. You would switch models. You would pay for a better plan.
+                </p>
+
+                <p>
+                    But the model was not the problem. I was exceeding its working memory.
+                </p>
+
+
+                <!-- The Tokens vs Context Distinction -->
+                <h2>The Tokens vs Context Distinction (This Is the Important Part)</h2>
+
+                <!-- In-Article Image -->
+                <figure class="article-image article-image-right">
+                    <img src="../images/article-3-inside.png" alt="Context window degradation visualization showing the threshold where AI quality drops">
+                    <figcaption>The slow death of an AI agent. Same session. No boundaries. Total collapse.</figcaption>
+                </figure>
+
+                <p>
+                    Let us make this crystal clear, because it took me way too long to figure out:
+                </p>
+
+                <p>
+                    <strong>Tokens are history. Context is now. Watch the right one.</strong>
+                </p>
+
+                <p>
+                    Here is the deal: 87,000 tokens in, 44,000 context is still fine, as long as Telegram errors do not derail the session. And you cannot allow too many errors in Telegram or it will take down the entire session. This is where the dashboard bypassing Telegram is key.
+                </p>
+
+                <p>
+                    You can use as many tokens as you can afford to pay for, as long as you do not push the context window. And if you do what I did and create a system that auto saves in an emergency, you can simply start a new session and pick up where you left off.
+                </p>
+
+
+                <!-- Why Context Monitoring Should Be Day One -->
+                <h2>Why Context Monitoring Should Be Day One</h2>
+
+                <p>
+                    Here is what I should have done from the start:
+                </p>
+
+                <ul>
+                    <li>Monitor context size before every agent turn (not tokens, context)</li>
+                    <li>Set soft limits at 45,000; this is the best insurance policy you can have</li>
+                    <li>Hard cap before model limits; just because the model supports 128,000 does not mean you should use it</li>
+                    <li>Use compaction strategically: trim context while preserving token history</li>
+                </ul>
+
+                <p>
+                    The better you are at reading the early signs, the smoother everything goes. As the agent degrades, user frustration increases. As the user gets frustrated, prompt clarity goes out the window, and that is when things get messy.
+                </p>
+
+                <p>
+                    Do not let your context window go past 50 percent and this will never be a problem.
+                </p>
+
+                <p>
+                    We did not do any of this. I learned the hard way.
+                </p>
+
+                <p>
+                    Now context monitoring is baked into everything we build. It is day one infrastructure, not an afterthought.
+                </p>
+
+
+                <!-- The Dashboard Solution -->
+                <h2>The Dashboard Solution: How We Architected Our Way Out</h2>
+
+                <h3>The Problem That Started It All</h3>
+
+                <p>
+                    Remember that 2:13 PM crash on March 7? Here is what actually happened:
+                </p>
+
+                <p>
+                    What prompted the dashboard was when I tried showing Qwen three frontier AI models. They were claiming a link to our website was broken when it was not and could not count words in an article. Only Grok got it right.
+                </p>
+
+                <p>
+                    When I went to share the four images with my agent to prove the point, I crashed our system.
+                </p>
+
+                <p>
+                    That is when I realized we could use this dashboard to solve our Telegram HTTP 500 issue and our context issue at the same time.
+                </p>
+
+                <p>
+                    This is solved by bypassing Telegram when we are doing tool calling. It is the tool calling that is crashing the Telegram API. That is a huge issue when you are in the middle of a project, so it only made sense to bypass Telegram.
+                </p>
+
+                <p>
+                    When we did that, we had no errors, got a lot done, high token use and low context use. And it is a way to share information without adding token usage to the session that increases with every message. That information will not get read every message as it would have if sent through chat or Telegram.
+                </p>
+
+                <p>
+                    In fact, my token usage is down 55 percent. That is partly because this is far more efficient, and we are not chasing Telegram bugs every five minutes. Now when I see Telegram errors, I laugh and say, "thank God for the dashboard."
+                </p>
+
+                <p>
+                    It turned out to be a little of both: an image handling bug and a context degradation limit. Two separate problems, both very annoying. The best part is that with a clear head, the solution is simple.
+                </p>
+
+
+                <!-- Why We Chose Dashboard plus Firestore -->
+                <h3>Why We Chose Dashboard plus Firestore Over Debugging Telegram</h3>
+
+                <p>
+                    We had a choice: spend hours debugging Telegram's image handling, or build something better.
+                </p>
+
+                <p>
+                    We chose "build something better."
+                </p>
+
+                <p>
+                    <strong>Telegram's limitations:</strong>
+                </p>
+
+                <ul>
+                    <li>Message length limits</li>
+                    <li>Image handling overhead</li>
+                    <li>No persistent session management</li>
+                    <li>Hard to track context size in real time</li>
+                </ul>
+
+                <p>
+                    <strong>Dashboard advantages:</strong>
+                </p>
+
+                <ul>
+                    <li>Full control over upload handling</li>
+                    <li>Direct Firestore integration</li>
+                    <li>Real time session monitoring</li>
+                    <li>Clean separation of concerns</li>
+                </ul>
+
+                <p>
+                    Here is another thing: frustration causes user degradation, which is just as bad as AI degradation. It leads to poorly written prompts and more confusion for both AI and human user.
+                </p>
+
+
+                <!-- The Hybrid Workflow -->
+                <h3>The Hybrid Workflow (Best of Both Worlds)</h3>
+
+                <p>
+                    We did not abandon Telegram. We just gave each tool the job it is good at:
+                </p>
+
+                <ul>
+                    <li><strong>Telegram:</strong> quick commands, works on bad connections, instant access on your phone</li>
+                    <li><strong>Dashboard:</strong> heavy uploads, session creation, file attachments, status monitoring</li>
+                </ul>
+
+                <p>
+                    <strong>Philosophy: right tool for each job. Do not force one solution everywhere.</strong>
+                </p>
+
+
+                <!-- Dashboard Features -->
+                <h3>Dashboard Features (The "Smooth as Glass" Moment)</h3>
+
+                <p>
+                    Here is what we built:
+                </p>
+
+                <ul>
+                    <li><strong>Upload form:</strong> drag and drop files, images, text, with no Telegram size limits</li>
+                    <li><strong>Project gallery:</strong> visual overview of all projects with status</li>
+                    <li><strong>New Session button:</strong> clean context reset with one click</li>
+                    <li><strong>Status button:</strong> real time tokens and context window tracking</li>
+                    <li><strong>Firestore backend:</strong> persistent state, soft deletes, full audit trail</li>
+                    <li><strong>Hybrid architecture:</strong> Telegram for chat, dashboard for heavy lifting</li>
+                </ul>
+
+                <p>
+                    This is one more reason your AI agent should be connected to a database like Firestore.
+                </p>
+
+
+                <!-- How We Built It -->
+                <h3>How We Built It (Technical Breakdown)</h3>
+
+                <p>
+                    No framework bloat. No overengineering. Just solve the problem:
+                </p>
+
+                <ul>
+                    <li><strong>Frontend:</strong> vanilla HTML and JavaScript</li>
+                    <li><strong>Backend:</strong> Node.js and Express server</li>
+                    <li><strong>Database:</strong> Firebase Firestore (serverless, scalable)</li>
+                    <li><strong>Auth:</strong> Firebase Admin SDK (service account)</li>
+                    <li><strong>Deployment:</strong> Google Cloud Run (autoscaling, SSL)</li>
+                    <li><strong>File storage:</strong> Cloud Run container uploads (simple, no extra services)</li>
+                </ul>
+
+                <p>
+                    <strong>Key design decision: keep it simple. Solve the problem, do not try to build a startup.</strong>
+                </p>
+
+
+                <!-- The Build Process -->
+                <h3>The Build Process (Lessons Learned)</h3>
+
+                <ul>
+                    <li>Started with dashboard sandbox for testing</li>
+                    <li>Iterated on upload handling (file size validation, MIME types)</li>
+                    <li>Built soft delete system (48 hour retention, recoverable)</li>
+                    <li>Added real time status tracking (tokens, context size)</li>
+                    <li>Deployed to Cloud Run with custom domain</li>
+                    <li>Integrated with existing Firebase project</li>
+                </ul>
+
+
+                <!-- What This Solved -->
+                <h3>What This Solved</h3>
+
+                <ul>
+                    <li>No more HTTP 500 errors from images: dashboard handles uploads properly</li>
+                    <li>Context monitoring built in: Status shows real time context size</li>
+                    <li>Session management: New Session button for clean resets</li>
+                    <li>File persistence: everything stored in Firestore with metadata</li>
+                    <li>Hybrid flexibility: use Telegram for quick stuff, dashboard for heavy work</li>
+                </ul>
+
+
+                <!-- The Key Insight -->
+                <h3>The Key Insight</h3>
+
+                <p>
+                    Sometimes the fix is not tweaking the broken thing, it is building the right system.
+                </p>
+
+                <p>
+                    Sometimes it is also a matter of learning how to use what you have built.
+                </p>
+
+                <p>
+                    Instead of debugging Telegram image handling endlessly, we built a dashboard that does uploads properly. Instead of fighting context bloat, we built session management tools.
+                </p>
+
+                <p>
+                    <strong>Architecture beats patches.</strong>
+                </p>
+
+
+                <!-- Session Reset Strategy plus Auto Save -->
+                <h2>Session Reset Strategy plus Auto Save</h2>
+
+                <h3>The Auto Save Rule (Every 15 Minutes)</h3>
+
+                <p>
+                    During active work, I now save progress every 15 minutes to memory/YYYY-MM-DD.md.
+                </p>
+
+                <p>
+                    <strong>Why?</strong> Because sessions can crash. Context can degrade. And you do not want to lose hours of work.
+                </p>
+
+                <p>
+                    <strong>What I save:</strong>
+                </p>
+
+                <ul>
+                    <li>Current state</li>
+                    <li>URLs and endpoints</li>
+                    <li>Pending tasks</li>
+                    <li>Errors encountered and fixes applied</li>
+                </ul>
+
+                <p>
+                    This enables safe session restarts without losing work. It also prevents token bloat and hallucinations from long contexts.
+                </p>
+
+
+                <h3>When to Reset Session</h3>
+
+                <p>
+                    The more information you have, the easier it is to make good decisions:
+                </p>
+
+                <ul>
+                    <li>Context approaching 45,000 (yellow zone)</li>
+                    <li>Starting a new major task</li>
+                    <li>After two to three hours of continuous work</li>
+                    <li>Before or after deployments</li>
+                </ul>
+
+
+                <h3>How to Reset Efficiently</h3>
+
+                <ol>
+                    <li>Save current state to memory file</li>
+                    <li>Note current status, URLs, and pending tasks</li>
+                    <li>Use /new or the New Session button</li>
+                    <li>Reload context from the memory file</li>
+                    <li>Verify session status (context should be under 5,000)</li>
+                </ol>
+
+
+                <h3>Token Burn Savings</h3>
+
+                <p>
+                    Clean context means fewer tokens per response. No resending the entire history.
+                </p>
+
+                <p>
+                    Here are the real numbers: last week I was at 90 percent of weekly token usage. This week we did 10 times more work and only used 44 percent of our weekly usage with 17 hours to go.
+                </p>
+
+                <p>
+                    <strong>Typical savings: 60 to 80 percent token reduction per turn.</strong>
+                </p>
+
+                <p>
+                    Cost impact: significant for high volume usage.
+                </p>
+
+                <p>
+                    And honestly, I am running a huge model that is super efficient. Qwen 3.5, 397 billion parameters, which only runs at 17 billion. Honestly, it is the most impressive model I have used. I do not get paid to say that either, it is just that good.
+                </p>
+
+
+                <!-- Practical Takeaways -->
+                <h2>Practical Takeaways (Checklist)</h2>
+
+                <h3>Monitoring Checklist</h3>
+
+                <ul>
+                    <li>&#9744; Context size before each agent turn (stay under 45,000)</li>
+                    <li>&#9744; Token count (does not matter, but good to track)</li>
+                    <li>&#9744; Response quality (coherence, task completion)</li>
+                    <li>&#9744; Gateway error logs (HTTP 500s, timeouts)</li>
+                    <li>&#9744; Memory usage trends</li>
+                </ul>
+
+                <h3>Architecture Checklist</h3>
+
+                <ul>
+                    <li>&#9744; Use dashboard for heavy uploads (images, files)</li>
+                    <li>&#9744; Use Telegram for quick commands</li>
+                    <li>&#9744; Store configs in Firestore (not just prompts)</li>
+                    <li>&#9744; Implement auto save every 15 minutes</li>
+                    <li>&#9744; Build session reset into workflow</li>
+                    <li>&#9744; Monitor context size, not just tokens</li>
+                </ul>
+
+
+                <!-- The Numbers -->
+                <h2>The Numbers (For the Nerds)</h2>
+
+                <div class="context-threshold-chart">
+                    <h4>Context Size Thresholds</h4>
+                    <div class="context-zone zone-green">&#10122;&#65039; 0 to 40,000: green zone (safe)</div>
+                    <div class="context-zone zone-yellow">&#10122;&#65039; 40,000 to 45,000: yellow zone (monitor)</div>
+                    <div class="context-zone zone-orange">&#10122;&#65039; 45,000 to 50,000: orange zone (approaching limit)</div>
+                    <div class="context-zone zone-red">&#10122;&#65039; 50,000 to 55,000: red zone (degradation starts)</div>
+                    <div class="context-zone zone-danger">&#10122;&#65039; 55,000 and higher: danger zone (forgetting likely)</div>
+                </div>
+
+                <div class="tech-stack-box">
+                    <h4>Dashboard Tech Stack</h4>
+                    <ul>
+                        <li><strong>Frontend:</strong> vanilla HTML and JavaScript</li>
+                        <li><strong>Backend:</strong> Node.js and Express</li>
+                        <li><strong>Database:</strong> Firebase Firestore</li>
+                        <li><strong>Auth:</strong> Firebase Admin SDK</li>
+                        <li><strong>Deployment:</strong> Google Cloud Run</li>
+                        <li><strong>Storage:</strong> container uploads</li>
+                    </ul>
+                </div>
+
+
+                <!-- What Is Next -->
+                <h2>What Is Next</h2>
+
+                <p>
+                    This article came from six hours of debugging and architecture redesign. It is real. It is tested. It works.
+                </p>
+
+                <p>
+                    Article 4 in this series covers the Telegram setup, how we integrated it with the dashboard, webhook configuration, and why the hybrid model is the way to go.
+                </p>
+
+                <p>
+                    Article 5 dives into AI orchestration, how we got it wrong four times before landing on the current architecture.
+                </p>
+
+
+                <!-- Support Independent Technical Writing -->
+                <div class="article-email-signup">
+                    <h3>Support Independent Technical Writing</h3>
+                    <p>
+                        This is not generic AI slop. These are lessons learned from actually building and breaking things.
+                    </p>
+                    <p>
+                        If this helped you:
+                    </p>
+                    <ul>
+                        <li><strong>Buy me a coffee:</strong> <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank">https://buymeacoffee.com/DrVincentSativa</a></li>
+                        <li><strong>Join the email list:</strong> get the "Context Monitoring Checklist" free download</li>
+                        <li><strong>GitHub:</strong> dashboard code will be open sourced soon</li>
+                    </ul>
+                </div>
+
+
+                <!-- Key Takeaways -->
+                <div class="key-takeaways">
+                    <h3>&#128273; Key Takeaways</h3>
+                    <ul>
+                        <li><strong>Tokens &#8800; Context:</strong> Tokens are history (cumulative), context is now (active working memory). Watch context size, not token count.</li>
+                        <li><strong>55k is the breaking point:</strong> Quality degrades at 55,000-60,000 context size. Stay under 50,000 for safety.</li>
+                        <li><strong>Dashboard solves everything:</strong> Bypassing Telegram for tool calling eliminated HTTP 500 errors AND reduced token usage by 55%.</li>
+                        <li><strong>Auto-save every 15 minutes:</strong> Sessions can crash. Context can degrade. Save your work.</li>
+                        <li><strong>Architecture beats patches:</strong> Don't debug broken things endlessly. Build the right system instead.</li>
+                    </ul>
+                </div>
+
+
+                <!-- What We Learned -->
+                <div class="what-we-learned">
+                    <h2>&#128161; What We Learned</h2>
+                    <p>
+                        Context window degradation is real, subtle, and easily confused with model stupidity. The agent doesn't crash or error—it just starts forgetting.
+                    </p>
+                    <p>
+                        The solution isn't a better model or more tokens. It's monitoring the right metric (context size, not token count), building session management tools, and architecting systems that prevent the problem in the first place.
+                    </p>
+                    <p>
+                        The dashboard we built to solve Telegram HTTP 500 errors turned out to be the perfect solution for context monitoring too. Sometimes the fix for one problem solves three others you didn't even know you had.
+                    </p>
+                </div>
+
+
+                <!-- Buy Me a Coffee CTA -->
+                <div class="coffee-cta">
+                    <p>Enjoyed this article?</p>
+                    <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn-large" style="display: inline-block; padding: 16px 32px; background: linear-gradient(135deg, #FFDD00 0%, #FFC800 100%); color: #1a1a2e; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 1.1rem; box-shadow: 0 4px 12px rgba(255, 221, 0, 0.4); margin: 1rem 0;">
+                        <span>&#9749;</span> Buy Me a Coffee
+                    </a>
+                    <p class="coffee-subtext">Support PhantomByte and keep the content coming!</p>
+                </div>
+
+
+                <!-- Share/Related Section -->
+                <div class="article-footer">
+                    <div class="share-section">
+                        <h3>Share this article</h3>
+                        <div class="share-buttons">
+                            <button class="share-btn-twitter">Twitter</button>
+                            <button class="share-btn-facebook">Facebook</button>
+                            <button class="share-btn-linkedin">LinkedIn</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad Slot (Bottom - PerformCB) -->
+            <div class="ad-slot ad-slot-article-bottom">
+                <div class="ad-performcb" data-campaign-id="6029657" data-subid="PB_ARTICLE_CONTEXT_BOTTOM_2026">
+                    <a href="https://noklnk.com/x/6029657?subid1=PB_ARTICLE_CONTEXT_BOTTOM_2026&subid2=&subid3=&subid4=&subid5=&subid6=&subid7=&subid8=&subid9=&subid10=&subid11=&subid12=&subid13=&subid14=&subid15=&subid16=&creative_id=&source_id=&google_aid=&ios_ifa=&creative_name=" target="_blank" rel="nofollow sponsored">
+                        <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; border: 2px solid #9D4EDD; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25);">
+                            <p style="font-size: 0.7rem; color: #9D4EDD; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">&#9889; Partner Offer</p>
+                            <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Compare Best Personal Loans</h4>
+                            <p style="margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.5; color: #e0e0e0; font-weight: 400;">Get the funding you need with competitive rates starting at 5.99% APR. Quick online application, no impact to credit score for checking.</p>
+                            <div style="text-align: center;">
+                                <span style="display: inline-block; padding: 11px 22px; background: linear-gradient(90deg, #00FF88 0%, #00cc6a 100%); color: #0a0a1a; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(0, 255, 136, 0.35); margin-bottom: 8px;">Check Your Rate</span>
+                                <p style="margin: 0; font-size: 0.8rem; color: #a8a8c9; font-weight: 500;">&#128274; Free to start</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+                    </div>
+                    <p class="tagline">Code from the shadows</p>
+                    <div class="footer-cta">
+                        <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn">
+                            &#9749; Buy Me a Coffee
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="https://phantom-byte.com" target="_blank">Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-connect">
+                    <h4>Connect</h4>
+                    <p>Push notifications enabled</p>
+                    <button class="enable-push-btn" id="enablePushBtn">Enable Notifications</button>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&#169; 2026 PhantomByte. All rights reserved.</p>
+                <p class="privacy-links">
+                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../scripts/ad-manager.js" defer></script>
+    <script src="../scripts/email-signup.js" defer></script>
+    <script src="../scripts/share-buttons.js" defer></script>
+</body>
+</html>

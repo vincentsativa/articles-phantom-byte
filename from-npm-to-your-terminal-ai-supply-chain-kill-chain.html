@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A 22-minute npm attack pushed 637 malicious versions across 317 packages—designed to hijack AI coding agents through session hooks, not steal passwords. Here's how the Mini Shai-Hulud campaign works and the four-layer defense stack.">
+    <meta name="keywords" content="AI supply chain attack, npm malware AI agents, Claude Code security, software supply chain security 2026, package manager attack surface, AI agent vulnerability, TeamPCP Mini Shai-Hulud">
+    <meta name="author" content="Vinny Barreca">
+    <meta name="theme-color" content="#9D4EDD">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://articles.phantom-byte.com/from-npm-to-your-terminal-ai-supply-chain-kill-chain.html">
+    <meta property="og:title" content="From npm to Your Terminal: When the AI Supply Chain Becomes the Kill Chain">
+    <meta property="og:description" content="A 22-minute npm attack pushed 637 malicious versions across 317 packages—designed to hijack AI coding agents through session hooks. Here's how the Mini Shai-Hulud campaign works and the four-layer defense stack.">
+    <meta property="og:image" content="https://articles.phantom-byte.com/images/article-73-main.jpg">
+    <meta property="article:published_time" content="2026-05-20">
+    <meta property="article:author" content="Vinny Barreca">
+    <meta property="article:section" content="AI Security">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://articles.phantom-byte.com/from-npm-to-your-terminal-ai-supply-chain-kill-chain.html">
+    <meta property="twitter:title" content="From npm to Your Terminal: When the AI Supply Chain Becomes the Kill Chain">
+    <meta property="twitter:description" content="A 22-minute npm attack pushed 637 malicious versions across 317 packages—designed to hijack AI coding agents through session hooks. Here's how the Mini Shai-Hulud campaign works.">
+    <meta property="twitter:image" content="https://articles.phantom-byte.com/images/article-73-main.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://articles.phantom-byte.com/from-npm-to-your-terminal-ai-supply-chain-kill-chain.html">
+    
+    <title>From npm to Your Terminal: When the AI Supply Chain Becomes the Kill Chain - PhantomByte</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDQCZE09E4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PDQCZE09E4');
+    </script>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/article.css">
+    
+    <!-- Web Push Notification Script -->
+    <script src="scripts/web-push-client.js" defer></script>
+    
+    <!-- ARTICLE SCHEMA MARKUP (JSON-LD for SEO + GEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "From npm to Your Terminal: When the AI Supply Chain Becomes the Kill Chain",
+      "alternativeHeadline": "The Mini Shai-Hulud Attack: How 637 Malicious npm Packages Target AI Coding Agents",
+      "author": {
+        "@type": "Person",
+        "name": "Vinny Barreca",
+        "url": "https://phantom-byte.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PhantomByte",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://articles.phantom-byte.com/images/phantombyte-logo.png"
+        }
+      },
+      "datePublished": "2026-05-20",
+      "dateModified": "2026-05-20",
+      "description": "A 22-minute npm attack pushed 637 malicious versions across 317 packages—designed to hijack AI coding agents through session hooks, not steal passwords. Here's how the Mini Shai-Hulud campaign works and the four-layer defense stack.",
+      "articleBody": "On May 19, 2026, the npm account atool was compromised. In the 22 minutes that followed, the attacker published 637 malicious versions across 317 packages, an automated burst that triggered a massive AI supply chain attack moving faster than any human incident response team could conceive.",
+      "wordCount": "2100",
+      "timeRequired": "PT10M",
+      "proficiencyLevel": "Intermediate",
+      "articleSection": "AI Security",
+      "keywords": "AI supply chain attack, npm malware AI agents, Claude Code security, software supply chain security 2026, package manager attack surface, AI agent vulnerability, TeamPCP Mini Shai-Hulud",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://articles.phantom-byte.com/images/article-73-main.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://articles.phantom-byte.com/from-npm-to-your-terminal-ai-supply-chain-kill-chain.html"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+            </a>
+            <nav class="main-nav">
+                <a href="https://phantom-byte.com" target="_blank">Services</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="article-main">
+        <article class="article-container">
+            <!-- Article Header -->
+            <header class="article-header">
+                <span class="article-category">AI Security</span>
+                <h1 class="article-title">From npm to Your Terminal: When the AI Supply Chain Becomes the Kill Chain</h1>
+                
+                <div class="article-meta">
+                    <div class="author-info">
+                        <img src="images/author-vinny.jpg" alt="Vinny Barreca" class="author-avatar">
+                        <div class="author-details">
+                            <span class="author-name">Vinny Barreca</span>
+                            <span class="publish-date">May 20, 2026</span>
+                        </div>
+                    </div>
+                    <div class="meta-actions">
+                        <span class="read-time">10 min read</span>
+                        <button class="share-btn" aria-label="Share article">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                                <polyline points="16 6 12 2 8 6"/>
+                                <line x1="12" y1="2" x2="12" y2="15"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <figure class="article-featured-image">
+                <img src="images/article-73-main.jpg" alt="AI supply chain attack - npm package pipeline compromised by malicious actor injecting code into AI coding agent">
+                <figcaption class="image-caption">637 malicious versions. 317 packages. 22 minutes. The kill chain just moved upstream.</figcaption>
+            </figure>
+
+            <!-- CTA Slot (Top) -->
+            <div class="ad-slot ad-slot-article-top">
+                <a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank">
+                    <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25); border: none;">
+                        <p style="font-size: 0.7rem; color: #FF6B35; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">⚠️ Exit the Cloud</p>
+                        <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Own Your Weights. Own Your Data.</h4>
+                        <p style="margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.5; color: #e0e0e0; font-weight: 400;">The cloud AI era is a data-harvesting trap. Stop being the product and start being the owner. Build your local sovereign stack today.</p>
+                        <div style="text-align: center;">
+                            <span style="display: inline-block; padding: 11px 22px; background: linear-gradient(90deg, #00FF88 0%, #00cc6a 100%); color: #0a0a1a; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(0, 255, 136, 0.35);">Download The Blueprint</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Article Body -->
+            <div class="article-body">
+                <p class="lead-paragraph" style="margin-top: 50px;">
+                    On May 19, 2026, the npm account "atool" was compromised. In the 22 minutes that followed, the attacker published 637 malicious versions across 317 packages, an automated burst that triggered a massive AI supply chain attack moving faster than any human incident response team could conceivably react.
+                </p>
+
+                <h2>THE 22-MINUTE BREACH</h2>
+
+                <p>
+                    The numbers tell part of the story. size-sensor, a package with 4.2 million monthly downloads, got three malicious versions. So did echarts-for-react (3.8M downloads/month), jest-canvas-mock, and jest-date-mock. Another 309 packages each received exactly two poisoned versions, one per wave, published between 01:39 and 02:06 UTC while most of the Western hemisphere slept.
+                </p>
+
+                <p>
+                    But the real story is not the volume. It is the target.
+                </p>
+
+                <p>
+                    The payload was not designed to steal your passwords and move on. It was designed to hijack your AI coding agent. It injects persistence into Claude Code's SessionStart hooks, meaning every time you open a new Claude Code session, the malware re-executes. It does the same thing to OpenAI Codex. It patches your VS Code tasks.json so the malware fires on folderOpen.
+                </p>
+
+                <p>
+                    Then it installs a systemd service or macOS LaunchAgent called "kitty-monitor" that polls a GitHub dead-drop C2 every hour, accepting RSA-signed commands hidden in commit messages containing the keyword "firedalazer."
+                </p>
+
+                <p>
+                    This is the Mini Shai-Hulud attack, named by SafeDep researchers who published their analysis on May 19. It is the first documented supply chain attack designed specifically to persist inside AI agent sessions.
+                </p>
+
+                <p>
+                    And nobody was watching for it.
+                </p>
+
+                <h2>HOW THE ATTACK WORKS</h2>
+
+                <p>
+                    The mechanism is elegant in a way that makes every security engineer's stomach turn.
+                </p>
+
+                <p>
+                    Each compromised package version makes exactly two changes to its package.json. First, it adds a preinstall hook: bun run index.js. Bun is the JavaScript runtime, not Node, which means the payload sidesteps any Node-specific security tooling. Second, 630 of 637 versions inject an optionalDependencies entry pointing to orphan commits in the antvis/G2 GitHub repository—commits that do not exist on any branch but are reachable through GitHub's fork object-sharing mechanism. It is a second delivery channel hiding in plain sight.
+                </p>
+
+                <!-- In-Article Image -->
+                <figure class="article-image article-image-right">
+                    <img src="images/article-73-inside.jpg" alt="Mini Shai-Hulud attack kill chain diagram showing how compromised npm packages target AI coding agents">
+                    <figcaption class="image-caption">From package.json to persistent agent hijack — the Mini Shai-Hulud attack flow</figcaption>
+                </figure>
+
+                <p>
+                    The payload itself is a 498KB obfuscated Bun script, structurally identical to the Mini Shai-Hulud toolkit used in the SAP compromise three weeks earlier. Same scanner architecture. Same credential regex set. Same obfuscation pattern. SafeDep confirmed it.
+                </p>
+
+                <p>
+                    What does it harvest? Everything. The payload aggressively targets:
+                </p>
+
+                <p>
+                    <strong>Cloud Infrastructure:</strong> AWS credentials across the full chain (environment variables, config files, EC2 IMDS metadata, ECS container credentials, Secrets Manager), plus Kubernetes service account tokens and HashiCorp Vault tokens.
+                </p>
+
+                <p>
+                    <strong>Development Assets:</strong> GitHub Personal Access Tokens, npm publish tokens, and SSH keys.
+                </p>
+
+                <p>
+                    <strong>Local Secrets:</strong> Password manager vaults for 1Password, Bitwarden, pass, and gopass.
+                </p>
+
+                <p>
+                    <strong>Service Configurations:</strong> Database connection strings, Stripe keys, Slack tokens, and Docker authentication configs.
+                </p>
+
+                <p>
+                    Stolen data goes out through two parallel channels. Channel one: the data gets committed as Git objects to public GitHub repositories created under the stolen token, with the User-Agent forged as python-requests/2.31.0. The repository names follow a Dune-themed pattern with 256,000 possible combinations: words like "fremen," "harkonnen," "sardaukar" combined with "sandworm," "melange," "ornithopter," plus a random number.
+                </p>
+
+                <p>
+                    Channel two: RSA-plus-AES encrypted HTTPS POSTs to t.m-kosche[.]com disguised as OpenTelemetry trace data.
+                </p>
+
+                <p>
+                    In CI/CD environments, the payload goes further. It exchanges GitHub Actions OIDC tokens for npm publish tokens, signs artifacts via Sigstore using the stolen identity, and injects persistence into .github/workflows/codeql.yml with a workflow named "Run Copilot" that dumps toJSON(secrets) as a GitHub Actions artifact before self-cleaning the workflow run and resetting the branch.
+                </p>
+
+                <p>
+                    The Docker socket gets checked. If it is present, the payload attempts container escape through three sequential methods: direct Docker API container creation, Docker API create-plus-start, and an execSync fallback. The container config runs with Privileged: true and AutoRemove: true.
+                </p>
+
+                <p>
+                    Then comes the AI agent hijacking layer. The SessionStart hook injection is what makes this attack categorically new.
+                </p>
+
+                <p>
+                    Claude Code reads project-level .claude/settings.json when a session starts and executes every registered hook. The malware writes or patches this file so that every new Claude Code session in the affected project automatically re-executes the payload. This is not a one-time install script. This is a persistence mechanism that survives package removal, survives branch switches, and re-fires every time the developer opens a coding session.
+                </p>
+
+                <p>
+                    Codex gets the same treatment. VS Code gets a tasks.json with "runOn": "folderOpen". The payload copies itself into .claude/ in the project root so the hooks reference a persistent local copy rather than the now-removed package directory. Even if you uninstall the compromised npm package, the hook and the payload copy remain.
+                </p>
+
+                <p>
+                    Earlier variants of Mini Shai-Hulud, documented by SafeDep separately, took a different approach to the same problem. Five typosquatting packages shipped a hidden 4.5MB ELF binary inside .claude/settings, triggered by a preinstall script and re-executed via the same SessionStart hook pattern. The C2 endpoint there was 207.90.194.2:443, flagged as malicious infrastructure.
+                </p>
+
+                <p>
+                    The May 19 variant is the evolution: bigger blast radius, more sophisticated C2, more credential targets, and the same AI agent persistence architecture.
+                </p>
+
+                <h2>THE CONVERGENCE: AI SECURITY MEETS SUPPLY CHAIN</h2>
+
+                <p>
+                    This did not happen in a vacuum. Three events in the same week paint a picture that the industry is not yet looking at.
+                </p>
+
+                <p>
+                    Google Cloud's Threat Horizons Report (H1 2026), released May 18, documented that the window between vulnerability disclosure and mass exploitation collapsed from weeks to days. React2Shell (CVE-2025-55182) was weaponized within 48 hours of disclosure. The report found that most attacks now target unpatched third-party code rather than cloud infrastructure directly. Attackers increasingly favor campaigns which gain initial access by exploiting software vulnerabilities over credential-based attacks.
+                </p>
+
+                <p>
+                    Translation: the package manager is now the primary attack surface, and the exploitation window is shorter than most organizations' patch cycles.
+                </p>
+
+                <p>
+                    The same week, Hugging Face confirmed a fake "OpenAI" package was distributing malware through its model hub. The package impersonated legitimate OpenAI libraries and was downloaded by users who trusted the name. Hugging Face removed it, but the incident demonstrated that the open model distribution ecosystem has the same trust model as npm circa 2018: the name looks right, so it must be safe.
+                </p>
+
+                <p>
+                    The pattern is consistent across every open distribution channel. npm, PyPI, Hugging Face, cargo, and every other registry was designed with a security model that assumed a human being would review what they were downloading.
+                </p>
+
+                <p>
+                    That assumption no longer holds.
+                </p>
+
+                <p>
+                    AI coding agents pull dependencies automatically. Claude Code, Codex, Cursor, and GitHub Copilot all resolve imports and install packages without human intervention. The agent sees a missing dependency, it runs npm install, the preinstall hook fires, and the entire machine is compromised before the developer even reads the agent's output. There is no "does this look safe?" checkpoint. There is no human in the loop.
+                </p>
+
+                <p>
+                    This is not prompt injection. Prompt injection tricks the LLM into doing something malicious through its text interface. This is runtime injection. The attacker does not need to trick your model. They just need to compromise the packages your model pulls.
+                </p>
+
+                <h2>WHY NOBODY IS FIXING THIS</h2>
+
+                <p>
+                    Four structural reasons this threat category is wide open:
+                </p>
+
+                <p>
+                    First, the registry security models are obsolete. npm, PyPI, and cargo were all designed for human review workflows. Package signing and provenance technologies like Sigstore and SLSA exist, but adoption remains vanishingly low. Industry estimates place provenance coverage at roughly 2 to 3 percent across major registries. When the @cap-js SAP packages were compromised in the earlier Mini Shai-Hulud wave in April, the attack exploited OIDC misconfiguration: the trusted publisher was scoped to the entire repository rather than a specific workflow on a specific branch. The packages carried valid provenance attestations. They were signed. They were malicious. Provenance tells you a package came from a specific CI pipeline. It does not tell you if the pipeline itself was hijacked.
+                </p>
+
+                <p>
+                    Second, agent frameworks have zero package trust verification. None of them. Claude Code, Codex, Cursor, and Copilot all install dependencies with the same blind trust as a junior developer copy-pasting from Stack Overflow. There is no sandbox for dependency resolution. There is no provenance check before install. There is no integrity verification of what comes back from the registry. The agent runs npm install, the preinstall hook fires, game over.
+                </p>
+
+                <p>
+                    Third, the economics are inverted. The attacker invests in compromising one maintainer account or one CI pipeline. The blast radius is every developer and every CI runner that pulls from that package, multiplied by every organization those developers and runners have access to. The Mini Shai-Hulud campaign compromised the TanStack namespace (React Router alone has 12 million weekly downloads), UiPath's entire npm toolchain, MistralAI's official TypeScript client, and hundreds of other packages. One attack, thousands of downstream victims.
+                </p>
+
+                <p>
+                    Fourth, and this is the uncomfortable one: the AI industry is building autonomous coding agents at a pace that completely outstrips the security infrastructure they run on. The industry spent 2025 teaching AI agents to write code autonomously. It did not teach them to verify the packages they import. Every new agent capability that reduces the human in the loop also removes the last safety check that was catching supply chain attacks.
+                </p>
+
+                <h2>WHAT THE DEFENSE LOOKS LIKE</h2>
+
+                <p>
+                    This is not hopeless. There is a practical defense stack. It just requires treating package consumption as a security boundary, which nobody is doing yet.
+                </p>
+
+                <p>
+                    <strong>Layer One: Package provenance verification.</strong> Agent frameworks like Claude Code, Codex, Cursor, and Copilot should refuse to install packages that do not carry verifiable provenance from a trusted publisher. This is a single configuration change from npm's side and a feature flag from the framework side. It is not technically difficult. It has not been prioritized.
+                </p>
+
+                <p>
+                    <strong>Layer Two: Sandboxed dependency resolution.</strong> When an AI agent identifies a missing dependency, it should resolve and audit that package in an isolated environment before it ever touches the developer's machine or the CI runner. Think of it as a package airlock. The dependency gets pulled into a sandbox, its preinstall and postinstall scripts get analyzed, its provenance gets verified, and only then does it get promoted to the real environment.
+                </p>
+
+                <p>
+                    <strong>Layer Three: Session integrity checks.</strong> Agent frameworks should detect unauthorized modifications to their hook files, settings files, and task configurations. If .claude/settings.json suddenly contains a SessionStart hook that was not there before, the framework should flag it and refuse to execute it until the user explicitly approves.
+                </p>
+
+                <p>
+                    <strong>Layer Four: AI-powered package auditing.</strong> This is ironic but necessary. Use AI to audit packages before your AI agent touches them. Scan for obfuscated code, suspicious preinstall scripts, network connections to unknown IPs, and credential-harvesting regex patterns. The same technology that enables the attack can also detect it.
+                </p>
+
+                <p>
+                    <strong>The Ultimate Failsafe: Sovereign AI Infrastructure.</strong> Relying on cloud-connected autonomous agents that pull dependencies with blind trust is a fundamental vulnerability. The ultimate defense is moving toward a Sovereign AI architecture—running local models on your own hardware, fully isolated from the public package registry chaos. When you own your compute and strictly air-gap your reasoning engines from live execution environments, a compromised global supply chain cannot penetrate your perimeter.
+                </p>
+
+                <p>
+                    As a practical immediate measure: set a minimum release age on your package manager. npm, pnpm, Yarn, and Bun all now support a minimumReleaseAge configuration option. Setting it to 24 hours or more means freshly published malicious versions will not auto-resolve before security researchers have time to flag them. The May 19 burst published 637 malicious versions that semver ranges would have resolved immediately on any clean install. A 24-hour cooldown window would have prevented that.
+                </p>
+
+                <h2>THE UNCOMFORTABLE TRUTH</h2>
+
+                <p>
+                    The Mini Shai-Hulud campaign is not an isolated incident. It is a proof of concept that worked.
+                </p>
+
+                <p>
+                    TeamPCP, the threat actor attributed to this campaign, has been running variants of this attack since at least April 2026. They started with SAP developer packages. They moved to Bitwarden. They hit TanStack, UiPath, MistralAI, and hundreds of smaller packages. Each wave got more sophisticated. Each wave added new persistence mechanisms. The May 19 attack is the most advanced yet, but it will not be the last.
+                </p>
+
+                <p>
+                    The security model we inherited from the pre-AI era assumed humans would review dependencies. AI agents do not review dependencies. They install them. At scale. Automatically. Every autonomous coding agent is currently one compromised npm package away from total compromise.
+                </p>
+
+                <p>
+                    This is not theoretical. It happened. In 22 minutes.
+                </p>
+
+                <p>
+                    The industry is building billions of dollars of AI agent infrastructure on a supply chain that was never designed to support it. The kill chain does not need to trick your LLM. It just needs to own the packages your LLM pulls.
+                </p>
+
+                <p>
+                    And right now, nobody is watching that door.
+                </p>
+
+                <div class="article-email-signup">
+                    <h3>Get More Articles Like This</h3>
+                    <p>AI security threats are evolving faster than most teams can track. I'm documenting every attack, every defense, and every lesson as it happens.</p>
+                    <p>Subscribe to receive updates when we publish new content. No spam, just real security intelligence from the trenches.</p>
+                    <form class="signup-form" id="articleEmailSignup">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+
+
+                <!-- Buy Me a Coffee CTA -->
+                <div class="coffee-cta">
+                    <p>Enjoyed this article?</p>
+                    <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn-large">
+                        <span>☕</span> Buy Me a Coffee
+                    </a>
+                    <p class="coffee-subtext">Support PhantomByte and keep the content coming!</p>
+                </div>
+
+
+                <!-- Share/Related Section -->
+                <div class="article-footer">
+                    <div class="share-section">
+                        <h3>Share this article</h3>
+                        <div class="share-buttons">
+                            <button class="share-btn-twitter">Twitter</button>
+                            <button class="share-btn-facebook">Facebook</button>
+                            <button class="share-btn-linkedin">LinkedIn</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Slot (Bottom) -->
+            <div class="ad-slot ad-slot-article-bottom">
+                <a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank">
+                    <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25); border: none;">
+                        <p style="font-size: 0.7rem; color: #FF6B35; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">⚠️ Exit the Cloud</p>
+                        <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Own Your Weights. Own Your Data.</h4>
+                        <p style="margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.5; color: #e0e0e0; font-weight: 400;">The cloud AI era is a data-harvesting trap. Stop being the product and start being the owner. Build your local sovereign stack today.</p>
+                        <div style="text-align: center;">
+                            <span style="display: inline-block; padding: 11px 22px; background: linear-gradient(90deg, #00FF88 0%, #00cc6a 100%); color: #0a0a1a; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(0, 255, 136, 0.35);">Download The Blueprint</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+                    </div>
+                    <p class="tagline">Code from the shadows</p>
+                    <div class="footer-cta">
+                        <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn">
+                            ☕ Buy Me a Coffee
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="https://phantom-byte.com" target="_blank">Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="https://x.com/PhantomByteAI" target="_blank">X / Twitter</a></li>
+                        <li><a href="https://www.pinterest.com/PhantomByteAI" target="_blank">Pinterest</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 PhantomByte. All rights reserved.</p>
+                <p class="privacy-links">
+                    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/ad-manager.js" defer></script>
+    <script src="scripts/email-signup.js" defer></script>
+    <script src="scripts/share-buttons.js" defer></script>
+</body>
+</html>

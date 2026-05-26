@@ -1,0 +1,330 @@
+/* ===================================
+   Articles Listing Page Styles
+   =================================== */
+
+.articles-page {
+    padding: 60px 0;
+    min-height: calc(100vh - var(--header-height) - 300px);
+}
+
+/* Hero Section */
+.articles-hero {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, var(--dark-gray) 0%, var(--black) 100%);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--purple-primary);
+}
+
+.articles-hero h1 {
+    font-size: 3rem;
+    color: var(--white);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--neon-green);
+    font-weight: 300;
+}
+
+/* Featured Article */
+.featured-article {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+    margin-bottom: 80px;
+    background: var(--dark-gray);
+    border-radius: var(--border-radius);
+    overflow: visible;
+    border: 2px solid var(--purple-primary);
+    box-shadow: 0 10px 40px var(--shadow-heavy);
+}
+
+.featured-image {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+}
+
+.featured-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    display: block;
+    transition: var(--transition);
+}
+
+.featured-article:hover .featured-image img {
+    transform: scale(1.05);
+}
+
+.featured-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: linear-gradient(135deg, var(--neon-green) 0%, var(--neon-green-dark) 100%);
+    color: var(--black);
+    padding: 8px 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: var(--border-radius);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.featured-content {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.category-badge {
+    display: inline-block;
+    color: var(--purple-light);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+}
+
+.featured-title {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.featured-title a {
+    color: var(--white);
+}
+
+.featured-title a:hover {
+    color: var(--neon-green);
+    text-decoration: none;
+}
+
+.featured-excerpt {
+    color: var(--light-text);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.article-meta {
+    display: flex;
+    gap: 20px;
+    color: var(--gray);
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+}
+
+.article-meta .author {
+    color: var(--neon-green);
+    font-weight: 600;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 2rem;
+    color: var(--white);
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--neon-green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Articles Grid */
+.articles-grid-section {
+    margin-bottom: 80px;
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+/* Article Card */
+.article-card {
+    background: var(--dark-gray);
+    border-radius: var(--border-radius);
+    overflow: visible;
+    border: 1px solid var(--light-gray);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--purple-primary);
+    box-shadow: 0 10px 30px var(--shadow-heavy);
+}
+
+.article-card:active {
+    transform: translateY(-3px);
+}
+
+.card-image {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+}
+
+.card-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    display: block;
+    transition: var(--transition);
+}
+
+.article-card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+.card-category {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--purple-primary);
+    color: var(--white);
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: var(--border-radius);
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.card-title a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.card-title a:hover {
+    color: var(--neon-green);
+    text-decoration: none;
+}
+
+/* Make all card content clickable - remove link styling since card handles navigation */
+.card-image,
+.card-excerpt,
+.card-meta {
+    pointer-events: none;
+}
+
+.card-image img {
+    pointer-events: auto;
+}
+
+.card-excerpt {
+    color: var(--light-text);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    color: var(--gray);
+    font-size: 0.85rem;
+    padding-top: 15px;
+    border-top: 1px solid var(--light-gray);
+}
+
+.card-author {
+    color: var(--neon-green);
+    font-weight: 600;
+}
+
+/* Email Signup Section */
+.email-signup-section {
+    margin: 80px 0;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, var(--purple-dark) 0%, var(--black) 100%);
+    border-radius: var(--border-radius);
+    border: 2px solid var(--neon-green);
+    text-align: center;
+}
+
+.email-signup-section h2 {
+    font-size: 2.5rem;
+    color: var(--white);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.email-signup-section p {
+    font-size: 1.1rem;
+    color: var(--light-text);
+    margin-bottom: 30px;
+}
+
+.signup-box .signup-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+@media (max-width: 968px) {
+    .featured-article {
+        grid-template-columns: 1fr;
+    }
+    
+    .featured-image {
+        min-height: 300px;
+    }
+    
+    .featured-content {
+        padding: 30px;
+    }
+    
+    .featured-title {
+        font-size: 1.8rem;
+    }
+    
+    .articles-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .articles-hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .email-signup-section {
+        padding: 40px 20px;
+    }
+    
+    .email-signup-section h2 {
+        font-size: 2rem;
+    }
+}

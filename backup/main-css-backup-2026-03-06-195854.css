@@ -1,0 +1,333 @@
+/* ===================================
+   PhantomByte - Main Stylesheet
+   Brand Colors: Purple (#9D4EDD), Neon Green (#00FF88)
+   =================================== */
+
+/* CSS Variables */
+:root {
+    --purple-primary: #9D4EDD;
+    --purple-dark: #6A1B9A;
+    --purple-light: #BA68C8;
+    --neon-green: #00FF88;
+    --neon-green-dark: #00CC6A;
+    --black: #0a0a0a;
+    --dark-gray: #1a1a1a;
+    --medium-gray: #2a2a2a;
+    --light-gray: #3a3a3a;
+    --gray: #666666;
+    --light-text: #e0e0e0;
+    --white: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --shadow-heavy: rgba(0, 0, 0, 0.5);
+    
+    --max-width: 1200px;
+    --header-height: 70px;
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--black);
+    color: var(--light-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    color: var(--neon-green);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--purple-light);
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+    border: none;
+    outline: none;
+}
+
+/* Container */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===================================
+   Header
+   =================================== */
+.site-header {
+    background: linear-gradient(135deg, var(--purple-dark) 0%, var(--black) 100%);
+    height: var(--header-height);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--neon-green);
+    box-shadow: 0 2px 20px var(--shadow);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.logo-phantom {
+    color: var(--white);
+}
+
+.logo-byte {
+    color: var(--neon-green);
+}
+
+.main-nav {
+    display: flex;
+    gap: 30px;
+}
+
+.main-nav a {
+    color: var(--light-text);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    padding: 8px 0;
+    border-bottom: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--neon-green);
+    border-bottom-color: var(--neon-green);
+    text-decoration: none;
+}
+
+/* ===================================
+   Buttons
+   =================================== */
+button, .btn {
+    background: linear-gradient(135deg, var(--purple-primary) 0%, var(--purple-dark) 100%);
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+button:hover, .btn:hover {
+    background: linear-gradient(135deg, var(--purple-light) 0%, var(--purple-primary) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--shadow);
+    text-decoration: none;
+    color: var(--white);
+}
+
+.coffee-btn {
+    background: linear-gradient(135deg, #FFDD00 0%, #FFAA00 100%);
+    color: var(--black);
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.coffee-btn:hover {
+    background: linear-gradient(135deg, #FFAA00 0%, #FFDD00 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 221, 0, 0.4);
+    text-decoration: none;
+    color: var(--black);
+}
+
+/* ===================================
+   Footer
+   =================================== */
+.site-footer {
+    background: linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 100%);
+    border-top: 3px solid var(--purple-primary);
+    padding: 60px 0 30px;
+    margin-top: 80px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-brand .logo {
+    margin-bottom: 10px;
+}
+
+.tagline {
+    color: var(--neon-green);
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.footer-links h4,
+.footer-connect h4 {
+    color: var(--white);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--light-text);
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--neon-green);
+    padding-left: 5px;
+}
+
+.footer-connect p {
+    margin-bottom: 15px;
+    color: var(--gray);
+}
+
+.enable-push-btn {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    color: var(--light-text);
+    padding: 8px 15px;
+    background: var(--medium-gray);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.social-link:hover {
+    background: var(--purple-primary);
+    color: var(--white);
+    text-decoration: none;
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--light-gray);
+    padding-top: 30px;
+    text-align: center;
+    color: var(--gray);
+}
+
+.privacy-links {
+    margin-top: 10px;
+}
+
+.privacy-links a {
+    color: var(--gray);
+    margin: 0 10px;
+}
+
+/* ===================================
+   Ad Slots
+   =================================== */
+
+/* ===================================
+   Newsletter Signup Forms
+   =================================== */
+.signup-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.signup-form input[type="email"] {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid var(--light-gray);
+    border-radius: var(--border-radius);
+    background: var(--dark-gray);
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.signup-form input[type="email"]:focus {
+    border-color: var(--purple-primary);
+    outline: none;
+}
+
+.signup-form button {
+    white-space: nowrap;
+}
+
+.signup-disclaimer {
+    margin-top: 15px;
+    color: var(--gray);
+    font-size: 0.85rem;
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+@media (max-width: 768px) {
+    .main-nav {
+        display: none; /* Add mobile menu later */
+    }
+    
+    .signup-form {
+        flex-direction: column;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
