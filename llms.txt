@@ -6,8 +6,9 @@ PhantomByte builds custom AI tools for small businesses. Our articles cover real
 agent orchestration patterns, infrastructure lessons, and honest engineering breakdowns.
 Written by Vinny Barreca. Updated regularly.
 
-## Articles (80 total)
+## Articles (81 total)
 
+- [The 93% Problem](https://articles.phantom-byte.com/the-93-problem-ai-reasoning-waste.html): Uber's AI budget burned in 4 months. A new arXiv paper proves 93% of LLM reasoning tokens are structurally wasted. Here's why you're overpaying by 10x. (2026-05-27)
 - [Personality Jailbreak: Chatbot Security Flaw](https://articles.phantom-byte.com/the-personality-jailbreak-chatbot-character-security-vulnerability.html): AI labs made chatbots warm and human. Attackers exploit that personality via social engineering to bypass guardrails. Here's why you can't patch 'helpfulness.' (2026-05-26)
 - [Total Recall: Persistent AI Memory Lock-In](https://articles.phantom-byte.com/total-recall-persistent-ai-memory-platform-lock-in.html): Three platforms just made AI memory their headline feature. One wants to read your email. Another wants to delete your chats. None are asking what you want. (2026-05-25)
 - [The Detection Delusion: Why AI Detection Fails](https://articles.phantom-byte.com/the-detection-delusion.html): AI detection is mathematically impossible. LLMs cannot detect LLMs. The Granta Prize scandal proves it. Here's why provenance, not detection, is the future of content authenticity. (2026-05-24)
