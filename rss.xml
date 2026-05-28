@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 May 2026 05:48:37 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 28 May 2026 10:57:50 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>The Aging Agent Problem: Why Deployed AI Gets Dumber and Starts Installing Phantom Packages</title>
+      <link>https://articles.phantom-byte.com/the-aging-agent-problem.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-aging-agent-problem.html</guid>
+      <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Engineering</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Two arXiv papers and one security report prove deployed AI agents degrade over time while silently installing unverified phantom dependencies. Here&#39;s the fix.</description>
+    </item>
 
     <item>
       <title>The 93% Problem</title>
@@ -501,16 +511,6 @@
       <category>AI Engineering</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>How LLM citations are replacing traditional SEO. Learn Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO) strategies that position your content for AI discovery and drive 30-...</description>
-    </item>
-
-    <item>
-      <title>Perfect Storm Is Here: Why AI Offense Is Crushing Defense and Which Companies Build Real Moats</title>
-      <link>https://articles.phantom-byte.com/perfect-storm-is-here-why-ai-offense-is-crushing-defense-and-which-companies-build-real-moats.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/perfect-storm-is-here-why-ai-offense-is-crushing-defense-and-which-companies-build-real-moats.html</guid>
-      <pubDate>Wed, 08 Apr 2026 00:00:00 GMT</pubDate>
-      <category>AI &amp; Investing</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>Alex Stamos&#39;s RSA 2026 warning: AI offense is crushing defense. Learn which cybersecurity companies are building real AI moats and why defensive AI is becoming essential infrastructure for investors.</description>
     </item>
   </channel>
 </rss>
