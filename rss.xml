@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 May 2026 10:57:50 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 29 May 2026 05:35:23 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>The Parallel Brain: Why AI&#39;s Next Leap Won&#39;t Come From Bigger Models, But From Smarter Inference</title>
+      <link>https://articles.phantom-byte.com/the-parallel-brain-ai-next-leap-smarter-inference.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-parallel-brain-ai-next-leap-smarter-inference.html</guid>
+      <pubDate>Fri, 29 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>A new paper called LaneRoPE reveals best-of-N sampling is fundamentally wasteful. Collaborative parallel reasoning changes everything about agentic AI.</description>
+    </item>
 
     <item>
       <title>The Aging Agent Problem: Why Deployed AI Gets Dumber and Starts Installing Phantom Packages</title>
@@ -501,16 +511,6 @@
       <category>AI Security</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>Anthropic&#39;s Claude Mythos can hack any system and find critical vulnerabilities. Why did tech giants create the Glasswing initiative to contain it? Explore the cybersecurity implications.</description>
-    </item>
-
-    <item>
-      <title>The Rise of Answer Engine Optimization: How LLM Citations Are Replacing Traditional SEO</title>
-      <link>https://articles.phantom-byte.com/the-rise-of-answer-engine-optimization-geo-aoe.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/the-rise-of-answer-engine-optimization-geo-aoe.html</guid>
-      <pubDate>Thu, 09 Apr 2026 00:00:00 GMT</pubDate>
-      <category>AI Engineering</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>How LLM citations are replacing traditional SEO. Learn Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO) strategies that position your content for AI discovery and drive 30-...</description>
     </item>
   </channel>
 </rss>
