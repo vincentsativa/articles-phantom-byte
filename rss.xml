@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 May 2026 05:54:12 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 30 May 2026 05:38:15 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>Claude Opus 4.8 Calibration Tax</title>
+      <link>https://articles.phantom-byte.com/the-calibration-tax-claude-opus-48-honest-mode.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-calibration-tax-claude-opus-48-honest-mode.html</guid>
+      <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Engineering</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Anthropic&#39;s Claude Opus 4.8 trades capability for honesty by abstaining, not reasoning better. For agent pipelines, silent refusal equals broken output.</description>
+    </item>
 
     <item>
       <title>The Parallel Brain: Why AI&#39;s Next Leap Won&#39;t Come From Bigger Models, But From Smarter Inference</title>
@@ -501,16 +511,6 @@
       <category>AI Security</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>Why your local LLM isn&#39;t as secure as you think. CVE-2024 vulnerabilities, forensic research, and hidden risks in self-hosted AI deployment.</description>
-    </item>
-
-    <item>
-      <title>The Claude Mythos: Why the World&#39;s Most Dangerous AI Stays Under Lock and Key</title>
-      <link>https://articles.phantom-byte.com/the-claude-mythos-worlds-most-dangerous-ai.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/the-claude-mythos-worlds-most-dangerous-ai.html</guid>
-      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
-      <category>AI Security</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>Anthropic&#39;s Claude Mythos can hack any system and find critical vulnerabilities. Why did tech giants create the Glasswing initiative to contain it? Explore the cybersecurity implications.</description>
     </item>
   </channel>
 </rss>
