@@ -6,8 +6,9 @@ PhantomByte builds custom AI tools for small businesses. Our articles cover real
 agent orchestration patterns, infrastructure lessons, and honest engineering breakdowns.
 Written by Vinny Barreca. Updated regularly.
 
-## Articles (84 total)
+## Articles (85 total)
 
+- [EU AI Act Geoblocking](https://articles.phantom-byte.com/the-geo-blocking-of-europe-eu-ai-act-high-risk-deadline.html): EU AI Act high-risk deadline hit May 29. US AI companies blocked Europe rather than comply, mirroring GDPR 2018. Here's what happened and why it matters. (2026-05-31)
 - [Claude Opus 4.8 Calibration Tax](https://articles.phantom-byte.com/the-calibration-tax-claude-opus-48-honest-mode.html): Anthropic's Claude Opus 4.8 trades capability for honesty by abstaining, not reasoning better. For agent pipelines, silent refusal equals broken output. (2026-05-30)
 - [The Parallel Brain: Why AI's Next Leap Won't Come From Bigger Models, But From Smarter Inference](https://articles.phantom-byte.com/the-parallel-brain-ai-next-leap-smarter-inference.html): A new paper called LaneRoPE reveals best-of-N sampling is fundamentally wasteful. Collaborative parallel reasoning changes everything about agentic AI. (2026-05-29)
 - [The Aging Agent Problem: Why Deployed AI Gets Dumber and Starts Installing Phantom Packages](https://articles.phantom-byte.com/the-aging-agent-problem.html): Two arXiv papers and one security report prove deployed AI agents degrade over time while silently installing unverified phantom dependencies. Here's the fix. (2026-05-28)

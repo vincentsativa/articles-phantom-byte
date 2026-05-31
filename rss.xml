@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 May 2026 05:38:15 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 31 May 2026 05:53:47 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>EU AI Act Geoblocking</title>
+      <link>https://articles.phantom-byte.com/the-geo-blocking-of-europe-eu-ai-act-high-risk-deadline.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-geo-blocking-of-europe-eu-ai-act-high-risk-deadline.html</guid>
+      <pubDate>Sun, 31 May 2026 00:00:00 GMT</pubDate>
+      <category>AI Policy</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>EU AI Act high-risk deadline hit May 29. US AI companies blocked Europe rather than comply, mirroring GDPR 2018. Here&#39;s what happened and why it matters.</description>
+    </item>
 
     <item>
       <title>Claude Opus 4.8 Calibration Tax</title>
@@ -501,16 +511,6 @@
       <category>AI Infrastructure</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>Every major AI provider is hitting outages in the same timeframe. It&#39;s not coincidence — there literally isn&#39;t enough electricity to run all these models reliably. Here&#39;s why.</description>
-    </item>
-
-    <item>
-      <title>Self-Hosted AI Security: Why Your Local LLM Might Be Just as Vulnerable as Cloud Models</title>
-      <link>https://articles.phantom-byte.com/self-hosted-ai-security-local-llm-vulnerabilities.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/self-hosted-ai-security-local-llm-vulnerabilities.html</guid>
-      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
-      <category>AI Security</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>Why your local LLM isn&#39;t as secure as you think. CVE-2024 vulnerabilities, forensic research, and hidden risks in self-hosted AI deployment.</description>
     </item>
   </channel>
 </rss>
