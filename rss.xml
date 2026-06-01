@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 31 May 2026 05:53:47 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jun 2026 05:50:30 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>GitHub Copilot $750 Price Tag</title>
+      <link>https://articles.phantom-byte.com/the-750-copilot-why-your-ai-dependency-just-got-a-price-tag.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-750-copilot-why-your-ai-dependency-just-got-a-price-tag.html</guid>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Industry</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>GitHub Copilot&#39;s token-based billing went live June 1. Some developers face costs jumping from $29 to $750/month. Here&#39;s how to escape the AI dependency trap.</description>
+    </item>
 
     <item>
       <title>EU AI Act Geoblocking</title>
@@ -501,16 +511,6 @@
       <category>AI Infrastructure</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>Kepler Communications launched the first operational commercial orbital AI compute cluster on April 13, 2026. What this means for distributed architecture and the compute continuum.</description>
-    </item>
-
-    <item>
-      <title>Your 503s Aren&#39;t a Bug: They&#39;re a Power Shortage Symptom</title>
-      <link>https://articles.phantom-byte.com/ai-energy-crisis-503-power-shortage-symptom.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/ai-energy-crisis-503-power-shortage-symptom.html</guid>
-      <pubDate>Sun, 12 Apr 2026 00:00:00 GMT</pubDate>
-      <category>AI Infrastructure</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>Every major AI provider is hitting outages in the same timeframe. It&#39;s not coincidence — there literally isn&#39;t enough electricity to run all these models reliably. Here&#39;s why.</description>
     </item>
   </channel>
 </rss>
