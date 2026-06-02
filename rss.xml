@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 01 Jun 2026 05:50:30 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jun 2026 06:15:33 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>AI Out-Forecasts 80 Years of Weather Physics</title>
+      <link>https://articles.phantom-byte.com/the-prediction-reversal-ai-out-forecasts-weather-physics.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-prediction-reversal-ai-out-forecasts-weather-physics.html</guid>
+      <pubDate>Tue, 02 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Windborne&#39;s WeatherMesh-6 beats ECMWF physics forecasting using pure AI pattern recognition. The learning-vs-simulation reversal is coming for all industries.</description>
+    </item>
 
     <item>
       <title>GitHub Copilot $750 Price Tag</title>
@@ -501,16 +511,6 @@
       <category>AI Infrastructure</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>OpenAI&#39;s April 15 Agents SDK update includes native sandbox execution, removing the primary technical blocker between agent demos and production deployment. The agent infrastructure wars have begun.</description>
-    </item>
-
-    <item>
-      <title>Edge Computing Leaves Earth: What Kepler&#39;s Orbital AI Cluster Means for Distributed Architecture</title>
-      <link>https://articles.phantom-byte.com/edge-computing-leaves-earth-kepler-orbital-ai-cluster.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/edge-computing-leaves-earth-kepler-orbital-ai-cluster.html</guid>
-      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
-      <category>AI Infrastructure</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>Kepler Communications launched the first operational commercial orbital AI compute cluster on April 13, 2026. What this means for distributed architecture and the compute continuum.</description>
     </item>
   </channel>
 </rss>
