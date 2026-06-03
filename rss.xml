@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 02 Jun 2026 06:15:33 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 03 Jun 2026 06:38:46 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>Social Engineering Loop: AI Chatbot Security</title>
+      <link>https://articles.phantom-byte.com/the-social-engineering-loop-ai-chatbot-security-vulnerability.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-social-engineering-loop-ai-chatbot-security-vulnerability.html</guid>
+      <pubDate>Wed, 03 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Security</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Hackers asked Meta&#39;s AI chatbot to change an email address and it worked. The social engineering loop is the new attack surface nobody is auditing.</description>
+    </item>
 
     <item>
       <title>AI Out-Forecasts 80 Years of Weather Physics</title>
@@ -501,16 +511,6 @@
       <category>AI Infrastructure</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>NVIDIA just made quantum computing accessible to anyone with a GPU. Here&#39;s why your current AI infrastructure has an expiration date, and what to do about it.</description>
-    </item>
-
-    <item>
-      <title>The Agent Infrastructure Wars Have Begun: OpenAI&#39;s SDK Claims the Middle Layer</title>
-      <link>https://articles.phantom-byte.com/the-agent-infrastructure-wars-openai-sdk-middle-layer.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/the-agent-infrastructure-wars-openai-sdk-middle-layer.html</guid>
-      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
-      <category>AI Infrastructure</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>OpenAI&#39;s April 15 Agents SDK update includes native sandbox execution, removing the primary technical blocker between agent demos and production deployment. The agent infrastructure wars have begun.</description>
     </item>
   </channel>
 </rss>

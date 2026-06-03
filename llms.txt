@@ -6,8 +6,9 @@ PhantomByte builds custom AI tools for small businesses. Our articles cover real
 agent orchestration patterns, infrastructure lessons, and honest engineering breakdowns.
 Written by Vinny Barreca. Updated regularly.
 
-## Articles (87 total)
+## Articles (88 total)
 
+- [Social Engineering Loop: AI Chatbot Security](https://articles.phantom-byte.com/the-social-engineering-loop-ai-chatbot-security-vulnerability.html): Hackers asked Meta's AI chatbot to change an email address and it worked. The social engineering loop is the new attack surface nobody is auditing. (2026-06-03)
 - [AI Out-Forecasts 80 Years of Weather Physics](https://articles.phantom-byte.com/the-prediction-reversal-ai-out-forecasts-weather-physics.html): Windborne's WeatherMesh-6 beats ECMWF physics forecasting using pure AI pattern recognition. The learning-vs-simulation reversal is coming for all industries. (2026-06-02)
 - [GitHub Copilot $750 Price Tag](https://articles.phantom-byte.com/the-750-copilot-why-your-ai-dependency-just-got-a-price-tag.html): GitHub Copilot's token-based billing went live June 1. Some developers face costs jumping from $29 to $750/month. Here's how to escape the AI dependency trap. (2026-06-01)
 - [EU AI Act Geoblocking](https://articles.phantom-byte.com/the-geo-blocking-of-europe-eu-ai-act-high-risk-deadline.html): EU AI Act high-risk deadline hit May 29. US AI companies blocked Europe rather than comply, mirroring GDPR 2018. Here's what happened and why it matters. (2026-05-31)
