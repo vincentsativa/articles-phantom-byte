@@ -5,13 +5,33 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Jun 2026 06:38:46 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jun 2026 05:27:42 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>The Agent OS Wars: Apps Are Out, Agents Are In</title>
+      <link>https://articles.phantom-byte.com/the-agent-os-wars-apps-are-out-agents-are-in.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-agent-os-wars-apps-are-out-agents-are-in.html</guid>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Industry</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Microsoft&#39;s Project Solara, Google&#39;s Gemini Spark, and Meta&#39;s Business Agent race to build the agent runtime replacing the app grid. The platform war is here.</description>
+    </item>
+
+    <item>
+      <title>The Agent OS Wars</title>
+      <link>https://articles.phantom-byte.com/the-agent-os-wars-microsoft-google-meta-agent-operating-system.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-agent-os-wars-microsoft-google-meta-agent-operating-system.html</guid>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate>
+      <category>Technology</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>In the same week, Microsoft announced Project Solara, an Android-based OS for AI agents. Google rolled out Gemini Spark. Meta launched Business Agent on WhatsApp. The platform layer is being rebuilt.</description>
+    </item>
 
     <item>
       <title>Social Engineering Loop: AI Chatbot Security</title>
@@ -491,26 +511,6 @@
       <category>AI Infrastructure</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>How smart semantic caching slashes AI inference costs by 70%. Production-ready implementation guide with GPTCache, Redis, and real deployment patterns from April 2026.</description>
-    </item>
-
-    <item>
-      <title>Vibe Coding for Pros: How 2026&#39;s CLI Agents Are Turning Gut Feel into Governable Power</title>
-      <link>https://articles.phantom-byte.com/vibe-coding-for-pros-2026-cli-agents.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/vibe-coding-for-pros-2026-cli-agents.html</guid>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
-      <category>AI Engineering</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>The era of vibe coding is over. Welcome to 2026&#39;s verifiable agents: CLI-based, metrics-driven, and governed by memory primitives. Learn how Process Engineers are replacing vibe coders.</description>
-    </item>
-
-    <item>
-      <title>AI Quantum Computing: Why Your LLM Infrastructure Is Already Obsolete (And How to Future-Proof It)</title>
-      <link>https://articles.phantom-byte.com/ai-quantum-computing-why-your-llm-infrastructure-is-already-obsolete.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/ai-quantum-computing-why-your-llm-infrastructure-is-already-obsolete.html</guid>
-      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
-      <category>AI Infrastructure</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>NVIDIA just made quantum computing accessible to anyone with a GPU. Here&#39;s why your current AI infrastructure has an expiration date, and what to do about it.</description>
     </item>
   </channel>
 </rss>
