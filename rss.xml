@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Jun 2026 05:27:42 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2026 06:08:28 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>The 1,400-Line While Loop: Production Agent Architecture</title>
+      <link>https://articles.phantom-byte.com/the-1400-line-while-loop-production-agent-architecture.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-1400-line-while-loop-production-agent-architecture.html</guid>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Engineering</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>The tutorial while(true) loop breaks immediately in production. A leaked Claude Code analysis reveals over 1,400 lines handling context compaction, timeouts, governance, and session recovery. Here&#39;...</description>
+    </item>
 
     <item>
       <title>The Agent OS Wars: Apps Are Out, Agents Are In</title>
@@ -501,16 +511,6 @@
       <category>AI Infrastructure</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>40% of US data centers scheduled for 2026 will miss completion dates. While AI demos dazzle, the power grid is cracking. The infrastructure gap is the real story.</description>
-    </item>
-
-    <item>
-      <title>The Semantic Cache Revolution: How Smart Caching Slashes AI Inference Costs by 70%</title>
-      <link>https://articles.phantom-byte.com/semantic-cache-revolution-llm-api-costs.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/semantic-cache-revolution-llm-api-costs.html</guid>
-      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
-      <category>AI Infrastructure</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>How smart semantic caching slashes AI inference costs by 70%. Production-ready implementation guide with GPTCache, Redis, and real deployment patterns from April 2026.</description>
     </item>
   </channel>
 </rss>
