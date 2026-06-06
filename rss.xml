@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Jun 2026 06:08:28 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 06 Jun 2026 06:02:13 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>The Wage Siphon: AI Labor Disruption</title>
+      <link>https://articles.phantom-byte.com/the-wage-siphon.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-wage-siphon.html</guid>
+      <pubDate>Sat, 06 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Industry</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>A software company told 5,000 employees there will be no raises this year—the budget is going to AI. Wage suppression, not unemployment, is AI&#39;s first labor disruption.</description>
+    </item>
 
     <item>
       <title>The 1,400-Line While Loop: Production Agent Architecture</title>
@@ -501,16 +511,6 @@
       <category>AI Infrastructure</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>Ollama v0.21.0&#39;s Hermes Agent with OpenClaw integration just changed the self-hosted AI game. Here&#39;s why I switched from $900/month cloud agents.</description>
-    </item>
-
-    <item>
-      <title>The AI Infrastructure Gap: When the Hype Outruns the Power Grid</title>
-      <link>https://articles.phantom-byte.com/the-ai-infrastructure-gap-hype-outruns-power-grid.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/the-ai-infrastructure-gap-hype-outruns-power-grid.html</guid>
-      <pubDate>Sun, 19 Apr 2026 00:00:00 GMT</pubDate>
-      <category>AI Infrastructure</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>40% of US data centers scheduled for 2026 will miss completion dates. While AI demos dazzle, the power grid is cracking. The infrastructure gap is the real story.</description>
     </item>
   </channel>
 </rss>
