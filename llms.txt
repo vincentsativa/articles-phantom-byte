@@ -6,8 +6,9 @@ PhantomByte builds custom AI tools for small businesses. Our articles cover real
 agent orchestration patterns, infrastructure lessons, and honest engineering breakdowns.
 Written by Vinny Barreca. Updated regularly.
 
-## Articles (92 total)
+## Articles (93 total)
 
+- [The Anthropic Paradox: Safety Lab to Weapon Factory](https://articles.phantom-byte.com/the-anthropic-paradox.html): Anthropic called for a global AI pause while filing a $965B IPO and powering NSA cyber ops. The paradox that breaks self-regulation. (2026-06-07)
 - [The Wage Siphon: AI Labor Disruption](https://articles.phantom-byte.com/the-wage-siphon.html): A software company told 5,000 employees there will be no raises this year—the budget is going to AI. Wage suppression, not unemployment, is AI's first labor disruption. (2026-06-06)
 - [The 1,400-Line While Loop: Production Agent Architecture](https://articles.phantom-byte.com/the-1400-line-while-loop-production-agent-architecture.html): The tutorial while(true) loop breaks immediately in production. A leaked Claude Code analysis reveals over 1,400 lines handling context compaction, timeouts, governance, and session recovery. Here's the production fix for each failure mode. (2026-06-05)
 - [The Agent OS Wars: Apps Are Out, Agents Are In](https://articles.phantom-byte.com/the-agent-os-wars-apps-are-out-agents-are-in.html): Microsoft's Project Solara, Google's Gemini Spark, and Meta's Business Agent race to build the agent runtime replacing the app grid. The platform war is here. (2026-06-04)

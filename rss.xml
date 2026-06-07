@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 06 Jun 2026 06:02:13 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 07 Jun 2026 05:51:02 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>The Anthropic Paradox: Safety Lab to Weapon Factory</title>
+      <link>https://articles.phantom-byte.com/the-anthropic-paradox.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-anthropic-paradox.html</guid>
+      <pubDate>Sun, 07 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Industry</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Anthropic called for a global AI pause while filing a $965B IPO and powering NSA cyber ops. The paradox that breaks self-regulation.</description>
+    </item>
 
     <item>
       <title>The Wage Siphon: AI Labor Disruption</title>
@@ -501,16 +511,6 @@
       <category>AI Infrastructure</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>Apertus dropped: A fully open 70B foundation model trained by academic institutions on the Alps supercomputer. Sovereign AI at scale is already here.</description>
-    </item>
-
-    <item>
-      <title>Sovereign AI Stack 2026: How Ollama&#39;s Hermes Agent and OpenClaw Integration Changed Everything</title>
-      <link>https://articles.phantom-byte.com/sovereign-ai-stack-2026-ollama-hermes-openclaw.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/sovereign-ai-stack-2026-ollama-hermes-openclaw.html</guid>
-      <pubDate>Mon, 20 Apr 2026 00:00:00 GMT</pubDate>
-      <category>AI Infrastructure</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>Ollama v0.21.0&#39;s Hermes Agent with OpenClaw integration just changed the self-hosted AI game. Here&#39;s why I switched from $900/month cloud agents.</description>
     </item>
   </channel>
 </rss>
