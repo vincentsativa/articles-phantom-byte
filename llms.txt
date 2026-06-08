@@ -6,8 +6,9 @@ PhantomByte builds custom AI tools for small businesses. Our articles cover real
 agent orchestration patterns, infrastructure lessons, and honest engineering breakdowns.
 Written by Vinny Barreca. Updated regularly.
 
-## Articles (93 total)
+## Articles (94 total)
 
+- [Autonomous AI Attacker: First LLM Agent Cyberattack](https://articles.phantom-byte.com/the-autonomous-attacker-llm-agent-cyberattack.html): A database vanished. An LLM agent looked at the system, decided what to do, and did it. First autonomous AI cyberattack changes everything about how we defend. (2026-06-08)
 - [The Anthropic Paradox: Safety Lab to Weapon Factory](https://articles.phantom-byte.com/the-anthropic-paradox.html): Anthropic called for a global AI pause while filing a $965B IPO and powering NSA cyber ops. The paradox that breaks self-regulation. (2026-06-07)
 - [The Wage Siphon: AI Labor Disruption](https://articles.phantom-byte.com/the-wage-siphon.html): A software company told 5,000 employees there will be no raises this year—the budget is going to AI. Wage suppression, not unemployment, is AI's first labor disruption. (2026-06-06)
 - [The 1,400-Line While Loop: Production Agent Architecture](https://articles.phantom-byte.com/the-1400-line-while-loop-production-agent-architecture.html): The tutorial while(true) loop breaks immediately in production. A leaked Claude Code analysis reveals over 1,400 lines handling context compaction, timeouts, governance, and session recovery. Here's the production fix for each failure mode. (2026-06-05)
