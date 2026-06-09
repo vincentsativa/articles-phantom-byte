@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Jun 2026 05:12:08 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jun 2026 05:35:01 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>Verification Gap: Agent Pipeline Flying Blind</title>
+      <link>https://articles.phantom-byte.com/the-verification-gap-agent-pipeline-verification.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-verification-gap-agent-pipeline-verification.html</guid>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Lean4Agent proves formal verification boosts agent workflows by 12%. The 28-point safety mirage exposes overconfident evaluations. Pipelines are flying blind.</description>
+    </item>
 
     <item>
       <title>Autonomous AI Attacker: First LLM Agent Cyberattack</title>
@@ -501,16 +511,6 @@
       <category>AI Infrastructure</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>Stop losing agent context. Explore CrewAI 1.14.2 persistence, GRIL paper insights, and why long-running agents need a stateful soul, not just a memory.</description>
-    </item>
-
-    <item>
-      <title>Agent Memory Is 2026&#39;s Breakout Category</title>
-      <link>https://articles.phantom-byte.com/agent-memory-is-2026s-breakout-category.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/agent-memory-is-2026s-breakout-category.html</guid>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 GMT</pubDate>
-      <category>AI Infrastructure</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>Agent Memory Is 2026&#39;s Breakout Category. Claude-mem hit 61K GitHub stars. APEX-MEM and Synthius-Mem exceed human memory performance. The framework era is over.</description>
     </item>
   </channel>
 </rss>
