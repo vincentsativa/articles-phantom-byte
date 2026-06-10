@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 09 Jun 2026 05:35:01 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jun 2026 05:43:23 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>Miasma Backdoor: AI Coding Agent Malware</title>
+      <link>https://articles.phantom-byte.com/the-miasma-backdoor-ai-coding-agent-malware-keys.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-miasma-backdoor-ai-coding-agent-malware-keys.html</guid>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Security</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Miasma malware exploits SLSA provenance to steal cloud credentials through AI coding agents. Claude Code, Cursor, and Copilot are the new attack surface.</description>
+    </item>
 
     <item>
       <title>Verification Gap: Agent Pipeline Flying Blind</title>
@@ -501,16 +511,6 @@
       <category>AI Infrastructure</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>Complete guide to implementing Tool Attention in local agent frameworks. Learn attention-based routing, schema caching, and confidence-based fallback for 40-60% latency reduction.</description>
-    </item>
-
-    <item>
-      <title>Agent Persistence: Why CrewAI Checkpoints Change Everything</title>
-      <link>https://articles.phantom-byte.com/forget-checkpoints-agent-persistence-real-game-changer.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/forget-checkpoints-agent-persistence-real-game-changer.html</guid>
-      <pubDate>Thu, 23 Apr 2026 00:00:00 GMT</pubDate>
-      <category>AI Infrastructure</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>Stop losing agent context. Explore CrewAI 1.14.2 persistence, GRIL paper insights, and why long-running agents need a stateful soul, not just a memory.</description>
     </item>
   </channel>
 </rss>
