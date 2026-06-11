@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Jun 2026 05:43:23 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jun 2026 06:20:23 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>The Cache Is the Model: KV Cache Optimization</title>
+      <link>https://articles.phantom-byte.com/the-cache-is-the-model-kv-cache-optimization.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-cache-is-the-model-kv-cache-optimization.html</guid>
+      <pubDate>Thu, 11 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>97.8% KV cache hit rate changes inference economics. Inferoa AI&#39;s real agent benchmark shows why prefix caching is 2026&#39;s most underrated infrastructure play.</description>
+    </item>
 
     <item>
       <title>Miasma Backdoor: AI Coding Agent Malware</title>
@@ -501,16 +511,6 @@
       <category>AI Infrastructure</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>Your AI agents are one API change away from collapse. Learn to build your own agent infrastructure with circuit breakers, routing mesh, and self-hosted models. Complete Python implementation guide.</description>
-    </item>
-
-    <item>
-      <title>Implementing Tool Attention in Local Agent Frameworks: A Complete Guide</title>
-      <link>https://articles.phantom-byte.com/implementing-tool-attention-local-agent-frameworks.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/implementing-tool-attention-local-agent-frameworks.html</guid>
-      <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
-      <category>AI Infrastructure</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>Complete guide to implementing Tool Attention in local agent frameworks. Learn attention-based routing, schema caching, and confidence-based fallback for 40-60% latency reduction.</description>
     </item>
   </channel>
 </rss>
