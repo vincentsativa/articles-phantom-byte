@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 11 Jun 2026 06:20:23 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 12 Jun 2026 05:10:19 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>Diffusion Language Models 4x Faster</title>
+      <link>https://articles.phantom-byte.com/diffusion-language-models-are-here-4x-faster.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/diffusion-language-models-are-here-4x-faster.html</guid>
+      <pubDate>Fri, 12 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Google DeepMind&#39;s DiffusionGemma generates text at 1,000 tokens per second on a single H100. The 4x faster diffusion model runs locally on consumer GPUs.</description>
+    </item>
 
     <item>
       <title>The Cache Is the Model: KV Cache Optimization</title>
@@ -501,16 +511,6 @@
       <category>AI Infrastructure</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>The public has rejected cloud AI and the builder community is already voting with infrastructure. Discover the sovereign AI stack with OpenClaw, Ollama, and Hermes Agent before regulation forces th...</description>
-    </item>
-
-    <item>
-      <title>Your AI Agents Are One API Change Away From Collapse: Build Your Own Damn Infrastructure</title>
-      <link>https://articles.phantom-byte.com/your-ai-agents-one-api-change-collapse.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/your-ai-agents-one-api-change-collapse.html</guid>
-      <pubDate>Sat, 25 Apr 2026 00:00:00 GMT</pubDate>
-      <category>AI Infrastructure</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>Your AI agents are one API change away from collapse. Learn to build your own agent infrastructure with circuit breakers, routing mesh, and self-hosted models. Complete Python implementation guide.</description>
     </item>
   </channel>
 </rss>
