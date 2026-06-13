@@ -6,8 +6,10 @@ PhantomByte builds custom AI tools for small businesses. Our articles cover real
 agent orchestration patterns, infrastructure lessons, and honest engineering breakdowns.
 Written by Vinny Barreca. Updated regularly.
 
-## Articles (98 total)
+## Articles (100 total)
 
+- [The $130B Blockade: AI's Infra War](https://articles.phantom-byte.com/the-130-billion-blockade-ai-infrastructure-losing-the-war.html): $130B in data center projects blocked by protests in 2026. AI's bottleneck isn't chips or power—it's permission to build. Here's why NIMBY is winning. (2026-06-13)
+- [The $130 Billion Blockade: Why AI Infrastructure is Losing the War](https://articles.phantom-byte.com/the-130-billion-blockade-ai-infrastructure-losing-war.html): $130 billion in data center projects blocked by community protests in 2026. AI's biggest problem is not chips or power—it's permission to build. (2026-06-13)
 - [Diffusion Language Models 4x Faster](https://articles.phantom-byte.com/diffusion-language-models-are-here-4x-faster.html): Google DeepMind's DiffusionGemma generates text at 1,000 tokens per second on a single H100. The 4x faster diffusion model runs locally on consumer GPUs. (2026-06-12)
 - [The Cache Is the Model: KV Cache Optimization](https://articles.phantom-byte.com/the-cache-is-the-model-kv-cache-optimization.html): 97.8% KV cache hit rate changes inference economics. Inferoa AI's real agent benchmark shows why prefix caching is 2026's most underrated infrastructure play. (2026-06-11)
 - [Miasma Backdoor: AI Coding Agent Malware](https://articles.phantom-byte.com/the-miasma-backdoor-ai-coding-agent-malware-keys.html): Miasma malware exploits SLSA provenance to steal cloud credentials through AI coding agents. Claude Code, Cursor, and Copilot are the new attack surface. (2026-06-10)

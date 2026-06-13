@@ -5,13 +5,33 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Jun 2026 05:10:19 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2026 06:12:54 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>The $130B Blockade: AI&#39;s Infra War</title>
+      <link>https://articles.phantom-byte.com/the-130-billion-blockade-ai-infrastructure-losing-the-war.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-130-billion-blockade-ai-infrastructure-losing-the-war.html</guid>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>$130B in data center projects blocked by protests in 2026. AI&#39;s bottleneck isn&#39;t chips or power—it&#39;s permission to build. Here&#39;s why NIMBY is winning.</description>
+    </item>
+
+    <item>
+      <title>The $130 Billion Blockade: Why AI Infrastructure is Losing the War</title>
+      <link>https://articles.phantom-byte.com/the-130-billion-blockade-ai-infrastructure-losing-war.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-130-billion-blockade-ai-infrastructure-losing-war.html</guid>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>$130 billion in data center projects blocked by community protests in 2026. AI&#39;s biggest problem is not chips or power—it&#39;s permission to build.</description>
+    </item>
 
     <item>
       <title>Diffusion Language Models 4x Faster</title>
@@ -491,26 +511,6 @@
       <category>AI Security</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>Every AI agent is one malicious web page away from turning against you. Prompt injection, supply chain attacks, and why your sovereign AI stack needs real defenses.</description>
-    </item>
-
-    <item>
-      <title>SWE-Bench Is Dead: Build Your Own Agent Evaluation Stack</title>
-      <link>https://articles.phantom-byte.com/swe-bench-is-dead-build-your-own-agent-evaluation-stack.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/swe-bench-is-dead-build-your-own-agent-evaluation-stack.html</guid>
-      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
-      <category>AI Infrastructure</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>SWE-Bench is structurally unsound. Build your own agent evaluation stack with PostgreSQL, pgvector, and self-hosted harnesses. The sovereign eval architecture that survives benchmark collapse.</description>
-    </item>
-
-    <item>
-      <title>The Public Has Already Rejected Cloud AI: Why Sovereignty Is Your Only Path Forward</title>
-      <link>https://articles.phantom-byte.com/the-public-has-already-rejected-cloud-ai.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/the-public-has-already-rejected-cloud-ai.html</guid>
-      <pubDate>Sat, 25 Apr 2026 00:00:00 GMT</pubDate>
-      <category>AI Infrastructure</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>The public has rejected cloud AI and the builder community is already voting with infrastructure. Discover the sovereign AI stack with OpenClaw, Ollama, and Hermes Agent before regulation forces th...</description>
     </item>
   </channel>
 </rss>
