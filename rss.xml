@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 13 Jun 2026 06:12:54 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 14 Jun 2026 06:32:57 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>Fable 5 Takedown: The Smartest AI Went Dark</title>
+      <link>https://articles.phantom-byte.com/the-government-killed-the-smartest-model-ever-built.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-government-killed-the-smartest-model-ever-built.html</guid>
+      <pubDate>Sun, 14 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Industry</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Anthropic&#39;s Claude Fable 5 was the most capable AI model ever deployed. In 72 hours, the government killed it. Here&#39;s what we lost and the fraud that caused it.</description>
+    </item>
 
     <item>
       <title>The $130B Blockade: AI&#39;s Infra War</title>
@@ -501,16 +511,6 @@
       <category>AI Industry</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>The AI industry just hit a tipping point. Microsoft-OpenAI breakup, Musk trial, DeepSeek 97% cheaper, talent exodus. All in 48 hours. Here is what it means.</description>
-    </item>
-
-    <item>
-      <title>Poisoned Agents: How Malicious Web Pages Could Break the Next Generation of AI</title>
-      <link>https://articles.phantom-byte.com/poisoned-agents-how-malicious-web-pages-could-break-the-next-generation-of-ai.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/poisoned-agents-how-malicious-web-pages-could-break-the-next-generation-of-ai.html</guid>
-      <pubDate>Tue, 28 Apr 2026 00:00:00 GMT</pubDate>
-      <category>AI Security</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>Every AI agent is one malicious web page away from turning against you. Prompt injection, supply chain attacks, and why your sovereign AI stack needs real defenses.</description>
     </item>
   </channel>
 </rss>
