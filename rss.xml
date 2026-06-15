@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 14 Jun 2026 06:42:06 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jun 2026 06:37:12 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>Agentic Commerce Trust Crisis</title>
+      <link>https://articles.phantom-byte.com/your-ai-agent-just-bought-something-invisible-trust-crisis-agentic-commerce.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/your-ai-agent-just-bought-something-invisible-trust-crisis-agentic-commerce.html</guid>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Security</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Visa, Mastercard, Google, and Stripe announced agent payment protocols. But intent verification is an unsolved computer science problem nobody has solved yet.</description>
+    </item>
 
     <item>
       <title>Fable 5 Takedown: The Smartest AI Went Dark</title>
@@ -501,16 +511,6 @@
       <category>AI Policy</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>AI safety filters failed across multiple models simultaneously. No government, company, or international body has the speed to govern exponential AI growth.</description>
-    </item>
-
-    <item>
-      <title>Is the AI Bubble Bursting? 7 Events That Changed Everything</title>
-      <link>https://articles.phantom-byte.com/is-the-ai-bubble-bursting-7-events-that-just-changed-everything.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/is-the-ai-bubble-bursting-7-events-that-just-changed-everything.html</guid>
-      <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
-      <category>AI Industry</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>The AI industry just hit a tipping point. Microsoft-OpenAI breakup, Musk trial, DeepSeek 97% cheaper, talent exodus. All in 48 hours. Here is what it means.</description>
     </item>
   </channel>
 </rss>
