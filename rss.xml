@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Jun 2026 06:37:12 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jun 2026 04:30:46 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>Synthetic Data Paradox</title>
+      <link>https://articles.phantom-byte.com/the-synthetic-data-paradox.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-synthetic-data-paradox.html</guid>
+      <pubDate>Tue, 16 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Every frontier lab trains on synthetic data with verifiers. An ICML 2026 paper proves the safeguard is the poison. Model collapse accelerates from within.</description>
+    </item>
 
     <item>
       <title>Agentic Commerce Trust Crisis</title>
@@ -501,16 +511,6 @@
       <category>AI Policy</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>The White House blocked Anthropic&#39;s Mythos AI expansion citing safety. David Sacks called it picking winners. Inside the AI gatekeeping scandal threatening small businesses.</description>
-    </item>
-
-    <item>
-      <title>AI Outran Guardrails: Nobody Can Govern</title>
-      <link>https://articles.phantom-byte.com/ai-outran-its-guardrails-why-nobody-is-qualified-to-write-the-rules.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/ai-outran-its-guardrails-why-nobody-is-qualified-to-write-the-rules.html</guid>
-      <pubDate>Thu, 30 Apr 2026 00:00:00 GMT</pubDate>
-      <category>AI Policy</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>AI safety filters failed across multiple models simultaneously. No government, company, or international body has the speed to govern exponential AI growth.</description>
     </item>
   </channel>
 </rss>

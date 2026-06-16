@@ -6,8 +6,9 @@ PhantomByte builds custom AI tools for small businesses. Our articles cover real
 agent orchestration patterns, infrastructure lessons, and honest engineering breakdowns.
 Written by Vinny Barreca. Updated regularly.
 
-## Articles (102 total)
+## Articles (103 total)
 
+- [Synthetic Data Paradox](https://articles.phantom-byte.com/the-synthetic-data-paradox.html): Every frontier lab trains on synthetic data with verifiers. An ICML 2026 paper proves the safeguard is the poison. Model collapse accelerates from within. (2026-06-16)
 - [Agentic Commerce Trust Crisis](https://articles.phantom-byte.com/your-ai-agent-just-bought-something-invisible-trust-crisis-agentic-commerce.html): Visa, Mastercard, Google, and Stripe announced agent payment protocols. But intent verification is an unsolved computer science problem nobody has solved yet. (2026-06-15)
 - [Fable 5 Takedown: The Smartest AI Went Dark](https://articles.phantom-byte.com/the-government-killed-the-smartest-model-ever-built.html): Anthropic's Claude Fable 5 was the most capable AI model ever deployed. In 72 hours, the government killed it. Here's what we lost and the fraud that caused it. (2026-06-14)
 - [The $130B Blockade: AI's Infra War](https://articles.phantom-byte.com/the-130-billion-blockade-ai-infrastructure-losing-the-war.html): $130B in data center projects blocked by protests in 2026. AI's bottleneck isn't chips or power—it's permission to build. Here's why NIMBY is winning. (2026-06-13)
