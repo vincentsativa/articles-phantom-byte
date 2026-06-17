@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Jun 2026 04:30:46 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jun 2026 05:20:35 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>AI Price War Nobody Is Winning</title>
+      <link>https://articles.phantom-byte.com/the-ai-price-war-nobody-is-winning.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-ai-price-war-nobody-is-winning.html</guid>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Industry</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Every major AI lab is in a price war losing money. OpenAI lost $34 billion, DeepSeek is 35x cheaper, and ChatGPT slipped below 50% share. Can AI ever be profitable?</description>
+    </item>
 
     <item>
       <title>Synthetic Data Paradox</title>
@@ -501,16 +511,6 @@
       <category>AI Infrastructure</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>AI&#39;s path to AGI is blocked by substations and chip fabs, not algorithms. The three-legged stool of power, compute, and efficiency must hold weight for AGI to stand.</description>
-    </item>
-
-    <item>
-      <title>Mythos Gate: AI Access Gatekeeping Exposed</title>
-      <link>https://articles.phantom-byte.com/the-mythos-gate-why-ai-access-shouldnt-be-a-country-club.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/the-mythos-gate-why-ai-access-shouldnt-be-a-country-club.html</guid>
-      <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
-      <category>AI Policy</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>The White House blocked Anthropic&#39;s Mythos AI expansion citing safety. David Sacks called it picking winners. Inside the AI gatekeeping scandal threatening small businesses.</description>
     </item>
   </channel>
 </rss>
