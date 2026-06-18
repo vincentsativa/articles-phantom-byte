@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 17 Jun 2026 05:20:35 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jun 2026 05:47:02 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>1M Context Mirage: What IndexShare Delivers</title>
+      <link>https://articles.phantom-byte.com/the-1m-context-mirage-what-indexshare-actually-delivers.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/the-1m-context-mirage-what-indexshare-actually-delivers.html</guid>
+      <pubDate>Thu, 18 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>GLM-5.2 ships 1M tokens of context under MIT license. IndexShare cuts per-token FLOPs by 2.9x at 1M context. The 1M context marketing mirage exposed.</description>
+    </item>
 
     <item>
       <title>AI Price War Nobody Is Winning</title>
@@ -501,16 +511,6 @@
       <category>AI Infrastructure</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>AI 503 errors aren&#39;t bugs—they&#39;re power shortage symptoms. Build fault-tolerant AI apps that survive grid crises with these 4 battle-tested patterns.</description>
-    </item>
-
-    <item>
-      <title>The AGI Bottleneck Triad</title>
-      <link>https://articles.phantom-byte.com/agi-bottleneck-triad-power-compute-efficiency.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/agi-bottleneck-triad-power-compute-efficiency.html</guid>
-      <pubDate>Sat, 02 May 2026 00:00:00 GMT</pubDate>
-      <category>AI Infrastructure</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>AI&#39;s path to AGI is blocked by substations and chip fabs, not algorithms. The three-legged stool of power, compute, and efficiency must hold weight for AGI to stand.</description>
     </item>
   </channel>
 </rss>
