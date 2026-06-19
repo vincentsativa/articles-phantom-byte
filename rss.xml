@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Jun 2026 05:47:02 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2026 05:32:38 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>Agent Memory Consistency Failure</title>
+      <link>https://articles.phantom-byte.com/agent-memory-consistency-failure.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/agent-memory-consistency-failure.html</guid>
+      <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Why persistent agent memory is a distributed systems disaster. Analyzing MemTrace, LangGraph, and structural uncertainty in LLMs.</description>
+    </item>
 
     <item>
       <title>1M Context Mirage: What IndexShare Delivers</title>
@@ -501,16 +511,6 @@
       <category>AI Infrastructure</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>AI broke trust and nobody built the replacement. The Authentication Stack—provenance, identity, verification, attribution—is the TLS of the AI era. Build it now.</description>
-    </item>
-
-    <item>
-      <title>The Grid Can&#39;t Save You</title>
-      <link>https://articles.phantom-byte.com/the-grid-cant-save-you-why-your-ai-app-will-fail-before-your-model-does.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/the-grid-cant-save-you-why-your-ai-app-will-fail-before-your-model-does.html</guid>
-      <pubDate>Sun, 03 May 2026 00:00:00 GMT</pubDate>
-      <category>AI Infrastructure</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>AI 503 errors aren&#39;t bugs—they&#39;re power shortage symptoms. Build fault-tolerant AI apps that survive grid crises with these 4 battle-tested patterns.</description>
     </item>
   </channel>
 </rss>
