@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Jun 2026 05:32:38 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jun 2026 04:51:06 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>The Architecture Singularity: ITNet and the End of the Model Wars</title>
+      <link>https://articles.phantom-byte.com/architecture-singularity-itnet-model-wars.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/architecture-singularity-itnet-model-wars.html</guid>
+      <pubDate>Sat, 20 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>A new paper proves CNNs, Transformers, and RNNs are all special cases of one learnable integral transform (ITNet). The era of architecture tribalism is over.</description>
+    </item>
 
     <item>
       <title>Agent Memory Consistency Failure</title>
@@ -501,16 +511,6 @@
       <category>AI Industry</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>From Simon Willison to antirez, 2026&#39;s AI critics became builders. Building with AI shifted from analysis to action. Here&#39;s who started shipping and who went silent.</description>
-    </item>
-
-    <item>
-      <title>AI Authentication Stack</title>
-      <link>https://articles.phantom-byte.com/ai-broke-trust-heres-the-stack-that-fixes-it.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/ai-broke-trust-heres-the-stack-that-fixes-it.html</guid>
-      <pubDate>Mon, 04 May 2026 00:00:00 GMT</pubDate>
-      <category>AI Infrastructure</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>AI broke trust and nobody built the replacement. The Authentication Stack—provenance, identity, verification, attribution—is the TLS of the AI era. Build it now.</description>
     </item>
   </channel>
 </rss>

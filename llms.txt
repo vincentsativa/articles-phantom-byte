@@ -6,8 +6,9 @@ PhantomByte builds custom AI tools for small businesses. Our articles cover real
 agent orchestration patterns, infrastructure lessons, and honest engineering breakdowns.
 Written by Vinny Barreca. Updated regularly.
 
-## Articles (106 total)
+## Articles (107 total)
 
+- [The Architecture Singularity: ITNet and the End of the Model Wars](https://articles.phantom-byte.com/architecture-singularity-itnet-model-wars.html): A new paper proves CNNs, Transformers, and RNNs are all special cases of one learnable integral transform (ITNet). The era of architecture tribalism is over. (2026-06-20)
 - [Agent Memory Consistency Failure](https://articles.phantom-byte.com/agent-memory-consistency-failure.html): Why persistent agent memory is a distributed systems disaster. Analyzing MemTrace, LangGraph, and structural uncertainty in LLMs. (2026-06-19)
 - [1M Context Mirage: What IndexShare Delivers](https://articles.phantom-byte.com/the-1m-context-mirage-what-indexshare-actually-delivers.html): GLM-5.2 ships 1M tokens of context under MIT license. IndexShare cuts per-token FLOPs by 2.9x at 1M context. The 1M context marketing mirage exposed. (2026-06-18)
 - [AI Price War Nobody Is Winning](https://articles.phantom-byte.com/the-ai-price-war-nobody-is-winning.html): Every major AI lab is in a price war losing money. OpenAI lost $34 billion, DeepSeek is 35x cheaper, and ChatGPT slipped below 50% share. Can AI ever be profitable? (2026-06-17)

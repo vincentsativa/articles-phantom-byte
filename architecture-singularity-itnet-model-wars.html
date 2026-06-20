@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A new paper proves CNNs, Transformers, and RNNs are all special cases of one learnable integral transform (ITNet). The era of architecture tribalism is over.">
+    <meta name="keywords" content="ITNet, integral transform, architecture unification, CNN vs transformer, attention mechanism, state space model, diffusion language model, inference optimization, multi-agent deliberation, neural architecture search, AI infrastructure">
+    <meta name="author" content="Vinny Barreca">
+    <meta name="theme-color" content="#9D4EDD">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://articles.phantom-byte.com/architecture-singularity-itnet-model-wars.html">
+    <meta property="og:title" content="The Architecture Singularity: The Model Wars Were Always the Same War">
+    <meta property="og:description" content="A new paper proves CNNs, Transformers, and RNNs are all special cases of one learnable integral transform (ITNet). The era of architecture tribalism is over.">
+    <meta property="og:image" content="https://articles.phantom-byte.com/images/article-104-main.jpg">
+    <meta property="article:published_time" content="2026-06-20">
+    <meta property="article:author" content="Vinny Barreca">
+    <meta property="article:section" content="AI Infrastructure">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://articles.phantom-byte.com/architecture-singularity-itnet-model-wars.html">
+    <meta property="twitter:title" content="The Architecture Singularity: The Model Wars Were Always the Same War">
+    <meta property="twitter:description" content="A new paper proves CNNs, Transformers, and RNNs are all special cases of one learnable integral transform (ITNet). The era of architecture tribalism is over.">
+    <meta property="twitter:image" content="https://articles.phantom-byte.com/images/article-104-main.jpg">
+    
+    <!-- Canonical URL (CRITICAL FOR SEO) -->
+    <link rel="canonical" href="https://articles.phantom-byte.com/architecture-singularity-itnet-model-wars.html">
+    
+    <title>The Architecture Singularity: ITNet and the End of the Model Wars - PhantomByte</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDQCZE09E4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PDQCZE09E4');
+    </script>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/article.css">
+    
+    <!-- Web Push Notification Script -->
+    <script src="scripts/web-push-client.js" defer></script>
+    
+    <!-- ARTICLE SCHEMA MARKUP (JSON-LD for SEO + GEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "The Architecture Singularity: The Model Wars Were Always the Same War",
+      "alternativeHeadline": "ITNet Proves CNNs, Transformers, and RNNs Are the Same Math",
+      "author": {
+        "@type": "Person",
+        "name": "Vinny Barreca",
+        "url": "https://phantom-byte.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PhantomByte",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://articles.phantom-byte.com/images/phantombyte-logo.png"
+        }
+      },
+      "datePublished": "2026-06-20",
+      "dateModified": "2026-06-20",
+      "description": "A new paper proves CNNs, Transformers, and RNNs are all special cases of one learnable integral transform (ITNet). The era of architecture tribalism is over.",
+      "articleBody": "For ten years, the AI industry has fought a religious war. Convolutional networks for vision. Transformers for language. Recurrent networks and state-space models for sequences. Each camp had its priests, its benchmarks, and its conferences.",
+      "wordCount": "1850",
+      "timeRequired": "PT12M",
+      "proficiencyLevel": "Intermediate",
+      "articleSection": "AI Infrastructure",
+      "keywords": "ITNet, integral transform, architecture unification, CNN vs transformer, attention mechanism, state space model, diffusion language model, inference optimization, multi-agent deliberation, neural architecture search, AI infrastructure",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://articles.phantom-byte.com/images/article-104-main.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://articles.phantom-byte.com/architecture-singularity-itnet-model-wars.html"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+            </a>
+            <nav class="main-nav">
+                <a href="https://phantom-byte.com" target="_blank">Services</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="article-main">
+        <article class="article-container">
+            <!-- Article Header -->
+            <header class="article-header">
+                <span class="article-category">AI Infrastructure</span>
+                <h1 class="article-title">The Architecture Singularity: The Model Wars Were Always the Same War</h1>
+                
+                <div class="article-meta">
+                    <div class="author-info">
+                        <img src="images/author-vinny.jpg" alt="Vinny Barreca" class="author-avatar">
+                        <div class="author-details">
+                            <span class="author-name">Vinny Barreca</span>
+                            <span class="publish-date">June 20, 2026</span>
+                        </div>
+                    </div>
+                    <div class="meta-actions">
+                        <span class="read-time">12 min read</span>
+                        <button class="share-btn" aria-label="Share article">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                                <polyline points="16 6 12 2 8 6"/>
+                                <line x1="12" y1="2" x2="12" y2="15"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <figure class="article-featured-image">
+                <img src="images/article-104-main.jpg" alt="ITNet architecture unification concept showing CNNs, Transformers, and RNNs converging into a single learnable integral transform">
+                <figcaption class="image-caption">One architecture to rule them all: ITNet proves the model wars were always the same war.</figcaption>
+            </figure>
+
+            <!-- CTA Slot (Top) -->
+            <div class="ad-slot ad-slot-article-top">
+                <a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank">
+                    <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25); border: none;">
+                        <p style="font-size: 0.7rem; color: #FF6B35; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">⚠️ Exit the Cloud</p>
+                        <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Own Your Weights. Own Your Data.</h4>
+                        <p style="margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.5; color: #e0e0e0; font-weight: 400;">The cloud AI era is a data-harvesting trap. Stop being the product and start being the owner. Build your local sovereign stack today.</p>
+                        <div style="text-align: center;">
+                            <span style="display: inline-block; padding: 11px 22px; background: linear-gradient(90deg, #00FF88 0%, #00cc6a 100%); color: #0a0a1a; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(0, 255, 136, 0.35);">Download The Blueprint</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Article Body -->
+            <div class="article-body">
+                <p class="lead-paragraph" style="margin-top: 50px;">
+                    For ten years, the AI industry has fought a religious war. Convolutional networks for vision. Transformers for language. Recurrent networks and state-space models for sequences. Each camp had its priests, its benchmarks, and its conferences. Each claimed its architecture was fundamentally different, specially suited to its domain, impossible to replace.
+                </p>
+
+                <p>
+                    They were all wrong.
+                </p>
+
+                <p>
+                    A paper published this week proves that convolution, self-attention, and recurrence are not different architectures. They are special cases of the same mathematical object, a learnable integral transform. The authors built a single architecture called ITNet, short for Integral Transform Network, and matched or exceeded specialized baselines on ImageNet-1K, GLUE, ModelNet40, and VQA v2. One model. Four domains. Four victories.
+                </p>
+
+                <p>
+                    The model wars are over because they were always the same war.
+                </p>
+
+                <h2>The Math That Unifies Everything</h2>
+
+                <p>
+                    ITNet is built around a single idea that sounds almost insulting in its simplicity. Instead of hardcoding convolutional filters, attention heads, or recurrent gates, ITNet learns a kernel, implemented as a small MLP, that depends jointly on positions and features. This kernel models pairwise interactions adaptively from data. Where a convolution says "use this fixed filter everywhere," where attention says "compare every token to every other token," and where a recurrent cell says "pass a hidden state forward in time," ITNet says "learn the interaction function itself and let the data decide what kind of operation it becomes."
+                </p>
+
+                <p>
+                    The authors prove, rigorously, that convolution, self-attention including multi-head variants, and autoregressive recurrence including LSTM, GRU, S4, and Mamba, all arise as special cases of ITNet under appropriate parameterizations. They also prove that ITNet is a universal approximator of continuous operators. This is not a loose analogy or a philosophical claim. It is a mathematical theorem with a constructive proof.
+                </p>
+
+                <p>
+                    Making this practical required three computational innovations. Tiled kernel fusion keeps memory access patterns efficient. Importance-weighted Monte Carlo integration lets the model sample interactions strategically rather than exhaustively. Learned low-rank factorization compresses the kernel representation without losing expressiveness. The result is not a theoretical curiosity. It is a working architecture that beats specialists at their own games.
+                </p>
+
+                <p>
+                    The implication is uncomfortable. We have spent a decade treating CNNs, transformers, and RNNs as separate species when they were always breeds of the same animal. The differences were implementation details, not mathematical fundamentals.
+                </p>
+
+                <h2>The Specialists Lose to the Generalist</h2>
+
+                <p>
+                    The ITNet results are not marginal. On ImageNet-1K, the standard vision benchmark, ITNet matched or exceeded convolutional baselines. On GLUE, the standard NLP benchmark, it did the same against transformer baselines. On ModelNet40, a 3D point cloud classification task, it beat architectures specifically designed for sparse geometric data. On VQA v2, a visual reasoning benchmark that requires combining language and vision, it surpassed multi-modal specialists.
+                </p>
+
+                <!-- In-Article Image -->
+                <figure class="article-image article-image-right">
+                    <img src="images/article-104-inside.jpg" alt="ITNet performance comparison across ImageNet-1K, GLUE, ModelNet40, and VQA v2 benchmarks showing generalist architecture beating domain-specific specialists">
+                    <figcaption class="image-caption">ITNet matches or exceeds specialized baselines across vision, language, 3D geometry, and visual reasoning.</figcaption>
+                </figure>
+
+                <p>
+                    These are not similar domains. Vision, language, 3D geometry, and visual reasoning use fundamentally different input structures, sequence lengths, and pattern types. The fact that one architecture can dominate across all of them suggests something profound: the architectural fragmentation in deep learning may be unnecessary. We have been arguing about which flavor of the same thing is better, not about which thing is the right thing.
+                </p>
+
+                <p>
+                    This challenges the entire industry of architecture search, neural architecture search, and modality-specific model design. If one kernel can become a CNN, a transformer, or an RNN depending on how you parameterize it, then searching for new architectures is not invention. It is interpolation between points on a manifold that was already fully described.
+                </p>
+
+                <h2>Diffusion Language Models and the Inference-Time Revolution</h2>
+
+                <p>
+                    The ITNet paper is not the only one pushing this message from a different angle. A separate paper on Diffusion Language Models, published the same day, evaluated eight DLMs across eight benchmarks and reached a striking conclusion: no single diffusion paradigm dominates across all tasks.
+                </p>
+
+                <p>
+                    Pure diffusion models like Dream excel at globally constrained reasoning. Dream scored 75 percent on Sudoku, far surpassing autoregressive models on a task that requires satisfying multiple global constraints simultaneously. Block-based architectures like Fast-dLLM achieve superior math reasoning, 83.39 percent on GSM8K, and code generation, 69.51 percent on HumanEval, but trade off linguistic fluency.
+                </p>
+
+                <p>
+                    The computational disparity is staggering. Pure diffusion requires 23 to 25 teraflops per forward pass, but full generation balloons to over 25,000 teraflops because of iterative refinement. Block-diffusion architectures like Fast-dLLM cut this to just 33 teraflops. That is over a 700-fold reduction.
+                </p>
+
+                <p>
+                    This means generation-time design choices, steps, block size, unmasking strategy, matter as much as the architecture itself. The quality-efficiency trade-off in diffusion models is not fixed at training time. It is configurable at inference time. You do not need a different model for each task. You need a different generation strategy for the same model.
+                </p>
+
+                <p>
+                    This reinforces the ITNet thesis from the opposite direction. The action is shifting from architecture invention to inference-time optimization. The building block matters less than how you use it.
+                </p>
+
+                <h2>Subquadratic and the Cost Curve That Is Not Real</h2>
+
+                <p>
+                    The math proves unity, but the market is still chasing raw efficiency. The industry remains desperate to break the quadratic cost of attention that makes transformers prohibitively expensive at long context. This week, a Miami startup called Subquadratic emerged from stealth claiming to have solved exactly this bottleneck.
+                </p>
+
+                <p>
+                    Subquadratic's SubQ model claims 12 times more context length than dense attention, 56 times faster than FlashAttention, and 89.7 percent on LiveCodeBench. CEO Justin Dangel claimed it costs eight dollars to run on Nvidia's benchmark versus 2,600 dollars for Claude Opus 4.6.
+                </p>
+
+                <p>
+                    Skeptics immediately noted that SubQ reused Qwen weights rather than training from scratch, raising questions about how much of the claimed improvement comes from the architecture versus the base model. Some researchers have called it "AI Theranos." Others are waiting for open weights and independent replication before drawing conclusions.
+                </p>
+
+                <p>
+                    Whether SubQ is legitimate or not, the story matters because it shows the industry is desperate for the exact breakthrough that ITNet's math suggests is possible. If attention is just one parameterization of a learnable integral transform, then the quadratic cost is not a law of nature. It is a property of one specific parameter setting. The race to break the attention bottleneck is heating up because the people running it sense, correctly, that there is a deeper mathematical structure waiting to be exploited.
+                </p>
+
+                <p>
+                    The attention bottleneck is real. The race to break it is real. ITNet suggests the finish line may be closer than the racers think.
+                </p>
+
+                <h2>Multi-Agent Deliberation as Dynamical Systems</h2>
+
+                <p>
+                    This underlying structural reality extends beyond single models and cost curves into multi-agent orchestration. The Hidden Anchors paper, also published this week, proves that latent math dictates behavior even when models talk to each other. It models multi-agent LLM deliberation, where agents exchange and revise answers over multiple rounds, as a closed-loop dynamical system.
+                </p>
+
+                <p>
+                    The key finding is that each agent carries a hidden internal belief, which the authors call an "anchor," that continually pulls its opinion regardless of what its neighbors say.
+                </p>
+
+                <p>
+                    This anchor explains a behavior that classical consensus models structurally forbid. An agent's confidence in the correct answer can escape the convex hull formed by the group's initial beliefs, climbing past where any individual agent started. The anchor acts like a hidden spring, constantly tugging the agent back toward its internal prior.
+                </p>
+
+                <p>
+                    Testing three open-weight model families, Llama-3.1-70B, Qwen3-32B, and gpt-oss-20b, the authors found anchor gain measured at approximately 0.34 across all three. But the models differ dramatically in where the anchor sits. Llama's recovered anchors lie far outside the initial opinion band in 92 percent of runs, driving what the authors call hull-escaping dynamics. Gpt-oss-20b's anchors coincide with initial opinions, reducing to essentially classical Friedkin-Johnsen consensus behavior.
+                </p>
+
+                <p>
+                    The same mechanism produces qualitatively different behavior depending on where the anchor sits. This means deliberation dynamics are family-dependent and governed by latent priors, not just prompt design. You cannot fix a multi-agent discussion by rewriting the system prompt if the underlying model has an anchor that sits outside the opinion space you are trying to explore.
+                </p>
+
+                <p>
+                    Like ITNet and the diffusion paper, Hidden Anchors suggests that what looks like architectural diversity is actually variation along a continuous spectrum. The anchor is always there. Its location is what changes.
+                </p>
+
+                <h2>What This Means for Practitioners</h2>
+
+                <p>
+                    If ITNet is right, and the math says it is, your next model selection should prioritize inference-time flexibility over architecture tribalism. The question is not "should I use a CNN or a transformer?" The question is "how do I parameterize the kernel so it behaves like what I need?" That is an engineering decision, not a religious one.
+                </p>
+
+                <p>
+                    The 700-fold TFLOPS gap in diffusion models means generation-time configuration is now a first-class engineering concern, not an afterthought. Your deployment strategy matters as much as your training strategy. The same model can be 700 times more expensive or 700 times cheaper depending on how you generate from it.
+                </p>
+
+                <p>
+                    Multi-agent systems need anchor analysis, not just prompt tuning. Before you deploy a panel of agents to deliberate, you need to know where their anchors sit. An agent with an external anchor will escape the consensus hull. An agent with an internal anchor will converge. Both behaviors are predictable if you measure the anchor first.
+                </p>
+
+                <p>
+                    The era of "transformers for NLP, CNNs for vision, RNNs for sequences" is ending. The next wave of AI architecture innovation will not come from inventing new building blocks. It will come from understanding the unified mathematics behind existing ones and learning to navigate the parameter space that separates them.
+                </p>
+
+                <h2>The Close</h2>
+
+                <p>
+                    We spent a decade arguing about which architecture wins. The answer is none of them, and all of them. The math was always the same. The only question is whether you are still paying for modality-specific infrastructure when the underlying operator never changed.
+                </p>
+
+                <p>
+                    How much of your stack is built on a distinction that just evaporated?
+                </p>
+
+                <div class="article-email-signup">
+                    <h3>Get More Articles Like This</h3>
+                    <p>Getting your AI infrastructure right is just the start. I'm documenting every breakthrough, fix, and lesson learned as I build PhantomByte.</p>
+                    <p>Subscribe to receive updates when we publish new content. No spam, just real analysis from the trenches.</p>
+                    <form class="signup-form" id="articleEmailSignup">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+
+                <!-- Buy Me a Coffee CTA -->
+                <div class="coffee-cta">
+                    <p>Enjoyed this article?</p>
+                    <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn-large">
+                        <span>☕</span> Buy Me a Coffee
+                    </a>
+                    <p class="coffee-subtext">Support PhantomByte and keep the content coming!</p>
+                </div>
+
+                <!-- Tutorials CTA -->
+                <div class="tutorials-cta" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 28px; border-radius: 12px; margin: 32px 0; border: 1px solid rgba(157, 78, 221, 0.3);">
+                    <h3 style="color: #9D4EDD; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: 700;">Build Real AI Infrastructure</h3>
+                    <p style="color: #e0e0e0; margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.6;">
+                        PhantomByte teaches you to build real AI infrastructure yourself: local AI stacks, autonomous agents, multi-agent orchestration, web scraping, and custom tools. Step-by-step PDF tutorials you download, follow, and deploy. No subscriptions. No fluff. Just skills that ship.
+                    </p>
+                    <div style="text-align: center;">
+                        <a href="https://phantom-byte.com/tutorials" target="_blank" style="display: inline-block; padding: 12px 28px; background: linear-gradient(90deg, #9D4EDD 0%, #7B2CBF 100%); color: #ffffff; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 1rem; box-shadow: 0 3px 10px rgba(157, 78, 221, 0.35);">
+                            Browse Tutorials →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Share/Related Section -->
+                <div class="article-footer">
+                    <div class="share-section">
+                        <h3>Share this article</h3>
+                        <div class="share-buttons">
+                            <button class="share-btn-twitter">Twitter</button>
+                            <button class="share-btn-facebook">Facebook</button>
+                            <button class="share-btn-linkedin">LinkedIn</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Slot (Bottom) -->
+            <div class="ad-slot ad-slot-article-bottom">
+                <a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank">
+                    <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25); border: none;">
+                        <p style="font-size: 0.7rem; color: #FF6B35; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">⚠️ Exit the Cloud</p>
+                        <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Own Your Weights. Own Your Data.</h4>
+                        <p style="margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.5; color: #e0e0e0; font-weight: 400;">The cloud AI era is a data-harvesting trap. Stop being the product and start being the owner. Build your local sovereign stack today.</p>
+                        <div style="text-align: center;">
+                            <span style="display: inline-block; padding: 11px 22px; background: linear-gradient(90deg, #00FF88 0%, #00cc6a 100%); color: #0a0a1a; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(0, 255, 136, 0.35);">Download The Blueprint</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+                    </div>
+                    <p class="tagline">Code from the shadows</p>
+                    <div class="footer-cta">
+                        <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn">
+                            ☕ Buy Me a Coffee
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="https://phantom-byte.com" target="_blank">Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="https://x.com/PhantomByteAI" target="_blank">X / Twitter</a></li>
+                        <li><a href="https://www.pinterest.com/PhantomByteAI" target="_blank">Pinterest</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 PhantomByte. All rights reserved.</p>
+                <p class="privacy-links">
+                    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/ad-manager.js" defer></script>
+    <script src="scripts/email-signup.js" defer></script>
+    <script src="scripts/share-buttons.js" defer></script>
+</body>
+</html>
