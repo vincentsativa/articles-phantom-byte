@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Jun 2026 04:51:06 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jun 2026 04:36:35 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>Agents Need Governors, Not Gatekeepers</title>
+      <link>https://articles.phantom-byte.com/agents-governors-not-gatekeepers.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/agents-governors-not-gatekeepers.html</guid>
+      <pubDate>Sun, 21 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Claude Code scanned an entire hard drive. The fix is not a better prompt. It is deterministic agent governance outside the LLM with deontic policy enforcement. Three papers, one incident, zero prod...</description>
+    </item>
 
     <item>
       <title>The Architecture Singularity: ITNet and the End of the Model Wars</title>
@@ -501,16 +511,6 @@
       <category>AI Infrastructure</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>AI data centers consume 80% of storage production. The Internet Archive faces 261% price hikes. What happens when AI eats digital history.</description>
-    </item>
-
-    <item>
-      <title>The Year the Critics Started Building</title>
-      <link>https://articles.phantom-byte.com/the-year-the-critics-started-building.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/the-year-the-critics-started-building.html</guid>
-      <pubDate>Tue, 05 May 2026 00:00:00 GMT</pubDate>
-      <category>AI Industry</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>From Simon Willison to antirez, 2026&#39;s AI critics became builders. Building with AI shifted from analysis to action. Here&#39;s who started shipping and who went silent.</description>
     </item>
   </channel>
 </rss>
