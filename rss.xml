@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Jun 2026 04:36:35 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jun 2026 04:14:03 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>Your GPU Cluster Is a Military Target Now</title>
+      <link>https://articles.phantom-byte.com/gpu-cluster-vulnerability-ai-infrastructure-geopolitics.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/gpu-cluster-vulnerability-ai-infrastructure-geopolitics.html</guid>
+      <pubDate>Mon, 22 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Iran fired ballistic missiles at AWS and Oracle data centers. Defense planners classify AI clusters as key military terrain. Kinetic AI risk is here.</description>
+    </item>
 
     <item>
       <title>Agents Need Governors, Not Gatekeepers</title>
@@ -501,16 +511,6 @@
       <category>AI Infrastructure</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>The AI model wars are over. $200B Anthropic-Google deal, SpaceX $119B chip fab, Nvidia fiber deal—the bottleneck is no longer algorithms but atoms.</description>
-    </item>
-
-    <item>
-      <title>The Storage Strangle: AI Is Erasing Internet History</title>
-      <link>https://articles.phantom-byte.com/the-storage-strangle-how-ai-data-centers-are-erasing-the-internets-history.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/the-storage-strangle-how-ai-data-centers-are-erasing-the-internets-history.html</guid>
-      <pubDate>Tue, 05 May 2026 00:00:00 GMT</pubDate>
-      <category>AI Infrastructure</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>AI data centers consume 80% of storage production. The Internet Archive faces 261% price hikes. What happens when AI eats digital history.</description>
     </item>
   </channel>
 </rss>
