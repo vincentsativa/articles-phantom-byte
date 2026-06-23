@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Jun 2026 04:14:03 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jun 2026 04:46:38 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>Your Agent Is Drowning in Its Own Output</title>
+      <link>https://articles.phantom-byte.com/your-agent-is-drowning-in-its-own-output.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/your-agent-is-drowning-in-its-own-output.html</guid>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Your agent is drowning in raw tool output. Headroom compresses tool outputs before they reach the LLM, cutting token costs by 60-95%. The plumbing fix for agent architecture.</description>
+    </item>
 
     <item>
       <title>Your GPU Cluster Is a Military Target Now</title>
@@ -501,16 +511,6 @@
       <category>AI Industry</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>Cloudflare laid off 1,100 people because AI usage is up 600%. AI isn&#39;t replacing workers—it&#39;s suppressing wages through uncertainty. Here&#39;s what&#39;s really happening.</description>
-    </item>
-
-    <item>
-      <title>Model Wars Over: Infrastructure War Just Started</title>
-      <link>https://articles.phantom-byte.com/the-model-wars-are-over-the-infrastructure-war-just-started.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/the-model-wars-are-over-the-infrastructure-war-just-started.html</guid>
-      <pubDate>Thu, 07 May 2026 00:00:00 GMT</pubDate>
-      <category>AI Infrastructure</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>The AI model wars are over. $200B Anthropic-Google deal, SpaceX $119B chip fab, Nvidia fiber deal—the bottleneck is no longer algorithms but atoms.</description>
     </item>
   </channel>
 </rss>
