@@ -5,13 +5,33 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Jun 2026 04:46:38 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jun 2026 04:56:07 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>Monolithic Agent Architecture</title>
+      <link>https://articles.phantom-byte.com/monolithic-agent-architecture.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/monolithic-agent-architecture.html</guid>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>Ten architectural patterns. Four responsibility layers. The monolithic agent is dead. Learn the 4-layer skill architecture replacing it with CUGA.</description>
+    </item>
+
+    <item>
+      <title>Your Agent Is a Monolith. That&#39;s the Problem.</title>
+      <link>https://articles.phantom-byte.com/your-agent-is-a-monolith-thats-the-problem.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/your-agent-is-a-monolith-thats-the-problem.html</guid>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>The monolithic agent is dead. A 4-layer skill architecture from CUGA, NVIDIA Agent Toolkit, and five new papers replaces it. Build modular, governable AI agents</description>
+    </item>
 
     <item>
       <title>Your Agent Is Drowning in Its Own Output</title>
@@ -491,26 +511,6 @@
       <category>AI Infrastructure</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>MiniMax M2.7 and Kimi K2.6 now match Western frontier AI at lower compute. Why developers are building sovereign AI stacks outside the guardrail gap.</description>
-    </item>
-
-    <item>
-      <title>The Agentic Takeover: Why Your UI Is a Relic</title>
-      <link>https://articles.phantom-byte.com/the-agentic-takeover-why-your-ui-is-already-a-relic.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/the-agentic-takeover-why-your-ui-is-already-a-relic.html</guid>
-      <pubDate>Sat, 09 May 2026 00:00:00 GMT</pubDate>
-      <category>AI Infrastructure</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>The chatbot era is over. Anthropic&#39;s $1.8B Akamai deal and Cloudflare&#39;s 1,100 AI layoffs prove the UI is a relic. The interface is now the obstacle.</description>
-    </item>
-
-    <item>
-      <title>AI Isn&#39;t Taking Your Job; It&#39;s Taking Your Raise</title>
-      <link>https://articles.phantom-byte.com/ai-isnt-taking-your-job-its-taking-your-raise.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/ai-isnt-taking-your-job-its-taking-your-raise.html</guid>
-      <pubDate>Fri, 08 May 2026 00:00:00 GMT</pubDate>
-      <category>AI Industry</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>Cloudflare laid off 1,100 people because AI usage is up 600%. AI isn&#39;t replacing workers—it&#39;s suppressing wages through uncertainty. Here&#39;s what&#39;s really happening.</description>
     </item>
   </channel>
 </rss>

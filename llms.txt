@@ -6,8 +6,10 @@ PhantomByte builds custom AI tools for small businesses. Our articles cover real
 agent orchestration patterns, infrastructure lessons, and honest engineering breakdowns.
 Written by Vinny Barreca. Updated regularly.
 
-## Articles (110 total)
+## Articles (112 total)
 
+- [Monolithic Agent Architecture](https://articles.phantom-byte.com/monolithic-agent-architecture.html): Ten architectural patterns. Four responsibility layers. The monolithic agent is dead. Learn the 4-layer skill architecture replacing it with CUGA. (2026-06-24)
+- [Your Agent Is a Monolith. That's the Problem.](https://articles.phantom-byte.com/your-agent-is-a-monolith-thats-the-problem.html): The monolithic agent is dead. A 4-layer skill architecture from CUGA, NVIDIA Agent Toolkit, and five new papers replaces it. Build modular, governable AI agents (2026-06-24)
 - [Your Agent Is Drowning in Its Own Output](https://articles.phantom-byte.com/your-agent-is-drowning-in-its-own-output.html): Your agent is drowning in raw tool output. Headroom compresses tool outputs before they reach the LLM, cutting token costs by 60-95%. The plumbing fix for agent architecture. (2026-06-23)
 - [Your GPU Cluster Is a Military Target Now](https://articles.phantom-byte.com/gpu-cluster-vulnerability-ai-infrastructure-geopolitics.html): Iran fired ballistic missiles at AWS and Oracle data centers. Defense planners classify AI clusters as key military terrain. Kinetic AI risk is here. (2026-06-22)
 - [Agents Need Governors, Not Gatekeepers](https://articles.phantom-byte.com/agents-governors-not-gatekeepers.html): Claude Code scanned an entire hard drive. The fix is not a better prompt. It is deterministic agent governance outside the LLM with deontic policy enforcement. Three papers, one incident, zero production solutions. (2026-06-21)
