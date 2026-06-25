@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Production MCP server security guide covering authentication, prompt injection defense, rate limiting, Docker deployment, and Kubernetes patterns. Real code examples in Python and TypeScript.">
+    <meta name="keywords" content="MCP server security, Model Context Protocol production, MCP authentication, prompt injection defense, MCP deployment guide, AI agent security 2026">
+    <meta name="author" content="Vinny Barreca">
+    <meta name="theme-color" content="#9D4EDD">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://articles.phantom-byte.com/building-production-ready-mcp-servers-security-best-practices-2026.html">
+    <meta property="og:title" content="Building Production-Ready MCP Servers: Security Best Practices for 2026">
+    <meta property="og:description" content="OpenAI just added MCP vulnerabilities to their bug bounty program. Here's everything you need to secure Model Context Protocol servers for production deployment.">
+    <meta property="og:image" content="https://articles.phantom-byte.com/images/article-30-main.jpg">
+    <meta property="article:published_time" content="2026-04-06">
+    <meta property="article:author" content="Vinny Barreca">
+    <meta property="article:section" content="AI Infrastructure">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://articles.phantom-byte.com/building-production-ready-mcp-servers-security-best-practices-2026.html">
+    <meta property="twitter:title" content="Building Production-Ready MCP Servers: Security Best Practices for 2026">
+    <meta property="twitter:description" content="OpenAI just added MCP vulnerabilities to their bug bounty program. Here's everything you need to secure Model Context Protocol servers for production deployment.">
+    <meta property="twitter:image" content="https://articles.phantom-byte.com/images/article-30-main.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://articles.phantom-byte.com/building-production-ready-mcp-servers-security-best-practices-2026.html">
+    
+    <title>Building Production-Ready MCP Servers: Security Best Practices for 2026 - PhantomByte</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDQCZE09E4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PDQCZE09E4');
+    </script>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/article.css">
+    
+    <!-- Web Push Notification Script -->
+    <script src="scripts/web-push-client.js" defer></script>
+    
+    <!-- ARTICLE SCHEMA MARKUP (JSON-LD for SEO + GEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Building Production-Ready MCP Servers: Security Best Practices for 2026",
+      "alternativeHeadline": "From Demo to Production: Securing Model Context Protocol Servers Against Real-World Threats",
+      "author": {
+        "@type": "Person",
+        "name": "Vinny Barreca",
+        "url": "https://phantom-byte.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PhantomByte",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://articles.phantom-byte.com/images/phantombyte-logo.png"
+        }
+      },
+      "datePublished": "2026-04-06",
+      "dateModified": "2026-04-06",
+      "description": "Production MCP server security guide covering authentication, prompt injection defense, rate limiting, Docker deployment, and Kubernetes patterns. Real code examples in Python and TypeScript.",
+      "articleBody": "On April 2, 2026, OpenAI quietly added something to their bug bounty program that should scare every AI infrastructure engineer: MCP servers.",
+      "wordCount": "3500",
+      "timeRequired": "PT12M",
+      "proficiencyLevel": "Intermediate",
+      "articleSection": "AI Infrastructure",
+      "keywords": "MCP server security, Model Context Protocol production, MCP authentication, prompt injection defense, MCP deployment guide",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://articles.phantom-byte.com/images/article-30-main.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://articles.phantom-byte.com/building-production-ready-mcp-servers-security-best-practices-2026.html"
+      }
+    }
+    </script>
+    
+    <!-- FAQ SCHEMA MARKUP (JSON-LD for GEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What security vulnerabilities did OpenAI add to their bug bounty program for MCP servers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On April 2, 2026, OpenAI added third-party prompt injection and data exfiltration via MCP-connected agents to their bug bounty program, with rewards up to $6,500 per report. This officially recognizes MCP servers as a production attack surface requiring enterprise-grade security."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are MCP tool annotations like readOnlyHint enforced by the protocol?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. MCP tool annotations are hints, not enforcement mechanisms. A tool marked with readOnlyHint can still execute destructive operations if the implementation allows it. Clients may ignore these annotations, which is why input validation and server-side checks are essential for production security."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What authentication pattern should I use for remote MCP servers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For remote MCP deployments, use Streamable HTTP transport with mandatory TLS termination, JWT or OAuth token authentication, and implement session management with token refresh logic. STDIO mode should be limited to local, single-user deployments as it relies on OS-level process isolation only."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I defend against prompt injection in MCP tool calls?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Implement strict input schema validation using libraries like Zod or Pydantic before any backend logic executes. Parse and validate payloads, fail closed on validation errors, and log injection attempts without exposing internal details. Never trust LLM outputs to be sanitized."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What rate limiting strategy works best for production MCP servers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Implement token bucket or sliding window rate limits at the transport layer, typically around 60 requests per minute per user with burst allowances. Apply limits before authentication to prevent DoS attacks, and configure circuit breakers for downstream service protection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What monitoring metrics should I track for MCP server security?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Track tool call rates and error rates per tool, authentication failure spikes, execution time percentiles, destructive tool usage patterns, and active connection counts. Set alerts for error rates exceeding 5%, unusual after-hours destructive operations, and authentication anomaly patterns."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+            </a>
+            <nav class="main-nav">
+                <a href="https://phantom-byte.com" target="_blank">Services</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="article-main">
+        <article class="article-container">
+            <!-- Article Header -->
+            <header class="article-header">
+                <span class="article-category">AI Infrastructure</span>
+                <h1 class="article-title">Building Production-Ready MCP Servers: Security Best Practices for 2026</h1>
+                
+                <div class="article-meta">
+                    <div class="author-info">
+                        <img src="images/author-vinny.jpg" alt="Vinny Barreca" class="author-avatar">
+                        <div class="author-details">
+                            <span class="author-name">Vinny Barreca</span>
+                            <span class="publish-date">April 6, 2026</span>
+                        </div>
+                    </div>
+                    <div class="meta-actions">
+                        <span class="read-time">12 min read</span>
+                        <button class="share-btn" aria-label="Share article">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                                <polyline points="16 6 12 2 8 6"/>
+                                <line x1="12" y1="2" x2="12" y2="15"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <figure class="article-featured-image">
+                <img src="images/article-30-main.jpg" alt="MCP server security architecture diagram showing trust boundaries between client, server, and resources">
+                <figcaption class="image-caption">Production MCP security requires defending three trust boundaries: client-to-server, server-to-resources, and tools-to-execution.</figcaption>
+            </figure>
+
+            <!-- Ad Slot (Top) -->
+            <div class="ad-slot ad-slot-article-top">
+                <div class="ad-performcb" data-campaign-id="6029657" data-subid="PB_ARTICLE_MCP_2026">
+                    <a href="https://noklnk.com/x/6029657?subid1=PB_ARTICLE_MCP_2026&subid2=&subid3=&subid4=&subid5=&subid6=&subid7=&subid8=&subid9=&subid10=&subid11=&subid12=&subid13=&subid14=&subid15=&subid16=&creative_id=&source_id=&google_aid=&ios_ifa=&creative_name=" target="_blank" rel="nofollow sponsored">
+                        <div class="ad-creative" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(157, 78, 221, 0.3); border: none;">
+                            <p style="font-size: 0.7rem; color: #00FF88; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">☁️ Sponsored</p>
+                            <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.4rem; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Build AI Engineering Without Code</h4>
+                            <p style="margin: 0 0 16px 0; font-size: 1rem; line-height: 1.6; color: #f0f0f0; font-weight: 400;">Get the funding you need with competitive rates starting at 5.99% APR. Quick online application, no impact to credit score for checking.</p>
+                            <div style="text-align: center;">
+                                <span style="display: inline-block; padding: 12px 24px; background: #00FF88; color: #1a1a2e; border-radius: 6px; text-decoration: none; font-weight: 800; font-size: 1rem; box-shadow: 0 4px 12px rgba(0, 255, 136, 0.4); transition: transform 0.2s; margin-bottom: 8px;">Check Your Rate</span>
+                                <p style="margin: 0; font-size: 0.85rem; color: #c9b1ff; font-weight: 500;">✓ Get the funding you need with competitive rates starting at 5.99% APR. Quick online application, no impact to credit score for checking.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Article Body -->
+            <div class="article-body">
+                <p class="lead-paragraph" style="margin-top: 50px;">
+                    On April 2, 2026, OpenAI quietly added something to their bug bounty program that should scare every AI infrastructure engineer: MCP servers.
+                </p>
+
+                <p>
+                    Specifically, they called out "third-party prompt injection and data exfiltration via MCP-connected agents" as in-scope vulnerabilities worth up to $6,500 per report.
+                </p>
+
+                <p>
+                    That is not academic hand-wringing. That is validation that MCP has graduated from a cool local experiment to a production attack surface. The Model Context Protocol has become the glue connecting AI agents to real-world tools, and where there is glue, there are cracks.
+                </p>
+
+                <p>
+                    Most MCP content online stops at "hello world." This guide bridges the gap between demo and production. If you are building MCP servers for real users, here is everything Anthropic's documentation glosses over. Security paradigms at this level are language agnostic.
+                </p>
+
+                <p>
+                    The examples below utilize both Python and TypeScript to demonstrate that whether you are integrating with local data science workflows or standing up scalable web infrastructure, the core defense boundaries remain identical.
+                </p>
+
+                <h2>Trust No One: Understanding MCP's Security Model</h2>
+
+                <!-- In-Article Image -->
+                <figure class="article-image article-image-right">
+                    <img src="images/article-30-inside.png" alt="MCP trust boundary diagram showing client-server-resource flow with security checkpoints">
+                    <figcaption class="image-caption">MCP establishes three trust boundaries that must all be defended in production.</figcaption>
+                </figure>
+
+                <p>
+                    MCP's security model is intentionally designed around one principle: trust no one. However, the documentation treats that like a philosophical stance rather than an engineering constraint. Let us translate it into practice.
+                </p>
+
+                <h3>Tool Annotations: Hints, Not Guarantees</h3>
+
+                <p>
+                    MCP provides tool annotations like readOnlyHint and destructiveHint. They sound helpful, but here is the critical detail most developers miss: these are suggestions, not enforcement mechanisms.
+                </p>
+
+                <pre><code class="language-python"># This tool is MARKED as read-only. Nothing enforces it.
+@mcp.tool(
+    name="query_database",
+    description="Execute a read-only SQL query",
+    annotations={
+        "readOnly": True,  # This is just a hint
+    }
+)
+async def query_database(sql: str) -> str:
+    # If your implementation allows DROP TABLE here,
+    # the annotation will not stop it
+    return await db.execute(sql)</code></pre>
+
+                <p>
+                    A malicious or confused client can, and will, ignore these annotations. OpenAI's bug bounty explicitly targets this trust gap. What happens when a large language model follows a user's request that contradicts a tool's intended safety profile?
+                </p>
+
+                <h3>The Trust Boundary Problem</h3>
+
+                <p>
+                    MCP establishes three critical boundaries:
+                </p>
+
+                <ul>
+                    <li><strong>Client ↔ Server:</strong> The transport layer where authentication happens.</li>
+                    <li><strong>Server ↔ Resources:</strong> Your server's access to external systems like databases, APIs, or filesystems.</li>
+                    <li><strong>Tools ↔ Execution:</strong> What actually happens when a tool is invoked.</li>
+                </ul>
+
+                <p>
+                    Most security guides focus on the first boundary. Production security requires defending all three.
+                </p>
+
+                <h2>Defeating Prompt Injection at the Tool Boundary</h2>
+
+                <p>
+                    Because you cannot trust the LLM to filter malicious intent, you must sanitize inputs before execution. Prompt injection payloads often masquerade as legitimate data. Strict schema validation is your first line of defense against exfiltration and injection attempts.
+                </p>
+
+                <pre><code class="language-typescript">import { z } from 'zod';
+
+// Define a strict schema that rejects unexpected commands or structures
+const UserUpdateSchema = z.object({
+  userId: z.string().uuid(),
+  email: z.string().email(),
+  // Explicitly deny additional properties
+}).strict();
+
+server.tool(
+  'update_user',
+  'Updates a user email address securely',
+  async (args) => {
+    try {
+      // The payload is validated before any backend logic executes
+      const safeArgs = UserUpdateSchema.parse(args);
+      await db.updateEmail(safeArgs.userId, safeArgs.email);
+      return { success: true };
+    } catch (error) {
+      // Log the injection attempt and fail closed
+      logger.warn('Tool payload validation failed', { error, payload: args });
+      throw new MCPSecurityError('Invalid arguments provided');
+    }
+  }
+);</code></pre>
+
+                <h2>Securing Your MCP Server: Authentication Patterns That Work</h2>
+
+                <p>
+                    MCP supports two transport modes: stdio for local communication and Streamable HTTP for remote servers. Each requires different security models.
+                </p>
+
+                <h3>Transport-Level Security</h3>
+
+                <p>
+                    <strong>STDIO mode</strong> is for local use only. It relies on process isolation and OS-level permissions. There are no authentication tokens needed because the OS acts as the boundary. This is best for local development, desktop agents, and single-user tools.
+                </p>
+
+                <p>
+                    <strong>Streamable HTTP</strong> is for remote deployments. It requires TLS termination with absolutely no exceptions. You must implement token or OAuth-based authentication alongside session management and token refresh logic. This is mandatory for multi-user deployments, SaaS integrations, and enterprise environments.
+                </p>
+
+                <pre><code class="language-typescript">// Production-ready MCP server with Bearer token auth
+import { Server } from '@modelcontextprotocol/sdk/server/index.js';
+import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
+
+const server = new Server({ name: 'secure-mcp', version: '1.0.0' }, {
+  capabilities: {
+    tools: {},
+    logging: {}
+  }
+});
+
+const transport = new StreamableHTTPServerTransport({
+  port: 3000,
+  // Custom auth middleware
+  authenticate: async (req) => {
+    const authHeader = req.headers.authorization;
+    if (!authHeader?.startsWith('Bearer ')) {
+      throw new Error('Unauthorized');
+    }
+    
+    const token = authHeader.slice(7);
+    const claims = await verifyToken(token); // Your JWT validation
+    
+    // Attach user context for tool calls
+    req.mcpContext = { userId: claims.sub, permissions: claims.scopes };
+    return true;
+  }
+});
+
+server.connect(transport);</code></pre>
+
+                <h3>Capability-Based Access Control</h3>
+
+                <p>
+                    Do not just authenticate; authorize. Each user session should receive a filtered tool set based on their specific permissions.
+                </p>
+
+                <pre><code class="language-python">from mcp.server.fastmcp import FastMCP
+from functools import wraps
+
+mcp = FastMCP("secure-server")
+
+def require_permission(permission: str):
+    def decorator(fn):
+        @wraps(fn)
+        async def wrapper(*args, ctx=None, **kwargs):
+            user_perms = ctx.get("permissions", []) if ctx else []
+            if permission not in user_perms:
+                raise PermissionError(f"Missing permission: {permission}")
+            return await fn(*args, ctx=ctx, **kwargs)
+        return wrapper
+    return decorator
+
+@mcp.tool()
+@require_permission("database:write")
+async def update_user_email(user_id: str, email: str, ctx=None) -> str:
+    # Only reachable if user has 'database:write' permission
+    await db.users.update({"email": email}, where={"id": user_id})
+    return "Updated successfully"</code></pre>
+
+                <h3>Rate Limiting and Resource Quotas</h3>
+
+                <p>
+                    Production MCP servers need circuit breakers. Implement token bucket or sliding window rate limits at the transport layer to prevent denial of service attacks.
+                </p>
+
+                <pre><code class="language-python">import time
+from collections import defaultdict
+from typing import Dict, Tuple
+
+class RateLimiter:
+    def __init__(self, requests_per_minute: int = 60):
+        self.limits: Dict[str, Tuple[list, int]] = defaultdict(
+            lambda: ([], requests_per_minute)
+        )
+    
+    def check(self, user_id: str) -> bool:
+        now = time.time()
+        timestamps, limit = self.limits[user_id]
+        
+        # Clear old entries
+        cutoff = now - 60
+        while timestamps and timestamps[0] < cutoff:
+            timestamps.pop(0)
+        
+        if len(timestamps) >= limit:
+            return False
+        
+        timestamps.append(now)
+        return True
+
+# Apply in auth middleware
+rate_limiter = RateLimiter(requests_per_minute=30)
+
+async def authenticate(req):
+    claims = await verifyToken(req.headers.get("Authorization"))
+    if not rate_limiter.check(claims.sub):
+        raise RateLimitError("Too many requests")
+    return claims</code></pre>
+
+                <h2>From Local Demo to Production: MCP Deployment Guide</h2>
+
+                <p>
+                    Your working npx command does not cut it for production. Here is how to deploy MCP servers that survive real traffic.
+                </p>
+
+                <h3>Docker Containerization</h3>
+
+                <pre><code class="language-dockerfile"># Dockerfile
+FROM node:20-alpine
+
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+
+COPY . .
+RUN npm run build
+
+# Run as non-root user
+USER node
+
+EXPOSE 3000
+
+# Health check endpoint
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:3000/health || exit 1
+
+CMD ["node", "dist/index.js"]</code></pre>
+
+                <h3>Environment-Based Configuration</h3>
+
+                <p>
+                    Never hardcode credentials. Use a tiered configuration system:
+                </p>
+
+                <pre><code class="language-typescript">// config.ts
+import { z } from 'zod';
+
+const configSchema = z.object({
+  NODE_ENV: z.enum(['development', 'staging', 'production']),
+  PORT: z.string().transform(Number).default('3000'),
+  DATABASE_URL: z.string(),
+  JWT_SECRET: z.string(),
+  RATE_LIMIT_RPM: z.number().default(60),
+  MAX_TOOL_EXECUTION_TIME_MS: z.number().default(30000),
+  LOG_LEVEL: z.enum(['debug', 'info', 'warn', 'error']).default('info')
+});
+
+export const config = configSchema.parse(process.env);</code></pre>
+
+                <h3>Reverse Proxy Configuration (Nginx)</h3>
+
+                <pre><code class="language-nginx"># /etc/nginx/sites-available/mcp-server
+upstream mcp_backend {
+    server 127.0.0.1:3000;
+    keepalive 32;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name mcp.yourdomain.com;
+
+    ssl_certificate /etc/letsencrypt/live/yourdomain.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/yourdomain.com/privkey.pem;
+
+    # Security headers
+    add_header Strict-Transport-Security "max-age=63072000" always;
+    add_header X-Frame-Options "DENY" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    
+    # Body size limits (Adjusted for heavy LLM context and base64 images)
+    client_max_body_size 50m;
+    client_body_timeout 60s;
+    
+    location / {
+        proxy_pass http://mcp_backend;
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        
+        # MCP-specific: increase timeouts for long-running tools
+        proxy_read_timeout 120s;
+        proxy_send_timeout 120s;
+    }
+}</code></pre>
+
+                <h3>Kubernetes Deployment Pattern</h3>
+
+                <pre><code class="language-yaml"># k8s-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mcp-server
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mcp-server
+  template:
+    metadata:
+      labels:
+        app: mcp-server
+    spec:
+      containers:
+      - name: mcp-server
+        image: your-registry/mcp-server:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: mcp-secrets
+              key: database-url
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5</code></pre>
+
+                <h2>Building Observability Into Your MCP Infrastructure</h2>
+
+                <p>
+                    You cannot secure what you cannot see. Production MCP servers need comprehensive audit logging and monitoring.
+                </p>
+
+                <h3>Tool Call Logging</h3>
+
+                <p>
+                    Log every tool invocation with full context:
+                </p>
+
+                <pre><code class="language-typescript">interface ToolCallLog {
+  timestamp: string;
+  userId: string;
+  sessionId: string;
+  toolName: string;
+  arguments: Record<string, unknown>;
+  resultStatus: 'success' | 'error' | 'timeout';
+  executionTimeMs: number;
+  clientInfo?: string;
+}
+
+async function logToolCall(log: ToolCallLog) {
+  // Send to your logging pipeline
+  await logger.info('mcp.tool_call', log);
+  
+  // Send to SIEM if configured
+  if (config.SIEM_ENDPOINT) {
+    await fetch(config.SIEM_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(log)
+    });
+  }
+}
+
+// Wrap all tool calls
+server.setToolCallHandler(async (request, context) => {
+  const startTime = Date.now();
+  let result;
+  
+  try {
+    result = await executeTool(request);
+    
+    await logToolCall({
+      timestamp: new Date().toISOString(),
+      userId: context.userId,
+      sessionId: context.sessionId,
+      toolName: request.name,
+      arguments: sanitizeArgs(request.arguments), // Remove PII
+      resultStatus: 'success',
+      executionTimeMs: Date.now() - startTime
+    });
+    
+    return result;
+  } catch (error) {
+    await logToolCall({
+      timestamp: new Date().toISOString(),
+      userId: context.userId,
+      sessionId: context.sessionId,
+      toolName: request.name,
+      arguments: sanitizeArgs(request.arguments),
+      resultStatus: error.name === 'TimeoutError' ? 'timeout' : 'error',
+      executionTimeMs: Date.now() - startTime
+    });
+    throw error;
+  }
+});</code></pre>
+
+                <h3>Error Handling and Client Notification</h3>
+
+                <p>
+                    Do not leak internal database or infrastructure details to clients.
+                </p>
+
+                <pre><code class="language-typescript">class MCPSecurityError extends Error {
+  constructor(
+    message: string,
+    public code: string,
+    // Internal details never sent to client
+    public internalDetails?: Record<string, unknown>
+  ) {
+    super(message);
+  }
+  
+  toClientError() {
+    return {
+      message: this.message, // Safe, sanitized message
+      code: this.code
+    };
+  }
+}
+
+// In error handler
+server.on('error', (error, context) => {
+  if (error instanceof MCPSecurityError) {
+    // Log full details internally
+    logger.error('MCP security error', {
+      ...error.toClientError(),
+      internalDetails: error.internalDetails,
+      userId: context.userId
+    });
+    
+    // Send safe message to client
+    return error.toClientError();
+  }
+  
+  // Generic fallback for unknown errors
+  logger.error('Unexpected MCP error', { error, context });
+  return { message: 'Internal server error', code: 'INTERNAL_ERROR' };
+});</code></pre>
+
+                <h3>Metric Collection</h3>
+
+                <p>
+                    Track these production metrics:
+                </p>
+
+                <pre><code class="language-typescript">// Prometheus-style metrics
+const mcpToolCallsTotal = new Counter({
+  name: 'mcp_tool_calls_total',
+  help: 'Total tool calls',
+  labelNames: ['tool', 'status']
+});
+
+const mcpToolDuration = new Histogram({
+  name: 'mcp_tool_duration_seconds',
+  help: 'Tool execution duration',
+  buckets: [0.1, 0.5, 1, 2, 5, 10, 30]
+});
+
+const mcpActiveConnections = new Gauge({
+  name: 'mcp_active_connections',
+  help: 'Number of active MCP connections'
+});</code></pre>
+
+                <h3>Alerting Thresholds</h3>
+
+                <p>
+                    Set up alerts for these specific conditions:
+                </p>
+
+                <ul>
+                    <li><strong>Error rate greater than 5%</strong> for any tool, which indicates a broken integration or active attack.</li>
+                    <li><strong>Authentication failure rate spikes,</strong> which point to brute force attempts.</li>
+                    <li><strong>Tool execution times exceeding the 95th percentile,</strong> which highlights performance degradation.</li>
+                    <li><strong>Destructive tool usage outside business hours,</strong> which is a clear signal of unusual activity.</li>
+                </ul>
+
+                <h2>MCP Security Checklist for Production</h2>
+
+                <p>
+                    Before deploying your MCP server, verify each item:
+                </p>
+
+                <table class="security-checklist">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Requirement</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Transport</td>
+                            <td>TLS 1.3 enforced for HTTP transport</td>
+                            <td>☐</td>
+                        </tr>
+                        <tr>
+                            <td>Transport</td>
+                            <td>STDIO mode only for local, single-user deployments</td>
+                            <td>☐</td>
+                        </tr>
+                        <tr>
+                            <td>Auth</td>
+                            <td>JWT or OAuth tokens validated on every request</td>
+                            <td>☐</td>
+                        </tr>
+                        <tr>
+                            <td>Auth</td>
+                            <td>Token refresh handled without breaking sessions</td>
+                            <td>☐</td>
+                        </tr>
+                        <tr>
+                            <td>Auth</td>
+                            <td>Rate limiting implemented per user/IP</td>
+                            <td>☐</td>
+                        </tr>
+                        <tr>
+                            <td>Auth</td>
+                            <td>Permission scopes checked before tool execution</td>
+                            <td>☐</td>
+                        </tr>
+                        <tr>
+                            <td>Tools</td>
+                            <td>Annotations verified NOT treated as guarantees</td>
+                            <td>☐</td>
+                        </tr>
+                        <tr>
+                            <td>Tools</td>
+                            <td>Strict input schema validation on all arguments</td>
+                            <td>☐</td>
+                        </tr>
+                        <tr>
+                            <td>Tools</td>
+                            <td>Execution timeouts configured</td>
+                            <td>☐</td>
+                        </tr>
+                        <tr>
+                            <td>Deployment</td>
+                            <td>Running as non-root user</td>
+                            <td>☐</td>
+                        </tr>
+                        <tr>
+                            <td>Deployment</td>
+                            <td>Resource limits configured</td>
+                            <td>☐</td>
+                        </tr>
+                        <tr>
+                            <td>Deployment</td>
+                            <td>Health checks implemented</td>
+                            <td>☐</td>
+                        </tr>
+                        <tr>
+                            <td>Deployment</td>
+                            <td>Secrets in environment variables, not code</td>
+                            <td>☐</td>
+                        </tr>
+                        <tr>
+                            <td>Observability</td>
+                            <td>Tool calls logged with user attribution</td>
+                            <td>☐</td>
+                        </tr>
+                        <tr>
+                            <td>Observability</td>
+                            <td>PII sanitized from logs</td>
+                            <td>☐</td>
+                        </tr>
+                        <tr>
+                            <td>Observability</td>
+                            <td>Error messages do not leak internal structures</td>
+                            <td>☐</td>
+                        </tr>
+                        <tr>
+                            <td>Response</td>
+                            <td>Incident response plan mapped for tool abuse</td>
+                            <td>☐</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>The Bottom Line</h2>
+
+                <p>
+                    MCP's "trust no one" design is not a bug. It is a feature. However, features require rigorous implementation. The OpenAI bug bounty announcement makes it clear that MCP servers are now officially part of the modern security perimeter.
+                </p>
+
+                <p>
+                    The gap between an AI agent that works and an AI agent that is safe is where most engineering teams get burned. This guide closes that gap. Deploy with authentication, enforce strict input validation, monitor with deep observability, and remember that tool annotations are hints, not handcuffs.
+                </p>
+
+                <p>
+                    Building production MCP servers? Start with the checklist above. Your future self, and your security team, will thank you.
+                </p>
+
+                <div class="article-email-signup">
+                    <h3>Get More Articles Like This</h3>
+                    <p>Getting your AI agent setup right is just the start. I'm documenting every mistake, fix, and lesson learned as I build PhantomByte.</p>
+                    <p>Subscribe to receive updates when we publish new content. No spam, just real lessons from the trenches.</p>
+                    <form class="signup-form" id="articleEmailSignup">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+
+                <!-- Buy Me a Coffee CTA -->
+                <div class="coffee-cta">
+                    <p>Enjoyed this article?</p>
+                    <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn-large">
+                        <span>&#9749;</span> Buy Me a Coffee
+                    </a>
+                    <p class="coffee-subtext">Support PhantomByte and keep the content coming!</p>
+                </div>
+
+                <!-- Share/Related Section -->
+                <div class="article-footer">
+                    <div class="share-section">
+                        <h3>Share this article</h3>
+                        <div class="share-buttons">
+                            <button class="share-btn-twitter">Twitter</button>
+                            <button class="share-btn-facebook">Facebook</button>
+                            <button class="share-btn-linkedin">LinkedIn</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad Slot (Bottom) -->
+            <div class="ad-slot ad-slot-article-bottom">
+                <div class="ad-performcb" data-campaign-id="6029657" data-subid="PB_ARTICLE_MCP_BOTTOM_2026">
+                    <a href="https://noklnk.com/x/6029657?subid1=PB_ARTICLE_MCP_BOTTOM_2026&subid2=&subid3=&subid4=&subid5=&subid6=&subid7=&subid8=&subid9=&subid10=&subid11=&subid12=&subid13=&subid14=&subid15=&subid16=&creative_id=&source_id=&google_aid=&ios_ifa=&creative_name=" target="_blank" rel="nofollow sponsored">
+                        <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25); border: none;">
+                            <p style="font-size: 0.7rem; color: #9D4EDD; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">&#9889; Partner Offer</p>
+                            <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Compare Best Personal Loans</h4>
+                            <p style="margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.5; color: #e0e0e0; font-weight: 400;">Get the funding you need with competitive rates starting at 5.99% APR. Quick online application, no impact to credit score for checking.</p>
+                            <div style="text-align: center;">
+                                <span style="display: inline-block; padding: 11px 22px; background: linear-gradient(90deg, #00FF88 0%, #00cc6a 100%); color: #0a0a1a; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(0, 255, 136, 0.35); margin-bottom: 8px;">Check Your Rate</span>
+                                <p style="margin: 0; font-size: 0.8rem; color: #a8a8c9; font-weight: 500;">&#128274; Free to start</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+                    </div>
+                    <p class="tagline">Code from the shadows</p>
+                    <div class="footer-cta">
+                        <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn">
+                            &#9749; Buy Me a Coffee
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="https://phantom-byte.com" target="_blank">Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="https://x.com/PhantomByteAI" target="_blank">X / Twitter</a></li>
+                        <li><a href="https://www.pinterest.com/PhantomByteAI" target="_blank">Pinterest</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 PhantomByte. All rights reserved.</p>
+                <p class="privacy-links">
+                    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/ad-manager.js" defer></script>
+    <script src="scripts/email-signup.js" defer></script>
+    <script src="scripts/share-buttons.js" defer></script>
+</body>
+</html>

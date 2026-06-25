@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Local Server - PhantomByte</title>
+    <style>
+        body {
+            background: #0a0a0a;
+            color: #e0e0e0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            padding: 40px;
+            text-align: center;
+        }
+        h1 {
+            color: #9D4EDD;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        .link-card {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 8px;
+            border: 2px solid #00FF88;
+            min-width: 250px;
+            transition: all 0.3s ease;
+        }
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+        .link-card a {
+            color: #00FF88;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .status {
+            margin-top: 40px;
+            padding: 20px;
+            background: #1a1a1a;
+            border-radius: 8px;
+            border-left: 4px solid #00FF88;
+        }
+        .status h3 {
+            color: #00FF88;
+            margin-bottom: 10px;
+        }
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .check {
+            color: #00FF88;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <h1>👻 PhantomByte Articles - Test Server</h1>
+    <p style="color: #666; margin-bottom: 40px;">Local development server is running!</p>
+    
+    <div class="links">
+        <div class="link-card">
+            <h3 style="color: #9D4EDD; margin-bottom: 15px;">📰 Articles Listing</h3>
+            <p style="color: #888; margin-bottom: 20px;">View the main articles homepage</p>
+            <a href="index.html">Open Articles Page →</a>
+        </div>
+        
+        <div class="link-card">
+            <h3 style="color: #9D4EDD; margin-bottom: 15px;">📄 Article Template</h3>
+            <p style="color: #888; margin-bottom: 20px;">View single article layout</p>
+            <a href="article-template.html">Open Template →</a>
+        </div>
+    </div>
+    
+    <div class="status">
+        <h3>✅ Template Checklist</h3>
+        <div class="check-item">
+            <span class="check">✓</span>
+            <span>Articles listing page (DigitalTrends homepage style)</span>
+        </div>
+        <div class="check-item">
+            <span class="check">✓</span>
+            <span>Single article template (clean reading experience)</span>
+        </div>
+        <div class="check-item">
+            <span class="check">✓</span>
+            <span>PhantomByte branding (purple #9D4EDD, neon green #00FF88)</span>
+        </div>
+        <div class="check-item">
+            <span class="check">✓</span>
+            <span>Responsive design (mobile + desktop)</span>
+        </div>
+        <div class="check-item">
+            <span class="check">✓</span>
+            <span>Ad slots (top/bottom, PerformCB ready)</span>
+        </div>
+        <div class="check-item">
+            <span class="check">✓</span>
+            <span>Email signup forms (MailerLite ready)</span>
+        </div>
+        <div class="check-item">
+            <span class="check">✓</span>
+            <span>Push notification integration (Firebase ready)</span>
+        </div>
+        <div class="check-item">
+            <span class="check">✓</span>
+            <span>Buy Me a Coffee CTAs</span>
+        </div>
+        <div class="check-item">
+            <span class="check">✓</span>
+            <span>Google Analytics (G-PDQCZE09E4)</span>
+        </div>
+        <div class="check-item">
+            <span class="check">✓</span>
+            <span>Social share buttons</span>
+        </div>
+        <div class="check-item">
+            <span class="check">✓</span>
+            <span>Footer navigation to phantom-byte.com</span>
+        </div>
+        <div class="check-item">
+            <span class="check">✓</span>
+            <span>README with deployment instructions</span>
+        </div>
+    </div>
+    
+    <div style="margin-top: 60px; padding-top: 30px; border-top: 2px solid #1a1a1a;">
+        <p style="color: #666;">
+            <strong>Next Steps:</strong><br>
+            1. Test both pages in browser<br>
+            2. Replace placeholder images<br>
+            3. Add your PerformCB API key<br>
+            4. Deploy to Cloud Run<br>
+            5. Map domain (articles.phantom-byte.com)
+        </p>
+    </div>
+    
+    <p style="margin-top: 40px; color: #9D4EDD; font-style: italic;">
+        Code from the shadows 👻
+    </p>
+</body>
+</html>

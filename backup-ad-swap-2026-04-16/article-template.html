@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="[ARTICLE DESCRIPTION - Update per article: 150-160 characters with primary keyword]">
+    <meta name="keywords" content="[PRIMARY KEYWORD], cloud deployment, Google Cloud Run, infrastructure tutorial, DevOps lessons, PhantomByte">
+    <meta name="author" content="Vinny Barreca">
+    <meta name="theme-color" content="#9D4EDD">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://articles.phantom-byte.com/[ARTICLE-SLUG]">
+    <meta property="og:title" content="[ARTICLE TITLE]">
+    <meta property="og:description" content="[ARTICLE EXCERPT - 1-2 sentences]">
+    <meta property="og:image" content="[FEATURED IMAGE URL]">
+    <meta property="article:published_time" content="[PUBLISH DATE ISO FORMAT]">
+    <meta property="article:author" content="Vinny Barreca">
+    <meta property="article:section" content="[CATEGORY]">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://articles.phantom-byte.com/[ARTICLE-SLUG]">
+    <meta property="twitter:title" content="[ARTICLE TITLE]">
+    <meta property="twitter:description" content="[ARTICLE EXCERPT]">
+    <meta property="twitter:image" content="[FEATURED IMAGE URL]">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://articles.phantom-byte.com/[ARTICLE-SLUG]">
+    
+    <title>[ARTICLE TITLE] - PhantomByte</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDQCZE09E4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PDQCZE09E4');
+    </script>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/article.css">
+    
+    <!-- Web Push Notification Script -->
+    <script src="scripts/web-push-client.js" defer></script>
+    
+    <!-- ARTICLE SCHEMA MARKUP (JSON-LD for SEO + GEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "[ARTICLE TITLE]",
+      "alternativeHeadline": "[OPTIONAL SUBTITLE]",
+      "author": {
+        "@type": "Person",
+        "name": "Vinny Barreca",
+        "url": "https://phantom-byte.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PhantomByte",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://articles.phantom-byte.com/images/phantombyte-logo.png"
+        }
+      },
+      "datePublished": "[YYYY-MM-DD]",
+      "dateModified": "[YYYY-MM-DD]",
+      "description": "[ARTICLE DESCRIPTION - 150-160 characters]",
+      "articleBody": "[FIRST PARAGRAPH OR EXECUTIVE SUMMARY]",
+      "wordCount": "[WORD COUNT]",
+      "timeRequired": "PT[5]M",
+      "proficiencyLevel": "Intermediate",
+      "articleSection": "[CATEGORY]",
+      "keywords": "[PRIMARY KEYWORD], cloud deployment, Google Cloud Run, infrastructure tutorial",
+      "image": {
+        "@type": "ImageObject",
+        "url": "[FEATURED IMAGE URL]",
+        "width": 1200,
+        "height": 630
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://articles.phantom-byte.com/[ARTICLE-SLUG]"
+      }
+    }
+    </script>
+    
+    <!-- FAQ SCHEMA MARKUP (JSON-LD for GEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "[QUESTION 1 WITH KEYWORD]?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "[DIRECT ANSWER - 2-3 sentences. AI will cite this.]"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "[QUESTION 2 - PROBLEM/SOLUTION]?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "[DIRECT ANSWER with specific steps or data]"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "[QUESTION 3 - COMPARISON]?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "[DEFINITIVE RECOMMENDATION with reasoning]"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "[QUESTION 4 - COMMON MISTAKE]?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "[ANSWER addressing pain point + solution]"
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+            </a>
+            <nav class="main-nav">
+                <a href="https://phantom-byte.com" target="_blank">Services</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="article-main">
+        <article class="article-container">
+            <!-- Article Header -->
+            <header class="article-header">
+                <span class="article-category">PHONES</span>
+                <h1 class="article-title">Your Article Headline Goes Here</h1>
+                
+                <div class="article-meta">
+                    <div class="author-info">
+                        <img src="images/author-vinny.jpg" alt="Vinny Barreca" class="author-avatar">
+                        <div class="author-details">
+                            <span class="author-name">Vinny Barreca</span>
+                            <span class="publish-date">March 4, 2026</span>
+                        </div>
+                    </div>
+                    <div class="meta-actions">
+                        <span class="read-time">5 min read</span>
+                        <button class="share-btn" aria-label="Share article">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                                <polyline points="16 6 12 2 8 6"/>
+                                <line x1="12" y1="2" x2="12" y2="15"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <figure class="article-featured-image">
+                <img src="images/placeholder-featured.jpg" alt="Featured article image">
+                <figcaption class="image-caption">Image caption goes here - credit if needed</figcaption>
+            </figure>
+
+            <!-- Ad Slot (Top) -->
+            <div class="ad-slot ad-slot-article-top">
+                <div class="ad-placeholder">
+                    <p>Advertisement</p>
+                    <p class="ad-note">Responsive ad unit (728x90 or similar)</p>
+                    <!-- Replace with actual ad code -->
+                </div>
+            </div>
+
+            <!-- Article Body -->
+            <div class="article-body">
+                <!-- Introduction -->
+                <p class="lead-paragraph">
+                    Start with a compelling opening paragraph that hooks the reader. This should be slightly larger 
+                    text that draws people in and makes them want to continue reading. Keep it engaging and concise.
+                </p>
+
+                <!-- Content Sections -->
+                <p>
+                    Your main article content starts here. DigitalTrends uses clean, readable paragraphs with good 
+                    line spacing. Keep paragraphs relatively short (2-4 sentences) for better readability on all devices.
+                </p>
+
+                <p>
+                    Use multiple paragraphs to break up content. This makes it easier to scan and read, especially 
+                    on mobile devices. Each paragraph should focus on one main idea or point.
+                </p>
+
+                <!-- Section Heading -->
+                <h2>First Section Heading</h2>
+                
+                <p>
+                    Section headings help organize your content and make it scannable. Use H2 tags for main sections 
+                    and H3 for subsections. This creates a clear hierarchy that both readers and search engines appreciate.
+                </p>
+
+                <p>
+                    Continue your content here. Remember to keep the tone conversational but informative. PhantomByte's 
+                    voice should be casual, honest, and straightforward - just like the IDENTITY.md specifies.
+                </p>
+
+                <!-- Example with Image -->
+                <figure class="article-image article-image-right">
+                    <img src="images/placeholder-1.jpg" alt="Supporting image">
+                    <figcaption>Image caption explaining what this shows</figcaption>
+                </figure>
+
+                <p>
+                    You can float images to the left or right within the article content. This breaks up the text 
+                    and adds visual interest. Just make sure the images are relevant and add value to the content.
+                </p>
+
+                <p>
+                    Text wraps around the floated image naturally on desktop, and stacks properly on mobile devices 
+                    thanks to responsive CSS. Always test your layouts on multiple screen sizes.
+                </p>
+
+                <!-- Another Section -->
+                <h2>Second Section Heading</h2>
+
+                <p>
+                    Continue building out your article with more sections. Each section should have a clear purpose 
+                    and contribute to the overall message of the article.
+                </p>
+
+                <!-- Bullet List Example -->
+                <h3>Key Points to Remember</h3>
+                <ul>
+                    <li>First important point or takeaway</li>
+                    <li>Second point that adds value</li>
+                    <li>Third insight or recommendation</li>
+                    <li>Fourth actionable item for readers</li>
+                </ul>
+
+                <p>
+                    Lists are great for breaking down complex information into digestible chunks. They're also 
+                    excellent for mobile readability and help readers quickly scan for key information.
+                </p>
+
+                <!-- Quote or Callout -->
+                <blockquote class="article-quote">
+                    "This is a great place for a memorable quote from the article, or a standout statistic that 
+                    emphasizes your main point. Make it impactful!"
+                </blockquote>
+
+                <p>
+                    Blockquotes add visual variety and can highlight important statements. Use them sparingly for 
+                    maximum impact - maybe once or twice per article.
+                </p>
+
+                <!-- Third Section -->
+                <h2>Third Section Heading</h2>
+
+                <p>
+                    As you approach the conclusion, start wrapping up your main points. This section should begin 
+                    to tie everything together and prepare the reader for the conclusion.
+                </p>
+
+                <p>
+                    Continue with your final content points here. Make sure each paragraph flows naturally to the 
+                    next, creating a cohesive reading experience from start to finish.
+                </p>
+
+                <!-- Conclusion -->
+                <h2>Final Thoughts</h2>
+
+                <p>
+                    Your conclusion should summarize the main takeaways and leave the reader with something to 
+                    think about or act upon. This is your final opportunity to make an impression.
+                </p>
+
+                <p>
+                    End with a strong closing paragraph that reinforces the article's main message and perhaps 
+                    invites the reader to explore more content or take a specific action.
+                </p>
+            </div>
+
+            <!-- Ad Slot (Bottom) -->
+            <div class="ad-slot ad-slot-article-bottom">
+                <div class="ad-placeholder">
+                    <p>Advertisement</p>
+                    <p class="ad-note">Responsive ad unit</p>
+                    <!-- Replace with actual ad code -->
+                </div>
+            </div>
+
+            <!-- Buy Me a Coffee CTA -->
+            <div class="coffee-cta">
+                <p>Enjoyed this article?</p>
+                <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn-large">
+                    <span>☕</span> Buy Me a Coffee
+                </a>
+                <p class="coffee-subtext">Support PhantomByte and keep the content coming!</p>
+            </div>
+
+            <!-- KEY TAKEAWAYS BOX (GEO Optimization) -->
+            <div class="key-takeaways">
+                <h3>🔑 Key Takeaways</h3>
+                <ul>
+                    <li><strong>[Takeaway 1]:</strong> [Brief, actionable insight]</li>
+                    <li><strong>[Takeaway 2]:</strong> [Brief, actionable insight]</li>
+                    <li><strong>[Takeaway 3]:</strong> [Brief, actionable insight]</li>
+                    <li><strong>[Takeaway 4]:</strong> [Brief, actionable insight]</li>
+                </ul>
+            </div>
+
+            <!-- FAQ SECTION (GEO + SEO Optimization) -->
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <h3>[Question 1 with Primary Keyword]?</h3>
+                    <p>[Direct, authoritative answer - 2-3 sentences. Start with the answer immediately. AI will cite this.]</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>[Question 2 - Problem/Solution]?</h3>
+                    <p>[Direct answer with specific steps or data. Include numbers, error codes, or verifiable facts when possible.]</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>[Question 3 - Comparison or Recommendation]?</h3>
+                    <p>[Definitive recommendation with reasoning. AI loves to cite "best for" and "we recommend" statements with backing.]</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>[Question 4 - Common Mistake]?</h3>
+                    <p>[Answer that addresses a common pain point. Show you understand the struggle and provide the fix.]</p>
+                </div>
+            </div>
+
+            <!-- WHAT WE LEARNED SECTION (Authenticity + E-E-A-T) -->
+            <div class="what-we-learned">
+                <h2>💡 What We Learned</h2>
+                <p>
+                    [Authentic lesson from building this. Be honest about what broke, what you'd do differently, 
+                    and why this matters. This is the "human experience" part that builds trust and authority.]
+                </p>
+                <p>
+                    [Second paragraph: Connect this lesson to the bigger picture. How does this help readers 
+                    avoid the same mistakes? What's the broader principle?]
+                </p>
+            </div>
+
+            <!-- Email Signup (Article End) -->
+            <div class="article-email-signup">
+                <h3>Get More Articles Like This</h3>
+                <p>Subscribe to receive updates when we publish new content.</p>
+                <form class="signup-form" id="articleEmailSignup">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+
+            <!-- Related Articles -->
+            <div class="article-footer">
+                <div class="related-articles">
+                    <h3>Read Next</h3>
+                    <div class="related-grid">
+                        <article class="related-card">
+                            <a href="#">
+                                <img src="images/placeholder-2.jpg" alt="Related article">
+                                <h4>Related Article Headline 1</h4>
+                            </a>
+                        </article>
+                        <article class="related-card">
+                            <a href="#">
+                                <img src="images/placeholder-3.jpg" alt="Related article">
+                                <h4>Related Article Headline 2</h4>
+                            </a>
+                        </article>
+                        <article class="related-card">
+                            <a href="#">
+                                <img src="images/placeholder-4.jpg" alt="Related article">
+                                <h4>Related Article Headline 3</h4>
+                            </a>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+                    </div>
+                    <p class="tagline">Code from the shadows</p>
+                    <div class="footer-cta">
+                        <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn">
+                            ☕ Buy Me a Coffee
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="https://phantom-byte.com" target="_blank">Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="https://x.com/PhantomByteAI" target="_blank">X / Twitter</a></li>
+                        <li><a href="https://www.pinterest.com/PhantomByteAI" target="_blank">Pinterest</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 PhantomByte. All rights reserved.</p>
+                <p class="privacy-links">
+                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/ad-manager.js" defer></script>
+    <script src="scripts/email-signup.js" defer></script>
+    <script src="scripts/share-buttons.js" defer></script>
+</body>
+</html>

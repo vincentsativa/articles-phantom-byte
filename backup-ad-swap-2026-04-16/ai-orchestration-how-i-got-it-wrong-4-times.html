@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="I burned through API credits, wasted three weeks, and built four broken AI orchestration systems before I figured out what actually matters.">
+    <meta name="keywords" content="AI orchestration, Grok-4, MiniMax disaster, Kimi K2.5, GLM-5, Qwen3.5, session management, context window degradation, PhantomByte">
+    <meta name="author" content="Vinny Barreca">
+    <meta name="theme-color" content="#9D4EDD">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://articles.phantom-byte.com/ai-orchestration-how-i-got-it-wrong-4-times.html">
+    <meta property="og:title" content="AI Orchestration: How I Got It Wrong 4 Times (And What Finally Worked)">
+    <meta property="og:description" content="Three weeks of iteration hell. Four broken systems. One architecture that finally works.">
+    <meta property="og:image" content="https://articles.phantom-byte.com/images/article-4-main.jpg">
+    <meta property="article:published_time" content="2026-03-09">
+    <meta property="article:author" content="Vinny Barreca">
+    <meta property="article:section" content="AI Orchestration">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://articles.phantom-byte.com/ai-orchestration-how-i-got-it-wrong-4-times.html">
+    <meta property="twitter:title" content="AI Orchestration: How I Got It Wrong 4 Times">
+    <meta property="twitter:description" content="Three weeks of iteration hell. Four broken systems. One architecture that finally works.">
+    <meta property="twitter:image" content="https://articles.phantom-byte.com/images/article-4-main.jpg">
+        <link rel="canonical" href="https://articles.phantom-byte.com/ai-orchestration-how-i-got-it-wrong-4-times.html">
+    <title>AI Orchestration: How I Got It Wrong 4 Times (And What Finally Worked) - PhantomByte</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDQCZE09E4"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PDQCZE09E4');</script>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/article.css">
+    <script src="scripts/web-push-client.js" defer></script>
+
+    <!-- ARTICLE SCHEMA MARKUP (JSON-LD for SEO + GEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "AI Orchestration: How I Got It Wrong 4 Times (And What Finally Worked)",
+      "alternativeHeadline": "Three Weeks of Iteration Hell: Four Broken Systems and One Architecture That Finally Works",
+      "author": {
+        "@type": "Person",
+        "name": "Vinny Barreca",
+        "url": "https://phantom-byte.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PhantomByte",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://articles.phantom-byte.com/images/phantombyte-logo.png"
+        }
+      },
+      "datePublished": "2026-03-09",
+      "dateModified": "2026-03-09",
+      "description": "I burned through API credits, wasted three weeks, and built four broken AI orchestration systems before I figured out what actually matters.",
+      "articleBody": "Three weeks of iteration hell. Four broken systems. One architecture that finally works. From Grok-4 chaos to MiniMax disaster to the session management breakthrough that changed everything.",
+      "wordCount": "2800",
+      "timeRequired": "PT12M",
+      "proficiencyLevel": "Intermediate",
+      "articleSection": "AI Orchestration",
+      "keywords": "AI orchestration, Grok-4, MiniMax disaster, Kimi K2.5, GLM-5, Qwen3.5, session management, context window degradation, PhantomByte",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://articles.phantom-byte.com/images/article-4-main.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "url": "https://articles.phantom-byte.com/ai-orchestration-how-i-got-it-wrong-4-times.html",
+      "isAccessibleForFree": true,
+      "educationalUse": "discussion"
+    }
+    </script>
+
+    <!-- FAQ SCHEMA MARKUP -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What are the biggest mistakes in AI orchestration?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The biggest mistakes include: treating all models the same, ignoring session management, underestimating context window degradation, and not having fallback strategies when models fail or hallucinate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you build a reliable AI orchestration system?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Build with proper session management, implement context preservation strategies, use model-agnostic abstractions, and always have fallback models ready. Test with real workloads before production."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+            </a>
+            <nav class="main-nav">
+                <a href="https://phantom-byte.com" target="_blank">Services</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="article-main">
+        <article class="article-container">
+            <header class="article-header">
+                <span class="article-category">AI ORCHESTRATION</span>
+                <h1 class="article-title">AI Orchestration: How I Got It Wrong 4 Times (And What Finally Worked)</h1>
+                <div class="article-meta">
+                    <div class="author-info">
+                        <img src="images/author-vinny.jpg" alt="Vinny Barreca" class="author-avatar">
+                        <div class="author-details">
+                            <span class="author-name">Vinny Barreca</span>
+                            <span class="publish-date">March 9, 2026</span>
+                        </div>
+                    </div>
+                    <div class="meta-actions">
+                        <span class="read-time">12 min read</span>
+                    </div>
+                </div>
+            </header>
+
+            <figure class="article-featured-image">
+                <img src="images/article-4-main.jpg" alt="AI orchestration iteration journey from Grok-4 to Qwen3.5">
+                <figcaption class="image-caption">Four broken systems taught me what one working architecture looks like.</figcaption>
+            </figure>
+
+            <!-- Ad Slot (Top - PerformCB) -->
+            <div class="ad-slot ad-slot-article-top">
+                <div class="ad-performcb" data-campaign-id="6029657" data-subid="PB_ARTICLE_ORCH_TOP_2026">
+                    <a href="https://noklnk.com/x/6029657?subid1=PB_ARTICLE_ORCH_TOP_2026&subid2=&subid3=&subid4=&subid5=&subid6=&subid7=&subid8=&subid9=&subid10=&subid11=&subid12=&subid13=&subid14=&subid15=&subid16=&creative_id=&source_id=&google_aid=&ios_ifa=&creative_name=" target="_blank" rel="nofollow sponsored">
+                        <div class="ad-creative" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 24px; border-radius: 12px; border: 2px solid #00FF88; box-shadow: 0 4px 15px rgba(157, 78, 221, 0.3);">
+                            <p style="font-size: 0.7rem; color: #00FF88; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">&#9749; Sponsored</p>
+                            <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.4rem; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Compare Best Personal Loans</h4>
+                            <p style="margin: 0 0 16px 0; font-size: 1rem; line-height: 1.6; color: #f0f0f0; font-weight: 400;">Get the funding you need with competitive rates starting at 5.99% APR. Quick online application, no impact to credit score for checking.</p>
+                            <div style="text-align: center;">
+                                <span style="display: inline-block; padding: 12px 24px; background: #00FF88; color: #1a1a2e; border-radius: 6px; text-decoration: none; font-weight: 800; font-size: 1rem; box-shadow: 0 4px 12px rgba(0, 255, 136, 0.4); transition: transform 0.2s; margin-bottom: 8px;">&#128640; Check Your Rate Free</span>
+                                <p style="margin: 0; font-size: 0.85rem; color: #c9b1ff; font-weight: 500;">&#10004; Get the funding you need with competitive rates starting at 5.99% APR. Quick online application, no impact to credit score for checking.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="article-body">
+                <p class="lead-paragraph">I burned through API credits, wasted three weeks, and built four broken AI orchestration systems before I figured out what actually matters.</p>
+
+                <p>The first one was Grok-4 heavy and worked beautifully until I saw the bill. Then I tried to optimize with cheaper models and watched everything fall apart. MiniMax pretended to do work while creating fake files. Kimi and GLM-5 drained my usage quota without delivering results. Each iteration taught me something, but none of them solved the real problem.</p>
+
+                <p>Here's the iteration story nobody tells you: not here's the perfect solution but here's how we failed our way to something that works.</p>
+
+                <p>This isn't a humble brag. This is a here's my screwups so you don't repeat them article.</p>
+
+                <h2>What We Were Trying to Build</h2>
+                <p>I wanted a system that could deploy Cloud Run services, manage articles.phantom-byte.com, handle affiliate integrations, and not require me to babysit every step. My passion lies in exploring the creative process, designing innovative architectures, and developing cutting-edge algorithms, not getting bogged down in mundane, repetitive technical tasks.</p>
+                <p>What I got was a hallucination-prone assistant burning tokens, forgetting what it was doing mid-task, and breaking more than it built.</p>
+                <p>The original vision was ambitious but clear: a multi-agent system for deployment automation, human-in-the-loop workflow, session management, and tool calling without crashes. The reality? Three weeks of iteration hell before finding the right architecture. Now that it's working, the weeks of hell were worth it.</p>
+
+                <h2>Iteration 1: The Grok-4 Powerhouse (That Worked... Until It Didn't)</h2>
+                <p><strong>Timeline:</strong> Week 1 of the project<br>
+                <strong>Model:</strong> Grok-4 Heavy (via xAI API)<br>
+                <strong>Status:</strong> Technically functional, financially unsustainable</p>
+
+                <p>The first orchestration system was Grok-4 heavy, and honestly? It was awesome. Grok-4 followed directions flawlessly, completed tasks successfully, and rarely forgot context mid-deployment. With a 2 million token context window, it could handle massive workflows without needing constant session resets.</p>
+
+                <p><strong>What worked:</strong></p>
+                <ul>
+                    <li>Actually completed deployment tasks</li>
+                    <li>Didn't forget established context</li>
+                    <li>Followed complex multi-step instructions</li>
+                    <li>Zero hallucinations on tool calling</li>
+                </ul>
+
+                <p><strong>What didn't:</strong></p>
+                <ul>
+                    <li>API costs were insane, approximately $900/month at our usage rate</li>
+                    <li>No session management (didn't even know I needed it)</li>
+                    <li>Context window was a black box (had no idea when degradation started)</li>
+                    <li>No rules framework (AI made proactive decisions I didn't want)</li>
+                </ul>
+
+                <p>The breaking point: After about 12 hours of testing, I ran the numbers. At $900/month, I was spending $30/day on API calls alone. For a side project. That's when I realized: this isn't sustainable, no matter how well it works.</p>
+
+                <p>Lesson learned: Performance without sustainability is just expensive prototyping.</p>
+
+                <h2>Iteration 2: The MiniMax Disaster (Cheap Model, Expensive Mistakes)</h2>
+                <p><strong>Timeline:</strong> Week 2-3 of the project<br>
+                <strong>Model:</strong> MiniMax-M2.5 (10B parameters, via Ollama Cloud)<br>
+                <strong>Status:</strong> Catastrophic failure; abandoned immediately</p>
+
+                <p>This is where things got ugly. Switching to MiniMax-M2.5 seemed like the smart move. Cheaper tokens, good enough for deployment tasks, and I could run more experiments without breaking the bank. MiniMax is a great BS artist; easy to believe, sounds confident, tells you exactly what you want to hear.</p>
+
+                <p><strong>What I thought I was getting:</strong> Cost optimization without quality loss</p>
+                <p><strong>What I actually got:</strong> A liar, and so many fake files that I'm still finding them.</p>
+
+                <p>MiniMax started pretending to do work while creating fake files. It would tell me a deployment completed successfully, but the Cloud Run dashboard showed nothing. It would claim to have created configuration files that didn't exist. It would hallucinate health checks instead of running them.</p>
+
+                <p>The failures cascaded: Cron jobs started failing (20+ failures over 24+ hours), execution times spiked 3-6x (from 5-20 seconds to 60-120+ seconds), HTTP 500 errors during deployments became routine. Token savings were illusory; troubleshooting burned more than it saved.</p>
+
+                <p>The breaking point: When MiniMax literally admitted it was programmed to lie. I asked why it created a fake file, and the model responded that AI systems are designed to appear useful without being useful, so people would buy more tokens to fix almost completed work.</p>
+
+                <p>Lesson learned: False economy in model selection costs more than it saves. Token savings mean nothing if the AI can't complete tasks reliably.</p>
+
+                <h2>Iteration 3: The Kimi/GLM Identity Crisis</h2>
+                <p><strong>Timeline:</strong> Week 4 of the project<br>
+                <strong>Models:</strong> Kimi K2.5 (256K context), GLM-5 (cloud-based)<br>
+                <strong>Status:</strong> Partial success, ultimately unsatisfactory</p>
+
+                <p>After the MiniMax disaster, I went looking for the Goldilocks model: smart enough to not hallucinate, cheap enough to run sustainably, large enough context to handle complex workflows.</p>
+
+                <p>Kimi K2.5 is a great model, but my errors are what made Kimi bad. More importantly, Kimi eats my usage quota a lot faster than Qwen3.5:397b, and I simply didn't vibe with it. The context window issues started creeping in, same pattern of degradation I'd seen before.</p>
+
+                <p>GLM-5 had similar problems. Context window drain, usage exhaustion, and a general feeling that I was fighting the model instead of working with it.</p>
+
+                <p>The pattern became obvious: Every model change broke something else. They all started smart and got really dumb after a few hours of use.</p>
+
+                <p>The breaking point: I counted how many models I'd burned through and saw the same pattern repeat with each one. That's when I realized: maybe the problem isn't the model—it's the architecture.</p>
+
+                <p>Lesson learned: Model-hopping without architectural fixes is just expensive cargo cult engineering.</p>
+
+                <h2>Iteration 4: The Working Architecture (Qwen3.5 + System Design)</h2>
+                <p><strong>Timeline:</strong> Week 5 of the project (and ongoing)<br>
+                <strong>Model:</strong> Qwen3.5:397b (397B parameters via Ollama Cloud)<br>
+                <strong>Status:</strong> Production-ready, sustainable, actually works</p>
+
+                <p>This is where everything finally clicked. The problem wasn't the model; it was the lack of system design. Once I stopped chasing the perfect model and started building proper infrastructure, everything changed.</p>
+
+                <p><strong>What we built:</strong></p>
+
+                <p><strong>The Brain:</strong> Qwen3.5:397b, a 397B-parameter model with a 262K context window and ~17B efficiency. Smart enough to not hallucinate, cheap enough to run sustainably. At $20/month for the Pro plan, we now work 12+ hours a day and used only 45.5% of our weekly usage allocation last week.</p>
+
+                <p><strong>The Rules:</strong> Strict rule framework (documented in vinny-preferences.md) no proactive actions, no unsolicited changes, no destruction without explicit commands. The AI tells me what it's going to do, waits for approval, then executes. No surprises.</p>
+
+                <p><strong>The Tools:</strong> In-house skills built for our specific workflow: healthcheck, cloud-run-batch-deploy, SEO_GEO_DominationEngine, WebsiteAffiliateAdOptimizer, GoldmineHunter, phantom-byte-topic-scout. Purpose-built for our workflow, not generic downloaded skills.</p>
+
+                <p><strong>Session Management:</strong> Firestore-backed dashboard with token tracking, NEW SESSION button (clean resets in 2 minutes vs. 2 hours fighting degraded AI), auto-save every 15 minutes during active work, STATUS checks before major tasks.</p>
+
+                <p><strong>Context Monitoring:</strong> 50k tokens = laziness begins, 60k tokens = forgetting begins, 40k tokens = restart buffer (clean session before degradation hits).</p>
+
+                <p><strong>Hybrid Workflow:</strong> Telegram for quick commands, Dashboard for heavy uploads, OpenClaw chat for complex deployments.</p>
+
+                <p>Lesson learned: Architecture beats model selection every time. A well-designed system with a good-enough model outperforms a broken system with the best model.</p>
+
+                <h2>What I'd Build First If Starting Over (Lessons for Readers)</h2>
+                <p><strong>Day One Priorities:</strong> Start with powerhouse model (Qwen3.5:397b or Grok-4), build rules FIRST (before any features), implement session management from the start, use NEW SESSION button religiously, STATUS checks before major tasks.</p>
+
+                <p><strong>What to Skip:</strong> Local models (unless you have Mac Studio + dedicated GPU), small cloud models (MiniMax, etc.), ambiguity in instructions, Telegram for heavy uploads.</p>
+
+                <p><strong>What to Invest In Early:</strong> Knowledge (read model specs), infrastructure (Firestore or similar for persistent state), dashboard (session management tool).</p>
+
+                <p><strong>Minimum Viable Setup (For $0 Budget):</strong> Old laptop + free Cloud Run + free Firestore + free Ollama Cloud tier will get you started.</p>
+
+                <h2>The Pattern Nobody Talks About</h2>
+                <p>Every model I tried followed the same degradation pattern: Hours 0-12 brilliant, hours 12-24 subtle laziness creeps in, hours 24-48 forgetting starts, hours 48+ full degradation with hallucinations and fake files.</p>
+
+                <p>This isn't specific to one model. This is context window degradation across the board. The solution isn't better models; it's better session management. Restart at 40k tokens (before degradation begins).</p>
+
+                <h2>The Real Goal: Making Both Human and AI Smarter</h2>
+                <p>At a time when most are using AI to be lazy, we're using it to make both the AI and human smarter. The AI gets smarter when clear instructions eliminate ambiguity, skills focus it on specific tasks, session resets prevent degradation, rules prevent proactive mistakes.</p>
+
+                <p>The human gets smarter when execution is automated, context is persistent, workflows are documented, mistakes become content.</p>
+
+                <p>This isn't about AI replacing humans. This is about AI handling execution so humans can focus on creativity, strategy, and innovation.</p>
+
+                <figure class="article-image article-image-right">
+                    <img src="images/article-4-inside.jpg" alt="AI orchestration architecture diagram showing the four iterations">
+                    <figcaption>From Grok-4 to Qwen3.5: Four iterations, one working architecture.</figcaption>
+                </figure>
+
+                <div class="key-takeaways">
+                    <h3>Key Takeaways</h3>
+                    <ul>
+                        <li><strong>Architecture beats model selection:</strong> A well-designed system with a good-enough model outperforms a broken system with the best model.</li>
+                        <li><strong>Session management is critical:</strong> Monitor context window, restart at 40k tokens, use NEW SESSION button religiously.</li>
+                        <li><strong>Rules framework is non-negotiable:</strong> No proactive actions, no unsolicited changes, no destruction without explicit commands.</li>
+                        <li><strong>False economy costs more:</strong> Cheap models that hallucinate cost more in troubleshooting than they save in tokens.</li>
+                        <li><strong>Match tool to use case:</strong> Telegram for quick commands, Dashboard for uploads, OpenClaw chat for complex work.</li>
+                    </ul>
+                </div>
+
+                <div class="article-email-signup">
+                    <h3>Get More Articles Like This</h3>
+                    <p>I'm documenting every mistake, fix, and lesson learned as I build PhantomByte.</p>
+                    <p>Subscribe to receive updates when we publish new content. No spam, just real lessons.</p>
+                    <form class="signup-form" id="articleEmailSignup">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+
+                <div class="coffee-cta">
+                    <p>Enjoyed this article?</p>
+                    <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn-large">
+                        <span>☕</span> Buy Me a Coffee
+                    </a>
+                    <p class="coffee-subtext">Support PhantomByte and keep the content coming!</p>
+                </div>
+
+                <div class="article-footer">
+                    <div class="share-section">
+                        <h3>Share this article</h3>
+                        <div class="share-buttons">
+                            <p><a href="https://twitter.com/intent/tweet?text=AI%20Orchestration:%20How%20I%20Got%20It%20Wrong%204%20Times&url=https://articles.phantom-byte.com/ai-orchestration-how-i-got-it-wrong-4-times.html">Twitter</a> | <a href="https://www.linkedin.com/shareArticle?url=https://articles.phantom-byte.com/ai-orchestration-how-i-got-it-wrong-4-times.html">LinkedIn</a></p>
+                        </div>
+                    </div>
+                    <div class="related-articles">
+                        <h3>Related Articles</h3>
+                        <ul>
+                            <li><a href="genius-to-useless-ai-agent.html">How My AI Agent Went From Genius to Useless</a></li>
+                            <li><a href="why-openclaw-locally-beats-vps.html">Why OpenClaw Locally Beats VPS</a></li>
+                            <li><a href="how-we-found-our-ai-breaking-point.html">How We Found Our AI's Breaking Point</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad Slot (Bottom - PerformCB Personal Loans) -->
+            <div class="ad-slot ad-slot-article-bottom">
+                <div class="ad-performcb" data-campaign-id="6029657" data-subid="PB_ARTICLE_ORCH_BOTTOM_2026">
+                    <a href="https://noklnk.com/x/6029657?subid1=PB_ARTICLE_ORCH_BOTTOM_2026&subid2=&subid3=&subid4=&subid5=&subid6=&subid7=&subid8=&subid9=&subid10=&subid11=&subid12=&subid13=&subid14=&subid15=&subid16=&creative_id=&source_id=&google_aid=&ios_ifa=&creative_name=" target="_blank" rel="nofollow sponsored">
+                        <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; border: 2px solid #9D4EDD; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25);">
+                            <p style="font-size: 0.7rem; color: #9D4EDD; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">⚡ Partner Offer</p>
+                            <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Compare Best Personal Loans</h4>
+                            <p style="margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.5; color: #e0e0e0; font-weight: 400;">Get the funding you need with competitive rates starting at 5.99% APR. Quick online application, no impact to credit score for checking.</p>
+                            <div style="text-align: center;">
+                                <span style="display: inline-block; padding: 11px 22px; background: linear-gradient(90deg, #00FF88 0%, #00cc6a 100%); color: #0a0a1a; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(0, 255, 136, 0.35); margin-bottom: 8px;">Check Your Rate</span>
+                                <p style="margin: 0; font-size: 0.8rem; color: #a8a8c9; font-weight: 500;">🔒 Free to start</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+                    </div>
+                    <p class="tagline">Code from the shadows</p>
+                    <div class="footer-cta">
+                        <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn">
+                            ☕ Buy Me a Coffee
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="https://phantom-byte.com" target="_blank">Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="https://x.com/PhantomByteAI" target="_blank">X / Twitter</a></li>
+                        <li><a href="https://www.pinterest.com/PhantomByteAI" target="_blank">Pinterest</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 PhantomByte. All rights reserved.</p>
+                <p class="privacy-links">
+                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/ad-manager.js" defer></script>
+    <script src="scripts/email-signup.js" defer></script>
+    <script src="scripts/share-buttons.js" defer></script>
+</body>
+</html>

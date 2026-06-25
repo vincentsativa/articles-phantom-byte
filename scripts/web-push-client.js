@@ -495,4 +495,22 @@
     get isSubscribed() { return isSubscribed; }
   };
 
+  /* Relocate the push container out of <header> so position:fixed anchors to the viewport
+     instead of the header's sticky containing block (which breaks header gradient on mobile). */
+  (function relocatePushContainer(){
+    function relocate(){
+      var c=document.getElementById('phantombyte-push-container');
+      if(c && c.parentNode!==document.body){ document.body.appendChild(c); }
+    }
+    if(document.readyState!=='loading'){ relocate(); }
+    else { document.addEventListener('DOMContentLoaded',relocate); }
+    window.addEventListener('load',function(){ relocate(); setTimeout(relocate,300); setTimeout(relocate,1200); });
+    var h=document.querySelector('header');
+    if(h && window.MutationObserver){
+      var mo=new MutationObserver(function(){ relocate(); });
+      mo.observe(h,{childList:true,subtree:true});
+      setTimeout(function(){ mo.disconnect(); },6000);
+    }
+  })();
+
 })();

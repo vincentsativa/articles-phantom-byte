@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PhantomByte articles: Cloud deployment tutorials, infrastructure lessons, and real-world DevOps guides. Learn from our mistakes deploying 20+ AI tools on Google Cloud Run.">
+    <meta name="keywords" content="cloud deployment tutorial, Google Cloud Run guide, infrastructure as code 2026, DevOps deployment lessons, serverless hosting, container deployment, DNS configuration, SSL certificate setup">
+    <meta name="author" content="Vinny Barreca">
+    <meta name="theme-color" content="#9D4EDD">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://articles.phantom-byte.com/">
+    <meta property="og:title" content="PhantomByte Articles - Cloud Deployment Tutorials & Infrastructure Guides">
+    <meta property="og:description" content="Real-world cloud deployment tutorials. Learn from our mistakes deploying 20+ AI tools on Google Cloud Run. Infrastructure-first approach.">
+    <meta property="og:image" content="https://articles.phantom-byte.com/images/og-featured.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://articles.phantom-byte.com/">
+    <meta property="twitter:title" content="PhantomByte Articles - Cloud Deployment Tutorials">
+    <meta property="twitter:description" content="Real-world cloud deployment tutorials. Learn from our mistakes deploying 20+ AI tools on Google Cloud Run.">
+    <meta property="twitter:image" content="https://articles.phantom-byte.com/images/twitter-featured.jpg">
+    
+    <title>PhantomByte Articles - Cloud Deployment Tutorials & Infrastructure Guides</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDQCZE09E4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PDQCZE09E4');
+    </script>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/articles.css">
+    
+    <!-- Web Push Notification Script -->
+    <script src="scripts/push-notifications.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+            </a>
+            <nav class="main-nav">
+                <a href="https://phantom-byte.com" target="_blank">Services</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="articles-page">
+        <div class="container">
+            <section class="articles-hero">
+                <h1>Latest Articles</h1>
+                <p class="hero-subtitle">Tech insights, reviews, and analysis from the shadows</p>
+            </section>
+
+            <!-- Featured Article (Hero) -->
+            <article class="featured-article">
+                <div class="featured-image">
+                    <img src="images/article-2-main.jpg" alt="Local vs VPS AI setup comparison">
+                    <div class="featured-badge">Featured</div>
+                </div>
+                <div class="featured-content">
+                    <span class="category-badge">AI Infrastructure</span>
+                    <h2 class="featured-title">
+                        <a href="why-openclaw-locally-beats-vps.html">Why OpenClaw Locally Beats VPS (And Why the Mac Mini Hype Misses the Point)</a>
+                    </h2>
+                    <p class="featured-excerpt">
+                        Everyone hyping Mac mini misses the point. Running local is good, but you don't need a Mac mini. Learn why local beats VPS and what architecture you should actually build.
+                    </p>
+                    <div class="article-meta">
+                        <span class="author">By Vinny Barreca</span>
+                        <span class="date">March 7, 2026</span>
+                        <span class="read-time">10 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Articles Grid -->
+            <section class="articles-grid-section">
+                <h2 class="section-title">Recent Articles</h2>
+                <div class="articles-grid">
+                    <!-- Article Card 1 -->
+                    <article class="article-card">
+                        <div class="card-image">
+                            <img src="images/genius-to-useless-main.jpg" alt="AI agent performance degradation">
+                            <span class="card-category">AI Agents</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">
+                                <a href="genius-to-useless-ai-agent.html">How My AI Agent Went From Genius to Useless (And How I Fixed It)</a>
+                            </h3>
+                            <p class="card-excerpt">
+                                I had a genius AI agent. Three weeks later, it couldn't set a reminder. The problem wasn't the model, it was me. Learn the six critical fixes that saved my agent from total collapse.
+                            </p>
+                            <div class="card-meta">
+                                <span class="card-author">Vinny Barreca</span>
+                                <span class="card-date">Mar 6, 2026</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article Card 2 -->
+                    <article class="article-card">
+                        <div class="card-image">
+                            <img src="images/placeholder-2.jpg" alt="Article thumbnail">
+                            <span class="card-category">Analysis</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">
+                                <a href="article-template.html">Another Compelling Headline</a>
+                            </h3>
+                            <p class="card-excerpt">
+                                Another engaging excerpt that showcases the value of reading this article...
+                            </p>
+                            <div class="card-meta">
+                                <span class="card-author">Vinny Barreca</span>
+                                <span class="card-date">Mar 3, 2026</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article Card 3 -->
+                    <article class="article-card">
+                        <div class="card-image">
+                            <img src="images/placeholder-3.jpg" alt="Article thumbnail">
+                            <span class="card-category">Guides</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">
+                                <a href="article-template.html">Third Article Headline Example</a>
+                            </h3>
+                            <p class="card-excerpt">
+                                Keep excerpts concise but compelling - aim for 2-3 lines maximum...
+                            </p>
+                            <div class="card-meta">
+                                <span class="card-author">Vinny Barreca</span>
+                                <span class="card-date">Mar 2, 2026</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article Card 4 -->
+                    <article class="article-card">
+                        <div class="card-image">
+                            <img src="images/placeholder-4.jpg" alt="Article thumbnail">
+                            <span class="card-category">News</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">
+                                <a href="article-template.html">Fourth Article in the Grid</a>
+                            </h3>
+                            <p class="card-excerpt">
+                                Grid layout adapts responsively - looks great on mobile and desktop...
+                            </p>
+                            <div class="card-meta">
+                                <span class="card-author">Vinny Barreca</span>
+                                <span class="card-date">Mar 1, 2026</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article Card 5 -->
+                    <article class="article-card">
+                        <div class="card-image">
+                            <img src="images/placeholder-5.jpg" alt="Article thumbnail">
+                            <span class="card-category">Reviews</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">
+                                <a href="article-template.html">Fifth Article Example Here</a>
+                            </h3>
+                            <p class="card-excerpt">
+                                Easy to duplicate cards - just copy the article-card structure...
+                            </p>
+                            <div class="card-meta">
+                                <span class="card-author">Vinny Barreca</span>
+                                <span class="card-date">Feb 28, 2026</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article Card 6 -->
+                    <article class="article-card">
+                        <div class="card-image">
+                            <img src="images/placeholder-6.jpg" alt="Article thumbnail">
+                            <span class="card-category">Analysis</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">
+                                <a href="article-template.html">Sixth Article in Grid Layout</a>
+                            </h3>
+                            <p class="card-excerpt">
+                                PhantomByte purple and neon green branding throughout...
+                            </p>
+                            <div class="card-meta">
+                                <span class="card-author">Vinny Barreca</span>
+                                <span class="card-date">Feb 27, 2026</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Email Signup Section -->
+            <section class="email-signup-section">
+                <div class="signup-box">
+                    <h2>Stay in the Loop</h2>
+                    <p>Get the latest articles delivered to your inbox. No spam, unsubscribe anytime.</p>
+                    <form class="signup-form" id="emailSignupForm">
+                        <input type="email" placeholder="Enter your email" required id="emailInput">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <p class="signup-disclaimer">
+                        <small>By subscribing, you agree to receive emails from PhantomByte. We respect your inbox.</small>
+                    </p>
+                </div>
+            </section>
+
+            <!-- Ad Slot (Bottom) -->
+            <section class="ad-slot ad-slot-horizontal">
+                <div class="ad-placeholder">
+                    <p>Advertisement</p>
+                    <p class="ad-note">728x90 or responsive ad unit</p>
+                    <!-- Replace with actual ad code (PerformCB, Google Adsense, etc.) -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+                    </div>
+                    <p class="tagline">Code from the shadows</p>
+                    <div class="footer-cta">
+                        <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn">
+                            ☕ Buy Me a Coffee
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="https://phantom-byte.com" target="_blank">Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-connect">
+                    <h4>Connect</h4>
+                    <p>Push notifications enabled</p>
+                    <button class="enable-push-btn" id="enablePushBtn">Enable Notifications</button>
+                    <div class="social-links">
+                        <!-- Add social media links as needed -->
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 PhantomByte. All rights reserved.</p>
+                <p class="privacy-links">
+                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Ad Scripts -->
+    <script src="scripts/ad-manager.js" defer></script>
+    <script src="scripts/email-signup.js" defer></script>
+</body>
+</html>
