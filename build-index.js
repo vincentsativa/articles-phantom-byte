@@ -78,22 +78,27 @@ function featuredCard(a) {
 }
 
 // --- Assemble ---
-const feed = articles.concat(authority).map(panelCard).join('\n');
+// The newest article is shown once as the featured hero, so it is excluded
+// from the archive feed (no duplicate). The ticker shows the true total.
+const feedItems = (articles.length ? articles.slice(1) : []).concat(authority);
+const feed = feedItems.map(panelCard).join('\n');
 const featured = articles.length ? featuredCard(articles[0]) : '';
+const total = articles.length + authority.length;
 
 let tpl = fs.readFileSync(TEMPLATE_FILE, 'utf8');
-if (tpl.indexOf('<!--FEATURED-->') === -1 || tpl.indexOf('<!--FEED-->') === -1) {
-  console.error('ERROR: template markers <!--FEATURED--> / <!--FEED--> not found in index-template.html');
+if (tpl.indexOf('<!--FEATURED-->') === -1 || tpl.indexOf('<!--FEED-->') === -1 || tpl.indexOf('<!--COUNT-->') === -1) {
+  console.error('ERROR: template markers <!--FEATURED--> / <!--FEED--> / <!--COUNT--> not found in index-template.html');
   process.exit(1);
 }
 tpl = tpl.replace('<!--FEATURED-->', featured)
-        .replace('<!--FEED-->', feed);
+        .replace('<!--FEED-->', feed)
+        .replace('<!--COUNT-->', total);
 
 fs.writeFileSync(OUT_FILE, tpl, 'utf8');
 
-const total = articles.length + authority.length;
 console.log('✅ index.html rebuilt');
 console.log('   articles:   ' + articles.length);
 console.log('   authority:  ' + authority.length);
-console.log('   total cards: ' + total);
+console.log('   total notes: ' + total);
+console.log('   archive cards (excl. featured): ' + feedItems.length);
 console.log('   featured:   ' + (articles[0] ? '#' + articles[0].n + ' ' + articles[0].title : 'none'));

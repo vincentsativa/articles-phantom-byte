@@ -291,6 +291,8 @@ footer{background:var(--darker);border-top:2px solid var(--purple);padding:48px 
   .foot-grid>.foot-brand{grid-column:1;grid-row:2}
   .foot-grid>.foot-brand .ghost{display:none}
   .foot-tag{display:none}
+  .foot-cta a{font-size:0;padding:6px 11px;box-shadow:0 0 12px rgba(157,78,221,.3)}
+  .foot-cta a::before{content:"☕ tip the ghost";font-family:var(--mono);font-size:.66rem;font-weight:700;letter-spacing:.5px}
   .foot-grid>.foot-col:last-child ul{display:flex;gap:22px;flex-wrap:wrap}
   .foot-grid>.foot-col:last-child ul li{margin-bottom:0}
   footer{padding:36px 18px 26px;margin-top:48px}
@@ -326,7 +328,7 @@ footer{background:var(--darker);border-top:2px solid var(--purple);padding:48px 
 <!-- TICKER -->
 <div class="ticker"><div class="inner">
   <span class="live"><span class="dot"></span>CONSOLE ONLINE</span>
-  <span>NOTES: <span class="count" id="tkCount">110+</span></span>
+  <span>NOTES: <span class="count" id="tkCount"><!--COUNT--></span></span>
   <span>CADENCE: DAILY</span>
   <span>OPERATOR: VINNY BARRECA</span>
 </div></div>
@@ -513,8 +515,6 @@ footer{background:var(--darker);border-top:2px solid var(--purple);padding:48px 
   });
   var f=document.querySelector('.featured');
   if(f){ f.style.cursor='pointer'; f.addEventListener('click',function(e){ if(e.target.closest('a')) return; location.href=f.dataset.href; }); }
-
-  document.getElementById('tkCount').textContent = allCards.length;
 
   var rail=document.getElementById('rail');
   var railToggle=document.getElementById('railToggle');

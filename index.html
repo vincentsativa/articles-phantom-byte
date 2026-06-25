@@ -291,6 +291,8 @@ footer{background:var(--darker);border-top:2px solid var(--purple);padding:48px 
   .foot-grid>.foot-brand{grid-column:1;grid-row:2}
   .foot-grid>.foot-brand .ghost{display:none}
   .foot-tag{display:none}
+  .foot-cta a{font-size:0;padding:6px 11px;box-shadow:0 0 12px rgba(157,78,221,.3)}
+  .foot-cta a::before{content:"☕ tip the ghost";font-family:var(--mono);font-size:.66rem;font-weight:700;letter-spacing:.5px}
   .foot-grid>.foot-col:last-child ul{display:flex;gap:22px;flex-wrap:wrap}
   .foot-grid>.foot-col:last-child ul li{margin-bottom:0}
   footer{padding:36px 18px 26px;margin-top:48px}
@@ -326,7 +328,7 @@ footer{background:var(--darker);border-top:2px solid var(--purple);padding:48px 
 <!-- TICKER -->
 <div class="ticker"><div class="inner">
   <span class="live"><span class="dot"></span>CONSOLE ONLINE</span>
-  <span>NOTES: <span class="count" id="tkCount">110+</span></span>
+  <span>NOTES: <span class="count" id="tkCount">110</span></span>
   <span>CADENCE: DAILY</span>
   <span>OPERATOR: VINNY BARRECA</span>
 </div></div>
@@ -369,8 +371,7 @@ footer{background:var(--darker);border-top:2px solid var(--purple);padding:48px 
     <section id="feed">
       <div class="sec-kicker" style="margin-bottom:16px">// the archive</div>
       <div class="panels" id="feedGrid">
-        <article class="panel" data-cat="AI Infrastructure" data-href="your-agent-is-a-monolith-thats-the-problem.html" data-external="0"><div class="thumb"><img loading="lazy" src="images/article-108-main.jpg" alt="Your Agent Is a Monolith. That's the Problem."><span class="pcat">AI Infrastructure</span><span class="pidx">#108</span></div><div class="pbody"><h3><a href="your-agent-is-a-monolith-thats-the-problem.html" rel="noopener">Your Agent Is a Monolith. That's the Problem.</a></h3><p class="pexc">Ten architectural patterns. Four responsibility layers. IBM Research shipped CUGA, NVIDIA launched its Agent Toolkit, and five papers converged on the same architecture. The monolithic agent is dead. Here is the 4-layer skill architecture that replaces it.</p><div class="pmeta"><span class="pw">Vinny Barreca</span><span class="pd">June 24, 2026</span></div></div></article>
-<article class="panel" data-cat="AI Infrastructure" data-href="your-agent-is-drowning-in-its-own-output.html" data-external="0"><div class="thumb"><img loading="lazy" src="images/article-107-main.jpg" alt="Your Agent Is Drowning in Its Own Output"><span class="pcat">AI Infrastructure</span><span class="pidx">#107</span></div><div class="pbody"><h3><a href="your-agent-is-drowning-in-its-own-output.html" rel="noopener">Your Agent Is Drowning in Its Own Output</a></h3><p class="pexc">Your agent just made twelve tool calls returning thousands of tokens of raw JSON. Headroom compresses tool outputs before they reach the LLM, cutting token costs by 60-95%. The plumbing fix for agent architecture.</p><div class="pmeta"><span class="pw">Vinny Barreca</span><span class="pd">June 23, 2026</span></div></div></article>
+        <article class="panel" data-cat="AI Infrastructure" data-href="your-agent-is-drowning-in-its-own-output.html" data-external="0"><div class="thumb"><img loading="lazy" src="images/article-107-main.jpg" alt="Your Agent Is Drowning in Its Own Output"><span class="pcat">AI Infrastructure</span><span class="pidx">#107</span></div><div class="pbody"><h3><a href="your-agent-is-drowning-in-its-own-output.html" rel="noopener">Your Agent Is Drowning in Its Own Output</a></h3><p class="pexc">Your agent just made twelve tool calls returning thousands of tokens of raw JSON. Headroom compresses tool outputs before they reach the LLM, cutting token costs by 60-95%. The plumbing fix for agent architecture.</p><div class="pmeta"><span class="pw">Vinny Barreca</span><span class="pd">June 23, 2026</span></div></div></article>
 <article class="panel" data-cat="AI Infrastructure" data-href="gpu-cluster-vulnerability-ai-infrastructure-geopolitics.html" data-external="0"><div class="thumb"><img loading="lazy" src="images/article-106-main.jpg" alt="Your GPU Cluster Is a Military Target Now"><span class="pcat">AI Infrastructure</span><span class="pidx">#106</span></div><div class="pbody"><h3><a href="gpu-cluster-vulnerability-ai-infrastructure-geopolitics.html" rel="noopener">Your GPU Cluster Is a Military Target Now</a></h3><p class="pexc">Iran fired ballistic missiles at AWS and Oracle data centers. Defense planners now classify AI training clusters as key military terrain. This is what kinetic AI infrastructure risk looks like.</p><div class="pmeta"><span class="pw">Vinny Barreca</span><span class="pd">June 22, 2026</span></div></div></article>
 <article class="panel" data-cat="AI Infrastructure" data-href="agents-governors-not-gatekeepers.html" data-external="0"><div class="thumb"><img loading="lazy" src="images/article-105-main.jpg" alt="Agents Need Governors, Not Gatekeepers"><span class="pcat">AI Infrastructure</span><span class="pidx">#105</span></div><div class="pbody"><h3><a href="agents-governors-not-gatekeepers.html" rel="noopener">Agents Need Governors, Not Gatekeepers</a></h3><p class="pexc">Claude Code scanned an entire hard drive. The fix is not a better prompt. It is deterministic agent governance outside the LLM with deontic policy enforcement. Three papers, one incident, zero production solutions.</p><div class="pmeta"><span class="pw">Vinny Barreca</span><span class="pd">June 21, 2026</span></div></div></article>
 <article class="panel" data-cat="AI Infrastructure" data-href="architecture-singularity-itnet-model-wars.html" data-external="0"><div class="thumb"><img loading="lazy" src="images/article-104-main.jpg" alt="The Architecture Singularity: The Model Wars Were Always the Same War"><span class="pcat">AI Infrastructure</span><span class="pidx">#104</span></div><div class="pbody"><h3><a href="architecture-singularity-itnet-model-wars.html" rel="noopener">The Architecture Singularity: The Model Wars Were Always the Same War</a></h3><p class="pexc">A new paper proves CNNs, Transformers, and RNNs are all special cases of one learnable integral transform (ITNet). The era of architecture tribalism is over.</p><div class="pmeta"><span class="pw">Vinny Barreca</span><span class="pd">June 20, 2026</span></div></div></article>
@@ -622,8 +623,6 @@ footer{background:var(--darker);border-top:2px solid var(--purple);padding:48px 
   });
   var f=document.querySelector('.featured');
   if(f){ f.style.cursor='pointer'; f.addEventListener('click',function(e){ if(e.target.closest('a')) return; location.href=f.dataset.href; }); }
-
-  document.getElementById('tkCount').textContent = allCards.length;
 
   var rail=document.getElementById('rail');
   var railToggle=document.getElementById('railToggle');
