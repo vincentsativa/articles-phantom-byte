@@ -50,6 +50,8 @@ EXCLUDE_FILES = {
     "article-template-v2-BACKUP-2026-03-28.html",
     "article-5-temp.html",
     "verify-systems.html",
+    "index-template.html",
+    "index-LEGACY-BACKUP.html",
 }
 
 # Duplicate articles — these are alternate versions of canonical articles.

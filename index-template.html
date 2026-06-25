@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PhantomByte Articles — AI Infrastructure, Agents & Orchestration Field Notes</title>
+<meta name="description" content="PhantomByte field notes on AI infrastructure, agents, orchestration, security, and the industry. One article every day. Infrastructure that ships.">
+<meta name="keywords" content="AI infrastructure, AI agents, orchestration, sovereign AI, AI security, AI industry, Cloud Run, PhantomByte">
+<meta name="author" content="Vinny Barreca">
+<meta name="theme-color" content="#9D4EDD">
+<meta name="robots" content="index, follow">
+
+<!-- Pinterest Domain Verification -->
+<meta name="p:domain_verify" content="0a0d4ad2ff7f2a410ca747a1df49bf20">
+
+<!-- Favicon: PhantomByte ghost -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%239D4EDD'/%3E%3Cstop offset='100%25' stop-color='%237B2CBF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23g)' d='M50 5C25 5 10 25 10 50v35l8-8 8 8 8-8 8 8 8-8 8 8V50C66 25 60 5 50 5z'/%3E%3Ccircle fill='%230a0a0a' cx='38' cy='42' r='6'/%3E%3Ccircle fill='%230a0a0a' cx='62' cy='42' r='6'/%3E%3Cellipse fill='%230a0a0a' cx='50' cy='58' rx='8' ry='6'/%3E%3C/svg%3E">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://articles.phantom-byte.com/">
+<meta property="og:title" content="PhantomByte Articles — AI Infrastructure Field Notes">
+<meta property="og:description" content="AI infrastructure, agents, orchestration, security & industry. One article every day.">
+<meta property="og:image" content="https://articles.phantom-byte.com/images/og-featured.jpg">
+<meta property="og:site_name" content="PhantomByte">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://articles.phantom-byte.com/">
+<meta property="twitter:title" content="PhantomByte Articles — AI Infrastructure Field Notes">
+<meta property="twitter:description" content="AI infrastructure, agents, orchestration, security & industry. One article every day.">
+<meta property="twitter:image" content="https://articles.phantom-byte.com/images/twitter-featured.jpg">
+
+<!-- RSS Feed -->
+<link rel="alternate" type="application/rss+xml" title="PhantomByte Articles RSS Feed" href="https://articles.phantom-byte.com/rss.xml">
+<!-- Canonical URL -->
+<link rel="canonical" href="https://articles.phantom-byte.com/">
+
+<!-- JSON-LD Structured Data (Blog) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "PhantomByte Articles",
+  "url": "https://articles.phantom-byte.com/",
+  "description": "Field notes on AI infrastructure, agents, orchestration, security, and industry. One article every day.",
+  "publisher": { "@type": "Organization", "name": "PhantomByte", "url": "https://phantom-byte.com" },
+  "author": { "@type": "Person", "name": "Vinny Barreca", "url": "https://vincentsativa.com" }
+}
+</script>
+
+<!-- Google Analytics (G-PDQCZE09E4) — kept exactly -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PDQCZE09E4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PDQCZE09E4');
+</script>
+
+<!-- Firebase (FCM web push) — kept exactly -->
+<script defer src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-compat.js"></script>
+
+<!-- Web Push Notification Script — kept exactly (absolute so it runs locally) -->
+<script src="scripts/web-push-client.js" defer></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --purple:#9D4EDD; --purple-dark:#7B2CBF; --purple-darker:#6A1B9A;
+  --green:#00FF88; --green-dark:#00CC6A;
+  --black:#050507; --darker:#020203;
+  --panel:#0d0d12; --panel-2:#101018;
+  --line:#1c1c26; --line-bright:#2a2a38;
+  --text:#e6e6f0; --dim:#8a8a9a; --dimmer:#5a5a6a;
+  --orange:#FF6B35;
+  --mono:ui-monospace,'SF Mono','Cascadia Code',Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--black);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+/* scanline + grid backdrop */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    linear-gradient(rgba(157,78,221,0.04) 1px,transparent 1px) 0 0/40px 40px,
+    linear-gradient(90deg,rgba(0,255,136,0.03) 1px,transparent 1px) 0 0/40px 40px,
+    radial-gradient(ellipse 80% 50% at 50% 0%,rgba(157,78,221,0.10),transparent 70%)}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,0.012) 0 1px,transparent 1px 3px)}
+.wrap{position:relative;z-index:2}
+a{color:var(--green);text-decoration:none}
+.mono{font-family:var(--mono)}
+img{display:block;max-width:100%}
+
+/* ---- HEADER (same as phantom-byte.com) ---- */
+header{position:sticky;top:0;z-index:100;background:rgba(5,5,7,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{max-width:1340px;margin:0 auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-weight:900;font-size:1.15rem;letter-spacing:2px;display:flex;align-items:center;gap:10px}
+.logo .ghost{width:24px;height:24px;flex:none;filter:drop-shadow(0 0 8px rgba(157,78,221,.6))}
+.logo .phantom{color:#fff}.logo .byte{color:var(--purple)}
+.logo .sub{display:block;font-family:var(--mono);font-size:.5rem;color:var(--green);letter-spacing:3px;font-weight:600;margin-top:1px}
+.nav{display:flex;gap:22px;align-items:center}
+.nav a{color:var(--dim);font-size:.78rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;transition:color .2s}
+.nav a:hover{color:var(--green)}
+.btn-nav{font-family:var(--mono);font-size:.74rem;color:#050507!important;background:var(--green);padding:9px 14px;border-radius:4px;font-weight:700;letter-spacing:.5px;box-shadow:0 0 18px rgba(0,255,136,.35);white-space:nowrap}
+.btn-nav:hover{background:#fff}
+.btn-nav.purple{background:linear-gradient(135deg,var(--purple),var(--purple-dark));color:#fff!important;box-shadow:0 0 18px rgba(157,78,221,.4)}
+.btn-nav.purple:hover{background:#fff;color:#050507!important}
+.nav a:not(.btn-nav){display:none}
+.tut-only{display:none}
+.btn-nav .desk{display:none}.btn-nav .mob{display:inline}
+@media(min-width:820px){
+  .bar{padding:14px 28px}
+  .logo{font-size:1.25rem}.logo .ghost{width:26px}.logo .sub{font-size:.55rem}
+  .nav{gap:26px}.nav a{font-size:.8rem}.btn-nav{font-size:.78rem;padding:9px 16px}
+  .nav a:not(.btn-nav){display:inline}.tut-only{display:inline}
+  .btn-nav .desk{display:inline}.btn-nav .mob{display:none}
+}
+
+/* ---- TICKER ---- */
+.ticker{background:var(--darker);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.66rem;color:var(--dimmer);letter-spacing:.5px;overflow:hidden}
+.ticker .inner{max-width:1340px;margin:0 auto;padding:6px 18px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.ticker .live{color:var(--green);display:flex;align-items:center;gap:6px;font-weight:700}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.ticker .count{color:var(--purple);font-weight:700}
+.ticker .next{margin-left:auto;color:var(--orange);font-weight:700}
+@media(min-width:820px){.ticker{font-size:.72rem}.ticker .inner{padding:7px 28px;gap:26px}}
+
+/* ---- CONSOLE LAYOUT ---- */
+.console{max-width:1340px;margin:0 auto;padding:20px 18px;display:grid;grid-template-columns:1fr;gap:22px}
+@media(min-width:980px){.console{padding:24px 28px;grid-template-columns:260px 1fr;gap:28px;align-items:start}}
+section[id]{scroll-margin-top:104px}
+
+/* ---- SIDEBAR RAIL ---- */
+.rail{position:relative}
+@media(min-width:980px){.rail{position:sticky;top:104px}}
+/* mobile dropdown toggle (hidden on desktop; rail stays a sticky sidebar >=980px) */
+.rail-toggle{display:none}
+@media(max-width:979px){
+  .rail-toggle{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;background:var(--panel);border:1px solid var(--line-bright);border-radius:12px;padding:14px 16px;cursor:pointer;font-family:var(--mono);font-size:.76rem;font-weight:700;color:var(--text);letter-spacing:.5px;text-transform:uppercase;user-select:none;transition:border-color .2s,box-shadow .2s}
+  .rail-toggle:hover{border-color:var(--purple);box-shadow:0 0 18px rgba(157,78,221,.18)}
+  .rail-toggle .rt-label{display:flex;align-items:center;gap:10px}
+  .rail-toggle .rt-ico{color:var(--purple);font-size:1rem}
+  .rail-toggle .rt-active{font-family:var(--mono);font-size:.62rem;color:var(--green);font-weight:700;text-transform:none;letter-spacing:0;margin-left:4px}
+  .rail-toggle .rt-chev{color:var(--green);transition:transform .25s;font-size:.9rem}
+  .rail.open .rail-toggle .rt-chev{transform:rotate(90deg)}
+  .rail-body{max-height:0;overflow:hidden;opacity:0;transition:max-height .3s ease,opacity .25s ease,margin-top .25s ease;margin-top:0}
+  .rail.open .rail-body{max-height:1600px;opacity:1;margin-top:14px}
+}
+@media(min-width:980px){.rail-body{max-height:none;opacity:1;overflow:visible}}
+.rail-box{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:18px}
+.rail-h{font-family:var(--mono);font-size:.66rem;color:var(--purple);letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.rail-h::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--purple);box-shadow:0 0 8px var(--purple)}
+/* category list */
+.cat-list{list-style:none}
+.cat-list li{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);cursor:pointer;transition:color .2s}
+.cat-list li:last-child{border-bottom:none}
+.cat-list li:hover .cl-name{color:var(--green)}
+.cat-list li.active .cl-name{color:var(--purple);font-weight:700}
+.cat-list .cl-name{font-size:.82rem;color:var(--text);transition:color .2s}
+.cat-list .cl-name::before{content:'▸ ';color:var(--dimmer);font-family:var(--mono)}
+.cat-list li.active .cl-name::before{color:var(--purple)}
+.cat-list .cl-count{font-family:var(--mono);font-size:.66rem;color:var(--dimmer);background:var(--panel-2);border:1px solid var(--line);padding:2px 7px;border-radius:10px}
+.cat-list li.active .cl-count{color:var(--green);border-color:rgba(0,255,136,.3)}
+/* rail CTA */
+.rail-cta{background:linear-gradient(135deg,rgba(157,78,221,.12),rgba(0,255,136,.06));border:1px solid rgba(157,78,221,.4);border-radius:12px;padding:18px;text-align:center}
+.rail-cta h4{font-size:.9rem;color:#fff;margin-bottom:8px}
+.rail-cta p{font-size:.74rem;color:var(--dim);margin-bottom:14px;line-height:1.5}
+.rail-cta a{display:block;font-family:var(--mono);font-size:.72rem;font-weight:700;color:#050507;background:linear-gradient(135deg,var(--green),var(--green-dark));padding:11px;border-radius:8px;letter-spacing:.5px;text-transform:uppercase;box-shadow:0 0 18px rgba(0,255,136,.3)}
+.rail-cta a:hover{transform:translateY(-2px)}
+
+/* ---- MAIN COL ---- */
+.sec-kicker{font-family:var(--mono);font-size:.7rem;color:var(--purple);letter-spacing:3px;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+.sec-title{font-size:clamp(1.5rem,4.5vw,2.4rem);font-weight:900;letter-spacing:-1px;line-height:1.1}
+.sec-title .u{color:var(--green)}
+.sec-sub{color:var(--dim);font-size:.92rem;margin-top:8px;max-width:680px}
+.sec-head{margin-bottom:22px}
+@media(min-width:820px){.sec-head{margin-bottom:30px}.sec-sub{font-size:1rem}}
+
+/* FEATURED (latest article) */
+.featured{background:var(--panel);border:1px solid var(--purple);border-radius:14px;overflow:hidden;margin-bottom:26px;box-shadow:0 0 40px rgba(157,78,221,.12);display:grid;grid-template-columns:1fr;align-items:start}
+@media(min-width:680px){.featured{grid-template-columns:1.25fr 1fr}}
+.feat-img{aspect-ratio:16/9;overflow:hidden;background:var(--panel-2);position:relative}
+@media(min-width:680px){.feat-img{aspect-ratio:16/9}}
+.feat-img img{width:100%;height:100%;object-fit:cover}
+.feat-img .feat-badge{position:absolute;top:12px;left:12px;font-family:var(--mono);font-size:.6rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#050507;background:var(--green);padding:5px 10px;border-radius:4px;box-shadow:0 0 16px rgba(0,255,136,.4)}
+.feat-body{padding:22px;display:flex;flex-direction:column;justify-content:center}
+@media(min-width:820px){.feat-body{padding:28px}}
+.feat-body .fcat{font-family:var(--mono);font-size:.62rem;color:var(--purple);letter-spacing:1px;text-transform:uppercase;font-weight:700;margin-bottom:10px}
+.feat-body h2{font-size:clamp(1.25rem,3.5vw,1.9rem);color:#fff;line-height:1.2;margin-bottom:12px}
+.feat-body p{font-size:.88rem;color:var(--dim);margin-bottom:18px;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.feat-body .fmeta{font-family:var(--mono);font-size:.66rem;color:var(--dimmer);margin-bottom:18px}
+.feat-body .fmeta b{color:var(--green)}
+.feat-go{align-self:flex-start;font-family:var(--mono);font-size:.78rem;font-weight:700;color:#050507;background:linear-gradient(135deg,var(--green),var(--green-dark));padding:12px 22px;border-radius:8px;letter-spacing:.5px;box-shadow:0 0 22px rgba(0,255,136,.35)}
+.feat-go:hover{transform:translateY(-2px)}
+
+/* ---- ARTICLE PANEL GRID ---- */
+.panels{display:grid;grid-template-columns:1fr;gap:14px;margin-top:6px}
+@media(min-width:560px){.panels{grid-template-columns:repeat(2,1fr);gap:16px}}
+@media(min-width:1040px){.panels{grid-template-columns:repeat(3,1fr)}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;position:relative;transition:border-color .25s,transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+.panel::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--purple),transparent);opacity:0;transition:opacity .25s}
+.panel:hover{border-color:var(--purple);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.5),0 0 40px rgba(157,78,221,.12)}
+.panel:hover::before{opacity:1}
+.panel .thumb{aspect-ratio:16/9;overflow:hidden;background:var(--panel-2);position:relative}
+.panel .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.panel:hover .thumb img{transform:scale(1.04)}
+.panel .pcat{position:absolute;top:10px;left:10px;font-family:var(--mono);font-size:.56rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--green);background:rgba(5,5,7,.85);border:1px solid rgba(0,255,136,.3);padding:4px 8px;border-radius:20px;backdrop-filter:blur(4px)}
+.panel .pidx{position:absolute;top:10px;right:10px;font-family:var(--mono);font-size:.6rem;font-weight:800;color:var(--purple);background:rgba(5,5,7,.85);padding:4px 8px;border-radius:6px;backdrop-filter:blur(4px)}
+.panel.ext .pidx{color:var(--orange)}
+.panel .pbody{padding:18px;display:flex;flex-direction:column;flex:1}
+.panel h3{font-size:1rem;color:#fff;line-height:1.26;margin-bottom:10px}
+.panel h3 a,.feat-body h2 a{color:#fff;text-decoration:none}
+.feat-go{text-decoration:none}
+.panel .pexc{font-size:.8rem;color:var(--dim);margin-bottom:14px;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.panel .pmeta{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid var(--line);gap:10px}
+.panel .pmeta .pw{font-family:var(--mono);font-size:.62rem;color:var(--dimmer)}
+.panel .pmeta .pd{font-family:var(--mono);font-size:.62rem;color:var(--green);font-weight:700}
+.panels-foot{text-align:center;margin-top:30px}
+.loadmore{font-family:var(--mono);font-size:.8rem;font-weight:700;color:var(--green);background:transparent;border:1px solid var(--line-bright);padding:14px 30px;border-radius:8px;cursor:pointer;letter-spacing:.5px;text-transform:uppercase;transition:all .2s}
+.loadmore:hover{border-color:var(--green);background:rgba(0,255,136,.06);box-shadow:0 0 24px rgba(0,255,136,.2)}
+.feed-count{font-family:var(--mono);font-size:.68rem;color:var(--dimmer);margin-top:14px;letter-spacing:1px}
+
+/* ---- CONSTELLATION NETWORK ---- */
+.constellation{background:radial-gradient(ellipse 60% 80% at 50% 0%,rgba(157,78,221,.10),transparent 70%);border-top:1px solid var(--line)}
+.cwrap{max-width:1340px;margin:0 auto;padding:30px 18px 10px}
+@media(min-width:980px){.cwrap{padding:44px 28px 10px}}
+.const-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
+@media(min-width:680px){.const-grid{grid-template-columns:repeat(2,1fr);gap:18px}}
+@media(min-width:1040px){.const-grid{grid-template-columns:repeat(4,1fr)}}
+.const-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px;position:relative;transition:border-color .25s,transform .25s,box-shadow .25s;overflow:hidden}
+.const-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent);opacity:0;transition:opacity .25s}
+.const-card:hover{border-color:var(--green);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.5),0 0 40px rgba(0,255,136,.12)}
+.const-card:hover::before{opacity:1}
+.const-card .cc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.const-card .cc-ico{font-size:1.6rem}
+.const-card .cc-tag{font-family:var(--mono);font-size:.56rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--purple);border:1px solid rgba(157,78,221,.4);padding:4px 8px;border-radius:20px}
+.const-card h3{font-size:.9rem;color:#fff;margin-bottom:8px;font-family:var(--mono);word-break:break-all}
+.const-card p{font-size:.76rem;color:var(--dim);margin-bottom:14px;flex:1;line-height:1.5}
+.const-card .cc-go{font-family:var(--mono);font-size:.64rem;font-weight:700;color:var(--green);letter-spacing:.5px;text-transform:uppercase}
+
+/* ---- EMAIL CAPTURE (kept) ---- */
+.capture{background:radial-gradient(ellipse 60% 80% at 50% 0%,rgba(157,78,221,.18),transparent 70%);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cap-box{background:var(--panel);border:1px solid var(--purple);border-radius:16px;padding:36px 22px;max-width:640px;margin:34px auto;box-shadow:0 0 60px rgba(157,78,221,.15);text-align:center}
+@media(min-width:820px){.cap-box{padding:46px 40px;margin:44px auto}}
+.cap-box h2{font-size:clamp(1.4rem,5vw,2.1rem);font-weight:900;margin-bottom:10px;letter-spacing:-.5px}
+.cap-box>p{color:var(--dim);margin-bottom:26px;font-size:.92rem}
+.signup-form{display:flex;gap:10px;flex-direction:column;max-width:420px;margin:0 auto}
+@media(min-width:520px){.signup-form{flex-direction:row}}
+.signup-form input{flex:1;padding:14px;border:2px solid rgba(255,255,255,0.2);border-radius:8px;background:rgba(255,255,255,0.05);color:#fff;font-size:15px;font-family:inherit}
+.signup-form input::placeholder{color:var(--dimmer)}
+.signup-form input:focus{outline:none;border-color:var(--purple)}
+.signup-form button{font-family:var(--mono);font-weight:700;background:linear-gradient(135deg,var(--green),var(--green-dark));color:#050507;border:none;border-radius:8px;padding:14px 22px;font-size:.86rem;cursor:pointer;letter-spacing:.5px;box-shadow:0 0 20px rgba(0,255,136,.3);transition:transform .2s;white-space:nowrap}
+.signup-form button:hover{transform:translateY(-2px)}
+.cap-disclaimer{margin-top:14px;font-size:.72rem;color:var(--dimmer)}
+
+/* ---- CTA AD SLOT (kept exactly, restyled) ---- */
+.ad-slot{text-align:center;padding:0 18px;max-width:1340px;margin:26px auto 0}
+.ad-creative{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);padding:24px;border-radius:12px;box-shadow:0 4px 15px rgba(0,255,136,0.25);border:none;max-width:728px;margin:0 auto}
+.ad-creative .k{font-size:.7rem;color:#FF6B35;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.ad-creative h4{margin:0 0 12px 0;color:#fff;font-size:1.3rem;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,0.4)}
+.ad-creative p{margin:0 0 16px 0;font-size:.95rem;line-height:1.5;color:#e0e0e0;font-weight:400}
+.ad-creative .btn{display:inline-block;padding:11px 22px;background:linear-gradient(90deg,#00FF88 0%,#00cc6a 100%);color:#0a0a1a;border-radius:6px;text-decoration:none;font-weight:700;font-size:.95rem;box-shadow:0 3px 10px rgba(0,255,136,.35)}
+
+/* ---- FOOTER (kept + expanded) ---- */
+footer{background:var(--darker);border-top:2px solid var(--purple);padding:48px 18px 30px;margin-top:64px}
+@media(min-width:820px){footer{padding:54px 28px 30px;margin-top:80px}}
+.foot-grid{max-width:1340px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:32px}
+@media(min-width:720px){.foot-grid{grid-template-columns:1.5fr 1fr 1fr 1fr;gap:24px}}
+.foot-brand .logo{margin-bottom:8px}
+.foot-tag{color:var(--green);font-size:1rem;font-weight:600;margin-bottom:14px}
+.foot-cta a{display:inline-block;background:linear-gradient(135deg,var(--purple),var(--purple-dark));color:#fff;padding:10px 16px;border-radius:8px;font-family:var(--mono);font-size:.78rem;font-weight:700;text-decoration:none;box-shadow:0 0 18px rgba(157,78,221,.35)}
+.foot-cta a:hover{transform:translateY(-2px)}
+.foot-col h4{font-family:var(--mono);font-size:.7rem;color:var(--purple);letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:14px}
+.foot-col ul{list-style:none}
+.foot-col ul li{margin-bottom:9px}
+.foot-col ul li a{color:var(--dim);font-size:.86rem;transition:color .2s}
+.foot-col ul li a:hover{color:var(--green)}
+.foot-bottom{max-width:1340px;margin:34px auto 0;padding-top:24px;border-top:1px solid var(--line);text-align:center;color:var(--dimmer);font-size:.76rem}
+.foot-bottom a{color:var(--dimmer);margin:0 8px}
+.foot-bottom a:hover{color:var(--green)}
+.foot-bottom p{margin:6px 0}
+
+/* ---- MOBILE FOOTER: compact reorganization (shorter stack) ---- */
+@media(max-width:719px){
+  .foot-grid{grid-template-columns:1fr 1fr;gap:22px 18px}
+  .foot-grid>.foot-col:nth-child(2){grid-column:1;grid-row:1}
+  .foot-grid>.foot-col:nth-child(3){grid-column:2;grid-row:1}
+  .foot-grid>.foot-col:last-child{grid-column:2;grid-row:2}
+  .foot-grid>.foot-brand{grid-column:1;grid-row:2}
+  .foot-grid>.foot-brand .ghost{display:none}
+  .foot-tag{display:none}
+  .foot-grid>.foot-col:last-child ul{display:flex;gap:22px;flex-wrap:wrap}
+  .foot-grid>.foot-col:last-child ul li{margin-bottom:0}
+  footer{padding:36px 18px 26px;margin-top:48px}
+  .foot-bottom{margin-top:26px;padding-top:18px}
+}
+
+/* force web-push button to viewport bottom-right (the external script nests it inside <header>) */
+#phantombyte-push-container{position:fixed!important;top:auto!important;left:auto!important;bottom:20px!important;right:20px!important;z-index:9999!important;width:auto!important}
+@media(max-width:640px){#phantombyte-push-container{bottom:10px!important;right:10px!important;left:auto!important;width:auto!important}}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HEADER (same as phantom-byte.com) -->
+<header>
+  <div class="bar">
+    <a href="index.html" class="logo">
+      <svg class="ghost" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#9D4EDD"></stop><stop offset="100%" stop-color="#7B2CBF"></stop></linearGradient></defs><path fill="url(#lg)" d="M50 5C25 5 10 25 10 50v35l8-8 8 8 8-8 8 8 8-8 8 8V50C66 25 60 5 50 5z"></path><circle fill="#050507" cx="38" cy="42" r="6"></circle><circle fill="#050507" cx="62" cy="42" r="6"></circle><ellipse fill="#050507" cx="50" cy="58" rx="8" ry="6"></ellipse></svg>
+      <div><span class="phantom">Phantom</span><span class="byte">Byte</span><span class="sub">Code from the shadows</span></div>
+    </a>
+    <nav class="nav">
+      <a href="#feed">Archive</a>
+      <a href="#network">Network</a>
+      <a href="#capture">Subscribe</a>
+      <a class="btn-nav purple tut-only" href="https://phantom-byte.com/tutorials" target="_blank" rel="noopener">Tutorials</a>
+      <a class="btn-nav" href="https://phantom-byte.com" target="_blank" rel="noopener"><span class="mob">SERVICES</span><span class="desk">Hire PhantomByte</span></a>
+    </nav>
+  </div>
+</header>
+
+<!-- TICKER -->
+<div class="ticker"><div class="inner">
+  <span class="live"><span class="dot"></span>CONSOLE ONLINE</span>
+  <span>NOTES: <span class="count" id="tkCount">110+</span></span>
+  <span>CADENCE: DAILY</span>
+  <span>OPERATOR: VINNY BARRECA</span>
+</div></div>
+
+<!-- CONSOLE: rail + main -->
+<div class="console">
+
+  <!-- SIDEBAR RAIL (sticky sidebar on desktop; collapsible dropdown on mobile) -->
+  <aside class="rail" id="rail">
+    <button class="rail-toggle" id="railToggle" aria-expanded="false" aria-controls="railBody">
+      <span class="rt-label"><span class="rt-ico">▦</span> Filter & Categories</span>
+      <span class="rt-chev">▸</span>
+    </button>
+    <div class="rail-body" id="railBody">
+      <div class="rail-box">
+        <div class="rail-h">Categories</div>
+        <ul class="cat-list" id="catList"></ul>
+      </div>
+
+      <div class="rail-cta">
+        <h4>Build It Yourself</h4>
+        <p>9 hands-on PDF tutorials. Local AI stacks, agents, scraping, custom tools.</p>
+        <a href="https://phantom-byte.com/tutorials" target="_blank" rel="noopener">Browse Tutorials →</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <div class="sec-head">
+      <div class="sec-kicker">// operations console</div>
+      <h1 class="sec-title">Field notes on <span class="u">AI infrastructure.</span></h1>
+      <p class="sec-sub">Daily breakdowns of agents, orchestration, security, and the industry. Latest note pinned at the top. Filter the archive from the rail. This console grows by one article every day.</p>
+    </div>
+
+    <!-- FEATURED: latest article (generated by build-index.js) -->
+    <!--FEATURED-->
+
+    <!-- FEED -->
+    <section id="feed">
+      <div class="sec-kicker" style="margin-bottom:16px">// the archive</div>
+      <div class="panels" id="feedGrid">
+        <!--FEED-->
+      </div>
+      <div class="panels-foot">
+        <button class="loadmore" id="loadMore">▸ Load more</button>
+        <p class="feed-count" id="feedCount"></p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- CONSTELLATION NETWORK -->
+<section id="network" class="constellation">
+  <div class="cwrap">
+    <div class="sec-head">
+      <div class="sec-kicker">// the constellation</div>
+      <h2 class="sec-title">Four nodes. <span class="u">One operator.</span></h2>
+      <p class="sec-sub">Every property below is something PhantomByte runs in production. Tap a node to jump.</p>
+    </div>
+    <div class="const-grid" id="netGrid">
+      <a class="const-card" href="https://phantom-byte.com" target="_blank" rel="noopener"><div class="cc-top"><div class="cc-ico">🛡️</div><div class="cc-tag">Services</div></div><h3>phantom-byte.com</h3><p>AI R&amp;D studio. Sovereign AI stacks, production agent systems, autonomous content engines. Infrastructure that ships.</p><span class="cc-go">open node →</span></a>
+      <a class="const-card" href="https://phantom-byte.com/tutorials" target="_blank" rel="noopener"><div class="cc-top"><div class="cc-ico">🚀</div><div class="cc-tag">Learn</div></div><h3>phantom-byte.com/tutorials</h3><p>Step-by-step PDF tutorials. Local AI stacks, autonomous agents, multi-agent orchestration, custom tools. Build it yourself.</p><span class="cc-go">open node →</span></a>
+      <a class="const-card" href="https://sovereign-ai-stack.phantom-byte.com" target="_blank" rel="noopener"><div class="cc-top"><div class="cc-ico">🏠</div><div class="cc-tag">Free Blueprint</div></div><h3>sovereign-ai-stack.phantom-byte.com</h3><p>Free blueprint to run AI locally with Ollama, Hermes, and OpenClaw. No subscriptions. No data leaving your server.</p><span class="cc-go">open node →</span></a>
+      <a class="const-card" href="https://vincentsativa.com" target="_blank" rel="noopener"><div class="cc-top"><div class="cc-ico">👤</div><div class="cc-tag">Author</div></div><h3>vincentsativa.com</h3><p>Vinny Barreca — the operator behind PhantomByte. Portfolio, writing, and the work behind the studio.</p><span class="cc-go">open node →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL CAPTURE (kept) -->
+<section class="capture" id="capture">
+  <div class="cap-box">
+    <h2>Stay in the Loop</h2>
+    <p>Get the latest field notes delivered to your inbox. No spam, unsubscribe anytime.</p>
+    <form class="signup-form" id="emailSignupForm">
+      <input type="email" placeholder="Enter your email" required id="emailInput">
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="cap-disclaimer"><small>By subscribing, you agree to receive emails from PhantomByte. We respect your inbox.</small></p>
+  </div>
+</section>
+
+<!-- CTA AD SLOT (kept exactly) -->
+<section class="ad-slot ad-slot-horizontal">
+  <a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank" rel="noopener">
+    <div class="ad-creative">
+      <p class="k">⚠️ Exit the Cloud</p>
+      <h4>Own Your Weights. Own Your Data.</h4>
+      <p>The cloud AI era is a data-harvesting trap. Stop being the product and start being the owner. Build your local sovereign stack today.</p>
+      <span class="btn">Download The Blueprint</span>
+    </div>
+  </a>
+</section>
+
+<!-- FOOTER (kept + expanded with Network + Author) -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo">
+        <svg class="ghost" viewBox="0 0 100 100" aria-hidden="true" style="width:24px;height:24px"><path fill="#9D4EDD" d="M50 5C25 5 10 25 10 50v35l8-8 8 8 8-8 8 8 8-8 8 8V50C66 25 60 5 50 5z"></path><circle fill="#050507" cx="38" cy="42" r="6"></circle><circle fill="#050507" cx="62" cy="42" r="6"></circle><ellipse fill="#050507" cx="50" cy="58" rx="8" ry="6"></ellipse></svg>
+        <span><span class="phantom">Phantom</span><span class="byte">Byte</span></span>
+      </div>
+      <p class="foot-tag">👻 Code from the shadows</p>
+      <div class="foot-cta">
+        <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" rel="noopener">☕ Buy Me a Coffee</a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h4>Articles</h4>
+      <ul>
+        <li><a href="#feed">Archive</a></li>
+        <li><a href="rss.xml">RSS Feed</a></li>
+        <li><a href="sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Network</h4>
+      <ul>
+        <li><a href="https://phantom-byte.com" target="_blank" rel="noopener">PhantomByte Services</a></li>
+        <li><a href="https://phantom-byte.com/tutorials" target="_blank" rel="noopener">Tutorials</a></li>
+        <li><a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank" rel="noopener">Sovereign AI Blueprint</a></li>
+        <li><a href="https://vincentsativa.com" target="_blank" rel="noopener">Vincent Sativa</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Social</h4>
+      <ul>
+        <li><a href="https://x.com/PhantomByteAI" target="_blank" rel="noopener">X / Twitter</a></li>
+        <li><a href="https://www.pinterest.com/PhantomByteAI" target="_blank" rel="noopener">Pinterest</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p>© 2026 PhantomByte. All rights reserved.</p>
+    <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+  </div>
+</footer>
+
+</div>
+
+<!-- Console enhancer: pagination, category filter, mobile rail dropdown, card clicks.
+     Reads the static .panel cards already in the HTML (SEO-friendly). No runtime data file. -->
+<script>
+(function(){
+  var grid=document.getElementById('feedGrid');
+  var catList=document.getElementById('catList');
+  var countEl=document.getElementById('feedCount');
+  var loadMoreBtn=document.getElementById('loadMore');
+  if(!grid) return;
+
+  var allCards=Array.prototype.slice.call(grid.querySelectorAll('.panel'));
+  function pageSize(){ return window.innerWidth>=1040 ? 9 : 8; }
+  var PAGE=pageSize(), shown=PAGE, active='all';
+
+  function visibleCards(){ return active==='all'?allCards:allCards.filter(function(c){return c.dataset.cat===active;}); }
+  function apply(){
+    var vis=visibleCards();
+    allCards.forEach(function(c){ c.style.display='none'; });
+    vis.forEach(function(c,i){ if(i<shown) c.style.display=''; });
+    countEl.textContent='showing '+Math.min(shown,vis.length)+' of '+vis.length+' notes';
+    loadMoreBtn.style.display = shown<vis.length ? '' : 'none';
+  }
+
+  var cats={};
+  allCards.forEach(function(c){ cats[c.dataset.cat]=(cats[c.dataset.cat]||0)+1; });
+  function renderCatList(){
+    var html='<li data-cat="all" class="'+(active==='all'?'active':'')+'"><span class="cl-name">All Notes</span><span class="cl-count">'+allCards.length+'</span></li>';
+    Object.keys(cats).sort().forEach(function(c){
+      html+='<li data-cat="'+c+'" class="'+(active===c?'active':'')+'"><span class="cl-name">'+c+'</span><span class="cl-count">'+cats[c]+'</span></li>';
+    });
+    catList.innerHTML=html;
+    catList.querySelectorAll('li').forEach(function(li){
+      li.addEventListener('click',function(){ active=li.dataset.cat; shown=PAGE; renderCatList(); apply(); setToggleLabel(); });
+    });
+  }
+
+  loadMoreBtn.addEventListener('click',function(){ shown+=PAGE; apply(); });
+  window.addEventListener('resize',function(){ var np=pageSize(); if(np!==PAGE){ PAGE=np; apply(); } });
+
+  // whole-card click (inner <a> handles SEO links + default nav)
+  allCards.forEach(function(card){
+    card.style.cursor='pointer';
+    card.addEventListener('click',function(e){ if(e.target.closest('a')) return; var href=card.dataset.href, ext=card.dataset.external==='1'; if(ext){ window.open(href,'_blank'); } else { location.href=href; } });
+  });
+  var f=document.querySelector('.featured');
+  if(f){ f.style.cursor='pointer'; f.addEventListener('click',function(e){ if(e.target.closest('a')) return; location.href=f.dataset.href; }); }
+
+  document.getElementById('tkCount').textContent = allCards.length;
+
+  var rail=document.getElementById('rail');
+  var railToggle=document.getElementById('railToggle');
+  function setToggleLabel(){
+    if(!railToggle) return;
+    var old=railToggle.querySelector('.rt-active'); if(old) old.remove();
+    var label=active==='all'?'All':active;
+    var sp=document.createElement('span'); sp.className='rt-active'; sp.textContent='· '+label;
+    railToggle.querySelector('.rt-label').appendChild(sp);
+  }
+  if(railToggle){
+    railToggle.addEventListener('click',function(){ var open=rail.classList.toggle('open'); railToggle.setAttribute('aria-expanded',open?'true':'false'); });
+    catList.addEventListener('click',function(){ if(rail.classList.contains('open')){ rail.classList.remove('open'); railToggle.setAttribute('aria-expanded','false'); } },true);
+  }
+  if(location.hash.indexOf('rail-open')>-1 && rail){ rail.classList.add('open'); if(railToggle) railToggle.setAttribute('aria-expanded','true'); }
+
+  setToggleLabel();
+  renderCatList();
+  apply();
+})();
+</script>
+
+<!-- Kept tracking/UX scripts (relative paths; served from same domain) -->
+<script src="scripts/ad-manager.js" defer></script>
+<script src="scripts/email-signup.js" defer></script>
+
+<!-- Relocate the web-push button out of <header> (backdrop-filter traps position:fixed) -->
+<script>
+(function(){
+  function relocate(){ var c=document.getElementById('phantombyte-push-container'); if(c && c.parentNode!==document.body){ document.body.appendChild(c); } }
+  if(document.readyState!=='loading'){ relocate(); } else { document.addEventListener('DOMContentLoaded',relocate); }
+  window.addEventListener('load',function(){ relocate(); setTimeout(relocate,300); setTimeout(relocate,1200); });
+  var h=document.querySelector('header');
+  if(h && window.MutationObserver){ var mo=new MutationObserver(function(){ relocate(); }); mo.observe(h,{childList:true,subtree:true}); setTimeout(function(){ mo.disconnect(); },6000); }
+})();
+</script>
+</body>
+</html>
