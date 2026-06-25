@@ -6,8 +6,9 @@ PhantomByte builds custom AI tools for small businesses. Our articles cover real
 agent orchestration patterns, infrastructure lessons, and honest engineering breakdowns.
 Written by Vinny Barreca. Updated regularly.
 
-## Articles (112 total)
+## Articles (113 total)
 
+- [Agent Red-Teaming: The Missing Security Layer](https://articles.phantom-byte.com/agent-red-teaming-security.html): RIFT-Bench maps your agent's attack surface as a graph. VeryTrace formalizes reasoning into compilable logic. Agent red-teaming is the missing security layer. (2026-06-25)
 - [Monolithic Agent Architecture](https://articles.phantom-byte.com/monolithic-agent-architecture.html): Ten architectural patterns. Four responsibility layers. The monolithic agent is dead. Learn the 4-layer skill architecture replacing it with CUGA. (2026-06-24)
 - [Your Agent Is a Monolith. That's the Problem.](https://articles.phantom-byte.com/your-agent-is-a-monolith-thats-the-problem.html): The monolithic agent is dead. A 4-layer skill architecture from CUGA, NVIDIA Agent Toolkit, and five new papers replaces it. Build modular, governable AI agents (2026-06-24)
 - [Your Agent Is Drowning in Its Own Output](https://articles.phantom-byte.com/your-agent-is-drowning-in-its-own-output.html): Your agent is drowning in raw tool output. Headroom compresses tool outputs before they reach the LLM, cutting token costs by 60-95%. The plumbing fix for agent architecture. (2026-06-23)

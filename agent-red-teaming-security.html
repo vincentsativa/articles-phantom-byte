@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RIFT-Bench maps your agent's attack surface as a graph. VeryTrace formalizes reasoning into compilable logic. Agent red-teaming is the missing security layer.">
+    <meta name="keywords" content="agent security, red-teaming AI, RIFT-Bench, VeryTrace, agentic AI, AI governance, Chain-of-Thought verification, agent architecture, AI safety, Execlave">
+    <meta name="author" content="Vinny Barreca">
+    <meta name="theme-color" content="#9D4EDD">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://articles.phantom-byte.com/agent-red-teaming-security.html">
+    <meta property="og:title" content="Your Agent Is Under Attack: Why Red-Teaming Is the Missing Layer">
+    <meta property="og:description" content="RIFT-Bench maps your agent's attack surface as a graph. VeryTrace formalizes reasoning into compilable logic. Agent red-teaming is the missing security layer.">
+    <meta property="og:image" content="https://articles.phantom-byte.com/images/article-109-main.jpg">
+    <meta property="article:published_time" content="2026-06-25">
+    <meta property="article:author" content="Vinny Barreca">
+    <meta property="article:section" content="AI Security">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://articles.phantom-byte.com/agent-red-teaming-security.html">
+    <meta property="twitter:title" content="Your Agent Is Under Attack: Why Red-Teaming Is the Missing Layer">
+    <meta property="twitter:description" content="RIFT-Bench maps your agent's attack surface as a graph. VeryTrace formalizes reasoning into compilable logic. Agent red-teaming is the missing security layer.">
+    <meta property="twitter:image" content="https://articles.phantom-byte.com/images/article-109-main.jpg">
+    
+    <!-- Canonical URL (CRITICAL FOR SEO) -->
+    <link rel="canonical" href="https://articles.phantom-byte.com/agent-red-teaming-security.html">
+    
+    <title>Agent Red-Teaming: The Missing Security Layer - PhantomByte</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDQCZE09E4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PDQCZE09E4');
+    </script>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/article.css">
+    
+    <!-- Web Push Notification Script -->
+    <script src="scripts/web-push-client.js" defer></script>
+    
+    <!-- ARTICLE SCHEMA MARKUP (JSON-LD for SEO + GEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Your Agent Is Under Attack: Why Red-Teaming Is the Missing Layer",
+      "alternativeHeadline": "Agent Red-Teaming: The Missing Security Layer for AI Agents",
+      "author": {
+        "@type": "Person",
+        "name": "Vinny Barreca",
+        "url": "https://phantom-byte.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PhantomByte",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://articles.phantom-byte.com/images/phantombyte-logo.png"
+        }
+      },
+      "datePublished": "2026-06-25",
+      "dateModified": "2026-06-25",
+      "description": "RIFT-Bench maps your agent's attack surface as a graph. VeryTrace formalizes reasoning into compilable logic. Agent red-teaming is the missing security layer.",
+      "articleBody": "You built an agent. It calls APIs, writes files, and makes decisions while you sleep. But you have never proven it cannot be hacked. That is not confidence. That is blindness. If you are building AI agents in production, this article is for you. Two new frameworks treat agent security as a systems engineering problem, not a prompt engineering one.",
+      "wordCount": "1800",
+      "timeRequired": "PT9M",
+      "proficiencyLevel": "Intermediate",
+      "articleSection": "AI Security",
+      "keywords": "agent security, red-teaming AI, RIFT-Bench, VeryTrace, agentic AI, AI governance, Chain-of-Thought verification, agent architecture, AI safety, Execlave",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://articles.phantom-byte.com/images/article-109-main.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://articles.phantom-byte.com/agent-red-teaming-security.html"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+            </a>
+            <nav class="main-nav">
+                <a href="https://phantom-byte.com" target="_blank">Services</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="article-main">
+        <article class="article-container">
+            <!-- Article Header -->
+            <header class="article-header">
+                <span class="article-category">AI Security</span>
+                <h1 class="article-title">Your Agent Is Under Attack: Why Red-Teaming Is the Missing Layer</h1>
+                
+                <div class="article-meta">
+                    <div class="author-info">
+                        <img src="images/author-vinny.jpg" alt="Vinny Barreca" class="author-avatar">
+                        <div class="author-details">
+                            <span class="author-name">Vinny Barreca</span>
+                            <span class="publish-date">June 25, 2026</span>
+                        </div>
+                    </div>
+                    <div class="meta-actions">
+                        <span class="read-time">9 min read</span>
+                        <button class="share-btn" aria-label="Share article">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                                <polyline points="16 6 12 2 8 6"/>
+                                <line x1="12" y1="2" x2="12" y2="15"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <figure class="article-featured-image">
+                <img src="images/article-109-main.jpg" alt="AI agent security red-teaming concept - agent attack surface visualization">
+                <figcaption class="image-caption">Your agent has an attack surface. Have you mapped it?</figcaption>
+            </figure>
+
+            <!-- CTA Slot (Top) -->
+            <div class="ad-slot ad-slot-article-top">
+                <a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank">
+                    <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25); border: none;">
+                        <p style="font-size: 0.7rem; color: #FF6B35; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">⚠️ Exit the Cloud</p>
+                        <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Own Your Weights. Own Your Data.</h4>
+                        <p style="margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.5; color: #e0e0e0; font-weight: 400;">The cloud AI era is a data-harvesting trap. Stop being the product and start being the owner. Build your local sovereign stack today.</p>
+                        <div style="text-align: center;">
+                            <span style="display: inline-block; padding: 11px 22px; background: linear-gradient(90deg, #00FF88 0%, #00cc6a 100%); color: #0a0a1a; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(0, 255, 136, 0.35);">Download The Blueprint</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Article Body -->
+            <div class="article-body">
+                <p class="lead-paragraph" style="margin-top: 50px;">
+                    You built an agent. It calls APIs, writes files, and makes decisions while you sleep. But you have never proven it cannot be hacked. That is not confidence. That is blindness.
+                </p>
+
+                <p>
+                    If you are building AI agents in production, this article is for you. Two new frameworks treat agent security as a systems engineering problem, not a prompt engineering one. RIFT-Bench maps your agent's attack surface as a graph. VeryTrace formalizes its reasoning into compilable logic. Together they give you something no prompt template can: proof.
+                </p>
+
+                <!-- Wrong Mental Models -->
+                <h2>Wrong Mental Models to Kill First</h2>
+
+                <p>
+                    Red-teaming an agent is not red-teaming an LLM. LLM red-teaming asks: will it say something bad? Agent red-teaming asks: can an attacker chain three tool calls into data exfiltration? Different question. Different answer. Different methodology.
+                </p>
+
+                <p>
+                    Most developers run a few jailbreak prompts and call their agent secure. That is like checking if your car's radio works and assuming the brakes are fine.
+                </p>
+
+                <!-- The Analogy That Sticks -->
+                <h2>The Analogy That Sticks</h2>
+
+                <p>
+                    Think of your agent as a drone. LLM red-teaming checks if the camera works. Agent red-teaming checks if someone can hijack the flight controls, reroute the GPS, and land it in enemy territory. You need both. Most people only have the camera test. And they are flying blind.
+                </p>
+
+                <!-- How It Works: Three New Frameworks -->
+                <h2>How It Works: Three New Frameworks</h2>
+
+                <h3>RIFT-Bench (arXiv:2606.23927, June 2026)</h3>
+
+                <p>
+                    Yarin Yerushalmi Levi, Roy Betser, Amit Giloni, and their team at RIFT-Bench introduced a graph-based methodology for dynamic red-teaming of agentic AI systems. It operates in two automated phases. Discovery extracts your agent's system structure as a graph. Scanning deploys adaptive adversarial attacks across that graph and produces a comprehensive evaluation report.
+                </p>
+
+                <p>
+                    What this means for you: instead of guessing which attack vectors matter, you see every possible path an attacker could take.
+                </p>
+
+                <!-- In-Article Image -->
+                <figure class="article-image article-image-right">
+                    <img src="images/article-109-inside.jpg" alt="Agent security framework comparison - RIFT-Bench, VeryTrace, and Execlave">
+                    <figcaption class="image-caption">Three frameworks converging on the same problem: agent security as systems engineering.</figcaption>
+                </figure>
+
+                <p>
+                    The framework was tested across 45 agentic systems spanning diverse implementations and attack vectors. It generalizes to heterogeneous architectures and supports direct evaluation of mitigation strategies. This is scalable security evaluation, not a one-time audit.
+                </p>
+
+                <p>
+                    The paper is available on arXiv now. The authors have not yet released a public API, but the methodology is documented well enough that you can implement the Discovery phase against your own agent's architecture. The graph alone is worth more than every prompt template you have ever written. You cannot defend what you cannot see.
+                </p>
+
+                <p><strong>Quick Attack Surface Checklist:</strong></p>
+                <ul>
+                    <li>Are all tool inputs validated against a strict schema?</li>
+                    <li>Is the agent sandboxed from core system directories?</li>
+                    <li>Do API calls require least-privilege, scoped tokens?</li>
+                </ul>
+
+                <h3>VeryTrace (arXiv:2606.24124, June 2026)</h3>
+
+                <p>
+                    Ninghan Zhong, Ahmet Ege Tanriverdi, Kaan Kale, and Sriram Vishwanath built VeryTrace, a zero-shot verification-and-repair framework that formalizes natural-language reasoning traces into a structured, compilable representation using a Domain-Specific Language. The DSL makes step dependencies explicit. It mechanizes quantitative content as executable expressions. It structures semantic inferences via deduction schemas.
+                </p>
+
+                <p>
+                    What this means for you: Chain-of-Thought reasoning is fragile. Early errors silently propagate into confident but wrong conclusions. VeryTrace catches those errors before they compound. A hybrid verifier combines deterministic checks for computational correctness with targeted LLM audits for non-mechanizable semantic judgments.
+                </p>
+
+                <p>
+                    For example, a compiled reasoning step in a DSL format might look like this:
+                </p>
+
+                <pre><code>verify_step(action="write_file", path="/usr/local/bin")
+assert_dependency(prior_step="auth_check", status="passed")
+enforce_schema(output_format="json")</code></pre>
+
+                <p>
+                    Tested across competition mathematics (AIME 2025), robotics planning (LLM-BabyBench), and kinship reasoning (CLUTRR), VeryTrace improved accuracy over zero-shot baselines without domain-specific training. Accepted at the LM4Plan Workshop @ ICML 2026. This fixes the fundamental fragility of Chain-of-Thought where early errors silently propagate into confident but wrong conclusions.
+                </p>
+
+                <h3>Execlave (Show HN, June 2026)</h3>
+
+                <p>
+                    Execlave is an AI Agent Management Platform focused on governance, compliance, and enforcement for enterprise agent deployments. It provides audit trails, policy enforcement, access controls, and monitoring specifically designed for agentic AI systems. The AMP category is itself notable. It suggests the agent ecosystem is maturing beyond frameworks into management layers. You do not manage a production database without monitoring. Why would you manage an agent without it?
+                </p>
+
+                <!-- Before and After -->
+                <h2>Before and After: What Changes</h2>
+
+                <p>
+                    Before RIFT-Bench, you ran a few jailbreak prompts and called it secure. After RIFT-Bench, you have a graph of every attack path your agent exposes, with adaptive probes that evolve as your agent changes.
+                </p>
+
+                <p>
+                    Before VeryTrace, you trusted Chain-of-Thought because it sounded reasonable. After VeryTrace, you compile the reasoning into executable logic and catch the errors before they compound.
+                </p>
+
+                <p>
+                    Before Execlave, you deployed agents with no governance. After Execlave, you have audit trails that satisfy compliance and incident response.
+                </p>
+
+                <!-- Real-World Signals -->
+                <h2>Real-World Signals and Sovereign Stacks</h2>
+
+                <p>
+                    NVIDIA's Agent Toolkit now includes OpenShell secure runtime. Not a coincidence. The same week RIFT-Bench drops on arXiv, NVIDIA ships a secure runtime for enterprise agents.
+                </p>
+
+                <p>
+                    But this is not just for enterprise clouds. If you are building a Sovereign Stack with a local agent daily driver using Gemma 4 or DeepSeek-V4 Pro, these verification frameworks are just as critical for your self-hosted infrastructure. Whether you are running on a local RTX GPU or an enterprise cluster, the industry is converging on this simultaneously. When both academia and the largest chip company agree on a problem, the problem is real.
+                </p>
+
+                <!-- Addressing the Objections -->
+                <h2>Addressing the Objections</h2>
+
+                <p>
+                    <strong>"But my agent is simple."</strong> Simple agents use simple tools. Simple tools have simple vulnerabilities. A file-write agent with no sandbox is a ransomware deployment waiting to happen. Complexity is not the prerequisite for attack. Tool access is.
+                </p>
+
+                <p>
+                    <strong>"But this adds overhead."</strong> So does encryption. So does testing. You do not skip those because they take time. You skip them because you have not been burned yet. That is not strategy. That is luck.
+                </p>
+
+                <!-- The Quick Win -->
+                <h2>The Quick Win</h2>
+
+                <p>
+                    Read the RIFT-Bench paper (arXiv:2606.23927) and map your agent's architecture against the Discovery methodology described there. You will see your agent's attack surface in a new light. You cannot defend what you cannot see.
+                </p>
+
+                <!-- The Escalation Path -->
+                <h2>The Escalation Path</h2>
+
+                <p>
+                    <strong>Phase 1:</strong> Read RIFT-Bench and map your agent's attack surface against the Discovery methodology.
+                </p>
+
+                <p>
+                    <strong>Phase 2:</strong> Apply VeryTrace to your agent's Chain-of-Thought reasoning paths. Formalize the critical ones into compilable logic.
+                </p>
+
+                <p>
+                    <strong>Phase 3:</strong> Deploy Execlave governance layers for audit trails and policy enforcement.
+                </p>
+
+                <p>
+                    <strong>Phase 4:</strong> Treat agent security like CI/CD. Automated. Continuous. Non-negotiable.
+                </p>
+
+                <!-- The Close -->
+                <h2>The Close</h2>
+
+                <p>
+                    You built the agent. Now prove it cannot be turned against you. The frameworks exist. The methodology is documented. The only missing piece is your decision to treat agent security as a systems engineering problem instead of a prompt engineering afterthought. Start today.
+                </p>
+
+                <!-- Email signup -->
+                <div class="article-email-signup">
+                    <h3>Get More Articles Like This</h3>
+                    <p>Getting your AI agent setup right is just the start. I'm documenting every mistake, fix, and lesson learned as I build PhantomByte.</p>
+                    <p>Subscribe to receive updates when we publish new content. No spam, just real lessons from the trenches.</p>
+                    <form class="signup-form" id="articleEmailSignup">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+
+                <!-- Buy Me a Coffee CTA -->
+                <div class="coffee-cta">
+                    <p>Enjoyed this article?</p>
+                    <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn-large">
+                        <span>☕</span> Buy Me a Coffee
+                    </a>
+                    <p class="coffee-subtext">Support PhantomByte and keep the content coming!</p>
+                </div>
+
+                <!-- Tutorials CTA -->
+                <div class="tutorials-cta" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 28px; border-radius: 12px; margin: 32px 0; border: 1px solid rgba(157, 78, 221, 0.3);">
+                    <h3 style="color: #9D4EDD; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: 700;">Build Real AI Infrastructure</h3>
+                    <p style="color: #e0e0e0; margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.6;">
+                        PhantomByte teaches you to build real AI infrastructure yourself: local AI stacks, autonomous agents, multi-agent orchestration, web scraping, and custom tools. Step-by-step PDF tutorials you download, follow, and deploy. No subscriptions. No fluff. Just skills that ship.
+                    </p>
+                    <div style="text-align: center;">
+                        <a href="https://phantom-byte.com/tutorials" target="_blank" style="display: inline-block; padding: 12px 28px; background: linear-gradient(90deg, #9D4EDD 0%, #7B2CBF 100%); color: #ffffff; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 1rem; box-shadow: 0 3px 10px rgba(157, 78, 221, 0.35);">
+                            Browse Tutorials →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Share/Related Section -->
+                <div class="article-footer">
+                    <div class="share-section">
+                        <h3>Share this article</h3>
+                        <div class="share-buttons">
+                            <button class="share-btn-twitter">Twitter</button>
+                            <button class="share-btn-facebook">Facebook</button>
+                            <button class="share-btn-linkedin">LinkedIn</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Slot (Bottom) -->
+            <div class="ad-slot ad-slot-article-bottom">
+                <a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank">
+                    <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25); border: none;">
+                        <p style="font-size: 0.7rem; color: #FF6B35; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">⚠️ Exit the Cloud</p>
+                        <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Own Your Weights. Own Your Data.</h4>
+                        <p style="margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.5; color: #e0e0e0; font-weight: 400;">The cloud AI era is a data-harvesting trap. Stop being the product and start being the owner. Build your local sovereign stack today.</p>
+                        <div style="text-align: center;">
+                            <span style="display: inline-block; padding: 11px 22px; background: linear-gradient(90deg, #00FF88 0%, #00cc6a 100%); color: #0a0a1a; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(0, 255, 136, 0.35);">Download The Blueprint</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer (EXACT MATCH - from articles.phantom-byte.com) -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+                    </div>
+                    <p class="tagline">Code from the shadows</p>
+                    <div class="footer-cta">
+                        <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn">
+                            ☕ Buy Me a Coffee
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="https://phantom-byte.com" target="_blank">Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="https://x.com/PhantomByteAI" target="_blank">X / Twitter</a></li>
+                        <li><a href="https://www.pinterest.com/PhantomByteAI" target="_blank">Pinterest</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 PhantomByte. All rights reserved.</p>
+                <p class="privacy-links">
+                    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/ad-manager.js" defer></script>
+    <script src="scripts/email-signup.js" defer></script>
+    <script src="scripts/share-buttons.js" defer></script>
+</body>
+</html>

@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Jun 2026 04:45:33 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 25 Jun 2026 05:25:55 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>Agent Red-Teaming: The Missing Security Layer</title>
+      <link>https://articles.phantom-byte.com/agent-red-teaming-security.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/agent-red-teaming-security.html</guid>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Security</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>RIFT-Bench maps your agent&#39;s attack surface as a graph. VeryTrace formalizes reasoning into compilable logic. Agent red-teaming is the missing security layer.</description>
+    </item>
 
     <item>
       <title>Monolithic Agent Architecture</title>
@@ -501,16 +511,6 @@
       <category>AI Infrastructure</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>A Miami startup with 11 PhDs built a 12M-token model using linear attention that is 52x faster than dense attention. RAG, vector databases, and chunking strategies just became optional.</description>
-    </item>
-
-    <item>
-      <title>Sovereign AI Stack 2026: Non-Western Models</title>
-      <link>https://articles.phantom-byte.com/non-western-ai-silk-road-sovereign-stack.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/non-western-ai-silk-road-sovereign-stack.html</guid>
-      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
-      <category>AI Infrastructure</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>MiniMax M2.7 and Kimi K2.6 now match Western frontier AI at lower compute. Why developers are building sovereign AI stacks outside the guardrail gap.</description>
     </item>
   </channel>
 </rss>
