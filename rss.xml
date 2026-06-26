@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Jun 2026 05:25:55 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jun 2026 04:19:27 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>AI Trust Crisis: Police Abandoned 23 Models</title>
+      <link>https://articles.phantom-byte.com/british-police-built-23-ai-models-then-they-stopped-trusting-them.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/british-police-built-23-ai-models-then-they-stopped-trusting-them.html</guid>
+      <pubDate>Fri, 26 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>British police built 23 AI models to score half a million people on risk. Then they stopped trusting it. Trust is a systems property. Build verification first.</description>
+    </item>
 
     <item>
       <title>Agent Red-Teaming: The Missing Security Layer</title>
@@ -501,16 +511,6 @@
       <category>AI Policy</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>Vandana Joshi sued OpenAI alleging ChatGPT enabled the FSU shooting. As autonomous AI beats security experts, courts face a criminal liability vacuum.</description>
-    </item>
-
-    <item>
-      <title>Subquadratic Just Made RAG Obsolete</title>
-      <link>https://articles.phantom-byte.com/subquadratic-just-made-rag-obsolete.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/subquadratic-just-made-rag-obsolete.html</guid>
-      <pubDate>Mon, 11 May 2026 00:00:00 GMT</pubDate>
-      <category>AI Infrastructure</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>A Miami startup with 11 PhDs built a 12M-token model using linear attention that is 52x faster than dense attention. RAG, vector databases, and chunking strategies just became optional.</description>
     </item>
   </channel>
 </rss>
