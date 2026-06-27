@@ -1,0 +1,357 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Verification - PhantomByte</title>
+    <style>
+        :root {
+            --purple: #9D4EDD;
+            --green: #00FF88;
+            --dark: #1a1a1a;
+            --black: #0a0a0a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--black);
+            color: #e0e0e0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: var(--purple);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: var(--green);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+        
+        .test-section {
+            background: var(--dark);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--gray);
+        }
+        
+        .test-section.pass {
+            border-left-color: var(--green);
+        }
+        
+        .test-section.fail {
+            border-left-color: #ff4444;
+        }
+        
+        .test-section h2 {
+            color: var(--white);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .status {
+            font-size: 1.5rem;
+        }
+        
+        .check { color: var(--green); }
+        .cross { color: #ff4444; }
+        .loading { color: #FFD700; }
+        
+        .test-details {
+            background: var(--black);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        .test-details p {
+            margin-bottom: 10px;
+        }
+        
+        button {
+            background: linear-gradient(135deg, var(--purple) 0%, #6A1B9A 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(157, 78, 221, 0.4);
+        }
+        
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .progress-bar {
+            height: 4px;
+            background: var(--dark);
+            border-radius: 2px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: var(--green);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 System Verification</h1>
+        <p class="subtitle">Testing Google Analytics, Email Capture & Push Notifications</p>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressBar" style="width: 0%;"></div>
+        </div>
+        
+        <!-- Google Analytics Test -->
+        <div class="test-section fail" id="ga-test">
+            <h2>
+                <span class="status loading">⏳</span>
+                Google Analytics
+            </h2>
+            <div class="test-details">
+                <p><strong>Tracking ID:</strong> G-PDQCZE09E4</p>
+                <p><strong>Status:</strong> <span id="ga-status" style="color: rgb(255, 68, 68);"><span class="cross">✗</span> Not Found</span></p>
+                <p id="ga-result"><p style="color: #ff4444;">✗ Google Analytics script not loaded</p></p>
+            </div>
+        </div>
+        
+        <!-- Email Capture Test -->
+        <div class="test-section" id="email-test">
+            <h2>
+                <span class="status loading">⏳</span>
+                Email Capture (MailerLite)
+            </h2>
+            <div class="test-details">
+                <p><strong>API Status:</strong> <span id="mailerlite-status">Checking...</span></p>
+                <p><strong>Group ID:</strong> 184146703705704286</p>
+                <div id="email-form-container">
+                    <p><strong>Test Email Signup:</strong></p>
+                    <input type="email" id="test-email" placeholder="your-email@example.com" style="padding: 10px; border: 2px solid #333; border-radius: 4px; background: #0a0a0a; color: white; width: 100%; margin: 10px 0;">
+                    <button onclick="testEmailSignup()">Send Test Email</button>
+                </div>
+                <div id="email-result"></div>
+            </div>
+        </div>
+        
+        <!-- Push Notifications Test -->
+        <div class="test-section" id="push-test">
+            <h2>
+                <span class="status loading">⏳</span>
+                Push Notifications (FCM)
+            </h2>
+            <div class="test-details">
+                <p><strong>Service Worker:</strong> <span id="sw-status" style="color: rgb(0, 255, 136);"><span class="check">✓</span> Registered</span></p>
+                <p><strong>Push Support:</strong> <span id="push-support-status" style="color: rgb(0, 255, 136);"><span class="check">✓</span> Available</span></p>
+                <p><strong>Browser Support:</strong> <span id="browser-support" style="color: rgb(0, 255, 136);"><span class="check">✓</span> Safari/537.36</span></p>
+                <div id="push-button-container">
+                    <button onclick="testPushNotification()" id="push-test-btn">
+                        Test Push Notification
+                    </button>
+                </div>
+                <div id="push-result"></div>
+            </div>
+        </div>
+        
+        <!-- Summary -->
+        <div class="test-section" id="summary-test">
+            <h2>
+                <span class="status">📊</span>
+                Summary
+            </h2>
+            <div class="test-details">
+                <p id="summary-text">Running tests...</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let testResults = {
+            ga: false,
+            email: false,
+            push: false
+        };
+        
+        // Update progress bar
+        function updateProgress() {
+            const passed = Object.values(testResults).filter(Boolean).length;
+            const percentage = (passed / 3) * 100;
+            document.getElementById('progressBar').style.width = percentage + '%';
+            
+            if (passed === 3) {
+                document.getElementById('summary-text').innerHTML = 
+                    '<strong style="color: #00FF88;">✅ All systems verified successfully!</strong>';
+            }
+        }
+        
+        // Test Google Analytics
+        function testGoogleAnalytics() {
+            const gaSection = document.getElementById('ga-test');
+            const gaStatus = document.getElementById('ga-status');
+            const gaResult = document.getElementById('ga-result');
+            
+            setTimeout(() => {
+                if (typeof gtag !== 'undefined') {
+                    gaSection.classList.add('pass');
+                    gaStatus.innerHTML = '<span class="check">✓</span> Active';
+                    gaStatus.style.color = '#00FF88';
+                    gaResult.innerHTML = '<p style="color: #00FF88;">✓ Google Analytics is tracking page views</p>';
+                    testResults.ga = true;
+                } else {
+                    gaSection.classList.add('fail');
+                    gaStatus.innerHTML = '<span class="cross">✗</span> Not Found';
+                    gaStatus.style.color = '#ff4444';
+                    gaResult.innerHTML = '<p style="color: #ff4444;">✗ Google Analytics script not loaded</p>';
+                }
+                updateProgress();
+            }, 500);
+        }
+        
+        // Test Email Signup
+        async function testEmailSignup() {
+            const email = document.getElementById('test-email').value;
+            const resultDiv = document.getElementById('email-result');
+            
+            if (!email) {
+                resultDiv.innerHTML = '<p style="color: #ff4444;">Please enter a test email address</p>';
+                return;
+            }
+            
+            resultDiv.innerHTML = '<p style="color: #FFD700;">⏳ Adding subscriber to MailerLite...</p>';
+            
+            try {
+                const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiZWZlOTVjZTg1NTQwZjMxMmM5NTlmNzEyYjBiYmU1MDhmOWEwNDM1ZjE3OWEyZWU3OTZiYWM1ODk2YzJhOWI2YmY1NjFiOTgwZGJmMzg2ZGMiLCJpYXQiOjE3NzU2MTU5MzcuODY0NzkxLCJuYmYiOjE3NzU2MTU5MzcuODY0NzkzLCJleHAiOjQ5MzEyODk1MzcuODYwNzUzLCJzdWIiOiIyMjcxNjEzIiwic2NvcGVzIjpbXX0.BCB-QK5CDkPB2eq8LmuaHvlOCQDZa80Yx6ARbPyX0A5T9dL6LJfhZXIxG-odG2xKfH39kSMYK1dS0Zogz6p0gskfxDuyGxHrGGdNbeUZGU51zKMc7DV_bOGkzARV2t56VWY3Zbz6Fc_mqYbe9cEHVFTi5ZVf5aIHtdUzMOvIDdlZ3-UQsXhtZXvl8Uxv38ExCGr20LrvPsDF51dXAX_timBS9sTpydDNRZ67krjwOfbolFFPrKA2qnk79xjBO_MX8ZsGA_8rotuaE3BfoJwhGCzMgGoEhKNnjX1a-_76t6F2zBxYPzOQFJhDLz1_cW9Dqy1sLstGefuLupO8Is72NrKpryU2aVJAfSYmsiSUzrcMlo3k33GWA-jLmplnZMpxIg1LOpu9CYitI75C44MS8XXLa_eCtMbAQbR3ETHorJuwC3A-DqFpMMZhP1RqREWxuzfa8dZaM-M3AzvGmHl4jY9EWyfHeSQYRXMc1SB4nmcQ_WOsr88p4rroiWvAZJt3G2geWdcRn6oTnBNR7SnetZWUqqQMJA7vyOcsVFVCaeX4ULrAS91ZRyQXh1ZCFymZhYCwLo2bBL5vJtC_DlmRSWo-dDTJK_JITc69ubSKITHCmaat7GJuLpT-t1orf0qK-48kGFQswAPXCuOh52fSmu5Egp1JHkHB-pRzWDmZC5w'
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        groups: ['184146703705704286'],
+                        status: 'active'
+                    })
+                });
+                
+                if (response.ok) {
+                    testResults.email = true;
+                    document.getElementById('email-test').classList.add('pass');
+                    document.getElementById('mailerlite-status').innerHTML = '<span class="check">✓</span> Connected';
+                    document.getElementById('mailerlite-status').style.color = '#00FF88';
+                    resultDiv.innerHTML = '<p style="color: #00FF88;">✓ Test subscriber added successfully! Check MailerLite dashboard.</p>';
+                    updateProgress();
+                } else {
+                    const error = await response.json();
+                    throw new Error(error.message || 'MailerLite API error');
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<p style="color: #ff4444;">✗ Error: ${error.message}</p>`;
+                document.getElementById('email-test').classList.add('fail');
+                document.getElementById('mailerlite-status').innerHTML = '<span class="cross">✗</span> Failed';
+                document.getElementById('mailerlite-status').style.color = '#ff4444';
+            }
+        }
+        
+        // Test Push Notifications
+        async function testPushNotification() {
+            const resultDiv = document.getElementById('push-result');
+            resultDiv.innerHTML = '<p style="color: #FFD700;">⏳ Requesting notification permission...</p>';
+            
+            try {
+                const permission = await Notification.requestPermission();
+                
+                if (permission === 'granted') {
+                    // Show a test notification
+                    new Notification('PhantomByte Test', {
+                        body: 'Push notifications are working!',
+                        icon: '/images/logo-icon.png',
+                        badge: '/images/badge-icon.png',
+                        vibrate: [200, 100, 200]
+                    });
+                    
+                    testResults.push = true;
+                    document.getElementById('push-test').classList.add('pass');
+                    resultDiv.innerHTML = '<p style="color: #00FF88;">✓ Push notification displayed! Check your notifications.</p>';
+                    updateProgress();
+                } else {
+                    resultDiv.innerHTML = '<p style="color: #ff4444;">✗ Notification permission denied</p>';
+                    document.getElementById('push-test').classList.add('fail');
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<p style="color: #ff4444;">✗ Error: ${error.message}</p>`;
+                document.getElementById('push-test').classList.add('fail');
+            }
+        }
+        
+        // Initialize tests
+        async function initTests() {
+            // Check Service Worker
+            if ('serviceWorker' in navigator) {
+                try {
+                    const registration = await navigator.serviceWorker.register('/service-worker.js');
+                    document.getElementById('sw-status').innerHTML = '<span class="check">✓</span> Registered';
+                    document.getElementById('sw-status').style.color = '#00FF88';
+                } catch (error) {
+                    document.getElementById('sw-status').innerHTML = '<span class="cross">✗</span> Failed';
+                    document.getElementById('sw-status').style.color = '#ff4444';
+                }
+            } else {
+                document.getElementById('sw-status').innerHTML = '<span class="cross">✗</span> Not Supported';
+                document.getElementById('sw-status').style.color = '#ff4444';
+            }
+            
+            // Check Push Manager
+            if ('PushManager' in window) {
+                document.getElementById('push-support-status').innerHTML = '<span class="check">✓</span> Available';
+                document.getElementById('push-support-status').style.color = '#00FF88';
+                document.getElementById('push-test-btn').disabled = false;
+            } else {
+                document.getElementById('push-support-status').innerHTML = '<span class="cross">✗</span> Not Available';
+                document.getElementById('push-support-status').style.color = '#ff4444';
+            }
+            
+            // Check Browser
+            document.getElementById('browser-support').innerHTML = '<span class="check">✓</span> ' + navigator.userAgent.split(' ').pop();
+            document.getElementById('browser-support').style.color = '#00FF88';
+            
+            // Run GA test
+            testGoogleAnalytics();
+        }
+        
+        // Start tests on load
+        window.addEventListener('load', initTests);
+    </script>
+
+
+</body></html>

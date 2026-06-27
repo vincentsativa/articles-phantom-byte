@@ -14,3 +14,4 @@ build/
 google-indexing-credentials.json
 frank-hermes-key.json
 firebase-service-account.json
+__pycache__/

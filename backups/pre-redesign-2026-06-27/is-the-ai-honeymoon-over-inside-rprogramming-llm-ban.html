@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="r/programming banned AI-generated content. Inside the backlash, developer identity crisis, and what it means for technical communities. The AI slop reckoning is here.">
+    <meta name="keywords" content="r/programming LLM ban, AI slop backlash, developer trust AI collapse, vibe coding controversy, Stack Overflow vs r/programming">
+    <meta name="author" content="Vinny Barreca">
+    <meta name="theme-color" content="#9D4EDD">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://articles.phantom-byte.com/is-the-ai-honeymoon-over-inside-rprogramming-llm-ban.html">
+    <meta property="og:title" content="Is the AI Honeymoon Over? Inside the r/Programming AI Content Ban">
+    <meta property="og:description" content="r/programming just banned all LLM-generated content. Here's the inside story on developer community backlash, the identity crisis, and what comes next.">
+    <meta property="og:image" content="https://articles.phantom-byte.com/images/article-28-main.jpg">
+    <meta property="article:published_time" content="2026-04-03">
+    <meta property="article:author" content="Vinny Barreca">
+    <meta property="article:section" content="AI & Society">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://articles.phantom-byte.com/is-the-ai-honeymoon-over-inside-rprogramming-llm-ban.html">
+    <meta property="twitter:title" content="Is the AI Honeymoon Over? Inside the r/Programming AI Content Ban">
+    <meta property="twitter:description" content="r/programming just banned all LLM-generated content. Inside the developer community backlash and identity crisis.">
+    <meta property="twitter:image" content="https://articles.phantom-byte.com/images/article-28-main.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://articles.phantom-byte.com/is-the-ai-honeymoon-over-inside-rprogramming-llm-ban.html">
+    
+    <title>Is the AI Honeymoon Over? Inside the r/Programming AI Content Ban - PhantomByte</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDQCZE09E4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PDQCZE09E4');
+    </script>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/article.css">
+    
+    <!-- Web Push Notification Script -->
+    <script src="scripts/web-push-client.js" defer></script>
+    
+    <!-- ARTICLE SCHEMA MARKUP (JSON-LD for SEO + GEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Is the AI Honeymoon Over? Inside the r/Programming AI Content Ban",
+      "alternativeHeadline": "Why r/programming banned AI content and what it means for developer communities",
+      "author": {
+        "@type": "Person",
+        "name": "Vinny Barreca",
+        "url": "https://phantom-byte.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PhantomByte",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://articles.phantom-byte.com/images/phantombyte-logo.png"
+        }
+      },
+      "datePublished": "2026-04-03",
+      "dateModified": "2026-04-03",
+      "description": "r/programming banned all LLM-generated content. Inside the developer community backlash, identity crisis, and what comes next for technical communities in the AI era.",
+      "articleBody": "Two years ago, Stack Overflow tried to ban ChatGPT-generated answers and failed. Yesterday, r/programming succeeded, revealing something troubling about developer communities in 2025.",
+      "wordCount": "1842",
+      "timeRequired": "PT7M",
+      "proficiencyLevel": "Intermediate",
+      "articleSection": "AI & Society",
+      "keywords": "r/programming LLM ban, AI slop backlash, developer trust AI collapse, vibe coding controversy, Stack Overflow vs r/programming",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://articles.phantom-byte.com/images/article-28-main.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://articles.phantom-byte.com/is-the-ai-honeymoon-over-inside-rprogramming-llm-ban.html"
+      }
+    }
+    </script>
+    
+    <!-- FAQ SCHEMA MARKUP (JSON-LD for GEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the r/programming AI content ban?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On April 3, 2026, moderators of r/programming, a community with over 5 million members, announced a temporary ban on all LLM-generated content. The ban removes posts generated by large language models and marks a significant shift in how developer communities are enforcing content standards."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why did r/programming ban AI-generated content?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The ban addresses saturation of AI-generated content that made it impossible to distinguish genuine human expertise from machine-generated text. Community moderators cited concerns about community integrity as AI content volume crossed a threshold where the cost of verification exceeded the value of open participation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is AI slop and why are developers angry about it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "'AI slop' is a term for low-quality AI-generated content that pollutes technical communities. Developers are frustrated because AI-generated code can appear plausible while being subtly wrong, and the volume of such content makes it harder to find authentic human expertise. The phrase 'Your AI slop bores me' became a rallying cry."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does vibe coding contribute to the AI backlash?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vibe coding is the practice of generating code through AI prompts without understanding how it works. Developers who cannot explain their own pull requests started flooding repositories with AI-generated submissions, forcing maintainers to choose between accepting plausible-looking code they could not verify or rejecting contributions they could not distinguish from genuine effort."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is happening to Stack Overflow traffic?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "According to the 2025 Stack Overflow Developer Survey and public community metrics, question volume is down 78% from December 2025 baseline and 87% from the 2014 peak. Developer trust in AI tools dropped from over 70% to 60%, and only 29% of developers now say they trust AI-generated output."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between no-AI and AI-assisted communities?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No-AI communities enforce strict prohibitions on LLM-generated content, while AI-assisted communities use verification tools to elevate human contributions. GitHub's 'Good Egg' trust-scoring system is one example of the latter approach. The technical ecosystem is fragmenting based on preferences about authenticity, effort, and the value of human judgment."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+            </a>
+            <nav class="main-nav">
+                <a href="https://phantom-byte.com" target="_blank">Services</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="article-main">
+        <article class="article-container">
+            <!-- Article Header -->
+            <header class="article-header">
+                <span class="article-category">AI & Society</span>
+                <h1 class="article-title">Is the AI Honeymoon Over? Inside the r/Programming AI Content Ban</h1>
+                
+                <div class="article-meta">
+                    <div class="author-info">
+                        <img src="images/author-vinny.jpg" alt="Vinny Barreca" class="author-avatar">
+                        <div class="author-details">
+                            <span class="author-name">Vinny Barreca</span>
+                            <span class="publish-date">April 3, 2026</span>
+                        </div>
+                    </div>
+                    <div class="meta-actions">
+                        <span class="read-time">7 min read</span>
+                        <button class="share-btn" aria-label="Share article">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                                <polyline points="16 6 12 2 8 6"/>
+                                <line x1="12" y1="2" x2="12" y2="15"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <figure class="article-featured-image">
+                <img src="images/article-28-main.jpg" alt="r/programming AI content ban concept - developer community gatekeeping against AI-generated code">
+                <figcaption class="image-caption">The line in the sand. r/programming just banned all LLM-generated content.</figcaption>
+            </figure>
+
+                        <!-- CTA Slot (Top) -->
+            <div class="ad-slot ad-slot-article-top">
+                <a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank">
+                    <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25); border: none;">
+                        <p style="font-size: 0.7rem; color: #FF6B35; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">⚠️ Exit the Cloud</p>
+                        <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Own Your Weights. Own Your Data.</h4>
+                        <p style="margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.5; color: #e0e0e0; font-weight: 400;">The cloud AI era is a data-harvesting trap. Stop being the product and start being the owner. Build your local sovereign stack today.</p>
+                        <div style="text-align: center;">
+                            <span style="display: inline-block; padding: 11px 22px; background: linear-gradient(90deg, #00FF88 0%, #00cc6a 100%); color: #0a0a1a; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(0, 255, 136, 0.35);">Download The Blueprint</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="article-body">
+                <p class="lead-paragraph">
+                    Two years ago, Stack Overflow tried to ban ChatGPT-generated answers and failed. Yesterday, r/programming succeeded, and in doing so, revealed something troubling about what happened to developer communities in 2025.
+                </p>
+
+                <blockquote>
+                    "I spent five years bleeding for this and you can't tell the difference between me and a chatbot?"
+                </blockquote>
+                <p>
+                    That comment from a developer on Hacker News captures something raw that I have been sensing across technical communities for months. It is not just fatigue with low-quality AI content. It is an identity crisis. And r/programming's decision to ban all LLM-generated content marks a turning point we have been heading toward since the AI boom began.
+                </p>
+
+                <h2>What Just Happened: The r/Programming Ban Explained</h2>
+                
+                <!-- In-article image floated right -->
+                <figure class="article-image article-image-right">
+                    <img src="images/article-28-inside.png" alt="AI-generated code infiltration in developer communities - trust and verification crisis">
+                    <figcaption class="image-caption">When code that passes tests still fails trust.</figcaption>
+                </figure>
+                
+                <p>
+                    On April 3, 2026, moderators of r/programming, one of the largest programming communities on the internet with over 5 million members, announced a temporary ban on all LLM-generated content. The announcement thread on Hacker News drew 190 points and 209 comments. The sentiment was "strongly supportive" according to community observers.
+                </p>
+                <p>
+                    The ban is explicit: posts generated by large language models are no longer welcome. Moderators are actively removing content that violates this policy. This isn't a suggestion or a guideline; it is enforcement.
+                </p>
+                <p>
+                    What makes this significant isn't just the size of the community. It is the precedent. When the largest programming forum on Reddit decides AI-generated content has crossed a line, the rest of the developer ecosystem takes notice.
+                </p>
+
+                <h2>This Is Not the First Time, and That Is the Problem</h2>
+                <p>
+                    To understand why this ban matters now, you need the timeline:
+                </p>
+                <ul>
+                    <li><strong>December 2022:</strong> Stack Overflow bans ChatGPT-generated answers, citing quality concerns and the difficulty of verifying AI-written code.</li>
+                    <li><strong>June to August 2023:</strong> Stack Overflow moderators go on strike. The company had secretly partnered with OpenAI to feed user content into ChatGPT training while telling moderators to stop deleting AI-generated answers. The message from moderators was clear: "If I can't delete GPT's plausible-looking spew, what's the point?"</li>
+                    <li><strong>2023:</strong> r/programming deals with "astroturfing" incidents. These were coordinated campaigns of AI-generated content designed to promote products or agendas.</li>
+                    <li><strong>April 2026:</strong> r/programming implements its temporary LLM ban.</li>
+                </ul>
+                <p>
+                    See the pattern? Each escalation failed to solve the underlying problem. Stack Overflow's ban collapsed under corporate interests. Moderator trust was destroyed. And the AI content kept coming.
+                </p>
+                <p>
+                    But r/programming's approach is different. They are not asking. They are excluding. Active removal beats unenforceable policy when the stakes are community integrity.
+                </p>
+
+                <h2>The Trust Collapse: By the Numbers</h2>
+                <p>
+                    The 2025 Stack Overflow Developer Survey published last May tells part of the story. Trust in AI tools dropped from over 70% to just 60%. Only 29% of developers now say they trust AI-generated output.
+                </p>
+                <p>
+                    But the real damage shows in the community metrics. According to the site's public community metrics dashboard, Stack Overflow's question volume is down 78% from its December 2025 baseline. Compared to the 2014 peak, we are looking at 87% fewer questions. The platform that defined programming Q&A for a generation is bleeding out.
+                </p>
+                <p>
+                    Why? Because "Contribution volume is up; signal-to-noise is down. Maintainers can no longer assume a PR represents genuine investment."
+                </p>
+                <p>
+                    That observation from a Hacker News commenter cuts to the heart of it. When AI can generate plausible-looking code, documentation, and discussion at scale, the cost of participation drops to zero, and so does the value of participation. Communities built on earned expertise collapse when expertise becomes indistinguishable from generation.
+                </p>
+                <p>
+                    You have probably seen the term "AI slop" circulating. It started as a dismissive label for low-quality AI-generated content. Now it is a recognized category of digital pollution. Computer Weekly called 2025 the beginning of a "grassroots backlash era." The phrase "Your AI slop bores me" went viral as a rallying cry for developers tired of wading through machine-generated mediocrity to find authentic human insight.
+                </p>
+
+                <h2>Why Now? The Saturation Tipping Point</h2>
+                <p>
+                    Here is the critical insight from community analysis: twelve months ago was the experimental phase. Now we are in the exclusion phase.
+                </p>
+                <p>
+                    The difference is saturation. In 2024, AI-generated content in programming communities was still mostly recognizable. The tells were obvious: overly formal language, hallucinated APIs, and confident assertions about non-existent features. Experienced developers could spot it, filter it, and move on.
+                </p>
+                <p>
+                    In 2025, the models got better. The line between "competent human developer" and "competent AI assistant" blurred. This happened not because AI achieved genuine understanding, but because it achieved genuine-sounding output.
+                </p>
+                <p>
+                    This creates a trust collapse that no amount of tooling can fix. When you cannot tell if a code review, a bug report, or a tutorial came from someone who spent years mastering their craft or from a model trained on the output of people who spent years mastering their craft, the concept of community expertise collapses.
+                </p>
+                <p>
+                    "Vibe coding", the practice of generating code through AI prompts without understanding how it works, accelerated this trend. Developers who could not explain their own pull requests started flooding repositories with AI-generated submissions. Maintainers faced a choice: accept plausible-looking code they could not verify, or reject contributions they could not distinguish from genuine effort.
+                </p>
+                <p>
+                    The r/programming ban is a response to this saturation. When the volume of AI content crosses a threshold, communities must choose between drowning in slop or building walls. r/programming chose walls.
+                </p>
+
+                <h2>The Identity Crisis at the Heart of It</h2>
+                <p>
+                    Return to that Hacker News comment: "I spent five years bleeding for this and you can't tell the difference between me and a chatbot?"
+                </p>
+                <p>
+                    This isn't about technology. It is about identity. Programming communities have always been meritocracies in principle. They are places where your code speaks for you, where knowledge earned through effort carries weight, and where expertise has value because it is scarce.
+                </p>
+                <p>
+                    AI removes that scarcity. It does this not by making everyone knowledgeable, but by making knowledge indistinguishable from its simulation.
+                </p>
+                <p>
+                    For senior developers, this creates a kind of existential anxiety. The skills they spent years developing, their deep understanding of systems, edge cases, and performance implications, can now be approximated by tools available to anyone with a credit card. The approximation isn't perfect, but it is good enough to blur lines that once seemed clear.
+                </p>
+                <p>
+                    The r/programming ban isn't anti-AI. It is pro-community. It asserts that there is value in human-generated technical discussion that goes beyond the information content of the words. That value includes context, experience, accountability, and the intangible signal that someone who has wrestled with real problems is sharing what they learned.
+                </p>
+
+                <h2>What Is Next: The Fragmentation of Tech Communities</h2>
+                <p>
+                    The Hacker News consensus suggests r/programming won't be the last. "Personally can't wait for no-AI communities to proliferate," one commenter wrote. That sentiment of resignation mixed with hope echoes across developer forums.
+                </p>
+                <p>
+                    But here is the complication: outright bans might not scale. GitHub's approach offers an alternative. They are experimenting with "Good Egg," a trust-scoring system for contributors that attempts to verify human identity and contribution patterns. Rather than banning AI content entirely, they are trying to build infrastructure that elevates verified human contributions.
+                </p>
+                <p>
+                    This creates a deeply fractured reality for open-source maintainers who have to live in both ecosystems simultaneously. A maintainer might enforce a strict no-AI policy on their project's subreddit or Discord server while relying on automated verification scores to filter pull requests on GitHub. The cognitive load of switching between these different paradigms of trust is staggering.
+                </p>
+                <p>
+                    Both approaches face the same fundamental problem: verification is hard. As AI-generated content becomes more sophisticated, the cost of distinguishing human from machine output rises. Communities must spend more resources on verification or accept higher rates of false negatives where legitimate human contributors are flagged as AI-generated.
+                </p>
+                <p>
+                    The likely outcome isn't uniform acceptance or rejection of AI. It is fragmentation. "No-AI" communities will form alongside "AI-assisted" communities. The technical ecosystem will split based on preferences about authenticity, effort, and the value of human judgment.
+                </p>
+                <p>
+                    Twelve months ago, we were in the experimental phase. Now we are in the exclusion phase. The question for 2026 isn't whether communities will restrict AI content. r/programming just answered that. The question is which restrictions will stick and what kind of technical culture we will build around the boundaries we draw.
+                </p>
+
+                <h2>Conclusion: A Line in the Sand</h2>
+                <p>
+                    r/programming's ban isn't a policy decision. It is a line in the sand drawn by a community that reached its limit. The moderators aren't fighting progress. They are defending the conditions that make their community worth participating in.
+                </p>
+                <p>
+                    The signal to noise problem in AI isn't getting solved by better models. If anything, better models make the problem worse by making noise harder to distinguish from signal. The solution communities are converging on isn't technical. It is social. Exclusion. Verification. Human judgment over automated scale.
+                </p>
+                <p>
+                    For developers, this creates a choice about where to invest attention. The communities that thrive in the next phase of technical culture will be the ones that solve the trust problem. Some will do it through bans. Others will do it through verification tools. The specific mechanism matters less than the outcome: restoring conditions where expertise earned through effort carries more weight than expertise simulated through prompts.
+                </p>
+                <p>
+                    r/programming's ban isn't the end of this story. It is the beginning of a necessary reckoning about what we value in technical communities and what we are willing to defend.
+                </p>
+
+                <!-- Email signup -->
+                <div class="article-email-signup">
+                    <h3>Get More Articles Like This</h3>
+                    <p>Getting your AI agent setup right is just the start. I'm documenting every mistake, fix, and lesson learned as I build PhantomByte.</p>
+                    <p>Subscribe to receive updates when we publish new content. No spam, just real lessons from the trenches.</p>
+                    <form class="signup-form" id="articleEmailSignup">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+
+                <!-- Buy Me a Coffee CTA -->
+                <div class="coffee-cta">
+                    <p>Enjoyed this article?</p>
+                    <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn-large">
+                        <span>&#9749;</span> Buy Me a Coffee
+                    </a>
+                    <p class="coffee-subtext">Support PhantomByte and keep the content coming!</p>
+                </div>
+
+                <!-- Share/Related Section -->
+                <div class="article-footer">
+                    <div class="share-section">
+                        <h3>Share this article</h3>
+                        <div class="share-buttons">
+                            <button class="share-btn-twitter">Twitter</button>
+                            <button class="share-btn-facebook">Facebook</button>
+                            <button class="share-btn-linkedin">LinkedIn</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                        <!-- CTA Slot (Bottom) -->
+            <div class="ad-slot ad-slot-article-bottom">
+                <a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank">
+                    <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25); border: none;">
+                        <p style="font-size: 0.7rem; color: #FF6B35; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">⚠️ Exit the Cloud</p>
+                        <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Own Your Weights. Own Your Data.</h4>
+                        <p style="margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.5; color: #e0e0e0; font-weight: 400;">The cloud AI era is a data-harvesting trap. Stop being the product and start being the owner. Build your local sovereign stack today.</p>
+                        <div style="text-align: center;">
+                            <span style="display: inline-block; padding: 11px 22px; background: linear-gradient(90deg, #00FF88 0%, #00cc6a 100%); color: #0a0a1a; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(0, 255, 136, 0.35);">Download The Blueprint</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+                    </div>
+                    <p class="tagline">Code from the shadows</p>
+                    <div class="footer-cta">
+                        <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn">
+                            &#9749; Buy Me a Coffee
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="https://phantom-byte.com" target="_blank">Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="https://x.com/PhantomByteAI" target="_blank">X / Twitter</a></li>
+                        <li><a href="https://www.pinterest.com/PhantomByteAI" target="_blank">Pinterest</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 PhantomByte. All rights reserved.</p>
+                <p class="privacy-links">
+                    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/ad-manager.js" defer></script>
+    <script src="scripts/email-signup.js" defer></script>
+    <script src="scripts/share-buttons.js" defer></script>
+</body>
+</html>

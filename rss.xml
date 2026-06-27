@@ -5,7 +5,7 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 Jun 2026 04:55:50 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jun 2026 23:39:39 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
@@ -17,6 +17,36 @@
       <title>Verifying Agents Is Now Harder Than Generating Them</title>
       <link>https://articles.phantom-byte.com/verifying-agents-is-now-harder-than-generating-them.html</link>
       <guid isPermaLink="true">https://articles.phantom-byte.com/verifying-agents-is-now-harder-than-generating-them.html</guid>
+      <pubDate>Sat, 27 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>AI verification is now harder than AI generation. $150M in funding and two research papers prove it. Here&#39;s the 4-layer verification stack for agents.</description>
+    </item>
+
+    <item>
+      <title>Verifying Agents Is Now Harder Than Generating Them</title>
+      <link>https://articles.phantom-byte.com/verifying-agents-redesign-v1.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/verifying-agents-redesign-v1.html</guid>
+      <pubDate>Sat, 27 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>AI verification is now harder than AI generation. $150M in funding and two research papers prove it. Here&#39;s the 4-layer verification stack for agents.</description>
+    </item>
+
+    <item>
+      <title>Verifying Agents Is Now Harder Than Generating Them</title>
+      <link>https://articles.phantom-byte.com/verifying-agents-redesign-v2.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/verifying-agents-redesign-v2.html</guid>
+      <pubDate>Sat, 27 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>AI verification is now harder than AI generation. $150M in funding and two research papers prove it. Here&#39;s the 4-layer verification stack for agents.</description>
+    </item>
+
+    <item>
+      <title>Verifying Agents Is Now Harder Than Generating Them</title>
+      <link>https://articles.phantom-byte.com/verifying-agents-redesign-v3.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/verifying-agents-redesign-v3.html</guid>
       <pubDate>Sat, 27 Jun 2026 00:00:00 GMT</pubDate>
       <category>AI Infrastructure</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
@@ -481,36 +511,6 @@
       <category>Technology</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>Explore the AI trust crisis of 2026, from Microsoft&#39;s Claude Code ban to Meta&#39;s layoffs and public opposition to AI data centers. Read more at PhantomByte.</description>
-    </item>
-
-    <item>
-      <title>The Trust Meltdown: When AI Companies Can&#39;t Even Trust Each Other</title>
-      <link>https://articles.phantom-byte.com/trust-meltdown-ai-companies-cant-trust-each-other.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/trust-meltdown-ai-companies-cant-trust-each-other.html</guid>
-      <pubDate>Fri, 15 May 2026 00:00:00 GMT</pubDate>
-      <category>AI Industry</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>Microsoft kills Claude Code access while posting record profits. The AI industry is experiencing a coordinated trust collapse across corporate partnerships, employee relations, system reliability, ...</description>
-    </item>
-
-    <item>
-      <title>82% of Execs Say AI Devalues Human Workers</title>
-      <link>https://articles.phantom-byte.com/devalued-by-design-ai-devalues-human-workers.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/devalued-by-design-ai-devalues-human-workers.html</guid>
-      <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
-      <category>AI Industry</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>82% of executives admit AI makes them value human workers less. Inside the wage suppression engine, performative AI trap, and 80% enterprise failure rate.</description>
-    </item>
-
-    <item>
-      <title>Forced AI Economy: Mandatory Adoption</title>
-      <link>https://articles.phantom-byte.com/forced-ai-economy.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/forced-ai-economy.html</guid>
-      <pubDate>Wed, 13 May 2026 00:00:00 GMT</pubDate>
-      <category>AI Industry</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>Meta&#39;s unblockable Threads bot, Amazon&#39;s AI usage tracking, Google&#39;s Gemini OS—forced AI is a coordinated push to remove choice. Here&#39;s how to fight back.</description>
     </item>
   </channel>
 </rss>

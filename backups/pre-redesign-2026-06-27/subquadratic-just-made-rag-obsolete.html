@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Miami startup with 11 PhDs built a 12M-token model using linear attention that is 52x faster than dense attention. RAG, vector databases, and chunking strategies just became optional.">
+    <meta name="keywords" content="subquadratic linear attention model, SubQ 12M token context window, subquadratic selective attention SSA, linear attention vs quadratic attention, context window arms race 2026, SubQ vs Claude Opus SWE-Bench, will linear attention replace RAG, subquadratic attention architecture explained, 12 million token context window use cases, does RAG still matter in 2026, SubQ model benchmark comparison, Miami AI startup subquadratic, vector database obsolete long context, context window vs retrieval augmented generation">
+    <meta name="author" content="Vinny Barreca">
+    <meta name="theme-color" content="#9D4EDD">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://articles.phantom-byte.com/subquadratic-just-made-rag-obsolete.html">
+    <meta property="og:title" content="Subquadratic Just Made RAG Obsolete">
+    <meta property="og:description" content="A Miami startup with 11 PhDs built a 12M-token model using linear attention that is 52x faster than dense attention. RAG, vector databases, and chunking strategies just became optional.">
+    <meta property="og:image" content="https://articles.phantom-byte.com/images/article-64-main.jpg">
+    <meta property="article:published_time" content="2026-05-11">
+    <meta property="article:author" content="Vinny Barreca">
+    <meta property="article:section" content="AI Infrastructure">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://articles.phantom-byte.com/subquadratic-just-made-rag-obsolete.html">
+    <meta property="twitter:title" content="Subquadratic Just Made RAG Obsolete">
+    <meta property="twitter:description" content="A Miami startup with 11 PhDs built a 12M-token model using linear attention that is 52x faster than dense attention. RAG, vector databases, and chunking strategies just became optional.">
+    <meta property="twitter:image" content="https://articles.phantom-byte.com/images/article-64-main.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://articles.phantom-byte.com/subquadratic-just-made-rag-obsolete.html">
+    
+    <title>Subquadratic Just Made RAG Obsolete - PhantomByte</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDQCZE09E4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PDQCZE09E4');
+    </script>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/article.css">
+    
+    <!-- Web Push Notification Script -->
+    <script src="scripts/web-push-client.js" defer></script>
+    
+    <!-- ARTICLE SCHEMA MARKUP (JSON-LD for SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Subquadratic Just Made RAG Obsolete: The 12M-Token Context Window That Changes Everything",
+      "alternativeHeadline": "How Linear Attention Architecture Is Making RAG, Vector Databases, and Chunking Strategies Optional",
+      "author": {
+        "@type": "Person",
+        "name": "Vinny Barreca",
+        "url": "https://phantom-byte.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PhantomByte",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://articles.phantom-byte.com/images/phantombyte-logo.png"
+        }
+      },
+      "datePublished": "2026-05-11",
+      "dateModified": "2026-05-11",
+      "description": "A Miami startup with 11 PhDs built a 12M-token model using linear attention that is 52x faster than dense attention. RAG, vector databases, and chunking strategies just became optional.",
+      "articleBody": "I spent five years watching the AI industry build an entire civilization on top of a technical limitation. Vector databases. Chunking strategies. Hybrid search. RAG pipelines. Agentic decomposition. The entire retrieval-augmented generation stack exists for exactly one reason: transformer attention scales quadratically, so models can't hold enough context.",
+      "wordCount": "2800",
+      "timeRequired": "PT14M",
+      "proficiencyLevel": "Intermediate",
+      "articleSection": "AI Infrastructure",
+      "keywords": "subquadratic linear attention model, SubQ 12M token context window, subquadratic selective attention SSA, linear attention vs quadratic attention, context window arms race 2026, SubQ vs Claude Opus SWE-Bench, will linear attention replace RAG, subquadratic attention architecture explained, 12 million token context window use cases, does RAG still matter in 2026, SubQ model benchmark comparison, Miami AI startup subquadratic, vector database obsolete long context, context window vs retrieval augmented generation",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://articles.phantom-byte.com/images/article-64-main.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://articles.phantom-byte.com/subquadratic-just-made-rag-obsolete.html"
+      }
+    }
+    </script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-compat.js"></script><style>
+    @keyframes slideIn {
+        from { transform: translateX(400px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes slideOut {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(400px); opacity: 0; }
+    }
+</style><style id="phantombyte-push-styles">
+      #phantombyte-push-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+
+      .phantombyte-push-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px;
+        background: linear-gradient(135deg, #9D4EDD 0%, #7B2CBF 100%);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(157, 78, 221, 0.4);
+        transition: all 0.3s ease;
+      }
+
+      .phantombyte-push-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(157, 78, 221, 0.5);
+      }
+
+      .phantombyte-push-btn:active {
+        transform: translateY(0);
+      }
+
+      .phantombyte-push-btn:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+
+      .phantombyte-push-active {
+        background: linear-gradient(135deg, #00FF88 0%, #00CC6A 100%) !important;
+        box-shadow: 0 4px 15px rgba(0, 255, 136, 0.4) !important;
+      }
+
+      .phantombyte-push-loading {
+        animation: phantombyte-pulse 1s infinite;
+      }
+
+      @keyframes phantombyte-pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
+
+      .phantombyte-push-icon {
+        font-size: 16px;
+      }
+
+      .phantombyte-push-message {
+        position: absolute;
+        bottom: 100%;
+        right: 0;
+        margin-bottom: 10px;
+        padding: 10px 15px;
+        background: #1a1a2e;
+        color: white;
+        border-radius: 8px;
+        font-size: 13px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+      }
+
+      .phantombyte-push-message-visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 640px) {
+        #phantombyte-push-container {
+          bottom: 10px;
+          right: 10px;
+          left: 10px;
+        }
+
+        .phantombyte-push-btn {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .phantombyte-push-message {
+          left: 0;
+          right: 0;
+          white-space: normal;
+          text-align: center;
+        }
+      }
+    </style></head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+            </a>
+            <nav class="main-nav">
+                <a href="https://phantom-byte.com" target="_blank">Services</a>
+            </nav>
+        </div>
+    <div id="phantombyte-push-container">
+      <button id="phantombyte-push-btn" class="phantombyte-push-btn" aria-label="Subscribe to notifications">
+        <span class="phantombyte-push-icon">🔔</span>
+        <span class="phantombyte-push-text">Get Article Alerts</span>
+      </button>
+      <div id="phantombyte-push-message" class="phantombyte-push-message"></div>
+    </div></header>
+
+    <!-- Article Content -->
+    <main class="article-main">
+        <article class="article-container">
+            <!-- Article Header -->
+            <header class="article-header">
+                <span class="article-category">AI Infrastructure</span>
+                <h1 class="article-title">Subquadratic Just Made RAG Obsolete: The 12M-Token Context Window That Changes Everything</h1>
+                
+                <div class="article-meta">
+                    <div class="author-info">
+                        <img src="images/author-vinny.jpg" alt="Vinny Barreca" class="author-avatar">
+                        <div class="author-details">
+                            <span class="author-name">Vinny Barreca</span>
+                            <span class="publish-date">May 11, 2026</span>
+                        </div>
+                    </div>
+                    <div class="meta-actions">
+                        <span class="read-time">14 min read</span>
+                        <button class="share-btn" aria-label="Share article">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                                <polyline points="16 6 12 2 8 6"></polyline>
+                                <line x1="12" y1="2" x2="12" y2="15"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <figure class="article-featured-image">
+                <img src="images/article-64-main.jpg" alt="Subquadratic linear attention model SubQ with 12M token context window making RAG and vector databases obsolete">
+                <figcaption class="image-caption">Eleven PhD researchers from Meta, Google, Oxford, Cambridge, and BYU rewrote the attention mechanism from scratch. Their model, SubQ, handles 12 million tokens in a single context window using Subquadratic Selective Attention (SSA).</figcaption>
+            </figure>
+
+                        <!-- CTA Slot (Top) -->
+            <div class="ad-slot ad-slot-article-top">
+                <a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank">
+                    <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25); border: none;">
+                        <p style="font-size: 0.7rem; color: #FF6B35; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">⚠️ Exit the Cloud</p>
+                        <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Own Your Weights. Own Your Data.</h4>
+                        <p style="margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.5; color: #e0e0e0; font-weight: 400;">The cloud AI era is a data-harvesting trap. Stop being the product and start being the owner. Build your local sovereign stack today.</p>
+                        <div style="text-align: center;">
+                            <span style="display: inline-block; padding: 11px 22px; background: linear-gradient(90deg, #00FF88 0%, #00cc6a 100%); color: #0a0a1a; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(0, 255, 136, 0.35);">Download The Blueprint</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Article Body -->
+            <div class="article-body">
+                <p class="lead-paragraph" style="margin-top: 50px;">
+                    I spent five years watching the AI industry build an entire civilization on top of a technical limitation. Vector databases. Chunking strategies. Hybrid search. RAG pipelines. Agentic decomposition. The entire retrieval-augmented generation stack exists for exactly one reason: transformer attention scales quadratically, so models can't hold enough context.
+                </p>
+
+                <p>
+                    A Miami startup called Subquadratic just deleted the limitation.
+                </p>
+
+                <p>
+                    Eleven PhD researchers from Meta, Google, Oxford, Cambridge, and BYU rewrote the attention mechanism from scratch. Their model, SubQ, handles 12 million tokens in a single context window using something called Subquadratic Selective Attention (SSA). It scales linearly instead of quadratically. At 1 million tokens, it runs 52 times faster than dense attention.
+                </p>
+
+                <p>
+                    This is not an incremental benchmark win. This is the architectural equivalent of switching from a combustion engine to an electric motor while everyone else is optimizing fuel injectors.
+                </p>
+
+                <p>
+                    The benchmarks are not subtle. SubQ scores 81.8% on SWE-Bench Verified, edging out Claude Opus 4.6 at 80.8% and Gemini 3.1 Pro at 80.6%. On RULER at 128K tokens, a brutal long-context accuracy test across 13 dimensions, it hits 95.0%. It delivers 150 tokens per second at one-fifth the cost of comparable frontier models.
+                </p>
+
+                <p>
+                    The company calls it the "first model built for long-context tasks." That is underselling it. This is the first model that makes you question why you built all that surrounding infrastructure in the first place.
+                </p>
+
+                <p>
+                    Let me explain what actually dies here.
+                </p>
+
+                <!-- The RAG Industrial Complex -->
+                <h2>The RAG Industrial Complex</h2>
+
+                <p>
+                    The retrieval-augmented generation market is worth billions. Pinecone, Weaviate, Chroma, Qdrant, Milvus. LangChain and LlamaIndex built their entire value proposition on connecting models to external knowledge because models could not hold enough context internally. Chunking strategies became an art form. How do you split a 500-page legal document so the model can find the relevant paragraph without losing surrounding context? Entire careers were built on answering that question.
+                </p>
+
+                <p>
+                    RAG was never a feature. It was a workaround. A very expensive, very complex workaround for the fact that transformer attention scales quadratically.
+                </p>
+
+                <p>
+                    If SSA delivers at scale, every assumption that stack is built on evaporates. You do not need to chunk documents when the model can hold the entire document. You do not need vector similarity search when the model can process all candidate passages directly. You do not need to orchestrate retrieval-and-generate loops when generation alone covers the context.
+                </p>
+
+                <p>
+                    The industry spent 2017 through 2026 building scaffolding around a limitation. Subquadratic removed the limitation. The scaffolding does not disappear overnight, but its economic reason for existing just got hollowed out.
+                </p>
+
+                <p>
+                    And the cost curves make this inevitable. SubQ runs at one-fifth the cost of leading LLMs. A RAG pipeline is not free. You pay for embeddings, you pay for vector storage, you pay for retrieval compute, you pay for the generation model on top. If the generation model alone handles the entire context at 20% of the cost, the bundled RAG solution loses on price, latency, and complexity simultaneously.
+                </p>
+
+                <p>
+                    That is a death sentence in infrastructure economics.
+                </p>
+
+                <!-- The "Way Smaller" Detail Nobody Is Talking About -->
+                <h2>The "Way Smaller" Detail Nobody Is Talking About</h2>
+
+                <p>
+                    Subquadratic's CTO told The New Stack their model is "way smaller" than what the big labs run. They are not claiming to have built a bigger model than GPT-5.5 or Claude Opus 4.7. They are claiming to have built a smarter architecture.
+                </p>
+
+                <p>
+                    This matters because it inverts the industry's core assumption: that better AI requires more compute. The trillion-dollar data center buildout, the 9-gigawatt hyperscale projects, the nuclear reactor deals, the entire infrastructure arms race. All of it assumes that frontier performance scales with parameter count, which scales with compute, which scales with capital.
+                </p>
+
+                <p>
+                    Subquadratic just demonstrated that architectural efficiency can leapfrog scale. An 11-person team in a Florida office park out-engineered the $100-billion labs on the metric that actually matters: useful context per dollar.
+                </p>
+
+                <p>
+                    This is the same pattern that killed the mainframe. The industry spent decades assuming bigger machines were the only path forward, until smaller, smarter architectures made them irrelevant. History does not repeat, but it does route around expensive assumptions.
+                </p>
+
+                <!-- What 50M Tokens Actually Means -->
+                <h2>What 50M Tokens Actually Means</h2>
+
+                <p>
+                    The company says a 50-million-token window is coming soon. Here is what fits in 50 million tokens:
+                </p>
+
+                <ul>
+                    <li>Every line of code in the Linux kernel, plus the entire Git history, plus every mailing list discussion about every patch. In one prompt.</li>
+                    <li>Every medical record, lab result, and clinical note for a patient with a 20-year treatment history. In one prompt.</li>
+                    <li>A law firm's entire active case load, every contract, every piece of correspondence. In one prompt.</li>
+                    <li>Every commit, PR, issue, and Slack thread your engineering team produced in the last five years. In one prompt.</li>
+                </ul>
+
+                <p>
+                    These are not hypotheticals. These are the use cases that enterprise AI has been circling for years but could never reach because the context windows were too small and the workarounds were too fragile.
+                </p>
+
+                <p>
+                    At 50M tokens with linear attention scaling, entire categories of enterprise software become thin wrappers around a single model call. The legal document review industry. The codebase analysis industry. The medical records summarization industry. All of them are currently built on chunk-and-retrieve pipelines that exist because of a limitation that Subquadratic claims to have solved.
+                </p>
+
+                <!-- In-Article Image -->
+                <style>
+                    .desktop-push { margin-top: 0; }
+                    @media (min-width: 768px) {
+                        .desktop-push { margin-top: 240px; }
+                    }
+                </style>
+                <figure class="article-image article-image-right desktop-push">
+                    <img src="images/article-64-inside.png" alt="Subquadratic Selective Attention SSA architecture diagram showing linear scaling vs quadratic transformer attention">
+                    <figcaption class="image-caption">Subquadratic Selective Attention (SSA) scales linearly instead of quadratically. At 1 million tokens, it runs 52 times faster than dense attention.</figcaption>
+                </figure>
+
+                <!-- The Skeptical Case -->
+                <h2>The Skeptical Case</h2>
+
+                <p>
+                    I should be clear about what we do not know yet. SubQ's MRCR v2 score at 1M tokens is 65.9%. That is the hardest long-context retrieval benchmark in existence, and 65.9% is good but not dominant. GPT-5.5 scores 74.0% on the same test. Claude Opus 4.6 scores 78.3%.
+                </p>
+
+                <p>
+                    The architecture might scale linearly, but retrieval accuracy at extreme contexts is its own problem. Having 12M tokens available does not mean the model finds the right information in those 12M tokens every time. Attention scaling is necessary for long-context reasoning, but it is not sufficient.
+                </p>
+
+                <p>
+                    The technical report is not public yet. The benchmarks on their website are third-party validated, which is a good sign, but a startup's marketing page is not the same as peer-reviewed architecture research. The industry has seen this movie before: impressive website, bold claims, paper "coming soon." Most of those movies end with the paper never arriving.
+                </p>
+
+                <p>
+                    I am not betting against 11 PhDs from Meta, Google, Oxford, Cambridge, and BYU who left their jobs to build this thing in Miami. But I am not deploying production workloads on their API tomorrow either. The right stance is paying attention, not placing bets.
+                </p>
+
+                <!-- The Realignment -->
+                <h2>The Realignment</h2>
+
+                <p>
+                    Here is what I actually think happens. Linear attention architectures do not kill RAG overnight. The vector database market has too much installed capital, too many enterprise contracts, and too much organizational inertia to evaporate. What changes is the strategic calculus for new projects.
+                </p>
+
+                <p>
+                    If you are building a new AI application in late 2026 or 2027, and SubQ or a competitor offers 12M-plus token windows at linear cost, do you build a RAG pipeline? Or do you just send the entire context to the model?
+                </p>
+
+                <p>
+                    The answer depends on your scale, but the fact that it is even a question is the disruption. RAG goes from "default architecture for anything with documents" to "optional optimization for specific cost tiers." That is a massive contraction in addressable market.
+                </p>
+
+                <p>
+                    The bigger story is what this does to the infrastructure race. Every hyperscaler is betting on the assumption that bigger models need bigger data centers. Microsoft just took operational control of OpenAI's Stargate project, a trillion-dollar centralized play. Nvidia committed $40 billion to equity deals in the first months of 2026 alone.
+                </p>
+
+                <p>
+                    Architectural efficiency breakthroughs are kryptonite to centralized infrastructure bets. If a team of 11 can leapfrog frontier performance through smarter attention math, the trillion-dollar data center thesis has a crack in it. Not a fatal one yet. But a crack.
+                </p>
+
+                <p>
+                    The PhantomByte take: the context window is the new frontier, and Subquadratic just claimed it. RAG, vector databases, and the entire retrieval stack are not obsolete today, but their expiration date just got stamped. Build accordingly.
+                </p>
+
+                <!-- Email Signup -->
+                <div class="article-email-signup">
+                    <h3>Get More Articles Like This</h3>
+                    <p>Linear attention architectures are changing the infrastructure calculus. I'm tracking every shift as the context window arms race accelerates.</p>
+                    <p>Subscribe to receive updates when we publish new content. No spam, just real analysis from the trenches.</p>
+                    <form class="signup-form" id="articleEmailSignup">
+                        <input type="email" placeholder="Enter your email" required="">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+
+
+                <!-- Buy Me a Coffee CTA -->
+                <div class="coffee-cta">
+                    <p>Enjoyed this article?</p>
+                    <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn-large">
+                        <span>☕</span> Buy Me a Coffee
+                    </a>
+                    <p class="coffee-subtext">Support PhantomByte and keep the content coming!</p>
+                </div>
+
+
+                <!-- Share/Related Section -->
+                <div class="article-footer">
+                    <div class="share-section">
+                        <h3>Share this article</h3>
+                        <div class="share-buttons">
+                            <button class="share-btn-twitter">Twitter</button>
+                            <button class="share-btn-facebook">Facebook</button>
+                            <button class="share-btn-linkedin">LinkedIn</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                        <!-- CTA Slot (Bottom) -->
+            <div class="ad-slot ad-slot-article-bottom">
+                <a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank">
+                    <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25); border: none;">
+                        <p style="font-size: 0.7rem; color: #FF6B35; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">⚠️ Exit the Cloud</p>
+                        <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Own Your Weights. Own Your Data.</h4>
+                        <p style="margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.5; color: #e0e0e0; font-weight: 400;">The cloud AI era is a data-harvesting trap. Stop being the product and start being the owner. Build your local sovereign stack today.</p>
+                        <div style="text-align: center;">
+                            <span style="display: inline-block; padding: 11px 22px; background: linear-gradient(90deg, #00FF88 0%, #00cc6a 100%); color: #0a0a1a; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(0, 255, 136, 0.35);">Download The Blueprint</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+                    </div>
+                    <p class="tagline">Code from the shadows</p>
+                    <div class="footer-cta">
+                        <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn">
+                            ☕ Buy Me a Coffee
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="https://phantom-byte.com" target="_blank">Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="https://x.com/PhantomByteAI" target="_blank">X / Twitter</a></li>
+                        <li><a href="https://www.pinterest.com/PhantomByteAI" target="_blank">Pinterest</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 PhantomByte. All rights reserved.</p>
+                <p class="privacy-links">
+                    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/ad-manager.js" defer></script>
+    <script src="scripts/email-signup.js" defer></script>
+    <script src="scripts/share-buttons.js" defer></script>
+
+
+</body></html>

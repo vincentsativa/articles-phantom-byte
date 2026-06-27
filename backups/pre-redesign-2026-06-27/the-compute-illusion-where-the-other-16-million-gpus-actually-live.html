@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frontier labs control &lt;4M GPUs. 16M H100-equivalents run inference elsewhere on AWS, Azure, and GCP. Here's who actually controls AI's trajectory.">
+    <meta name="keywords" content="AI compute infrastructure, GPU allocation bottleneck, SpaceX IPO AI compute, frontier labs vs cloud providers, undersea cable AI bottleneck, Google compute access paradox, enterprise AI inference costs">
+    <meta name="author" content="Vinny Barreca">
+    <meta name="theme-color" content="#9D4EDD">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://articles.phantom-byte.com/the-compute-illusion-where-the-other-16-million-gpus-actually-live.html">
+    <meta property="og:title" content="The Compute Illusion: Where the Other 16 Million GPU's Actually Live">
+    <meta property="og:description" content="Frontier labs control &lt;4M GPUs. 16M H100-equivalents run inference elsewhere on AWS, Azure, and GCP. Here's who actually controls AI's trajectory.">
+    <meta property="og:image" content="https://articles.phantom-byte.com/images/article-76-main.jpg">
+    <meta property="article:published_time" content="2026-05-23">
+    <meta property="article:author" content="Vinny Barreca">
+    <meta property="article:section" content="AI Infrastructure">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://articles.phantom-byte.com/the-compute-illusion-where-the-other-16-million-gpus-actually-live.html">
+    <meta property="twitter:title" content="The Compute Illusion: Where the Other 16 Million GPU's Actually Live">
+    <meta property="twitter:description" content="Frontier labs control &lt;4M GPUs. 16M H100-equivalents run inference elsewhere on AWS, Azure, and GCP. Here's who actually controls AI's trajectory.">
+    <meta property="twitter:image" content="https://articles.phantom-byte.com/images/article-76-main.jpg">
+    
+    <!-- Canonical URL (CRITICAL FOR SEO) -->
+    <link rel="canonical" href="https://articles.phantom-byte.com/the-compute-illusion-where-the-other-16-million-gpus-actually-live.html">
+    
+    <title>The Compute Illusion: Where 16M GPUs Live - PhantomByte</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDQCZE09E4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PDQCZE09E4');
+    </script>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/article.css">
+    
+    <!-- Web Push Notification Script -->
+    <script src="scripts/web-push-client.js" defer></script>
+    
+    <!-- ARTICLE SCHEMA MARKUP (JSON-LD for SEO + GEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "The Compute Illusion: Where the Other 16 Million GPU's Actually Live",
+      "alternativeHeadline": "Frontier Labs Don't Control AI Compute—The Cloud Providers Do",
+      "author": {
+        "@type": "Person",
+        "name": "Vinny Barreca",
+        "url": "https://phantom-byte.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PhantomByte",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://articles.phantom-byte.com/images/phantombyte-logo.png"
+        }
+      },
+      "datePublished": "2026-05-23",
+      "dateModified": "2026-05-23",
+      "description": "Frontier labs control &lt;4M GPUs. 16M H100-equivalents run inference elsewhere on AWS, Azure, and GCP. Here's who actually controls AI's trajectory.",
+      "articleBody": "OpenAI, Anthropic, and xAI combined control fewer than 4 million H100-equivalent GPUs. The world has sold approximately 20 million. That leaves 16 million H100-equivalents unaccounted for in the popular narrative, and they are not sitting in warehouses.",
+      "wordCount": "1850",
+      "timeRequired": "PT9M",
+      "proficiencyLevel": "Intermediate",
+      "articleSection": "AI Infrastructure",
+      "keywords": "AI compute infrastructure, GPU allocation bottleneck, SpaceX IPO AI compute, frontier labs vs cloud providers, undersea cable AI bottleneck, Google compute access paradox, enterprise AI inference costs",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://articles.phantom-byte.com/images/article-76-main.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://articles.phantom-byte.com/the-compute-illusion-where-the-other-16-million-gpus-actually-live.html"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+            </a>
+            <nav class="main-nav">
+                <a href="https://phantom-byte.com" target="_blank">Services</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="article-main">
+        <article class="article-container">
+            <!-- Article Header -->
+            <header class="article-header">
+                <span class="article-category">AI Infrastructure</span>
+                <h1 class="article-title">The Compute Illusion: Where the Other 16 Million GPU's Actually Live</h1>
+                
+                <div class="article-meta">
+                    <div class="author-info">
+                        <img src="images/author-vinny.jpg" alt="Vinny Barreca" class="author-avatar">
+                        <div class="author-details">
+                            <span class="author-name">Vinny Barreca</span>
+                            <span class="publish-date">May 23, 2026</span>
+                        </div>
+                    </div>
+                    <div class="meta-actions">
+                        <span class="read-time">9 min read</span>
+                        <button class="share-btn" aria-label="Share article">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                                <polyline points="16 6 12 2 8 6"/>
+                                <line x1="12" y1="2" x2="12" y2="15"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <figure class="article-featured-image">
+                <img src="images/article-76-main.jpg" alt="The Compute Illusion - 16 million GPUs running inference outside of frontier labs, distributed across cloud providers, enterprise data centers, and sovereign AI clusters">
+                <figcaption class="image-caption">The frontier labs brought less than a quarter of the chips to the fight.</figcaption>
+            </figure>
+
+                        <!-- CTA Slot (Top) -->
+            <div class="ad-slot ad-slot-article-top">
+                <a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank">
+                    <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25); border: none;">
+                        <p style="font-size: 0.7rem; color: #FF6B35; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">⚠️ Exit the Cloud</p>
+                        <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Own Your Weights. Own Your Data.</h4>
+                        <p style="margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.5; color: #e0e0e0; font-weight: 400;">The cloud AI era is a data-harvesting trap. Stop being the product and start being the owner. Build your local sovereign stack today.</p>
+                        <div style="text-align: center;">
+                            <span style="display: inline-block; padding: 11px 22px; background: linear-gradient(90deg, #00FF88 0%, #00cc6a 100%); color: #0a0a1a; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(0, 255, 136, 0.35);">Download The Blueprint</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Article Body -->
+            <div class="article-body">
+                <p class="lead-paragraph" style="margin-top: 50px;">
+                    OpenAI, Anthropic, and xAI combined control fewer than 4 million H100-equivalent GPUs. The world has sold approximately 20 million. That leaves 16 million H100-equivalents unaccounted for in the popular narrative, and they are not sitting in warehouses. They are running enterprise inference on AWS, Azure, and GCP. They are powering cloud workloads, video rendering pipelines, consumer hardware, sovereign AI clusters, scientific computing, and crypto mining conversions. The "frontier labs dominate everything" story is a convenient fiction. The real compute economy is happening elsewhere, and it changes who actually controls AI's direction of travel.
+                </p>
+
+                <p>
+                    This is not speculation. This is the conclusion of Epoch AI's comprehensive analysis published in May 2026 under the title "Frontier Labs Don't Use Most AI Compute (Yet)." The research institute, which maintains open databases on AI chip sales and data center construction, estimates that global AI computing capacity has grown to the equivalent of approximately 20 million Nvidia H100 GPUs, funded by hundreds of billions of dollars in annual capital expenditures.
+                </p>
+
+                <p>
+                    The conventional wisdom says frontier labs are locked in a "compute arms race" that determines who wins AI. The data says the arms race is a sideshow. OpenAI disclosed approximately 1.7 million H100-equivalent compute from its data center power capacity. xAI's Colossus data centers are well-documented. Anthropic likely has over 1 million H100-equivalent, though less than OpenAI. Even adding Google DeepMind and Meta's frontier labs, the total is under half the global total.
+                </p>
+
+                <p>
+                    So where is the other 80 percent? Enterprise inference on the major cloud providers. Consumer hardware running Apple Silicon and NVIDIA GeForce. Sovereign AI clusters in countries building domestic capacity. Scientific computing and video rendering. The crypto mining infrastructure that converted to AI workloads after the Ethereum merge. The implication is clear: the AI industry has two economies running in parallel. One is visible (headlines about frontier training runs). The other is invisible (the actual work AI is doing). The visible economy gets the press. The invisible economy gets the usage.
+                </p>
+
+                <!-- The SpaceX S-1 -->
+                <h2>The SpaceX S-1: Compute as the Real Business</h2>
+
+                <p>
+                    SpaceX filed its public IPO prospectus on May 20, 2026, targeting a $1.75 trillion Nasdaq listing under ticker SPCX. The filing contains the usual rocket and Starlink metrics. But the buried lede was the Anthropic compute contract: $1.25 billion per month, totaling approximately $45 billion through May 2029.
+                </p>
+
+                <p>
+                    That $45 billion is nearly SpaceX's entire 2025 standalone revenue. Compute rental is now as big as the rocket business.
+                </p>
+
+                <p>
+                    The financial picture inside the S-1 tells its own story. Starlink is genuinely profitable, generating $1.19 billion in Q1 operating profit from 10.3 million subscribers across 164 countries. The xAI segment is genuinely bleeding, posting $818 million in Q1 revenue against a $2.47 billion operating loss. That is a loss rate of $3 for every $1 earned. Total AI infrastructure spending in Q1 alone was $7.7 billion, which annualizes to a $30 billion pace.
+                </p>
+
+                <p>
+                    The Anthropic contract could add approximately $2.5 billion in Q2 and Q3 AI revenue as it ramps to full rate. That is the bridge. Starlink provides the profitable floor. The Anthropic contract provides the path to xAI breakeven. Combined, they give SpaceX a credible financial narrative for the $1.75 trillion IPO even as xAI burns.
+                </p>
+
+                <p>
+                    Why file now? Because the compute contract finally provides the revenue arc that makes the AI segment look like a business instead of a bonfire. The timing is not accidental.
+                </p>
+
+                <p>
+                    The deeper point: Anthropic is not just buying compute. It is buying compute from a company that only exists because government contracts subsidized the rocket infrastructure that now hosts GPUs. SpaceX built its data centers and launch capabilities on NASA and defense contracts. That infrastructure, built for a different purpose entirely, now provides the physical foundation for some of the world's most advanced AI training clusters. The AI compute stack is built on accidental infrastructure inheritance. The frontier labs did not build the foundation they stand on. They inherited it from the space program and the defense budget.
+                </p>
+
+                <p>
+                    This is not a critique. It is a structural observation. The compute layer that enables frontier AI is connected to physical infrastructure built by public funding for completely different strategic goals. Understanding that connection matters for understanding where control actually lies.
+                </p>
+
+                <!-- Google's Compute Paradox -->
+                <h2>Google's Compute Paradox</h2>
+
+                <p>
+                    Google operates more aggregate AI compute than almost any company on earth. Senior researchers are quitting anyway.
+                </p>
+
+                <p>
+                    The reason is organizational, not technical. Google's internal bureaucracy makes it impossible for research teams to access resources at the speed research requires. Allocation is rationed. Iteration cycles are too slow. The pipeline that connects researchers to GPUs has more process steps than a government procurement office.
+                </p>
+
+                <p>
+                    Verified reporting from May 2026 (The Verge, internal investigation) confirms that senior AI researchers are leaving Google specifically because compute access is rationed through bureaucratic allocation pipelines. The irony is almost mathematical: the world's most resource-rich AI company is losing talent to smaller labs with faster access.
+                </p>
+
+                <!-- In-Article Image -->
+                <figure class="article-image article-image-right">
+                    <img src="images/article-76-inside.png" alt="The compute illusion visualized - 4M GPUs in frontier labs versus 16M GPUs distributed across the invisible AI economy of cloud providers and enterprise inference">
+                    <figcaption class="image-caption">The visible economy gets the press. The invisible economy gets the usage.</figcaption>
+                </figure>
+
+                <p>
+                    Anthropic and OpenAI are recruiting Google talent with explicit promises of better compute velocity for individual teams. The pitch is not "we have more GPUs." It is "you can use ours when you need them." In AI research, that access velocity is worth more than raw quantity.
+                </p>
+
+                <p>
+                    This connects directly to the "compute illusion" thesis. Owning GPUs is not the same as using them productively. The organizational layer matters more than the hardware layer. Google has the hardware. What it lacks is the organizational architecture to deploy it at research speed. The lesson is counterintuitive but verified: in AI research, iteration speed beats raw compute quantity. The companies winning the talent war are the ones with the fastest rack-to-researcher pipelines, not the ones with the most racks.
+                </p>
+
+                <!-- The Physical Bottlenecks -->
+                <h2>The Physical Bottlenecks</h2>
+
+                <p>
+                    The Gulf region is spending billions on AI data centers. Saudi Arabia and the UAE are positioning themselves as exporters of compute capacity. But they are hitting an infrastructure wall that no amount of oil money can solve quickly: undersea cable capacity.
+                </p>
+
+                <p>
+                    Two cables were cut in 2025, causing an estimated $3.5 billion in damages from lost services across the Gulf region. Undersea cables carry approximately 95 percent of all international data traffic. For the Gulf, the problem is route concentration. Much of the region's connectivity to Europe and the US depends on just a few routes through the Red Sea and the Strait of Hormuz.
+                </p>
+
+                <p>
+                    Hyperscalers now demand the same route diversity for Gulf cables that exists on transatlantic routes: 4 to 5 physically separate network paths. The Gulf, by comparison, remains heavily dependent on a narrow concentration of routes. Diversification efforts have struggled for years due to regulatory barriers, political instability, and regional conflict.
+                </p>
+
+                <p>
+                    Undersea cables take 2 to 3 years to lay. The Gulf AI boom may be bottlenecked by fiber-optic physics before it starts.
+                </p>
+
+                <p>
+                    This connects directly to PhantomByte's May 3 piece, "The Grid Can't Save You." The power grid was the first infrastructure bottleneck. Undersea cables are the second. Both were built for a pre-AI internet. Both are now being asked to handle 10 to 100 times the throughput of traditional cloud workloads.
+                </p>
+
+                <p>
+                    The pattern is consistent: everywhere AI infrastructure expands, it hits physical systems designed for 2015-era demand. The internet's backbone predates AI. The power grid predates AI. The cable routes through the Strait of Hormuz were optimized for geopolitical stability, not for moving training data between data centers at terabit speeds. Everywhere frontier AI tries to scale the physical layer, the physical layer says no.
+                </p>
+
+                <!-- Who Actually Controls AI? -->
+                <h2>Who Actually Controls AI?</h2>
+
+                <p>
+                    If frontier labs only have 20 percent of compute, who has the other 80 percent? The answer is the infrastructure layer that captures AI value regardless of which model wins: cloud providers.
+                </p>
+
+                <p>
+                    Amazon's $3 trillion market cap push is instructive. AWS runs Anthropic's training and inference. Amazon also owns $4 billion of Anthropic equity. The cloud layer wins whether Claude or GPT-5.5 is better. Amazon captures revenue from the AI transition regardless of which model becomes dominant.
+                </p>
+
+                <p>
+                    This is the "advisor model" pattern that Databricks CEO Ali Ghodsi has documented. Enterprises use cheap open-source or Chinese models as the default layer. They only call frontier APIs when those models fail. This pattern compresses the premium market for frontier access. If 90 percent of enterprise queries are handled by GLM at $544 per benchmark versus Claude at $4,811, the frontier labs are competing for a shrinking slice of high-value failures, not the full enterprise market.
+                </p>
+
+                <p>
+                    The verified data on this is stark. Chinese models on OpenRouter have grown from approximately 1 percent of developer usage in 2024 to over 60 percent by May 2026. DeepSeek V4 Pro is priced at 25 percent of its original cost after permanent discounting. The frontier is worth paying for only if the gap justifies the price premium, and that gap is narrowing.
+                </p>
+
+                <p>
+                    The real control points are not model weights. They are inference cost, distribution, and access velocity. Who delivers inference cheapest, fastest, and most reliably controls which AI gets used. That is an infrastructure game. Frontier labs are playing it with less than a quarter of the chips.
+                </p>
+
+                <!-- Practical Takeaway -->
+                <h2>Practical Takeaway for Builders</h2>
+
+                <p>
+                    If you are choosing an AI stack, optimize for inference cost and access, not model capability. The capability gap is shrinking. The infrastructure gap determines your margin.
+                </p>
+
+                <p>
+                    If you are running a startup, your compute strategy matters more than your model choice. Multi-cloud inference, edge deployment, and quantization are the new competitive moats. The companies winning in AI right now are the ones that distribute inference across the cheapest available clusters, not the ones with the best model.
+                </p>
+
+                <p>
+                    If you are an investor, the cloud providers and chip manufacturers may capture more AI value than the labs building the models. Amazon, Microsoft, and Google own the infrastructure layer. NVIDIA owns the chip layer. They win regardless of which model wins the benchmark wars.
+                </p>
+
+                <p>
+                    The compute illusion is dangerous because it focuses attention on the wrong battlefield. The war is not in the training cluster. It is in the data center, the cable, the grid, and the access pipeline. The 16 million GPUs not controlled by frontier labs are not idle. They are doing the actual work of AI. They are running the inference that powers the products and services people actually use. They are the real AI economy, and they are controlled by infrastructure operators, not frontier researchers.
+                </p>
+
+                <p>
+                    The direction of AI's development is not determined by who trains the biggest model. It is determined by who can deploy inference cheapest at the widest scale. That is an infrastructure problem. That is where the real war is being fought. And the frontier labs brought less than a quarter of the chips to the fight.
+                </p>
+
+                <!-- Email Signup -->
+                <div class="article-email-signup">
+                    <h3>Get More Articles Like This</h3>
+                    <p>AI infrastructure is the real battlefield. The model wars are a distraction. I'm documenting every infrastructure bottleneck, supply chain fracture, and power grid crisis that's actually shaping where AI goes next.</p>
+                    <p>Subscribe to receive updates when we publish new content. No spam, just real analysis that ships.</p>
+                    <form class="signup-form" id="articleEmailSignup">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+
+                <!-- Buy Me a Coffee CTA -->
+                <div class="coffee-cta">
+                    <p>Enjoyed this article?</p>
+                    <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn-large">
+                        <span>☕</span> Buy Me a Coffee
+                    </a>
+                    <p class="coffee-subtext">Support PhantomByte and keep the content coming!</p>
+                </div>
+
+                <!-- Share/Related Section -->
+                <div class="article-footer">
+                    <div class="share-section">
+                        <h3>Share this article</h3>
+                        <div class="share-buttons">
+                            <button class="share-btn-twitter">Twitter</button>
+                            <button class="share-btn-facebook">Facebook</button>
+                            <button class="share-btn-linkedin">LinkedIn</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                        <!-- CTA Slot (Bottom) -->
+            <div class="ad-slot ad-slot-article-bottom">
+                <a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank">
+                    <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25); border: none;">
+                        <p style="font-size: 0.7rem; color: #FF6B35; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">⚠️ Exit the Cloud</p>
+                        <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Own Your Weights. Own Your Data.</h4>
+                        <p style="margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.5; color: #e0e0e0; font-weight: 400;">The cloud AI era is a data-harvesting trap. Stop being the product and start being the owner. Build your local sovereign stack today.</p>
+                        <div style="text-align: center;">
+                            <span style="display: inline-block; padding: 11px 22px; background: linear-gradient(90deg, #00FF88 0%, #00cc6a 100%); color: #0a0a1a; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(0, 255, 136, 0.35);">Download The Blueprint</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer (EXACT MATCH to articles.phantom-byte.com) -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+                    </div>
+                    <p class="tagline">Code from the shadows</p>
+                    <div class="footer-cta">
+                        <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn">
+                            ☕ Buy Me a Coffee
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="https://phantom-byte.com" target="_blank">Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="https://x.com/PhantomByteAI" target="_blank">X / Twitter</a></li>
+                        <li><a href="https://www.pinterest.com/PhantomByteAI" target="_blank">Pinterest</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 PhantomByte. All rights reserved.</p>
+                <p class="privacy-links">
+                    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/ad-manager.js" defer></script>
+    <script src="scripts/email-signup.js" defer></script>
+    <script src="scripts/share-buttons.js" defer></script>
+</body>
+</html>

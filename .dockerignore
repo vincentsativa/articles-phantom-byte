@@ -7,6 +7,29 @@ build-index.js
 
 # Build/SEO tooling (not needed at runtime in the served container)
 seo-maintenance.py
+build-template.py
+convert-to-new-design.py
+
+# New V1 article template (used to generate articles; not a page itself)
+article-template-new.html
+# Legacy/old templates (not linked)
+article-template.html
+article-template-v2.html
+article-template-v2-COPY.html
+article-template-v2-BACKUP-2026-03-28.html
+article-5-temp.html
+
+# Redesign mockups + previews (local only, not served)
+verifying-agents-redesign-v1.html
+verifying-agents-redesign-v2.html
+verifying-agents-redesign-v3.html
+redesign-preview-v1.png
+redesign-preview-v2.png
+redesign-preview-v3.png
+redesign-preview-v1-updated.png
+
+# Backups (local only)
+backups/
 
 # Drafts / working files (not linked from the site)
 article-drafts/

@@ -25,6 +25,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://articles.phantom-byte.com/verifying-agents-redesign-v1.html</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://articles.phantom-byte.com/verifying-agents-redesign-v2.html</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://articles.phantom-byte.com/verifying-agents-redesign-v3.html</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://articles.phantom-byte.com/british-police-built-23-ai-models-then-they-stopped-trusting-them.html</loc>
     <lastmod>2026-06-26</lastmod>
     <changefreq>monthly</changefreq>

@@ -1,52 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SWE-Bench is structurally unsound. Build your own agent evaluation stack with PostgreSQL, pgvector, and self-hosted harnesses. The sovereign eval architecture that survives benchmark collapse.">
-    <meta name="keywords" content="SWE-Bench alternatives, Agent Evaluation Stack, Sovereign AI Infrastructure, pgvector Agent Memory, Self-Hosted Agent CI/CD, Local-First AI Agents, Persistent Agent State, Non-deterministic Test Harness, PostgreSQL Vector Database, Agent Observability Pipeline, LLMOps Pipeline, Production Trace Augmentation">
-    <meta name="author" content="Vinny Barreca">
-    <meta name="theme-color" content="#9D4EDD">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://articles.phantom-byte.com/swe-bench-is-dead-build-your-own-agent-evaluation-stack">
-    <meta property="og:title" content="SWE-Bench Is Dead: Build Your Own Agent Evaluation Stack">
-    <meta property="og:description" content="SWE-Bench is structurally unsound. Build your own agent evaluation stack with PostgreSQL, pgvector, and self-hosted harnesses. The sovereign eval architecture that survives benchmark collapse.">
-    <meta property="og:image" content="https://articles.phantom-byte.com/images/article-50-main.jpg">
-    <meta property="article:published_time" content="2026-04-27">
-    <meta property="article:author" content="Vinny Barreca">
-    <meta property="article:section" content="AI Infrastructure">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://articles.phantom-byte.com/swe-bench-is-dead-build-your-own-agent-evaluation-stack">
-    <meta property="twitter:title" content="SWE-Bench Is Dead: Build Your Own Agent Evaluation Stack">
-    <meta property="twitter:description" content="SWE-Bench is structurally unsound. Build your own agent evaluation stack with PostgreSQL, pgvector, and self-hosted harnesses.">
-    <meta property="twitter:image" content="https://articles.phantom-byte.com/images/article-50-main.jpg">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://articles.phantom-byte.com/swe-bench-is-dead-build-your-own-agent-evaluation-stack">
-    
-    <title>SWE-Bench Is Dead: Build Your Own Agent Evaluation Stack - PhantomByte</title>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDQCZE09E4"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-PDQCZE09E4');
-    </script>
-    
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/article.css">
-    
-    <!-- Web Push Notification Script -->
-    <script src="scripts/web-push-client.js" defer></script>
-    
-    <!-- ARTICLE SCHEMA MARKUP (JSON-LD for SEO + GEO) -->
-    <script type="application/ld+json">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Vinny Barreca">
+<meta name="theme-color" content="#9D4EDD">
+
+<!-- Favicon: PhantomByte ghost (same as articles.phantom-byte.com) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%239D4EDD'/%3E%3Cstop offset='100%25' stop-color='%237B2CBF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23g)' d='M50 5C25 5 10 25 10 50v35l8-8 8 8 8-8 8 8 8-8 8 8V50C66 25 60 5 50 5z'/%3E%3Ccircle fill='%230a0a0a' cx='38' cy='42' r='6'/%3E%3Ccircle fill='%230a0a0a' cx='62' cy='42' r='6'/%3E%3Cellipse fill='%230a0a0a' cx='50' cy='58' rx='8' ry='6'/%3E%3C/svg%3E">
+
+<meta name="description" content="SWE-Bench is structurally unsound. Build your own agent evaluation stack with PostgreSQL, pgvector, and self-hosted harnesses. The sovereign eval architecture that survives benchmark collapse.">
+<meta name="keywords" content="SWE-Bench alternatives, Agent Evaluation Stack, Sovereign AI Infrastructure, pgvector Agent Memory, Self-Hosted Agent CI/CD, Local-First AI Agents, Persistent Agent State, Non-deterministic Test Harness, PostgreSQL Vector Database, Agent Observability Pipeline, LLMOps Pipeline, Production Trace Augmentation">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://articles.phantom-byte.com/swe-bench-is-dead-build-your-own-agent-evaluation-stack">
+<meta property="og:title" content="SWE-Bench Is Dead: Build Your Own Agent Evaluation Stack">
+<meta property="og:description" content="SWE-Bench is structurally unsound. Build your own agent evaluation stack with PostgreSQL, pgvector, and self-hosted harnesses. The sovereign eval architecture that survives benchmark collapse.">
+<meta property="og:image" content="https://articles.phantom-byte.com/images/article-50-main.jpg">
+<meta property="article:published_time" content="2026-04-27">
+<meta property="article:author" content="Vinny Barreca">
+<meta property="article:section" content="AI Infrastructure">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://articles.phantom-byte.com/swe-bench-is-dead-build-your-own-agent-evaluation-stack">
+<meta property="twitter:title" content="SWE-Bench Is Dead: Build Your Own Agent Evaluation Stack">
+<meta property="twitter:description" content="SWE-Bench is structurally unsound. Build your own agent evaluation stack with PostgreSQL, pgvector, and self-hosted harnesses.">
+<meta property="twitter:image" content="https://articles.phantom-byte.com/images/article-50-main.jpg">
+<link rel="canonical" href="https://articles.phantom-byte.com/swe-bench-is-dead-build-your-own-agent-evaluation-stack">
+
+<title>SWE-Bench Is Dead: Build Your Own Agent Evaluation Stack - PhantomByte</title>
+
+<!-- Google Analytics (kept exactly) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PDQCZE09E4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PDQCZE09E4');
+</script>
+
+<!-- Web Push Notification Script (FCM self-loaded by this script) — kept exactly -->
+<script src="scripts/web-push-client.js" defer></script>
+
+<script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "TechArticle",
@@ -86,161 +80,415 @@
       }
     }
     </script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-    <style>
-        @keyframes slideIn {
-            from { transform: translateX(400px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        @keyframes slideOut {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(400px); opacity: 0; }
-        }
-    </style>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-compat.js"></script>
-    <style id="phantombyte-push-styles">
-      #phantombyte-push-container {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 9999;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      }
 
-      .phantombyte-push-btn {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        padding: 12px 20px;
-        background: linear-gradient(135deg, #9D4EDD 0%, #7B2CBF 100%);
-        color: white;
-        border: none;
-        border-radius: 50px;
-        font-size: 14px;
-        font-weight: 600;
-        cursor: pointer;
-        box-shadow: 0 4px 15px rgba(157, 78, 221, 0.4);
-        transition: all 0.3s ease;
-      }
+<!-- Article content styling (preserved from original articles) -->
+<link rel="stylesheet" href="styles/main.css">
+<link rel="stylesheet" href="styles/article.css">
 
-      .phantombyte-push-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(157, 78, 221, 0.5);
-      }
+<!-- New console/chrome design (V1) -->
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --purple:#9D4EDD; --purple-dark:#7B2CBF; --purple-darker:#6A1B9A;
+  --green:#00FF88; --green-dark:#00CC6A;
+  --black:#050507; --darker:#020203;
+  --panel:#0d0d12; --panel-2:#101018;
+  --line:#1c1c26; --line-bright:#2a2a38;
+  --text:#e6e6f0; --dim:#8a8a9a; --dimmer:#5a5a6a;
+  --orange:#FF6B35;
+  --mono:ui-monospace,'SF Mono','Cascadia Code',Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--black);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    linear-gradient(rgba(157,78,221,0.04) 1px,transparent 1px) 0 0/40px 40px,
+    linear-gradient(90deg,rgba(0,255,136,0.03) 1px,transparent 1px) 0 0/40px 40px,
+    radial-gradient(ellipse 80% 50% at 50% 0%,rgba(157,78,221,0.10),transparent 70%)}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,0.012) 0 1px,transparent 1px 3px)}
+.wrap{position:relative;z-index:2}
+a{color:var(--green);text-decoration:none}
+img{display:block;max-width:100%}
 
-      .phantombyte-push-btn:active {
-        transform: translateY(0);
-      }
+/* HEADER (same style as phantom-byte.com / articles homepage) */
+header{position:sticky;top:0;z-index:100;background:rgba(5,5,7,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{max-width:1340px;margin:0 auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-weight:900;font-size:1.15rem;letter-spacing:2px;display:flex;align-items:center;gap:10px}
+.logo .ghost{width:24px;height:24px;flex:none;filter:drop-shadow(0 0 8px rgba(157,78,221,.6))}
+.logo .phantom{color:#fff}.logo .byte{color:var(--purple)}
+.logo .sub{display:block;font-family:var(--mono);font-size:.5rem;color:var(--green);letter-spacing:3px;font-weight:600;margin-top:1px}
+.nav{display:flex;gap:18px;align-items:center}
+.nav a{color:var(--dim);font-size:.78rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;transition:color .2s}
+.nav a:hover{color:var(--green)}
+.btn-nav{font-family:var(--mono);font-size:.74rem;color:#050507!important;background:var(--green);padding:9px 14px;border-radius:4px;font-weight:700;letter-spacing:.5px;box-shadow:0 0 18px rgba(0,255,136,.35);white-space:nowrap}
+.btn-nav:hover{background:#fff}
+.btn-nav.purple{background:linear-gradient(135deg,var(--purple),var(--purple-dark));color:#fff!important;box-shadow:0 0 18px rgba(157,78,221,.4)}
+.btn-nav.purple:hover{background:#fff;color:#050507!important}
+.nav a:not(.btn-nav){display:none}
+.tut-only{display:none}
+.btn-nav .desk{display:none}.btn-nav .mob{display:inline}
+@media(min-width:860px){
+  .bar{padding:14px 28px}
+  .logo{font-size:1.25rem}.logo .ghost{width:26px}.logo .sub{font-size:.55rem}
+  .nav{gap:22px}.nav a{font-size:.8rem}.btn-nav{font-size:.78rem;padding:9px 16px}
+  .nav a:not(.btn-nav){display:inline}.tut-only{display:inline}
+  .btn-nav .desk{display:inline}.btn-nav .mob{display:none}
+}
 
-      .phantombyte-push-btn:disabled {
-        opacity: 0.7;
-        cursor: not-allowed;
-      }
+/* TICKER */
+.ticker{background:var(--darker);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.66rem;color:var(--dimmer);letter-spacing:.5px;overflow:hidden}
+.ticker .inner{max-width:1340px;margin:0 auto;padding:6px 18px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.ticker .live{color:var(--green);display:flex;align-items:center;gap:6px;font-weight:700}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.ticker .cat{color:var(--purple);font-weight:700}
+.ticker .next{margin-left:auto;color:var(--orange);font-weight:700}
+@media(min-width:820px){.ticker{font-size:.72rem}.ticker .inner{padding:7px 28px;gap:26px}}
 
-      .phantombyte-push-active {
-        background: linear-gradient(135deg, #00FF88 0%, #00CC6A 100%) !important;
-        box-shadow: 0 4px 15px rgba(0, 255, 136, 0.4) !important;
-      }
+/* CONSOLE LAYOUT: rail + main */
+.console{max-width:1340px;margin:0 auto;padding:22px 18px;display:grid;grid-template-columns:1fr;gap:24px;align-items:start}
+@media(min-width:1024px){.console{padding:28px 28px;grid-template-columns:280px 1fr;gap:36px}}
+section[id]{scroll-margin-top:104px}
+h2[id]{scroll-margin-top:112px}
 
-      .phantombyte-push-loading {
-        animation: phantombyte-pulse 1s infinite;
-      }
+/* RAIL */
+.rail{position:relative}
+@media(min-width:1024px){
+  .rail{position:sticky;top:104px;max-height:calc(100vh - 120px);overflow-y:auto;overflow-x:hidden;
+    scrollbar-width:thin;scrollbar-color:var(--purple) transparent;padding-right:6px}
+  .rail::-webkit-scrollbar{width:6px}
+  .rail::-webkit-scrollbar-thumb{background:var(--purple);border-radius:3px}
+  .rail::-webkit-scrollbar-track{background:transparent}
+}
+.rail-toggle{display:none}
+@media(max-width:1023px){
+  .rail-toggle{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;background:var(--panel);border:1px solid var(--line-bright);border-radius:12px;padding:14px 16px;cursor:pointer;font-family:var(--mono);font-size:.76rem;font-weight:700;color:var(--text);letter-spacing:.5px;text-transform:uppercase;user-select:none}
+  .rail-toggle .rt-chev{color:var(--green);transition:transform .25s}
+  .rail.open .rail-toggle .rt-chev{transform:rotate(90deg)}
+  .rail-body{max-height:0;overflow:hidden;opacity:0;transition:max-height .3s ease,opacity .25s ease,margin-top .25s ease;margin-top:0}
+  .rail.open .rail-body{max-height:3600px;opacity:1;margin-top:14px}
+}
+@media(min-width:1024px){.rail-body{max-height:none;opacity:1;overflow:visible}}
+.rail-box{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:16px}
+.rail-h{font-family:var(--mono);font-size:.66rem;color:var(--purple);letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.rail-h::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--purple);box-shadow:0 0 8px var(--purple)}
 
-      @keyframes phantombyte-pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.5; }
-      }
+/* author card */
+.author-card{display:flex;gap:14px;align-items:center}
+.author-card img{width:56px;height:56px;border-radius:50%;border:2px solid var(--purple);object-fit:cover;flex:none;box-shadow:0 0 16px rgba(157,78,221,.35)}
+.author-card .ac-name{color:#fff;font-weight:700;font-size:.92rem}
+.author-card .ac-role{font-family:var(--mono);font-size:.62rem;color:var(--green);letter-spacing:1px;text-transform:uppercase}
+.author-card .ac-date{font-family:var(--mono);font-size:.66rem;color:var(--dimmer);margin-top:2px}
+.meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.meta-grid .mg{background:var(--panel-2);border:1px solid var(--line);border-radius:8px;padding:10px}
+.meta-grid .mg .k{font-family:var(--mono);font-size:.56rem;color:var(--dimmer);letter-spacing:1px;text-transform:uppercase}
+.meta-grid .mg .v{font-family:var(--mono);font-size:.78rem;color:var(--green);font-weight:700;margin-top:3px}
 
-      .phantombyte-push-icon {
-        font-size: 16px;
-      }
+/* rail tabs (Contents / Archive) */
+.rt-tabs{display:flex;gap:6px;margin-bottom:14px;background:var(--panel-2);border:1px solid var(--line);border-radius:8px;padding:4px}
+.rt-tab{flex:1;font-family:var(--mono);font-size:.66rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--dim);background:transparent;border:none;padding:8px;border-radius:6px;cursor:pointer;transition:color .2s,background .2s}
+.rt-tab.active{color:#050507;background:linear-gradient(135deg,var(--green),var(--green-dark))}
+.rt-tab:hover:not(.active){color:var(--green)}
+.rt-panel[hidden]{display:none}
 
-      .phantombyte-push-message {
-        position: absolute;
-        bottom: 100%;
-        right: 0;
-        margin-bottom: 10px;
-        padding: 10px 15px;
-        background: #1a1a2e;
-        color: white;
-        border-radius: 8px;
-        font-size: 13px;
-        white-space: nowrap;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(10px);
-        transition: all 0.3s ease;
-      }
+/* TOC */
+.toc{list-style:none}
+.toc li{padding:8px 0;border-bottom:1px solid var(--line)}
+.toc li:last-child{border-bottom:none}
+.toc a{font-size:.8rem;color:var(--dim);transition:color .2s;display:block}
+.toc a:hover{color:var(--green)}
+.toc a::before{content:'▸ ';color:var(--dimmer);font-family:var(--mono)}
+.toc a.active{color:var(--green);font-weight:700}
+.toc a.active::before{color:var(--green)}
 
-      .phantombyte-push-message-visible {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-      }
+/* archive (past notes by category) */
+.arch-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.arch-chip{font-family:var(--mono);font-size:.58rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--dim);background:var(--panel-2);border:1px solid var(--line);padding:5px 9px;border-radius:20px;cursor:pointer;transition:color .2s,border-color .2s,background .2s}
+.arch-chip:hover{color:var(--green);border-color:rgba(0,255,136,.4)}
+.arch-chip.active{color:#050507;background:linear-gradient(135deg,var(--green),var(--green-dark));border-color:transparent}
+.arch-chip .ac-c{color:inherit;opacity:.6;margin-left:4px}
+.arch-list{display:flex;flex-direction:column;gap:2px}
+.arch-item{display:flex;gap:10px;align-items:flex-start;padding:9px 8px;border-radius:8px;border:1px solid transparent;transition:background .2s,border-color .2s;text-decoration:none}
+.arch-item:hover{background:var(--panel-2);border-color:var(--line)}
+.arch-item .ai-date{font-family:var(--mono);font-size:.58rem;color:var(--dimmer);flex:none;width:42px;padding-top:1px}
+.arch-item .ai-title{font-size:.76rem;color:var(--dim);line-height:1.35}
+.arch-item:hover .ai-title{color:var(--green)}
+.arch-empty{font-size:.74rem;color:var(--dimmer);padding:14px 8px;text-align:center;font-style:italic}
+.arch-more{display:block;margin-top:12px;font-family:var(--mono);font-size:.64rem;font-weight:700;color:var(--green);letter-spacing:.5px;text-transform:uppercase;text-align:center;padding:9px;border:1px solid rgba(0,255,136,.3);border-radius:8px}
+.arch-more:hover{background:rgba(0,255,136,.06)}
 
-      @media (max-width: 640px) {
-        #phantombyte-push-container {
-          display: none;
-        }
-      }
-    </style>
+/* rail CTA (constellation) */
+.rail-cta{background:linear-gradient(135deg,rgba(157,78,221,.12),rgba(0,255,136,.06));border:1px solid rgba(157,78,221,.4);border-radius:12px;padding:18px;text-align:center}
+.rail-cta h4{font-size:.9rem;color:#fff;margin-bottom:6px}
+.rail-cta p{font-size:.72rem;color:var(--dim);margin-bottom:14px;line-height:1.5}
+.rail-cta a{display:block;font-family:var(--mono);font-size:.7rem;font-weight:700;color:#050507;background:linear-gradient(135deg,var(--green),var(--green-dark));padding:10px;border-radius:8px;letter-spacing:.5px;text-transform:uppercase;box-shadow:0 0 14px rgba(0,255,136,.25);margin-bottom:7px}
+.rail-cta a.alt{background:linear-gradient(135deg,var(--purple),var(--purple-dark));color:#fff;box-shadow:0 0 14px rgba(157,78,221,.25)}
+.rail-cta a.lead{background:linear-gradient(135deg,#FF6B35,#ff8a5b);color:#fff;box-shadow:0 0 14px rgba(255,107,53,.3)}
+.rail-cta a:hover{transform:translateY(-2px)}
+
+/* ARTICLE MAIN */
+.sec-kicker{font-family:var(--mono);font-size:.7rem;color:var(--purple);letter-spacing:3px;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.article-category{display:inline-block;font-family:var(--mono);font-size:.66rem;color:var(--green);letter-spacing:1px;text-transform:uppercase;font-weight:700;margin-bottom:14px;border:1px solid rgba(0,255,136,.4);padding:5px 12px;border-radius:20px;background:rgba(0,255,136,.05)}
+.article-title{font-size:clamp(1.8rem,5vw,3rem);font-weight:900;letter-spacing:-1px;line-height:1.1;color:#fff;margin-bottom:18px}
+.article-title .u{color:var(--green)}
+.article-deck{color:var(--dim);font-size:1.05rem;max-width:680px;margin-bottom:26px;line-height:1.6}
+
+.figure{margin:0 0 30px;border:1px solid var(--purple);border-radius:14px;overflow:hidden;box-shadow:0 0 40px rgba(157,78,221,.15)}
+.figure img{width:100%;height:auto;display:block}
+.figcaption{padding:12px 16px;background:var(--panel);color:var(--dim);font-size:.84rem;text-align:center;font-style:italic;border-top:1px solid var(--line)}
+
+.article-body{font-size:1.12rem;line-height:1.8;color:var(--text);max-width:760px}
+.lead-paragraph{font-size:1.28rem;line-height:1.65;color:#fff;margin:30px 0;font-weight:300;border-left:3px solid var(--green);padding-left:18px}
+.article-body p{margin-bottom:24px}
+.article-body h2{font-size:1.7rem;color:#fff;margin:48px 0 20px;padding-bottom:12px;border-bottom:1px solid var(--purple);font-weight:800;letter-spacing:-.3px}
+.article-body h2::before{content:'// ';color:var(--green);font-family:var(--mono);font-size:1.2rem}
+.article-body ul{list-style:none;margin:26px 0;padding-left:8px}
+.article-body li{margin-bottom:14px;padding-left:26px;position:relative}
+.article-body li::before{content:'→';color:var(--green);position:absolute;left:0;font-weight:700}
+.article-body strong{color:#fff}
+.article-body a{color:var(--green);text-decoration:underline;text-decoration-color:rgba(0,255,136,.4)}
+.article-image{margin:30px 0;border:1px solid var(--line-bright);border-radius:12px;overflow:hidden}
+.article-image img{width:100%;height:auto}
+.article-image figcaption{padding:10px 14px;background:var(--panel);color:var(--dim);font-size:.8rem;text-align:center;font-style:italic;border-top:1px solid var(--line)}
+.article-image-right{float:right;max-width:320px;margin:0 0 24px 28px}
+@media(max-width:680px){.article-image-right{float:none;max-width:100%;margin:30px 0}}
+
+/* ad slot (kept exactly, restyled) */
+.ad-slot{margin:34px 0}
+.ad-creative{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);padding:24px;border-radius:12px;box-shadow:0 4px 15px rgba(0,255,136,0.25);border:1px solid rgba(0,255,136,.15)}
+.ad-creative .k{font-size:.7rem;color:#FF6B35;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.ad-creative h4{margin:0 0 12px 0;color:#fff;font-size:1.3rem;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,0.4)}
+.ad-creative p{margin:0 0 16px 0;font-size:.95rem;line-height:1.5;color:#e0e0e0;font-weight:400}
+.ad-creative .btn{display:inline-block;padding:11px 22px;background:linear-gradient(90deg,#00FF88 0%,#00cc6a 100%);color:#0a0a1a;border-radius:6px;text-decoration:none;font-weight:700;font-size:.95rem;box-shadow:0 3px 10px rgba(0,255,136,.35)}
+
+/* in-flow CTAs (kept exact copy) */
+.article-email-signup{margin:50px 0;padding:34px;background:var(--panel);border:1px solid var(--purple);border-radius:14px;text-align:center;box-shadow:0 0 40px rgba(157,78,221,.12)}
+.article-email-signup h3{font-size:1.5rem;color:#fff;margin-bottom:10px}
+.article-email-signup p{color:var(--dim);margin-bottom:20px;font-size:.95rem}
+.signup-form{display:flex;gap:10px;flex-direction:column;max-width:440px;margin:0 auto}
+@media(min-width:520px){.signup-form{flex-direction:row}}
+.signup-form input{flex:1;padding:13px;border:2px solid rgba(255,255,255,0.12);border-radius:8px;background:rgba(255,255,255,0.04);color:#fff;font-size:16px;font-family:inherit}
+.signup-form input::placeholder{color:var(--dimmer)}
+.signup-form input:focus{outline:none;border-color:var(--purple)}
+.signup-form button{font-family:var(--mono);font-weight:700;background:linear-gradient(135deg,var(--green),var(--green-dark));color:#050507;border:none;border-radius:8px;padding:13px 22px;font-size:.86rem;cursor:pointer;letter-spacing:.5px;box-shadow:0 0 20px rgba(0,255,136,.3);white-space:nowrap}
+.signup-form button:hover{transform:translateY(-2px)}
+
+.coffee-cta{margin:46px 0;padding:34px;background:linear-gradient(135deg,#FFDD00 0%,#FFAA00 100%);border-radius:14px;text-align:center;color:#050507}
+.coffee-cta p:first-child{font-size:1.4rem;font-weight:800;margin-bottom:16px}
+.coffee-btn-large{display:inline-flex;align-items:center;gap:10px;background:#050507;color:#fff;padding:15px 30px;border-radius:50px;font-size:1.1rem;font-weight:700;transition:transform .2s}
+.coffee-btn-large:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(0,0,0,.3);color:#fff}
+.coffee-subtext{margin-top:14px;font-size:.92rem;opacity:.85}
+
+.tutorials-cta{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);padding:28px;border-radius:14px;margin:34px 0;border:1px solid rgba(157,78,221,.35)}
+.tutorials-cta h3{color:var(--purple);margin:0 0 12px;font-size:1.2rem;font-weight:700}
+.tutorials-cta p{color:#e0e0e0;margin:0 0 16px;font-size:.95rem;line-height:1.6}
+.tutorials-cta .tbtn{display:inline-block;padding:12px 28px;background:linear-gradient(90deg,var(--purple),var(--purple-dark));color:#fff;border-radius:6px;text-decoration:none;font-weight:700;font-size:1rem;box-shadow:0 3px 10px rgba(157,78,221,.35)}
+
+.article-footer{margin-top:60px;padding-top:30px;border-top:1px solid var(--line)}
+.share-section h3{font-size:1.2rem;color:#fff;margin-bottom:16px;text-transform:uppercase;letter-spacing:1px;font-family:var(--mono)}
+.share-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.share-btn-twitter,.share-btn-facebook,.share-btn-linkedin{padding:11px 22px;border-radius:8px;font-weight:700;cursor:pointer;border:none;color:#fff;font-family:var(--mono);font-size:.78rem;letter-spacing:.5px;transition:transform .2s}
+.share-btn-twitter{background:#1DA1F2}.share-btn-twitter:hover{background:#1a91da;transform:translateY(-2px)}
+.share-btn-facebook{background:#4267B2}.share-btn-facebook:hover{background:#3b5d9f;transform:translateY(-2px)}
+.share-btn-linkedin{background:#0077B5}.share-btn-linkedin:hover{background:#00669e;transform:translateY(-2px)}
+.share-btn{display:none}
+
+/* CONSTELLATION band (now inside main, beside the rail on desktop) */
+.constellation{background:radial-gradient(ellipse 60% 80% at 50% 0%,rgba(157,78,221,.10),transparent 70%);border-top:1px solid var(--line);margin-top:40px}
+.cwrap{max-width:760px;margin:0 auto;padding:26px 18px}
+.const-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
+@media(min-width:560px){.const-grid{grid-template-columns:repeat(2,1fr);gap:16px}}
+.const-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;transition:border-color .25s,transform .25s,box-shadow .25s;overflow:hidden;display:block}
+.const-card:hover{border-color:var(--green);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.5),0 0 40px rgba(0,255,136,.12)}
+.const-card.lead{border-color:var(--orange);box-shadow:0 0 30px rgba(255,107,53,.15)}
+.const-card.lead:hover{border-color:var(--orange);box-shadow:0 20px 50px rgba(0,0,0,.5),0 0 40px rgba(255,107,53,.22)}
+.const-card .cc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.const-card .cc-ico{font-size:1.5rem}
+.const-card .cc-tag{font-family:var(--mono);font-size:.56rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--purple);border:1px solid rgba(157,78,221,.4);padding:4px 8px;border-radius:20px}
+.const-card.lead .cc-tag{color:var(--orange);border-color:rgba(255,107,53,.5)}
+.const-card h3{font-size:.86rem;color:#fff;margin-bottom:8px;font-family:var(--mono);word-break:break-all}
+.const-card p{font-size:.76rem;color:var(--dim);margin-bottom:12px;line-height:1.5}
+.const-card .cc-go{font-family:var(--mono);font-size:.64rem;font-weight:700;color:var(--green);letter-spacing:.5px;text-transform:uppercase}
+.const-card.lead .cc-go{color:var(--orange)}
+
+/* FOOTER (exact match to articles homepage) */
+footer{background:var(--darker);border-top:2px solid var(--purple);padding:48px 18px 30px;margin-top:64px}
+@media(min-width:820px){footer{padding:54px 28px 30px;margin-top:80px}}
+.foot-grid{max-width:1340px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:32px}
+@media(min-width:720px){.foot-grid{grid-template-columns:1.5fr 1fr 1fr 1fr;gap:24px}}
+.foot-brand .logo{margin-bottom:8px}
+.foot-tag{color:var(--green);font-size:1rem;font-weight:600;margin-bottom:14px}
+.foot-cta a{display:inline-block;background:linear-gradient(135deg,var(--purple),var(--purple-dark));color:#fff;padding:10px 16px;border-radius:8px;font-family:var(--mono);font-size:.78rem;font-weight:700;text-decoration:none;box-shadow:0 0 18px rgba(157,78,221,.35)}
+.foot-cta a:hover{transform:translateY(-2px)}
+.foot-col h4{font-family:var(--mono);font-size:.7rem;color:var(--purple);letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:14px}
+.foot-col ul{list-style:none}
+.foot-col ul li{margin-bottom:9px}
+.foot-col ul li a{color:var(--dim);font-size:.86rem;transition:color .2s}
+.foot-col ul li a:hover{color:var(--green)}
+.foot-bottom{max-width:1340px;margin:34px auto 0;padding-top:24px;border-top:1px solid var(--line);text-align:center;color:var(--dimmer);font-size:.76rem}
+.foot-bottom a{color:var(--dimmer);margin:0 8px}
+.foot-bottom a:hover{color:var(--green)}
+.foot-bottom p{margin:6px 0}
+@media(max-width:719px){
+  .foot-grid{grid-template-columns:1fr 1fr;gap:22px 18px}
+  .foot-grid>.foot-col:nth-child(2){grid-column:1;grid-row:1}
+  .foot-grid>.foot-col:nth-child(3){grid-column:2;grid-row:1}
+  .foot-grid>.foot-col:last-child{grid-column:2;grid-row:2}
+  .foot-grid>.foot-brand{grid-column:1;grid-row:2}
+  .foot-grid>.foot-brand .ghost{display:none}
+  .foot-tag{display:none}
+  .foot-cta a{font-size:0;padding:6px 11px}
+  .foot-cta a::before{content:"☕ tip the ghost";font-family:var(--mono);font-size:.66rem;font-weight:700;letter-spacing:.5px}
+  .foot-grid>.foot-col:last-child ul{display:flex;gap:22px;flex-wrap:wrap}
+  .foot-grid>.foot-col:last-child ul li{margin-bottom:0}
+  footer{padding:36px 18px 26px;margin-top:48px}
+  .foot-bottom{margin-top:26px;padding-top:18px}
+}
+
+/* force web-push button bottom-right (kept, same as homepage) */
+#phantombyte-push-container{position:fixed!important;top:auto!important;left:auto!important;bottom:20px!important;right:20px!important;z-index:9999!important;width:auto!important}
+@media(max-width:640px){#phantombyte-push-container{bottom:10px!important;right:10px!important;left:auto!important;width:auto!important}}
+[hidden]{display:none!important}
+</style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="site-header">
-        <div class="container header-content">
-            <a href="index.html" class="logo">
-                <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
-            </a>
-            <nav class="main-nav">
-                <a href="https://phantom-byte.com" target="_blank">Services</a>
-            </nav>
+<div class="wrap">
+
+<!-- HEADER (articles.phantom-byte.com style; tabs reordered + redirected) -->
+<header>
+  <div class="bar">
+    <a href="index.html" class="logo">
+      <svg class="ghost" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#9D4EDD"></stop><stop offset="100%" stop-color="#7B2CBF"></stop></linearGradient></defs><path fill="url(#lg)" d="M50 5C25 5 10 25 10 50v35l8-8 8 8 8-8 8 8 8-8 8 8V50C66 25 60 5 50 5z"></path><circle fill="#050507" cx="38" cy="42" r="6"></circle><circle fill="#050507" cx="62" cy="42" r="6"></circle><ellipse fill="#050507" cx="50" cy="58" rx="8" ry="6"></ellipse></svg>
+      <div><span class="phantom">Phantom</span><span class="byte">Byte</span><span class="sub">Code from the shadows</span></div>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Archive</a>
+      <a href="https://phantom-byte.com/tutorials" target="_blank" rel="noopener">Tutorials</a>
+      <a href="https://vincentsativa.com" target="_blank" rel="noopener">Author</a>
+      <a class="btn-nav purple tut-only" href="https://phantom-byte.com" target="_blank" rel="noopener">Services</a>
+      <a class="btn-nav" href="https://buymeacoffee.com/drvincentsativa" target="_blank" rel="noopener"><span class="mob">☕ TIP</span><span class="desk">☕ Buy Me a Coffee</span></a>
+    </nav>
+  </div>
+</header>
+
+<!-- TICKER -->
+<div class="ticker"><div class="inner">
+  <span class="live"><span class="dot"></span>NOTE #50</span>
+  <span>SECTION: <span class="cat">AI INFRASTRUCTURE</span></span>
+  <span>OPERATOR: VINNY BARRECA</span>
+  <span class="next">12 MIN READ · APR 27 2026</span>
+</div></div>
+
+<!-- CONSOLE: rail + main -->
+<div class="console">
+
+  <!-- RAIL -->
+  <aside class="rail" id="rail">
+    <button class="rail-toggle" id="railToggle" aria-expanded="false" aria-controls="railBody">
+      <span>// Article Index &amp; Archive</span><span class="rt-chev">▸</span>
+    </button>
+    <div class="rail-body" id="railBody">
+
+      <div class="rail-box">
+        <div class="rail-h">Operator</div>
+        <div class="author-card">
+          <img src="images/author-vinny-new.jpg" alt="Vinny Barreca">
+          <div>
+            <div class="ac-name">Vinny Barreca</div>
+            <div class="ac-role">PhantomByte</div>
+            <div class="ac-date">April 27, 2026</div>
+          </div>
         </div>
-    <div id="phantombyte-push-container">
-      <button id="phantombyte-push-btn" class="phantombyte-push-btn" aria-label="Subscribe to notifications">
-        <span class="phantombyte-push-icon">🔔</span>
-        <span class="phantombyte-push-text">Get Article Alerts</span>
-      </button>
-      <div id="phantombyte-push-message" class="phantombyte-push-message"></div>
-    </div></header>
+        <div class="meta-grid">
+          <div class="mg"><div class="k">Read</div><div class="v">12 min</div></div>
+          <div class="mg"><div class="k">Words</div><div class="v">2,850</div></div>
+          <div class="mg"><div class="k">Level</div><div class="v">Inter</div></div>
+          <div class="mg"><div class="k">Note</div><div class="v">#50</div></div>
+        </div>
+      </div>
 
-    <!-- Article Content -->
-    <main class="article-main">
-        <article class="article-container">
-            <!-- Article Header -->
-            <header class="article-header">
-                <span class="article-category">AI Infrastructure</span>
-                <h1 class="article-title">SWE-Bench Is Dead: Build Your Own Agent Evaluation Stack</h1>
-                
-                <div class="article-meta">
-                    <div class="author-info">
-                        <img src="images/author-vinny.jpg" alt="Vinny Barreca" class="author-avatar">
-                        <div class="author-details">
-                            <span class="author-name">Vinny Barreca</span>
-                            <span class="publish-date">April 27, 2026</span>
-                        </div>
-                    </div>
-                    <div class="meta-actions">
-                        <span class="read-time">12 min read</span>
-                        <button class="share-btn" aria-label="Share article">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
-                                <polyline points="16 6 12 2 8 6"></polyline>
-                                <line x1="12" y1="2" x2="12" y2="15"></line>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </header>
+      <div class="rail-box">
+        <div class="rt-tabs" role="tablist">
+          <button class="rt-tab active" data-tab="contents" role="tab">Contents</button>
+          <button class="rt-tab" data-tab="archive" role="tab">Archive</button>
+        </div>
 
-            <!-- Featured Image -->
-            <figure class="article-featured-image">
+        <!-- Contents -->
+        <div class="rt-panel" id="panel-contents" role="tabpanel">
+          <ul class="toc" id="toc"><li><a href="#sec-1" data-target="sec-1">Why SWE-Bench Verified Fails Its Own Test</a></li><li><a href="#sec-2" data-target="sec-2">The Sovereign Alternative: Self-Hosted Agent…</a></li><li><a href="#sec-3" data-target="sec-3">The Missing Link: Persistent State and Memory</a></li><li><a href="#sec-4" data-target="sec-4">Building Your CI/CD Pipeline Without Vendor…</a></li><li><a href="#sec-5" data-target="sec-5">The Cost of Subscription Lock-in</a></li><li><a href="#sec-6" data-target="sec-6">The Sovereign Path</a></li></ul>
+        </div>
+
+        <!-- Archive (past notes, filter by category — like articles.phantom-byte.com) -->
+        <div class="rt-panel" id="panel-archive" role="tabpanel" hidden>
+          <div class="arch-chips" id="archChips">
+            <button class="arch-chip active" data-cat="all">All <span class="ac-c">24</span></button>
+            <button class="arch-chip" data-cat="AI Infrastructure">AI Infra <span class="ac-c">14</span></button>
+            <button class="arch-chip" data-cat="AI Security">AI Security <span class="ac-c">4</span></button>
+            <button class="arch-chip" data-cat="AI Industry">AI Industry <span class="ac-c">5</span></button>
+            <button class="arch-chip" data-cat="AI Engineering">AI Eng <span class="ac-c">1</span></button>
+            <button class="arch-chip" data-cat="AI Policy">AI Policy <span class="ac-c">1</span></button>
+            <button class="arch-chip" data-cat="AI Privacy">AI Privacy <span class="ac-c">1</span></button>
+          </div>
+          <div class="arch-list" id="archList">
+            <a class="arch-item" data-cat="AI Infrastructure" href="british-police-built-23-ai-models-then-they-stopped-trusting-them.html"><span class="ai-date">Jun 26</span><span class="ai-title">British Police Built 23 AI Models. Then Stopped Trusting Them.</span></a>
+            <a class="arch-item" data-cat="AI Security" href="agent-red-teaming-security.html"><span class="ai-date">Jun 25</span><span class="ai-title">Your Agent Is Under Attack: Red-Teaming Is the Missing Layer</span></a>
+            <a class="arch-item" data-cat="AI Infrastructure" href="your-agent-is-a-monolith-thats-the-problem.html"><span class="ai-date">Jun 24</span><span class="ai-title">Your Agent Is a Monolith. That's the Problem.</span></a>
+            <a class="arch-item" data-cat="AI Infrastructure" href="your-agent-is-drowning-in-its-own-output.html"><span class="ai-date">Jun 23</span><span class="ai-title">Your Agent Is Drowning in Its Own Output</span></a>
+            <a class="arch-item" data-cat="AI Infrastructure" href="gpu-cluster-vulnerability-ai-infrastructure-geopolitics.html"><span class="ai-date">Jun 22</span><span class="ai-title">Your GPU Cluster Is a Military Target Now</span></a>
+            <a class="arch-item" data-cat="AI Infrastructure" href="agents-governors-not-gatekeepers.html"><span class="ai-date">Jun 21</span><span class="ai-title">Agents Need Governors, Not Gatekeepers</span></a>
+            <a class="arch-item" data-cat="AI Infrastructure" href="architecture-singularity-itnet-model-wars.html"><span class="ai-date">Jun 20</span><span class="ai-title">The Architecture Singularity: Model Wars Were One War</span></a>
+            <a class="arch-item" data-cat="AI Infrastructure" href="agent-memory-consistency-failure.html"><span class="ai-date">Jun 19</span><span class="ai-title">The Memory Mirage: Agent Memory Is Already Corrupt</span></a>
+            <a class="arch-item" data-cat="AI Infrastructure" href="the-1m-context-mirage-what-indexshare-actually-delivers.html"><span class="ai-date">Jun 18</span><span class="ai-title">The 1M Context Mirage: What IndexShare Delivers</span></a>
+            <a class="arch-item" data-cat="AI Industry" href="the-ai-price-war-nobody-is-winning.html"><span class="ai-date">Jun 17</span><span class="ai-title">The AI Price War Nobody Is Winning</span></a>
+            <a class="arch-item" data-cat="AI Infrastructure" href="the-synthetic-data-paradox.html"><span class="ai-date">Jun 16</span><span class="ai-title">The Synthetic Data Paradox</span></a>
+            <a class="arch-item" data-cat="AI Security" href="your-ai-agent-just-bought-something-invisible-trust-crisis-agentic-commerce.html"><span class="ai-date">Jun 15</span><span class="ai-title">Your AI Agent Just Bought Something: Trust Crisis</span></a>
+            <a class="arch-item" data-cat="AI Industry" href="the-government-killed-the-smartest-model-ever-built.html"><span class="ai-date">Jun 14</span><span class="ai-title">The Government Killed the Smartest Model Ever Built</span></a>
+            <a class="arch-item" data-cat="AI Infrastructure" href="the-130-billion-blockade-ai-infrastructure-losing-war.html"><span class="ai-date">Jun 13</span><span class="ai-title">The $130B Blockade: AI Infrastructure Losing the War</span></a>
+            <a class="arch-item" data-cat="AI Infrastructure" href="diffusion-language-models-are-here-4x-faster.html"><span class="ai-date">Jun 12</span><span class="ai-title">Diffusion Language Models Are Here, 4x Faster</span></a>
+            <a class="arch-item" data-cat="AI Infrastructure" href="the-cache-is-the-model-kv-cache-optimization.html"><span class="ai-date">Jun 11</span><span class="ai-title">The Cache Is the Model: KV Cache Optimization</span></a>
+            <a class="arch-item" data-cat="AI Security" href="the-miasma-backdoor-ai-coding-agent-malware-keys.html"><span class="ai-date">Jun 10</span><span class="ai-title">The Miasma Backdoor: AI Coding Agent Malware</span></a>
+            <a class="arch-item" data-cat="AI Infrastructure" href="the-verification-gap-agent-pipeline-verification.html"><span class="ai-date">Jun 9</span><span class="ai-title">The Verification Gap: Flying Without Instruments</span></a>
+            <a class="arch-item" data-cat="AI Security" href="the-autonomous-attacker-llm-agent-cyberattack.html"><span class="ai-date">Jun 8</span><span class="ai-title">The Autonomous Attacker: First LLM Agent Cyberattack</span></a>
+            <a class="arch-item" data-cat="AI Industry" href="the-anthropic-paradox.html"><span class="ai-date">Jun 7</span><span class="ai-title">The Anthropic Paradox: Safety Lab → Weapon Factory</span></a>
+            <a class="arch-item" data-cat="AI Industry" href="the-wage-siphon.html"><span class="ai-date">Jun 6</span><span class="ai-title">The Wage Siphon: Raises Lost to the GPU Fund</span></a>
+            <a class="arch-item" data-cat="AI Engineering" href="the-1400-line-while-loop-production-agent-architecture.html"><span class="ai-date">Jun 5</span><span class="ai-title">The 1,400-Line While Loop: Production Agent Arch</span></a>
+            <a class="arch-item" data-cat="AI Policy" href="the-geo-blocking-of-europe-eu-ai-act-high-risk-deadline.html"><span class="ai-date">May 31</span><span class="ai-title">The Geo-Blocking of Europe: EU AI Act Deadline</span></a>
+            <a class="arch-item" data-cat="AI Privacy" href="total-recall-persistent-ai-memory-platform-lock-in.html"><span class="ai-date">May 25</span><span class="ai-title">Total Recall: Persistent AI Memory = Lock-In</span></a>
+          </div>
+          <div class="arch-empty" id="archEmpty" hidden>No notes in this category yet.</div>
+          <a class="arch-more" href="index.html#feed">Browse full archive →</a>
+        </div>
+      </div>
+
+      <div class="rail-cta">
+        <h4>The Constellation</h4>
+        <p>Five nodes. One operator. Every link is something PhantomByte runs in production.</p>
+        <a class="lead" href="index.html">📰 Articles Home →</a>
+        <a href="https://phantom-byte.com" target="_blank" rel="noopener">Services →</a>
+        <a class="alt" href="https://phantom-byte.com/tutorials" target="_blank" rel="noopener">Tutorials →</a>
+        <a href="https://vincentsativa.com" target="_blank" rel="noopener">Author →</a>
+        <a class="alt" href="https://buymeacoffee.com/drvincentsativa" target="_blank" rel="noopener">☕ Tip the ghost</a>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <div class="sec-kicker">// field note 50</div>
+    <span class="article-category">AI Infrastructure</span>
+    <h1 class="article-title">SWE-Bench Is Dead: Build Your Own Agent Evaluation Stack</h1>
+    <p class="article-deck">SWE-Bench is structurally unsound. Build your own agent evaluation stack with PostgreSQL, pgvector, and self-hosted harnesses. The sovereign eval…</p>
+
+    <figure class="article-featured-image">
                 <img src="images/article-50-main.jpg" alt="SWE-Bench evaluation stack collapse showing self-hosted alternative architecture with PostgreSQL pgvector backbone">
                 <figcaption class="image-caption">The sovereign eval stack: self-hosted, owned, and immune to benchmark collapse.</figcaption>
             </figure>
 
-                        <!-- CTA Slot (Top) -->
-            <div class="ad-slot ad-slot-article-top">
+    <!-- CTA Slot (Top) — kept exact -->
+    <div class="ad-slot ad-slot-article-top">
                 <a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank">
                     <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25); border: none;">
                         <p style="font-size: 0.7rem; color: #FF6B35; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">⚠️ Exit the Cloud</p>
@@ -253,8 +501,7 @@
                 </a>
             </div>
 
-            <!-- Article Body -->
-            <div class="article-body">
+    <div class="article-body">
                 <p class="lead-paragraph" style="margin-top: 50px;">
                     I spent Saturday morning reading the GitHub issues on SWE-Bench. All 545 of them. I did this not because I am a masochist, but because my CI/CD pipeline was flagging correct agent output as failed, and I needed to know why. What I found was not a bug in my code. It was a bug in the entire concept of vendor-controlled evaluation.
                 </p>
@@ -264,7 +511,7 @@
                 </p>
 
                 <!-- Why SWE-Bench Verified Fails Its Own Test -->
-                <h2>Why SWE-Bench Verified Fails Its Own Test</h2>
+                <h2 id="sec-1">Why SWE-Bench Verified Fails Its Own Test</h2>
                 <p>
                     Let me walk you through what I found in those GitHub issues.
                 </p>
@@ -294,7 +541,7 @@
                 </p>
 
                 <!-- The Sovereign Alternative -->
-                <h2>The Sovereign Alternative: Self-Hosted Agent Evaluation</h2>
+                <h2 id="sec-2">The Sovereign Alternative: Self-Hosted Agent Evaluation</h2>
                 <p>
                     Here is the brutal truth. The entire eval-as-a-service model is collapsing in slow motion. You are paying cloud companies to grade your agents with rubrics they designed, on datasets they curated, with harnesses they refuse to open-source. That is not evaluation. That is vendor-managed performance art.
                 </p>
@@ -319,7 +566,7 @@
                 </p>
 
                 <!-- The Missing Link: Persistent State and Memory -->
-                <h2>The Missing Link: Persistent State and Memory</h2>
+                <h2 id="sec-3">The Missing Link: Persistent State and Memory</h2>
                 <p>
                     An evaluation harness is only half the equation. To build agents that actually learn from their failures during these evaluations, you need persistent state. An evaluation stack without state is just a fancy linter.
                 </p>
@@ -355,7 +602,7 @@
                 </p>
 
                 <!-- Building Your CI/CD Pipeline -->
-                <h2>Building Your CI/CD Pipeline Without Vendor Benchmarks</h2>
+                <h2 id="sec-4">Building Your CI/CD Pipeline Without Vendor Benchmarks</h2>
                 <p>
                     SWE-Bench is structurally unsound. The alternative is to build your own agent evaluation CI/CD. It is not as scary as it sounds.
                 </p>
@@ -381,7 +628,7 @@
                 </p>
 
                 <!-- The Cost of Subscription Lock-in -->
-                <h2>The Cost of Subscription Lock-in</h2>
+                <h2 id="sec-5">The Cost of Subscription Lock-in</h2>
                 <p>
                     Let us run the numbers to see where the vendor lock-in gets personal. Claude Pro is $20 a month, Claude Max is $100 a month, and enterprise tiers require custom contracts. Memory is bundled inside these tiers, meaning you do not get memory without the model, and you do not get memory without the subscription.
                 </p>
@@ -403,7 +650,7 @@
                 </p>
 
                 <!-- The Sovereign Path -->
-                <h2>The Sovereign Path</h2>
+                <h2 id="sec-6">The Sovereign Path</h2>
                 <p>
                     The SWE-Bench collapse is not just a technical story; it is an inflection point. For two years, the industry outsourced evaluation to a single benchmark. That benchmark is now structurally unreliable. The vendor-controlled alternatives offer the exact same conflict of interest, as the company grading your agents is the same company selling you the model.
                 </p>
@@ -453,8 +700,8 @@
                 </div>
             </div>
 
-                        <!-- CTA Slot (Bottom) -->
-            <div class="ad-slot ad-slot-article-bottom">
+    <!-- CTA Slot (Bottom) — kept exact -->
+    <div class="ad-slot ad-slot-article-bottom">
                 <a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank">
                     <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25); border: none;">
                         <p style="font-size: 0.7rem; color: #FF6B35; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">⚠️ Exit the Cloud</p>
@@ -466,56 +713,169 @@
                     </div>
                 </a>
             </div>
-        </article>
-    </main>
 
-    <!-- Footer (EXACT MATCH - from articles.phantom-byte.com) -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
-                    </div>
-                    <p class="tagline">Code from the shadows</p>
-                    <div class="footer-cta">
-                        <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn">
-                            ☕ Buy Me a Coffee
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="https://phantom-byte.com" target="_blank">Services</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-social">
-                    <h4>Social</h4>
-                    <ul>
-                        <li><a href="https://x.com/PhantomByteAI" target="_blank">X / Twitter</a></li>
-                        <li><a href="https://www.pinterest.com/PhantomByteAI" target="_blank">Pinterest</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>© 2026 PhantomByte. All rights reserved.</p>
-                <p class="privacy-links">
-                    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
-                </p>
-            </div>
+    <!-- CONSTELLATION: the 5 promoted nodes (now inside main, beside the rail) -->
+    <section class="constellation" id="network">
+      <div class="cwrap">
+        <div class="sec-kicker">// the constellation</div>
+        <h2 style="font-size:clamp(1.4rem,4vw,2rem);font-weight:900;color:#fff;letter-spacing:-.5px">Five nodes. <span style="color:var(--green)">One operator.</span></h2>
+        <div class="const-grid">
+          <a class="const-card lead" href="index.html">
+            <div class="cc-top"><div class="cc-ico">📰</div><div class="cc-tag">Articles Home</div></div>
+            <h3>articles.phantom-byte.com</h3>
+            <p>The full feed of daily field notes. 112 notes and growing, one article every day. Infrastructure that ships.</p>
+            <span class="cc-go">open node →</span>
+          </a>
+          <a class="const-card" href="https://phantom-byte.com" target="_blank" rel="noopener">
+            <div class="cc-top"><div class="cc-ico">🛡️</div><div class="cc-tag">Services</div></div>
+            <h3>phantom-byte.com</h3>
+            <p>AI R&amp;D studio. Sovereign AI stacks, production agent systems, autonomous content engines. Infrastructure that ships.</p>
+            <span class="cc-go">open node →</span>
+          </a>
+          <a class="const-card" href="https://phantom-byte.com/tutorials" target="_blank" rel="noopener">
+            <div class="cc-top"><div class="cc-ico">🚀</div><div class="cc-tag">Learn</div></div>
+            <h3>phantom-byte.com/tutorials</h3>
+            <p>Step-by-step PDF tutorials. Local AI stacks, autonomous agents, multi-agent orchestration, custom tools. Build it yourself.</p>
+            <span class="cc-go">open node →</span>
+          </a>
+          <a class="const-card" href="https://buymeacoffee.com/drvincentsativa" target="_blank" rel="noopener">
+            <div class="cc-top"><div class="cc-ico">☕</div><div class="cc-tag">Support</div></div>
+            <h3>buymeacoffee.com/drvincentsativa</h3>
+            <p>Tip the operator. Every coffee keeps the daily field notes flowing and the infrastructure running.</p>
+            <span class="cc-go">open node →</span>
+          </a>
+          <a class="const-card" href="https://vincentsativa.com" target="_blank" rel="noopener">
+            <div class="cc-top"><div class="cc-ico">👤</div><div class="cc-tag">Author</div></div>
+            <h3>vincentsativa.com</h3>
+            <p>Vinny Barreca, the operator behind PhantomByte. Portfolio, writing, and the work behind the studio.</p>
+            <span class="cc-go">open node →</span>
+          </a>
         </div>
-    </footer>
+      </div>
+    </section>
+  </main>
+</div>
 
-    <!-- Scripts -->
-    <script src="scripts/ad-manager.js" defer></script>
-    <script src="scripts/email-signup.js" defer></script>
-    <script src="scripts/share-buttons.js" defer></script>
+<!-- FOOTER (exact match to articles.phantom-byte.com) -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo">
+        <svg class="ghost" viewBox="0 0 100 100" aria-hidden="true" style="width:24px;height:24px"><path fill="#9D4EDD" d="M50 5C25 5 10 25 10 50v35l8-8 8 8 8-8 8 8 8-8 8 8V50C66 25 60 5 50 5z"></path><circle fill="#050507" cx="38" cy="42" r="6"></circle><circle fill="#050507" cx="62" cy="42" r="6"></circle><ellipse fill="#050507" cx="50" cy="58" rx="8" ry="6"></ellipse></svg>
+        <span><span class="phantom">Phantom</span><span class="byte">Byte</span></span>
+      </div>
+      <p class="foot-tag">👻 Code from the shadows</p>
+      <div class="foot-cta">
+        <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" rel="noopener">☕ Buy Me a Coffee</a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h4>Articles</h4>
+      <ul>
+        <li><a href="index.html#feed">Archive</a></li>
+        <li><a href="rss.xml">RSS Feed</a></li>
+        <li><a href="sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Network</h4>
+      <ul>
+        <li><a href="https://phantom-byte.com" target="_blank" rel="noopener">PhantomByte Services</a></li>
+        <li><a href="https://phantom-byte.com/tutorials" target="_blank" rel="noopener">Tutorials</a></li>
+        <li><a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank" rel="noopener">Sovereign AI Blueprint</a></li>
+        <li><a href="https://vincentsativa.com" target="_blank" rel="noopener">Vincent Sativa</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Social</h4>
+      <ul>
+        <li><a href="https://x.com/PhantomByteAI" target="_blank" rel="noopener">X / Twitter</a></li>
+        <li><a href="https://www.pinterest.com/PhantomByteAI" target="_blank" rel="noopener">Pinterest</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p>© 2026 PhantomByte. All rights reserved.</p>
+    <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+  </div>
+</footer>
 
+</div>
 
+<!-- Scripts (kept exactly) -->
+<script src="scripts/ad-manager.js" defer></script>
+<script src="scripts/email-signup.js" defer></script>
+<script src="scripts/share-buttons.js" defer></script>
+<script>
+// mobile rail dropdown toggle
+(function(){
+  var r=document.getElementById('rail'),t=document.getElementById('railToggle');
+  if(!t)return;
+  t.addEventListener('click',function(){var o=r.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');});
+})();
+
+// rail tabs: Contents / Archive
+(function(){
+  var tabs=document.querySelectorAll('.rt-tab');
+  if(!tabs.length)return;
+  tabs.forEach(function(tab){
+    tab.addEventListener('click',function(){
+      tabs.forEach(function(x){x.classList.remove('active');});
+      tab.classList.add('active');
+      var name=tab.dataset.tab;
+      document.getElementById('panel-contents').hidden = name!=='contents';
+      document.getElementById('panel-archive').hidden = name!=='archive';
+    });
+  });
+})();
+
+// archive category filter
+(function(){
+  var chips=document.querySelectorAll('.arch-chip'),list=document.getElementById('archList'),empty=document.getElementById('archEmpty');
+  if(!chips.length)return;
+  var items=Array.prototype.slice.call(list.querySelectorAll('.arch-item'));
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){
+      chips.forEach(function(x){x.classList.remove('active');});
+      c.classList.add('active');
+      var cat=c.dataset.cat, n=0;
+      items.forEach(function(it){
+        var show = cat==='all' || it.dataset.cat===cat;
+        it.style.display = show ? '' : 'none';
+        if(show)n++;
+      });
+      empty.hidden = n!==0;
+    });
+  });
+})();
+
+// scrollspy: highlight current TOC entry as you read
+(function(){
+  var links=document.querySelectorAll('#toc a[data-target]');
+  if(!links.length||!('IntersectionObserver'in window))return;
+  var byId={};
+  links.forEach(function(l){byId[l.dataset.target]=l;});
+  var visible={};
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) visible[e.target.id]=e.intersectionRatio;
+      else delete visible[e.target.id];
+    });
+    var best=null,bestR=0;
+    Object.keys(visible).forEach(function(id){if(visible[id]>bestR){bestR=visible[id];best=id;}});
+    links.forEach(function(l){l.classList.toggle('active', l.dataset.target===best);});
+  },{rootMargin:'-110px 0px -65% 0px',threshold:[0,0.1,0.5,1]});
+  links.forEach(function(l){var s=document.getElementById(l.dataset.target);if(s)io.observe(s);});
+})();
+
+// relocate web-push button out of <header> (backdrop-filter traps position:fixed)
+(function(){
+  function relocate(){var c=document.getElementById('phantombyte-push-container');if(c&&c.parentNode!==document.body){document.body.appendChild(c);}}
+  if(document.readyState!=='loading'){relocate();}else{document.addEventListener('DOMContentLoaded',relocate);}
+  window.addEventListener('load',function(){relocate();setTimeout(relocate,300);setTimeout(relocate,1200);});
+  var h=document.querySelector('header');
+  if(h&&window.MutationObserver){var mo=new MutationObserver(function(){relocate();});mo.observe(h,{childList:true,subtree:true});setTimeout(function(){mo.disconnect();},6000);}
+})();
+</script>
 </body>
 </html>
