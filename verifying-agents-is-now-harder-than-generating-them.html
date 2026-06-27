@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI verification is now harder than AI generation. $150M in funding and two research papers prove it. Here's the 4-layer verification stack for agents.">
+    <meta name="keywords" content="AI verification, agent infrastructure, hallucination detection, AI safety, reward hacking, prompt engineering, agent testing, Scaled Cognition, Patronus AI, verification horizon, instruction bleed, compositional behavioral leakage, AI deployment">
+    <meta name="author" content="Vinny Barreca">
+    <meta name="theme-color" content="#9D4EDD">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://articles.phantom-byte.com/verifying-agents-is-now-harder-than-generating-them.html">
+    <meta property="og:title" content="Verifying Agents Is Now Harder Than Generating Them">
+    <meta property="og:description" content="AI verification is now harder than AI generation. $150M in funding and two research papers prove it. Here's the 4-layer verification stack for agents.">
+    <meta property="og:image" content="https://articles.phantom-byte.com/images/article-111-main.jpg">
+    <meta property="article:published_time" content="2026-06-27">
+    <meta property="article:author" content="Vinny Barreca">
+    <meta property="article:section" content="AI Infrastructure">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://articles.phantom-byte.com/verifying-agents-is-now-harder-than-generating-them.html">
+    <meta property="twitter:title" content="Verifying Agents Is Now Harder Than Generating Them">
+    <meta property="twitter:description" content="AI verification is now harder than AI generation. $150M in funding and two research papers prove it. Here's the 4-layer verification stack for agents.">
+    <meta property="twitter:image" content="https://articles.phantom-byte.com/images/article-111-main.jpg">
+    
+    <!-- Canonical URL (CRITICAL FOR SEO) -->
+    <link rel="canonical" href="https://articles.phantom-byte.com/verifying-agents-is-now-harder-than-generating-them.html">
+    
+    <title>Verifying Agents Is Now Harder Than Generating Them - PhantomByte</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PDQCZE09E4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PDQCZE09E4');
+    </script>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/article.css">
+    
+    <!-- Web Push Notification Script -->
+    <script src="scripts/web-push-client.js" defer></script>
+    
+    <!-- ARTICLE SCHEMA MARKUP (JSON-LD for SEO + GEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Verifying Agents Is Now Harder Than Generating Them",
+      "alternativeHeadline": "Why AI Verification Is the New Bottleneck in Production Agent Deployment",
+      "author": {
+        "@type": "Person",
+        "name": "Vinny Barreca",
+        "url": "https://phantom-byte.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "PhantomByte",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://articles.phantom-byte.com/images/phantombyte-logo.png"
+        }
+      },
+      "datePublished": "2026-06-27",
+      "dateModified": "2026-06-27",
+      "description": "AI verification is now harder than AI generation. $150M in funding and two research papers prove it. Here's the 4-layer verification stack for agents.",
+      "articleBody": "For decades, computer science ran on a simple assumption: verifying a solution is easier than producing one. You write the code, someone else reviews it. You prove the theorem, the community checks it. Generation was the hard part. Verification was the safety net. That assumption is dead.",
+      "wordCount": "1700",
+      "timeRequired": "PT8M",
+      "proficiencyLevel": "Intermediate",
+      "articleSection": "AI Infrastructure",
+      "keywords": "AI verification, agent infrastructure, hallucination detection, AI safety, reward hacking, prompt engineering, agent testing, Scaled Cognition, Patronus AI, verification horizon, instruction bleed, compositional behavioral leakage, AI deployment",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://articles.phantom-byte.com/images/article-111-main.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://articles.phantom-byte.com/verifying-agents-is-now-harder-than-generating-them.html"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+            </a>
+            <nav class="main-nav">
+                <a href="https://phantom-byte.com" target="_blank">Services</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="article-main">
+        <article class="article-container">
+            <!-- Article Header -->
+            <header class="article-header">
+                <span class="article-category">AI Infrastructure</span>
+                <h1 class="article-title">Verifying Agents Is Now Harder Than Generating Them</h1>
+                
+                <div class="article-meta">
+                    <div class="author-info">
+                        <img src="images/author-vinny.jpg" alt="Vinny Barreca" class="author-avatar">
+                        <div class="author-details">
+                            <span class="author-name">Vinny Barreca</span>
+                            <span class="publish-date">June 27, 2026</span>
+                        </div>
+                    </div>
+                    <div class="meta-actions">
+                        <span class="read-time">8 min read</span>
+                        <button class="share-btn" aria-label="Share article">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                                <polyline points="16 6 12 2 8 6"/>
+                                <line x1="12" y1="2" x2="12" y2="15"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <figure class="article-featured-image">
+                <img src="images/article-111-main.jpg" alt="AI verification concept - checking agent outputs is now harder than generating them">
+                <figcaption class="image-caption">The verification gap is the single most important bottleneck in production AI right now.</figcaption>
+            </figure>
+
+            <!-- CTA Slot (Top) -->
+            <div class="ad-slot ad-slot-article-top">
+                <a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank">
+                    <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25); border: none;">
+                        <p style="font-size: 0.7rem; color: #FF6B35; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">⚠️ Exit the Cloud</p>
+                        <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Own Your Weights. Own Your Data.</h4>
+                        <p style="margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.5; color: #e0e0e0; font-weight: 400;">The cloud AI era is a data-harvesting trap. Stop being the product and start being the owner. Build your local sovereign stack today.</p>
+                        <div style="text-align: center;">
+                            <span style="display: inline-block; padding: 11px 22px; background: linear-gradient(90deg, #00FF88 0%, #00cc6a 100%); color: #0a0a1a; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(0, 255, 136, 0.35);">Download The Blueprint</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Article Body -->
+            <div class="article-body">
+                <p class="lead-paragraph" style="margin-top: 50px;">
+                    For decades, computer science ran on a simple assumption: verifying a solution is easier than producing one. You write the code, someone else reviews it. You prove the theorem, the community checks it. Generation was the hard part. Verification was the safety net.
+                </p>
+
+                <p>
+                    That assumption is dead.
+                </p>
+
+                <p>
+                    On June 25, 2026, two AI startups announced $150 million in fresh funding within hours of each other. Scaled Cognition raised $100 million for real-time hallucination detection. Patronus AI raised $50 million for digital worlds that stress-test agents before deployment. Both companies exist for the same reason: the market has realized that for AI agents, checking output is now harder than generating it.
+                </p>
+
+                <p>
+                    If you have deployed an agent, you know the feeling. It produced an answer that looked right. The grammar was clean, the logic appeared sound, the citations were formatted perfectly. You shipped it. You did not verify it. You could not verify it. That gap, between what an agent can generate and what a human can reliably check, is the single most important bottleneck in production AI right now. This article maps that gap.
+                </p>
+
+                <!-- Key Takeaways -->
+                <h2>Key Takeaways</h2>
+                <ul>
+                    <li><strong>Verification has replaced generation as the primary bottleneck in AI agent deployment.</strong></li>
+                    <li><strong>A robust verification architecture requires four layers: Output, Behavioral, Cross-module interference, and Human intent alignment.</strong></li>
+                    <li><strong>New failure modes like Compositional Behavioral Leakage (CBL) render standard QA protocols obsolete for prompt-composed agents.</strong></li>
+                </ul>
+
+                <!-- $150 Million Section -->
+                <h2>$150 Million in One Day for Verification Infrastructure</h2>
+
+                <p>
+                    The funding announcements on June 25 were not a coincidence. They were a market signal.
+                </p>
+
+                <p>
+                    Scaled Cognition, an AI lab focused on reliability, raised $100 million in a Series A led by Khosla Ventures to build technology that detects and mitigates AI hallucinations in real time. Its approach uses a secondary verification layer that cross-references model outputs against structured knowledge bases before the user ever sees them. The company is targeting regulated industries first: healthcare, finance, and legal. These are sectors where a wrong answer does not mean embarrassment; it means liability.
+                </p>
+
+                <p>
+                    Patronus AI, founded in 2023 by former Meta AI researchers Anand Kannappan and Rebecca Qian, raised $50 million in a Series B led by Greenfield Partners, with Notable Capital, Lightspeed, Datadog, and Samsung participating. The round brings total funding to $70 million. Patronus builds what it calls "digital world models," simulated environments that replicate websites and internal systems so agents can be stress-tested for safety, reliability, and edge-case behavior without real-world risk. Revenue has grown fifteen-fold over the past year.
+                </p>
+
+                <p>
+                    Virtually every frontier AI lab is now a Patronus customer, according to Glenn Solomon at Notable Capital. The demand for simulated testing environments is, in his words, nearly insatiable.
+                </p>
+
+                <p>
+                    Two companies. Two different approaches. One shared insight: verification is no longer an afterthought. It is becoming a standalone market category.
+                </p>
+
+                <!-- The Verification Horizon -->
+                <h2>The Verification Horizon</h2>
+
+                <p>
+                    The funding aligns with a foundational research paper that landed on arXiv on June 24, 2026, the day before those rounds closed. Titled "The Verification Horizon: No Silver Bullet for Coding Agent Rewards," the paper makes a direct challenge to classical computer science intuition.
+                </p>
+
+                <p>
+                    As foundation models develop stronger reasoning capabilities and engineering harnesses grow more sophisticated, generating complex candidate solutions is no longer the difficult part. Reliably verifying those solutions has become the harder problem.
+                </p>
+
+                <p>
+                    The paper, authored by a team of researchers including Binghai Wang, Chenlong Zhang, and Dayiheng Liu, puts the problem in stark terms. Every verifier we can build is only a proxy for human intent, never the intent itself. That makes verification subject to a twofold difficulty. First, intent is underspecified by nature, so it is inherently hard to check whether it has been fulfilled. Second, during model training, optimization widens the gap between proxy and intent, manifesting as reward hacking or signal saturation.
+                </p>
+
+                <p>
+                    The researchers characterize verification signals along three dimensions: scalability, faithfulness, and robustness. Achieving all three simultaneously is the central challenge. They studied four reward constructions across different task types: a test verifier for general coding tasks, a rubric verifier for frontend tasks, the user as verifier for real-world agent tasks, and an automated agent verifier for long-horizon tasks. Across different task types and policy capability levels, the core finding was consistent. No fixed reward function can remain effective as policy capability continues to grow. Verification must co-evolve with the generator.
+                </p>
+
+                <p>
+                    This is not an abstract concern. It is an architectural one. You cannot bolt on verification after the fact. It has to be designed into the system.
+                </p>
+
+                <!-- The Failure Mode Section -->
+                <h2>The Failure Mode Standard QA Misses: Instruction Bleed</h2>
+
+                <p>
+                    If the verification horizon tells us why checking is hard, a separate research contribution from the ICML 2026 Workshop tells us about a failure mode most production systems do not even know to look for.
+                </p>
+
+                <p>
+                    Researchers formalized a new failure mode called Compositional Behavioral Leakage, or CBL. In prompt-composed agentic systems, editing one prompt module silently shifts the behavior of other modules, even when there is no shared variable or executable dependency between them. The phenomenon is enabled by architectural non-isolation in transformer self-attention, which provides no formal boundary between concatenated prompt modules.
+                </p>
+
+                <!-- In-Article Image -->
+                <figure class="article-image article-image-right">
+                    <img src="images/article-111-inside.jpg" alt="Compositional Behavioral Leakage diagram showing cross-module interference in prompt-composed agent systems">
+                    <figcaption class="image-caption">CBL is a new category of bug that standard QA cannot detect.</figcaption>
+                </figure>
+
+                <p>
+                    In 144 trials on a deployed job-evaluation agent using Claude Sonnet 4.6, the content channel produced a detectable paired effect that was invisible to standard QA but compounds across thousands of decisions. CBL is orthogonal to known failure modes like adversarial injection, cognitive degradation, and privacy leakage. It is a new category of bug.
+                </p>
+
+                <p>
+                    The paper contributes an operational definition, a reusable three-channel testing protocol, and establishes cross-module interference measurement as a requirement for prompt-composed agent evaluation.
+                </p>
+
+                <p>
+                    The implication is straightforward and brutal: your agent can pass every unit test, integration test, and human review you throw at it, and still be bleeding instructions across modules in ways that only show up at scale. This is exactly why the digital world models built by companies like Patronus AI are becoming strictly necessary, as they provide the isolated environments needed to detect these invisible shifts before they reach production.
+                </p>
+
+                <p>
+                    Standard QA was built for software with stable interfaces. Agents do not have stable interfaces. Their behavior shifts with context, prompt composition, and attention patterns. The testing protocols we have are designed for a world that no longer exists.
+                </p>
+
+                <!-- What a Real Verification Stack Looks Like -->
+                <h2>What a Real Verification Stack Looks Like</h2>
+
+                <p>
+                    So what does verification actually look like in practice? Not as a single tool, but as an architecture.
+                </p>
+
+                <p>
+                    <strong>Layer 1 is output verification.</strong> Scaled Cognition's model is the reference here. Cross-reference every model output against structured knowledge bases before it reaches a user. This is the simplest layer, and it is already table stakes for regulated industries. If your agent cannot prove its output against a verified source, it should not ship.
+                </p>
+
+                <p>
+                    <strong>Layer 2 is behavioral verification.</strong> Patronus AI's approach is the template. Build digital replicas of production environments and run agents through edge cases, rare events, and adversarial conditions before they touch live systems. This is how you catch the shortcuts agents take, the hacks they discover, and the failure modes that only appear under stress. Patronus compares this to how Waymo trained autonomous cars in synthetic worlds before putting them on real roads.
+                </p>
+
+                <p>
+                    <strong>Layer 3 is cross-module interference detection.</strong> The three-channel testing protocol from the instruction bleed paper belongs here. Every time you edit a prompt module, you need to check whether behavior shifted in other modules. This is not regression testing as we know it. It is behavioral coherence testing, and it needs to be part of the CI pipeline for any prompt-composed agent system.
+                </p>
+
+                <p>
+                    <strong>Layer 4 is human intent alignment.</strong> This is the co-evolution problem from the verification horizon paper. Your reward functions, verification criteria, and evaluation rubrics cannot be static. They have to grow as the agent's capabilities grow. If your verifier stays fixed while your generator improves, the gap between proxy and intent widens, and reward hacking becomes inevitable.
+                </p>
+
+                <p>
+                    This is not a single tool. It is an architecture. And most production agent deployments today have at most one of these layers operational.
+                </p>
+
+                <!-- Why This Matters -->
+                <h2>Why This Matters for Every Agent Deployment</h2>
+
+                <p>
+                    The theory is clean. The consequences are messy.
+                </p>
+
+                <p>
+                    The cost of verification failures spans information, capital, and security.
+                </p>
+
+                <p>
+                    On the information front, in June 2026, DuckDuckGo's AI-powered answer feature generated a false claim that former President Trump died of rabies. Completely fabricated. Confidently delivered. This is what happens when a search product ships with inadequate output verification in a high-stakes information environment. The error was not a coding bug. It was a verification gap. The system generated something plausible and had no reliable mechanism to catch that it was wrong.
+                </p>
+
+                <p>
+                    Then there is the economic reality of capital loss. Epoch AI's new MirrorCode benchmark revealed that one AI model ran continuously for nineteen days on a single programming task, costing $2,600 in compute. A human programmer would have solved the task in hours. The experiment reveals the staggering gap between human and AI efficiency, but it also reveals something deeper: the agent had no effective way to verify its own completion. Without hard budgets and early-stopping mechanisms, costs spiral far beyond what a human would cost, and the task still might not be done right.
+                </p>
+
+                <p>
+                    Finally, there are the security implications. In another incident, Anthropic accused Alibaba of executing the largest known cloning attack against its Claude model, using 25,000 fraudulent accounts to generate 28.8 million queries in a systematic effort to replicate Claude's behavior in a competing model. This is verification of model provenance as a security requirement. If you cannot verify where a model came from, whether it has been distilled, cloned, or tampered with, you cannot verify what it will do.
+                </p>
+
+                <p>
+                    Verification is not a nice-to-have layer. It is load-bearing infrastructure. When it fails, the whole structure collapses.
+                </p>
+
+                <!-- The Infrastructure Layer Nobody Planned For -->
+                <h2>The Infrastructure Layer Nobody Planned For</h2>
+
+                <p>
+                    The original agent infrastructure stack made a bad assumption. It assumed models would get better and verification would get easier. More capable models would produce more obviously correct outputs, and checking them would become trivial.
+                </p>
+
+                <p>
+                    The opposite happened. Models got better, outputs got more plausible, and verification got harder. A plausible wrong answer is harder to catch than an obvious wrong answer. When a model generates confident, well-structured, apparently reasoned output that is completely fabricated, the human reviewer is more likely to accept it, not less.
+                </p>
+
+                <p>
+                    This is the core insight that $150 million in venture funding just validated. The companies that solve verification will unlock the next level of AI deployment. Not the companies that build bigger models. The companies that build better verifiers.
+                </p>
+
+                <p>
+                    Engineering talent should be following that signal. The frontier is not generation anymore. The frontier is checking.
+                </p>
+
+                <!-- Close -->
+                <h2>Close</h2>
+
+                <p>
+                    The agent that generates flawlessly but cannot be verified is not deployed. It is deferred. And in production AI, deferred is just a slower way of saying broken. The gap between generation and verification is not closing. It is widening. The only way to close it is to build verification into the architecture from day one.
+                </p>
+
+                <div class="article-email-signup">
+                    <h3>Get More Articles Like This</h3>
+                    <p>Getting your AI agent setup right is just the start. I'm documenting every mistake, fix, and lesson learned as I build PhantomByte.</p>
+                    <p>Subscribe to receive updates when we publish new content. No spam, just real lessons from the trenches.</p>
+                    <form class="signup-form" id="articleEmailSignup">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+
+                <!-- Buy Me a Coffee CTA -->
+                <div class="coffee-cta">
+                    <p>Enjoyed this article?</p>
+                    <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn-large">
+                        <span>☕</span> Buy Me a Coffee
+                    </a>
+                    <p class="coffee-subtext">Support PhantomByte and keep the content coming!</p>
+                </div>
+
+                <!-- Tutorials CTA -->
+                <div class="tutorials-cta" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 28px; border-radius: 12px; margin: 32px 0; border: 1px solid rgba(157, 78, 221, 0.3);">
+                    <h3 style="color: #9D4EDD; margin: 0 0 12px 0; font-size: 1.2rem; font-weight: 700;">Build Real AI Infrastructure</h3>
+                    <p style="color: #e0e0e0; margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.6;">
+                        PhantomByte teaches you to build real AI infrastructure yourself: local AI stacks, autonomous agents, multi-agent orchestration, web scraping, and custom tools. Step-by-step PDF tutorials you download, follow, and deploy. No subscriptions. No fluff. Just skills that ship.
+                    </p>
+                    <div style="text-align: center;">
+                        <a href="https://phantom-byte.com/tutorials" target="_blank" style="display: inline-block; padding: 12px 28px; background: linear-gradient(90deg, #9D4EDD 0%, #7B2CBF 100%); color: #ffffff; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 1rem; box-shadow: 0 3px 10px rgba(157, 78, 221, 0.35);">
+                            Browse Tutorials →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Share/Related Section -->
+                <div class="article-footer">
+                    <div class="share-section">
+                        <h3>Share this article</h3>
+                        <div class="share-buttons">
+                            <button class="share-btn-twitter">Twitter</button>
+                            <button class="share-btn-facebook">Facebook</button>
+                            <button class="share-btn-linkedin">LinkedIn</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Slot (Bottom) -->
+            <div class="ad-slot ad-slot-article-bottom">
+                <a href="https://sovereign-ai-stack.phantom-byte.com" target="_blank">
+                    <div class="ad-creative" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 24px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25); border: none;">
+                        <p style="font-size: 0.7rem; color: #FF6B35; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">⚠️ Exit the Cloud</p>
+                        <h4 style="margin: 0 0 12px 0; color: #ffffff; font-size: 1.3rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.4);">Own Your Weights. Own Your Data.</h4>
+                        <p style="margin: 0 0 16px 0; font-size: 0.95rem; line-height: 1.5; color: #e0e0e0; font-weight: 400;">The cloud AI era is a data-harvesting trap. Stop being the product and start being the owner. Build your local sovereign stack today.</p>
+                        <div style="text-align: center;">
+                            <span style="display: inline-block; padding: 11px 22px; background: linear-gradient(90deg, #00FF88 0%, #00cc6a 100%); color: #0a0a1a; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; box-shadow: 0 3px 10px rgba(0, 255, 136, 0.35);">Download The Blueprint</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer (EXACT MATCH - from articles.phantom-byte.com) -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-phantom">Phantom</span><span class="logo-byte">Byte</span>
+                    </div>
+                    <p class="tagline">Code from the shadows</p>
+                    <div class="footer-cta">
+                        <a href="https://buymeacoffee.com/DrVincentSativa" target="_blank" class="coffee-btn">
+                            ☕ Buy Me a Coffee
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="https://phantom-byte.com" target="_blank">Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Social</h4>
+                    <ul>
+                        <li><a href="https://x.com/PhantomByteAI" target="_blank">X / Twitter</a></li>
+                        <li><a href="https://www.pinterest.com/PhantomByteAI" target="_blank">Pinterest</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 PhantomByte. All rights reserved.</p>
+                <p class="privacy-links">
+                    <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/ad-manager.js" defer></script>
+    <script src="scripts/email-signup.js" defer></script>
+    <script src="scripts/share-buttons.js" defer></script>
+</body>
+</html>

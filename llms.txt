@@ -6,8 +6,9 @@ PhantomByte builds custom AI tools for small businesses. Our articles cover real
 agent orchestration patterns, infrastructure lessons, and honest engineering breakdowns.
 Written by Vinny Barreca. Updated regularly.
 
-## Articles (114 total)
+## Articles (115 total)
 
+- [Verifying Agents Is Now Harder Than Generating Them](https://articles.phantom-byte.com/verifying-agents-is-now-harder-than-generating-them.html): AI verification is now harder than AI generation. $150M in funding and two research papers prove it. Here's the 4-layer verification stack for agents. (2026-06-27)
 - [AI Trust Crisis: Police Abandoned 23 Models](https://articles.phantom-byte.com/british-police-built-23-ai-models-then-they-stopped-trusting-them.html): British police built 23 AI models to score half a million people on risk. Then they stopped trusting it. Trust is a systems property. Build verification first. (2026-06-26)
 - [Agent Red-Teaming: The Missing Security Layer](https://articles.phantom-byte.com/agent-red-teaming-security.html): RIFT-Bench maps your agent's attack surface as a graph. VeryTrace formalizes reasoning into compilable logic. Agent red-teaming is the missing security layer. (2026-06-25)
 - [Monolithic Agent Architecture](https://articles.phantom-byte.com/monolithic-agent-architecture.html): Ten architectural patterns. Four responsibility layers. The monolithic agent is dead. Learn the 4-layer skill architecture replacing it with CUGA. (2026-06-24)

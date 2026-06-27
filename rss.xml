@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 26 Jun 2026 04:19:27 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jun 2026 04:55:50 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>Verifying Agents Is Now Harder Than Generating Them</title>
+      <link>https://articles.phantom-byte.com/verifying-agents-is-now-harder-than-generating-them.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/verifying-agents-is-now-harder-than-generating-them.html</guid>
+      <pubDate>Sat, 27 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Infrastructure</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>AI verification is now harder than AI generation. $150M in funding and two research papers prove it. Here&#39;s the 4-layer verification stack for agents.</description>
+    </item>
 
     <item>
       <title>AI Trust Crisis: Police Abandoned 23 Models</title>
@@ -501,16 +511,6 @@
       <category>AI Industry</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>Meta&#39;s unblockable Threads bot, Amazon&#39;s AI usage tracking, Google&#39;s Gemini OS—forced AI is a coordinated push to remove choice. Here&#39;s how to fight back.</description>
-    </item>
-
-    <item>
-      <title>When AI Pulls the Trigger: Criminal Liability</title>
-      <link>https://articles.phantom-byte.com/when-the-bot-pulls-the-trigger.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/when-the-bot-pulls-the-trigger.html</guid>
-      <pubDate>Tue, 12 May 2026 00:00:00 GMT</pubDate>
-      <category>AI Policy</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>Vandana Joshi sued OpenAI alleging ChatGPT enabled the FSU shooting. As autonomous AI beats security experts, courts face a criminal liability vacuum.</description>
     </item>
   </channel>
 </rss>
