@@ -466,8 +466,16 @@
 }
 
 /* ===================================
-   Code Blocks - Wrap Long Lines
+   Code Blocks - Wrap Long Lines (mobile-safe)
+   - overflow-wrap: anywhere (NOT break-word) reduces min-content width,
+     so long unbreakable tokens (import paths, identifiers) wrap instead
+     of blowing out the CSS grid / page on mobile.
+   - .console > * { min-width: 0 } is the grid-blowout guard: without it
+     a grid item's default min-width:auto refuses to shrink below its
+     content, forcing <main> (and the code box) wider than the viewport.
    =================================== */
+.console > * { min-width: 0; }
+
 .article-body pre {
     background: var(--dark-gray);
     border: 1px solid var(--light-gray);
@@ -476,6 +484,8 @@
     margin: 30px 0;
     overflow-x: auto;
     max-width: 100%;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
 }
 
 .article-body pre code {
@@ -485,8 +495,7 @@
     line-height: 1.6;
     color: var(--light-text);
     white-space: pre-wrap;
-    word-break: break-word;
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
 }
 
 .article-body code {

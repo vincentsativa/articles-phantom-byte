@@ -593,7 +593,7 @@ footer{background:var(--darker);border-top:2px solid var(--purple);padding:48px 
 
                 <h3>The Three-Tier Architecture</h3>
 
-                <pre style="background: #1a1a2e; padding: 20px; border-radius: 8px; overflow-x: auto; color: #e0e0e0;">
+                <pre style="background: #1a1a2e; padding: 20px; border-radius: 8px; overflow-x: auto; color: #e0e0e0; white-space: pre;">
 ┌─────────────────┐
 │   User Query    │
 └────────┬────────┘
@@ -628,8 +628,7 @@ footer{background:var(--darker);border-top:2px solid var(--purple);padding:48px 
                     Here is a production-ready pattern using GPTCache, the open-source semantic caching layer:
                 </p>
 
-                <pre style="background: #1a1a2e; padding: 20px; border-radius: 8px; overflow-x: auto; color: #e0e0e0; white-space: pre-wrap; word-wrap: break-word; font-size: 0.85rem;">
-from gptcache import cache
+                <pre><code>from gptcache import cache
 from gptcache.adapter import openai
 from gptcache.embedding import Onnx
 from gptcache.similarity_evaluation.distance import SearchDistanceEvaluation
@@ -646,8 +645,7 @@ cache.init(
 response = openai.ChatCompletion.create(
     model="gpt-4",
     messages=[{"role": "user", "content": user_query}]
-)
-                </pre>
+)</code></pre>
 
                 <p>
                     The <code>max_distance=0.15</code> threshold is critical. Set it too low and you miss cacheable queries. Set it too high and you create severe UX issues by returning subtly wrong answers to similar but fundamentally different questions. A false positive in a support bot is infinitely more damaging than a cache miss. I tune this per use case:
@@ -682,8 +680,7 @@ response = openai.ChatCompletion.create(
                     <li><strong>Content-aware invalidation:</strong> If your RAG documents update, invalidate embeddings tied to those sources.</li>
                 </ul>
 
-                <pre style="background: #1a1a2e; padding: 20px; border-radius: 8px; overflow-x: auto; color: #e0e0e0; white-space: pre-wrap; word-wrap: break-word; font-size: 0.85rem;">
-# Version-aware cache keys
+                <pre><code># Version-aware cache keys
 CACHE_VERSION = "v2.1-gpt4-2026-04"
 
 def get_cache_key(query):
@@ -693,8 +690,7 @@ def get_cache_key(query):
 def purge_cache_on_deploy():
     if get_current_model_version() != CACHE_VERSION:
         redis_client.flushdb()
-        vector_store.delete_collection("llm_cache")
-                </pre>
+        vector_store.delete_collection("llm_cache")</code></pre>
 
                 <h3>Cache Hit Optimization: The 80/20 of Cost Reduction</h3>
 
