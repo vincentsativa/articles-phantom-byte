@@ -5,13 +5,23 @@
     <link>https://articles.phantom-byte.com/</link>
     <description>AI Infrastructure • Agents • Orchestration Tutorials • Breakdowns • Insights That Ship</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Jun 2026 02:37:28 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 28 Jun 2026 04:46:28 GMT</lastBuildDate>
     <atom:link href="https://articles.phantom-byte.com/rss.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://articles.phantom-byte.com/images/article-1-main.jpg</url>
       <title>PhantomByte Articles</title>
       <link>https://articles.phantom-byte.com/</link>
     </image>
+
+    <item>
+      <title>No One Knows How to Gate a Frontier Model</title>
+      <link>https://articles.phantom-byte.com/ai-export-controls-frontier-model-deployment-gating.html</link>
+      <guid isPermaLink="true">https://articles.phantom-byte.com/ai-export-controls-frontier-model-deployment-gating.html</guid>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+      <category>AI Policy</category>
+      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
+      <description>AI export controls: The Trump administration banned Anthropic and OpenAI models for foreign nationals. But no framework exists to enforce them at the API level.</description>
+    </item>
 
     <item>
       <title>Verifying Agents Is Now Harder Than Generating Them</title>
@@ -501,16 +511,6 @@
       <category>AI Industry</category>
       <author>vinny@phantom-byte.com (Vinny Barreca)</author>
       <description>From Jack Antonoff&#39;s viral rant to Stanford&#39;s Marxist AI research and college protests, a cultural counter-revolution against AI has begun.</description>
-    </item>
-
-    <item>
-      <title>AI Trust Crisis 2026</title>
-      <link>https://articles.phantom-byte.com/ai-trust-crisis-2026.html</link>
-      <guid isPermaLink="true">https://articles.phantom-byte.com/ai-trust-crisis-2026.html</guid>
-      <pubDate>Fri, 15 May 2026 00:00:00 GMT</pubDate>
-      <category>Technology</category>
-      <author>vinny@phantom-byte.com (Vinny Barreca)</author>
-      <description>Explore the AI trust crisis of 2026, from Microsoft&#39;s Claude Code ban to Meta&#39;s layoffs and public opposition to AI data centers. Read more at PhantomByte.</description>
     </item>
   </channel>
 </rss>

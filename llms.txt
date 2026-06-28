@@ -6,8 +6,9 @@ PhantomByte builds custom AI tools for small businesses. Our articles cover real
 agent orchestration patterns, infrastructure lessons, and honest engineering breakdowns.
 Written by Vinny Barreca. Updated regularly.
 
-## Articles (118 total)
+## Articles (119 total)
 
+- [No One Knows How to Gate a Frontier Model](https://articles.phantom-byte.com/ai-export-controls-frontier-model-deployment-gating.html): AI export controls: The Trump administration banned Anthropic and OpenAI models for foreign nationals. But no framework exists to enforce them at the API level. (2026-06-28)
 - [Verifying Agents Is Now Harder Than Generating Them](https://articles.phantom-byte.com/verifying-agents-is-now-harder-than-generating-them.html): AI verification is now harder than AI generation. $150M in funding and two research papers prove it. Here's the 4-layer verification stack for agents. (2026-06-27)
 - [Verifying Agents Is Now Harder Than Generating Them](https://articles.phantom-byte.com/verifying-agents-redesign-v1.html): AI verification is now harder than AI generation. $150M in funding and two research papers prove it. Here's the 4-layer verification stack for agents. (2026-06-27)
 - [Verifying Agents Is Now Harder Than Generating Them](https://articles.phantom-byte.com/verifying-agents-redesign-v2.html): AI verification is now harder than AI generation. $150M in funding and two research papers prove it. Here's the 4-layer verification stack for agents. (2026-06-27)
